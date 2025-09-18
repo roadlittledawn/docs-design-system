@@ -8,6 +8,7 @@ This is a documentation design system monorepo that provides:
 - A comprehensive design system for creating effective documentation
 - Reusable UI components that can be packaged for NPM
 - Guidelines and principles for technical writers and developers
+- A gallery of exemplary documentation websites
 
 ## Development Commands
 
@@ -59,3 +60,9 @@ Following the Diátaxis framework for organizing documentation into four types:
 - Keep components simple and focused on documentation use cases
 - Follow existing code style and patterns
 - Test both development and build processes before creating PRs
+
+## Resources
+- [Diátaxis Framework](https://diataxis.fr/)
+- [New Relic Docs style guide](https://docs.newrelic.com/docs/style-guide/writing-strategies/introduction-style-guide/)
+- [Gallery of great docs UX](https://docs.google.com/document/d/100MglgKev4o_hIkmI-327EKb_rek5Opc2er7nx34vuE/edit?tab=t.0#heading=h.dsiuaplpe35q)
+- [Dave Shevitz's doc on measuring content quality](https://docs.google.com/document/d/1dfb8MLT4y6GRaIxEe7WQyFmJS_P9etIDLObpWxaTAgU/edit?tab=t.0#heading=h.hof7sc4v06ii)

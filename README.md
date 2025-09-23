@@ -13,6 +13,11 @@ This documentation design system will provide:
 - **Component Library**: Reusable UI elements for building consistent documentation interfaces
 - **NPM Package**: Exportable components for easy integration into other projects
 
+## To Do
+
+- Add docs ticket templates and best practices (NR style guide)
+- Add doc plans / content strategy templates and best practices
+
 ## Getting Started
 
 ### Prerequisites

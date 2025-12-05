@@ -30,8 +30,8 @@
       "highlights": [
         "Interactive code examples",
         "Language-specific SDKs",
-        "Progressive disclosure of complexity",
-        "Excellent search functionality"
+        "Great design look and feel",
+        "Excellent search & AI functionality"
       ]
     },
     {
@@ -237,6 +237,58 @@
         "Integrated API reference",
         "Video tutorials",
         "Real-world examples"
+      ]
+    },
+    {
+      "id": "astro-docs",
+      "name": "Astro Documentation",
+      "url": "https://docs.astro.build/en/getting-started/",
+      "description": "Astro's documentation provides clear guidance for building content-focused websites. It features excellent organization, practical examples, and a progressive learning path that helps developers understand the framework's unique approach to web development.",
+      "category": "open-source",
+      "date": "2025-12-05",
+      "images": [
+        {
+          "url": "/gallery/astro-docs/hero.png",
+          "caption": "Documentation homepage"
+        }
+      ],
+      "links": [
+        {
+          "label": "Documentation",
+          "url": "https://docs.astro.build"
+        }
+      ],
+      "highlights": [
+        "Clear getting started guide",
+        "Framework integrations",
+        "Component examples",
+        "Deployment guides"
+      ]
+    },
+    {
+      "id": "new-relic-docs",
+      "name": "New Relic Documentation",
+      "url": "https://docs.newrelic.com",
+      "description": "New Relic's documentation offers comprehensive coverage of observability and monitoring solutions. It provides detailed guides, API references, and practical examples that help users instrument and monitor their applications effectively.",
+      "category": "saas-products",
+      "date": "2025-12-05",
+      "images": [
+        {
+          "url": "/gallery/new-relic-docs/hero.png",
+          "caption": "Documentation homepage"
+        }
+      ],
+      "links": [
+        {
+          "label": "Documentation",
+          "url": "https://docs.newrelic.com"
+        }
+      ],
+      "highlights": [
+        "Comprehensive monitoring guides",
+        "API documentation",
+        "Great design look and feel",
+        "Robust content system that feeds in-app product features"
       ]
     }
   ]

@@ -291,6 +291,32 @@
         "Great design look and feel",
         "Robust content system that feeds in-app product features"
       ]
+    },
+    {
+      "id": "apollo-graphql-docs",
+      "name": "Apollo GraphQL Documentation",
+      "url": "https://www.apollographql.com/docs",
+      "description": "Apollo GraphQL's documentation excels with exceptional interactivity and visual design. It features comprehensive code examples, in-depth tutorials, and intuitive navigation that makes learning GraphQL and Apollo's tools engaging and accessible.",
+      "category": "api-documentation",
+      "date": "2025-12-09",
+      "images": [
+        {
+          "url": "/gallery/apollo-graphql-docs/hero.png",
+          "caption": "Documentation homepage"
+        }
+      ],
+      "links": [
+        {
+          "label": "Documentation",
+          "url": "https://www.apollographql.com/docs"
+        }
+      ],
+      "highlights": [
+        "Great interactivity and frontend design",
+        "Excellent code examples",
+        "In-depth tutorials",
+        "Easy to navigate"
+      ]
     }
   ]
 }

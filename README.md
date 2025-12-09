@@ -17,6 +17,7 @@ This documentation design system will provide:
 
 - Add docs ticket templates and best practices (NR style guide)
 - Add doc plans / content strategy templates and best practices
+- Add utility, UI component, and doc on recently viewed (personalization features)
 
 ## Getting Started
 

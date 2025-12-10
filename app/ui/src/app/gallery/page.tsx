@@ -1,5 +1,4 @@
-import { DocsLayout } from "@/components/layout/DocsLayout";
-import { Typography } from "@docs-design-system/ui";
+import { Heading } from "@docs-design-system/ui";
 import { GalleryData } from "@/types/gallery";
 import galleryData from "../../../data/gallery.json";
 import Link from "next/link";
@@ -8,16 +7,16 @@ export default function GalleryPage() {
   const data = galleryData as GalleryData;
 
   return (
-    <DocsLayout>
+    <>
       <div className="mb-12">
-        <Typography variant="h1" className="mb-4">
+        <Heading level={1} className="mb-4">
           Documentation Gallery
-        </Typography>
-        <Typography variant="p" className="text-xl text-gray-600 max-w-3xl">
+        </Heading>
+        <p className="text-xl text-gray-600 max-w-3xl">
           Explore exemplary documentation sites that set the standard for
           clarity, usability, and design. Click on any site to see detailed
           analysis and screenshots.
-        </Typography>
+        </p>
       </div>
 
       <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -53,18 +52,15 @@ export default function GalleryPage() {
                 )}
               </div>
               <div>
-                <Typography
-                  variant="h4"
+                <Heading
+                  level={4}
                   className="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition-colors"
                 >
                   {site.name}
-                </Typography>
-                <Typography
-                  variant="caption"
-                  className="text-xs text-gray-500 capitalize"
-                >
+                </Heading>
+                <span className="text-xs text-gray-500 capitalize">
                   {site.category.replace("-", " ")}
-                </Typography>
+                </span>
               </div>
             </div>
           </Link>
@@ -72,10 +68,10 @@ export default function GalleryPage() {
       </div>
 
       <div className="mt-16 p-6 bg-gray-50 rounded-lg">
-        <Typography variant="h4" className="mb-2">
+        <Heading level={4} className="mb-2">
           Contributing to the Gallery
-        </Typography>
-        <Typography variant="p" className="text-gray-600">
+        </Heading>
+        <p className="text-gray-600">
           Have a great documentation site to showcase? Add it to the gallery by
           editing the{" "}
           <code className="bg-gray-200 px-2 py-1 rounded text-sm">
@@ -86,8 +82,8 @@ export default function GalleryPage() {
             app/ui/public/gallery/
           </code>{" "}
           directory.
-        </Typography>
+        </p>
       </div>
-    </DocsLayout>
+    </>
   );
 }

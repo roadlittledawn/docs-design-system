@@ -1,7 +1,6 @@
 'use client';
 
-import { DocsLayout } from '@/components/layout/DocsLayout';
-import { Typography, Button } from '@docs-design-system/ui';
+import { Heading, Button } from '@docs-design-system/ui';
 import { GalleryData, GallerySite } from '@/types/gallery';
 import galleryData from '../../../../data/gallery.json';
 import Link from 'next/link';
@@ -35,7 +34,7 @@ export default function GalleryItemPage({ params }: { params: Promise<{ id: stri
   };
 
   return (
-    <DocsLayout>
+    <>
       {/* Breadcrumb */}
       <div className="mb-6">
         <Link href="/gallery" className="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1">
@@ -49,9 +48,9 @@ export default function GalleryItemPage({ params }: { params: Promise<{ id: stri
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-start justify-between mb-4">
-          <Typography variant="h1" className="text-3xl">
+          <Heading level={1} className="text-3xl">
             {site.name}
-          </Typography>
+          </Heading>
           <span className="text-sm bg-gray-100 text-gray-700 px-3 py-1 rounded-full">
             {site.category.replace('-', ' ')}
           </span>
@@ -116,9 +115,9 @@ export default function GalleryItemPage({ params }: { params: Promise<{ id: stri
             
             {/* Caption */}
             <div className="px-4 py-3 bg-white border-t">
-              <Typography variant="caption" className="text-gray-600">
+              <span className="text-gray-600">
                 {site.images[currentImageIndex].caption}
-              </Typography>
+              </span>
             </div>
           </div>
 
@@ -142,20 +141,20 @@ export default function GalleryItemPage({ params }: { params: Promise<{ id: stri
 
       {/* Description */}
       <div className="prose max-w-none mb-8">
-        <Typography variant="h2" className="text-xl font-semibold mb-3">
+        <Heading level={2} className="text-xl font-semibold mb-3">
           Overview
-        </Typography>
-        <Typography variant="p" className="text-gray-700 leading-relaxed">
+        </Heading>
+        <p className="text-gray-700 leading-relaxed">
           {site.description}
-        </Typography>
+        </Heading>
       </div>
 
       {/* Highlights */}
       {site.highlights && site.highlights.length > 0 && (
         <div className="mb-8">
-          <Typography variant="h2" className="text-xl font-semibold mb-3">
+          <Heading level={2} className="text-xl font-semibold mb-3">
             What Makes It Great
-          </Typography>
+          </Heading>
           <div className="grid gap-3 md:grid-cols-2">
             {site.highlights.map((highlight, index) => (
               <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
@@ -164,9 +163,9 @@ export default function GalleryItemPage({ params }: { params: Promise<{ id: stri
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                 </span>
-                <Typography variant="p" className="text-gray-700">
+                <p className="text-gray-700">
                   {highlight}
-                </Typography>
+                </p>
               </div>
             ))}
           </div>
@@ -188,6 +187,6 @@ export default function GalleryItemPage({ params }: { params: Promise<{ id: stri
           </Button>
         </Link>
       </div>
-    </DocsLayout>
+    </>
   );
 }

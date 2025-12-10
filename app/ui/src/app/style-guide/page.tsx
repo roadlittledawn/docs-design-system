@@ -1,166 +1,132 @@
-import { DocsLayout } from "@/components/layout/DocsLayout";
-import { Typography } from "@docs-design-system/ui";
-
-const styleGuideNavigation = [
-  {
-    name: "Overview",
-    href: "/style-guide",
-  },
-  {
-    name: "Voice & Tone",
-    href: "/style-guide/voice-tone",
-  },
-  {
-    name: "Titles & Headings",
-    href: "/style-guide/titles-headings",
-  },
-  {
-    name: "Content Components",
-    href: "/style-guide/content-components",
-  },
-  {
-    name: "Images & Screenshots",
-    href: "/style-guide/images-screenshots",
-  },
-  {
-    name: "Organization",
-    href: "/style-guide/organization",
-  },
-  {
-    name: "Lists",
-    href: "/style-guide/lists",
-  },
-];
+import { Heading } from "@docs-design-system/ui";
 
 export default function StyleGuidePage() {
   return (
-    <DocsLayout sidebarNavigation={styleGuideNavigation}>
-      <div className="prose prose-lg max-w-none">
-        <Typography variant="h1" className="mb-6">
+    <div className="prose prose-lg max-w-none">
+        <Heading level={1} className="mb-6">
           Style Guide
-        </Typography>
+        </Heading>
 
-        <Typography variant="p" className="mb-8 text-xl text-gray-600">
+        <p className="mb-8 text-xl text-gray-600">
           Guidelines for creating consistent, clear, and effective documentation
           content.
-        </Typography>
+        </p>
 
         <div className="grid gap-6 md:grid-cols-2 mb-8">
           <div className="border border-gray-200 rounded-lg p-6">
-            <Typography variant="h3" className="mb-3">
+            <Heading level={3} className="mb-3">
               Voice & Tone
-            </Typography>
-            <Typography variant="p">
+            </Heading>
+            <p>
               Guidelines for maintaining a consistent voice and adapting tone
               for different contexts.
-            </Typography>
+            </p>
           </div>
 
           <div className="border border-gray-200 rounded-lg p-6">
-            <Typography variant="h3" className="mb-3">
+            <Heading level={3} className="mb-3">
               Titles & Headings
-            </Typography>
-            <Typography variant="p">
+            </Heading>
+            <p>
               Best practices for writing clear, scannable titles and heading
               structures.
-            </Typography>
+            </p>
           </div>
 
           <div className="border border-gray-200 rounded-lg p-6">
-            <Typography variant="h3" className="mb-3">
+            <Heading level={3} className="mb-3">
               Content Components
-            </Typography>
-            <Typography variant="p">
+            </Heading>
+            <p>
               Formatting guidelines for callouts, collapsers, tabs, tables, and
               other content elements.
-            </Typography>
+            </p>
           </div>
 
           <div className="border border-gray-200 rounded-lg p-6">
-            <Typography variant="h3" className="mb-3">
+            <Heading level={3} className="mb-3">
               Images & Screenshots
-            </Typography>
-            <Typography variant="p">
+            </Heading>
+            <p>
               Standards for creating, formatting, and using visual content
               effectively.
-            </Typography>
+            </p>
           </div>
 
           <div className="border border-gray-200 rounded-lg p-6">
-            <Typography variant="h3" className="mb-3">
+            <Heading level={3} className="mb-3">
               Organization
-            </Typography>
-            <Typography variant="p">
+            </Heading>
+            <p>
               Strategies for structuring and organizing documentation for
               optimal discoverability.
-            </Typography>
+            </p>
           </div>
 
           <div className="border border-gray-200 rounded-lg p-6">
-            <Typography variant="h3" className="mb-3">
+            <Heading level={3} className="mb-3">
               Lists
-            </Typography>
-            <Typography variant="p">
+            </Heading>
+            <p>
               Guidelines for when and how to use different list types
               effectively.
-            </Typography>
+            </p>
           </div>
         </div>
-        <Typography variant="h2" className="mb-4">
+        <Heading level={2} className="mb-4">
           Content Quality Attributes
-        </Typography>
+        </Heading>
 
         <ul className="space-y-3 mb-8">
           <li className="flex items-start">
             <span className="text-green-500 mr-2">✓</span>
-            <Typography variant="p">
+            <p>
               <strong>Accurate</strong> Information is factually correct,
               up-to-date, and technically precise. Code examples work as
               written, and statements can be verified.
-            </Typography>
+            </p>
           </li>
           <li className="flex items-start">
             <span className="text-green-500 mr-2">✓</span>
-            <Typography variant="p">
+            <p>
               <strong>Relevant</strong> Content directly addresses user needs
               and goals. Information is appropriate for the audience and
               context, without tangential details.
-            </Typography>
+            </p>
           </li>
           <li className="flex items-start">
             <span className="text-green-500 mr-2">✓</span>
-            <Typography variant="p">
+            <p>
               <strong>Clear:</strong> Content is easy to understand with
               straightforward language, logical structure, and well-explained
               concepts. Readers grasp the meaning without confusion.
-            </Typography>
+            </p>
           </li>
           <li className="flex items-start">
             <span className="text-green-500 mr-2">✓</span>
-            <Typography variant="p">
+            <p>
               <strong>Concise:</strong> Information is expressed efficiently
               without unnecessary words or redundancy. Every sentence serves a
               purpose and respects the reader&apos;s time.
-            </Typography>
+            </p>
           </li>
           <li className="flex items-start">
             <span className="text-green-500 mr-2">✓</span>
-            <Typography variant="p">
+            <p>
               <strong>Consistent:</strong>Terminology, formatting, tone, and
               style remain uniform throughout. Patterns are predictable, making
               content easier to navigate and understand.
-            </Typography>
+            </p>
           </li>
           <li className="flex items-start">
             <span className="text-green-500 mr-2">✓</span>
-            <Typography variant="p">
+            <p>
               <strong>Discoverable:</strong> Content is easy to find through
               search, navigation, clear titles, and proper organization. Users
               can locate what they need quickly.
-            </Typography>
+            </p>
           </li>
         </ul>
       </div>
-    </DocsLayout>
   );
 }

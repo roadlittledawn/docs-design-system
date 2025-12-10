@@ -1,55 +1,43 @@
-import { DocsLayout } from "@/components/layout/DocsLayout";
-import { Typography } from "@docs-design-system/ui";
-
-const styleGuideNavigation = [
-  {
-    name: "Overview",
-    href: "/style-guide",
-  },
-  {
-    name: "Voice & Tone",
-    href: "/style-guide/voice-tone",
-  },
-  {
-    name: "Titles & Headings",
-    href: "/style-guide/titles-headings",
-  },
-  {
-    name: "Content Components",
-    href: "/style-guide/content-components",
-  },
-  {
-    name: "Images & Screenshots",
-    href: "/style-guide/images-screenshots",
-  },
-  {
-    name: "Organization",
-    href: "/style-guide/organization",
-  },
-  {
-    name: "Lists",
-    href: "/style-guide/lists",
-  },
-];
-
+import { Heading } from "@docs-design-system/ui";
 export default function ImagesScreenshotsPage() {
   return (
-    <DocsLayout sidebarNavigation={styleGuideNavigation}>
       <div className="prose prose-lg max-w-none">
-        <Typography variant="h1" className="mb-6">
+        <Heading level={1} className="mb-6">
           Images & Screenshots
-        </Typography>
-
-        <Typography variant="p" className="mb-8 text-xl text-gray-600">
+        </Heading>
+        <p className="mb-8 text-xl text-gray-600">
           Standards for creating, formatting, and using visual content effectively.
-        </Typography>
-
+        </p>
+        <Heading level={2} className="mb-4">
+          Text in Images
+        </Heading>
+        <p className="mb-4">
+          Avoid placing critical information in images. Text embedded in images is not searchable, indexable, or accessible to screen readers. Users cannot copy, translate, or search for this content.
+        </p>
+        <Heading level={2} className="mb-4">
+          Alternatives to Images
+        </Heading>
+        <Heading level={3} className="mb-3">
+          Mermaid.js
+        </Heading>
+        <p className="mb-4">
+          <a href="https://mermaid.js.org/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Mermaid.js</a> is a JavaScript-based diagramming tool that renders text-based definitions into diagrams. Popular for its simplicity and version control compatibility, it supports flowcharts, sequence diagrams, Gantt charts, and more.
+        </p>
+        <p className="mb-4">
+          <strong>Common patterns:</strong>
+        </p>
+        <ul className="mb-8 space-y-2">
+          <li>Flowcharts and decision trees</li>
+          <li>Sequence diagrams</li>
+          <li>Architecture diagrams</li>
+          <li>State diagrams</li>
+          <li>Entity relationship diagrams</li>
+        </ul>
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-          <Typography variant="p" className="text-gray-600">
-            Content coming soon.
-          </Typography>
+          <p className="text-gray-600">
+            Additional content coming soon.
+          </p>
         </div>
       </div>
-    </DocsLayout>
   );
 }

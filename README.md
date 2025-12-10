@@ -8,12 +8,20 @@ A comprehensive design system for creating effective, user-centered documentatio
 
 This documentation design system will provide:
 
-- **Style Guide**: Visual language including colors, typography, spacing, and iconography
-- **Design Principles**: Documentation framework and guidelines following the [Diátaxis](https://diataxis.fr) methodology
+- **Style Guide**: Standards and best practices for writing and content quality
+- **Design Principles**: Documentation UX / UI patterns and principles
 - **Component Library**: Reusable UI elements for building consistent documentation interfaces
 - **NPM Package**: Exportable components for easy integration into other projects
 
 ## To Do
+
+### App: Style guide
+
+### App: Design principles
+
+### App: Gallery
+
+### Content component library
 
 - Add docs ticket templates and best practices (NR style guide)
 - Add doc plans / content strategy templates and best practices
@@ -22,7 +30,7 @@ This documentation design system will provide:
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm
 
 ### Installation

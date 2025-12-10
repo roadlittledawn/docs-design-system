@@ -19,6 +19,9 @@ This documentation design system will provide:
 
 ### App: Design principles
 
+- AI: Discovery, Writing, Reviewing
+  - Discovery: AI chat bot to answer questions, copy content in markdown, upload content to S3 for indexing in RAG / AI backends
+
 ### App: Gallery
 
 ### Content component library

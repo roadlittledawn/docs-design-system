@@ -146,7 +146,7 @@ export default function GalleryItemPage({ params }: { params: Promise<{ id: stri
         </Heading>
         <p className="text-gray-700 leading-relaxed">
           {site.description}
-        </Heading>
+        </p>
       </div>
 
       {/* Highlights */}

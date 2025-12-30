@@ -1,18 +1,18 @@
 import Link from 'next/link';
 import { DocsLayout } from '@/components/layout/DocsLayout';
-import { Typography, Button, Card, CardContent } from '@docs-design-system/ui';
+import { Heading, Button, Card, CardContent } from '@docs-design-system/ui';
 
 export default function Home() {
   return (
     <DocsLayout>
       <div className="text-center mb-16">
-        <Typography variant="h1" className="mb-6">
+        <Heading level={1} className="mb-6">
           Documentation Design System
-        </Typography>
-        <Typography variant="p" className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+        </Heading>
+        <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
           A comprehensive design system for creating effective, user-centered documentation 
           that serves both technical writers and developers.
-        </Typography>
+        </p>
         <div className="flex gap-4 justify-center">
           <Link href="/principles">
             <Button variant="primary" size="lg">
@@ -36,10 +36,10 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
                 </svg>
               </div>
-              <Typography variant="h4" className="mb-2">Style Guide</Typography>
-              <Typography variant="p" className="text-gray-600">
+              <Heading level={4} className="mb-2">Style Guide</Heading>
+              <p className="text-gray-600">
                 Visual language including colors, typography, spacing, and iconography.
-              </Typography>
+              </p>
             </CardContent>
           </Card>
         </Link>
@@ -52,10 +52,10 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <Typography variant="h4" className="mb-2">Principles</Typography>
-              <Typography variant="p" className="text-gray-600">
+              <Heading level={4} className="mb-2">Principles</Heading>
+              <p className="text-gray-600">
                 Documentation framework and guidelines for effective content creation.
-              </Typography>
+              </p>
             </CardContent>
           </Card>
         </Link>
@@ -68,10 +68,10 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                 </svg>
               </div>
-              <Typography variant="h4" className="mb-2">Components</Typography>
-              <Typography variant="p" className="text-gray-600">
+              <Heading level={4} className="mb-2">Components</Heading>
+              <p className="text-gray-600">
                 Reusable UI elements for building consistent documentation interfaces.
-              </Typography>
+              </p>
             </CardContent>
           </Card>
         </Link>
@@ -84,23 +84,23 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
               </div>
-              <Typography variant="h4" className="mb-2">Gallery</Typography>
-              <Typography variant="p" className="text-gray-600">
+              <Heading level={4} className="mb-2">Gallery</Heading>
+              <p className="text-gray-600">
                 Explore exemplary documentation sites for inspiration and best practices.
-              </Typography>
+              </p>
             </CardContent>
           </Card>
         </Link>
       </div>
 
       <div className="text-center">
-        <Typography variant="h2" className="mb-6">
+        <Heading level={2} className="mb-6">
           Built for Technical Writers & Developers
-        </Typography>
-        <Typography variant="p" className="text-gray-600 max-w-2xl mx-auto">
+        </Heading>
+        <p className="text-gray-600 max-w-2xl mx-auto">
           This design system bridges the gap between design and development, providing tools and guidelines 
           that make documentation creation efficient and consistent.
-        </Typography>
+        </p>
       </div>
     </DocsLayout>
   );

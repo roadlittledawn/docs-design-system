@@ -20,10 +20,10 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Install lightningcss for Linux
-        run: npm install lightningcss --workspace=app/ui
+      - name: Rebuild native dependencies
+        run: npm rebuild
 
       - name: Build workspaces
         run: npm run build

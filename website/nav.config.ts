@@ -3,6 +3,18 @@ import { NavigationConfig } from './types/navigation'
 export const navigationConfig: NavigationConfig = {
   primary: [
     {
+      id: 'home',
+      label: 'Home',
+      icon: 'house',
+      secondary: [
+        {
+          type: 'link',
+          label: 'Overview',
+          href: '/'
+        }
+      ]
+    },
+    {
       id: 'principles',
       label: 'Principles',
       icon: 'lightbulb',

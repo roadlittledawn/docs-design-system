@@ -3,21 +3,21 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "npm run dev --workspace=apps/docs",
-    "build": "npm run build --workspace=packages/ui && npm run build --workspace=apps/docs",
+    "dev": "npm run dev --workspace=website",
+    "build": "npm run build --workspace=packages/ui && npm run build --workspace=website",
     "lint": "npm run lint --workspaces --if-present",
     "type-check": "npm run type-check --workspaces --if-present"
   },
   "workspaces": [
-    "apps/*",
+    "website",
     "packages/*"
   ],
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "eslint": "^8.0.0",
-    "eslint-config-next": "14.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "16.1.1",
     "prettier": "^3.0.0",
     "typescript": "^5.0.0"
   }

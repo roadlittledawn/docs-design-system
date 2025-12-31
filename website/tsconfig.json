@@ -27,7 +27,7 @@
         "./src/*"
       ],
       "@docs-design-system/ui": [
-        "../../packages/ui/src"
+        "../packages/ui/src/index.ts"
       ]
     }
   },

@@ -10,7 +10,7 @@ interface PrimaryNavProps {
 
 export function PrimaryNav({ isMobile = false, onItemClick }: PrimaryNavProps) {
   const router = useRouter()
-  const { navigationConfig, activePrimaryId, setActivePrimary } = useNavigation()
+  const { navigationConfig, activePrimaryId, setActivePrimary, toggleMobileMenu } = useNavigation()
 
   const handleItemClick = (item: PrimaryNavItem) => {
     if (isMobile && onItemClick) {
@@ -44,23 +44,36 @@ export function PrimaryNav({ isMobile = false, onItemClick }: PrimaryNavProps) {
   if (isMobile) {
     // Mobile: horizontal layout with arrow
     return (
-      <nav className="bg-white p-4 space-y-2" aria-label="Primary navigation">
-        {navigationConfig.primary.map(item => {
-          const Icon = getIcon(item.icon)
-          return (
-            <button
-              key={item.id}
-              onClick={() => handleItemClick(item)}
-              className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors min-h-[56px]"
-            >
-              <div className="flex items-center gap-3">
-                <Icon className="w-6 h-6" />
-                <span className="font-medium">{item.label}</span>
-              </div>
-              <LucideIcons.ChevronRight className="w-5 h-5" />
-            </button>
-          )
-        })}
+      <nav className="bg-white h-full" aria-label="Primary navigation">
+        {/* Close button */}
+        <div className="border-b border-gray-200 p-4">
+          <button
+            onClick={toggleMobileMenu}
+            className="p-1 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+            aria-label="Close navigation"
+          >
+            <LucideIcons.X className="w-5 h-5" />
+          </button>
+        </div>
+
+        <div className="p-4 space-y-2">
+          {navigationConfig.primary.map(item => {
+            const Icon = getIcon(item.icon)
+            return (
+              <button
+                key={item.id}
+                onClick={() => handleItemClick(item)}
+                className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors min-h-[56px]"
+              >
+                <div className="flex items-center gap-3">
+                  <Icon className="w-6 h-6" />
+                  <span className="font-medium">{item.label}</span>
+                </div>
+                <LucideIcons.ChevronRight className="w-5 h-5" />
+              </button>
+            )
+          })}
+        </div>
       </nav>
     )
   }

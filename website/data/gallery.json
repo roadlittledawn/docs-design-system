@@ -317,6 +317,68 @@
         "In-depth tutorials",
         "Easy to navigate"
       ]
+    },
+    {
+      "id": "netlify-docs",
+      "name": "Netlify Documentation",
+      "url": "https://docs.netlify.com",
+      "description": "Netlify's documentation combines excellent organization with practical, task-oriented guidance. It features clear deployment workflows, comprehensive framework guides, and an effective balance between getting-started tutorials and in-depth feature documentation.",
+      "category": "developer-tools",
+      "date": "2025-12-30",
+      "images": [
+        {
+          "url": "/gallery/netlify-docs/hero.png",
+          "caption": "Documentation homepage"
+        }
+      ],
+      "links": [
+        {
+          "label": "Documentation",
+          "url": "https://docs.netlify.com"
+        },
+        {
+          "label": "Guides",
+          "url": "https://docs.netlify.com/guides/"
+        }
+      ],
+      "highlights": [
+        "Framework-specific deployment guides",
+        "Clear navigation and information architecture",
+        "Practical how-to guides",
+        "Comprehensive feature documentation",
+        "Well-organized serverless functions guide"
+      ]
+    },
+    {
+      "id": "twilio-docs",
+      "name": "Twilio Documentation",
+      "url": "https://www.twilio.com/docs",
+      "description": "Twilio's documentation stands out with its comprehensive API coverage, practical code examples in multiple languages, and excellent quickstart guides. It seamlessly guides developers from initial setup to production implementation across their communication platform.",
+      "category": "api-documentation",
+      "date": "2025-12-30",
+      "images": [
+        {
+          "url": "/gallery/twilio-docs/hero.png",
+          "caption": "Documentation homepage"
+        }
+      ],
+      "links": [
+        {
+          "label": "Documentation",
+          "url": "https://www.twilio.com/docs"
+        },
+        {
+          "label": "API Reference",
+          "url": "https://www.twilio.com/docs/api"
+        }
+      ],
+      "highlights": [
+        "Multi-language code examples",
+        "Comprehensive API reference",
+        "Product-focused quickstarts",
+        "Interactive tutorials",
+        "Excellent search functionality"
+      ]
     }
   ]
 }

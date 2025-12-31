@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import { Geist, Geist_Mono } from "next/font/google";
 import { DocsLayout } from '../layout/DocsLayout';
+import { navigationConfig } from '../nav.config';
 import "../globals.css";
 
 const geistSans = Geist({
@@ -16,7 +17,7 @@ const geistMono = Geist_Mono({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      <DocsLayout>
+      <DocsLayout navigationConfig={navigationConfig}>
         <Component {...pageProps} />
       </DocsLayout>
     </div>

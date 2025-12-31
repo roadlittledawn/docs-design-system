@@ -1,0 +1,96 @@
+import { NavigationConfig } from './types/navigation'
+
+export const navigationConfig: NavigationConfig = {
+  primary: [
+    {
+      id: 'principles',
+      label: 'Principles',
+      icon: 'lightbulb',
+      secondary: [
+        {
+          type: 'link',
+          label: 'Overview',
+          href: '/principles'
+        },
+        {
+          type: 'link',
+          label: 'Personalization',
+          href: '/principles/personalization'
+        }
+      ]
+    },
+    {
+      id: 'style-guide',
+      label: 'Style Guide',
+      icon: 'book-open',
+      secondary: [
+        {
+          type: 'link',
+          label: 'Overview',
+          href: '/style-guide'
+        },
+        {
+          type: 'group',
+          label: 'Writing',
+          items: [
+            {
+              label: 'Voice & Tone',
+              href: '/style-guide/voice-tone'
+            },
+            {
+              label: 'Titles & Headings',
+              href: '/style-guide/titles-headings'
+            }
+          ]
+        },
+        {
+          type: 'group',
+          label: 'Content Types',
+          items: [
+            {
+              label: 'Lists',
+              href: '/style-guide/lists'
+            },
+            {
+              label: 'Content Components',
+              href: '/style-guide/content-components'
+            },
+            {
+              label: 'Images & Screenshots',
+              href: '/style-guide/images-screenshots'
+            }
+          ]
+        },
+        {
+          type: 'link',
+          label: 'Organization',
+          href: '/style-guide/organization'
+        }
+      ]
+    },
+    {
+      id: 'components',
+      label: 'Components',
+      icon: 'layout-grid',
+      secondary: [
+        {
+          type: 'link',
+          label: 'Overview',
+          href: '/components'
+        }
+      ]
+    },
+    {
+      id: 'gallery',
+      label: 'Gallery',
+      icon: 'image',
+      secondary: [
+        {
+          type: 'link',
+          label: 'Overview',
+          href: '/gallery'
+        }
+      ]
+    }
+  ]
+}

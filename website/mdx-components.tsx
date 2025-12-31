@@ -12,20 +12,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     p: ({ className, ...props }: any) => (
       <p className={`text-gray-700 leading-relaxed mb-4 ${className || ''}`} {...props} />
     ),
-    // Style links
-    a: ({ className, ...props }: any) => (
-      <a className={`text-blue-600 hover:text-blue-800 underline ${className || ''}`} {...props} />
-    ),
-    // Style lists
-    ul: ({ className, ...props }: any) => (
-      <ul className={`list-disc list-inside mb-4 space-y-2 text-gray-700 ${className || ''}`} {...props} />
-    ),
-    ol: ({ className, ...props }: any) => (
-      <ol className={`list-decimal list-inside mb-4 space-y-2 text-gray-700 ${className || ''}`} {...props} />
-    ),
-    li: ({ className, ...props }: any) => (
-      <li className={`ml-4 text-gray-700 ${className || ''}`} {...props} />
-    ),
     // Style code blocks
     code: ({ className, ...props }: any) => (
       <code className={`bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800 ${className || ''}`} {...props} />

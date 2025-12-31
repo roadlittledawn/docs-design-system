@@ -24,7 +24,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <ol className={`list-decimal list-inside mb-4 space-y-2 text-gray-700 ${className || ''}`} {...props} />
     ),
     li: ({ className, ...props }: any) => (
-      <li className={`ml-4 ${className || ''}`} {...props} />
+      <li className={`ml-4 text-gray-700 ${className || ''}`} {...props} />
     ),
     // Style code blocks
     code: ({ className, ...props }: any) => (

@@ -2,7 +2,7 @@ import React from 'react';
 
 interface HeadingProps {
   level: 1 | 2 | 3 | 4;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
 }
 

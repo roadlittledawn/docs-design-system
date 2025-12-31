@@ -99,6 +99,12 @@ docs-design-system/
 
 This project is in early development. More contribution guidelines will be added as the project matures.
 
-## License
+## TODO
 
-TBD
+- Add docs ticket templates and best practices (NR style guide)
+- Add doc plans / content strategy templates and best practices
+- [Philosophy] Add best practices for AI assisted writing. Generate agent rules from style guide
+- [Philosophy] Add best practices for user feedback loops in documentation
+  - how it's used as content freshness / maintenance mechanism and not indicator of quality
+- [Philosophy] Add best practices for measuring documentation effectiveness (analytics, user testing, etc), esp in AI generated answers world
+- [UX] Add preference to avoiding image light boxes in favor of linking to full size image

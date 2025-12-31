@@ -90,7 +90,7 @@ docs-design-system/
 
 ## Built With
 
-- **Next.js 14** - React framework with App Router
+- **Next.js 16** - React framework with App Router
 - **TypeScript** - Type safety
 - **Tailwind CSS** - Utility-first CSS framework
 - **npm workspaces** - Monorepo management

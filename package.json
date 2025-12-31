@@ -3,13 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "npm run dev --workspace=app/ui",
-    "build": "npm run build --workspace=packages/ui && npm run build --workspace=app/ui",
+    "dev": "npm run dev --workspace=website",
+    "build": "npm run build --workspace=packages/ui && npm run build --workspace=website",
     "lint": "npm run lint --workspaces --if-present",
     "type-check": "npm run type-check --workspaces --if-present"
   },
   "workspaces": [
-    "app/*",
+    "website",
     "packages/*"
   ],
   "devDependencies": {

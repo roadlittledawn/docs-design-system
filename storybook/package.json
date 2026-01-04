@@ -1,0 +1,27 @@
+{
+  "name": "@docs-design-system/storybook",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Storybook documentation for @docs-design-system/ui components",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build": "storybook build -o dist",
+    "preview": "npx http-server dist",
+    "prestorybook": "cd .. && npm run build --workspace=packages/ui"
+  },
+  "dependencies": {
+    "@docs-design-system/ui": "*",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^8.4.7",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-interactions": "^8.4.7",
+    "@storybook/react": "^8.4.7",
+    "@storybook/react-vite": "^8.4.7",
+    "@storybook/test": "^8.4.7",
+    "storybook": "^8.4.7",
+    "vite": "^5.0.0"
+  }
+}

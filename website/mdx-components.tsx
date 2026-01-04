@@ -1,5 +1,5 @@
-import type { MDXComponents } from 'mdx/types'
-import { Heading, Card, CardGrid } from '@docs-design-system/ui'
+import type { MDXComponents } from "mdx/types";
+import { Heading, Card, CardGrid, Link } from "@docs-design-system/ui";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -10,19 +10,29 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h4: (props) => <Heading level={4} {...props} />,
     // Style paragraphs with proper spacing
     p: ({ className, ...props }: any) => (
-      <p className={`text-gray-700 leading-relaxed mb-4 ${className || ''}`} {...props} />
+      <p
+        className={`text-gray-700 leading-relaxed mb-4 ${className || ""}`}
+        {...props}
+      />
     ),
     // Style code blocks
     code: ({ className, ...props }: any) => (
-      <code className={`bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800 ${className || ''}`} {...props} />
+      <code
+        className={`bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800 ${className || ""}`}
+        {...props}
+      />
     ),
     pre: ({ className, ...props }: any) => (
-      <pre className={`bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4 ${className || ''}`} {...props} />
+      <pre
+        className={`bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4 ${className || ""}`}
+        {...props}
+      />
     ),
+    a: ({ href = "#", ...props }) => <Link href={href} {...props} />,
     // Make UI components globally available
     Heading,
     Card,
     CardGrid,
     ...components,
-  }
+  };
 }

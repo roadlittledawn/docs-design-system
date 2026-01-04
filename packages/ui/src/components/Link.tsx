@@ -8,20 +8,19 @@ interface LinkProps {
 
 export function Link({ href, children, className = '' }: LinkProps) {
   const isExternal = href.startsWith('http://') || href.startsWith('https://');
-  const baseStyles = 'text-blue-600 hover:text-blue-800 underline decoration-blue-300 hover:decoration-blue-500 transition-colors';
-  const styles = `${baseStyles} ${className}`;
+  const classNames = `dds-link ${className}`.trim();
 
   if (isExternal) {
     return (
       <a 
         href={href} 
-        className={styles}
+        className={classNames}
         target="_blank" 
         rel="noopener noreferrer"
       >
         {children}
         <svg 
-          className="inline-block w-4 h-4 ml-1 mb-1" 
+          className="dds-link-icon" 
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24"
@@ -37,5 +36,5 @@ export function Link({ href, children, className = '' }: LinkProps) {
     );
   }
 
-  return <a href={href} className={styles}>{children}</a>;
+  return <a href={href} className={classNames}>{children}</a>;
 }

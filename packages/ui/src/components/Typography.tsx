@@ -11,20 +11,10 @@ export const Typography: React.FC<TypographyProps> = ({
   children, 
   className = '' 
 }) => {
-  const baseClasses = 'text-gray-900';
-  
-  const variantClasses = {
-    h1: 'text-4xl font-bold leading-tight',
-    h2: 'text-3xl font-semibold leading-tight',
-    h3: 'text-2xl font-medium leading-tight',
-    h4: 'text-xl font-medium leading-tight',
-    p: 'text-base leading-relaxed',
-    caption: 'text-sm text-gray-600'
-  };
-  
   const Component = variant === 'p' || variant === 'caption' ? 'p' : variant;
+  const classNames = `dds-typography dds-typography-${variant} ${className}`.trim();
   
   return React.createElement(Component, {
-    className: `${baseClasses} ${variantClasses[variant]} ${className}`
+    className: classNames
   }, children);
 };

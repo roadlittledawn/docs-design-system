@@ -1,8 +1,19 @@
 import { ReactNode } from "react";
 
 interface CardProps {
+  /** Optional title displayed at the top of the card */
   title?: string;
+
+  /**
+   * Color of the title text
+   * @default 'gray'
+   */
   titleColor?: "blue" | "green" | "purple" | "red" | "yellow" | "gray";
+
+  /**
+   * Background color of the card
+   * @default 'white'
+   */
   backgroundColor?:
     | "blue"
     | "green"
@@ -11,8 +22,14 @@ interface CardProps {
     | "yellow"
     | "gray"
     | "white";
+
+  /** Optional link URL. When provided, the entire card becomes clickable */
   href?: string;
+
+  /** Card content */
   children: ReactNode;
+
+  /** Additional CSS classes */
   className?: string;
 }
 

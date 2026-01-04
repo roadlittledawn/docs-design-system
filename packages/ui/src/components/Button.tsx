@@ -1,8 +1,19 @@
 import React from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /**
+   * Visual style variant of the button
+   * @default 'primary'
+   */
   variant?: "primary" | "secondary" | "outline";
+
+  /**
+   * Size of the button
+   * @default 'md'
+   */
   size?: "sm" | "md" | "lg";
+
+  /** Button content */
   children: React.ReactNode;
 }
 

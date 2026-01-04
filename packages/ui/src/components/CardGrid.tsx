@@ -1,8 +1,16 @@
 import { ReactNode } from 'react'
 
 interface CardGridProps {
+  /**
+   * Number of columns in the grid
+   * @default 3
+   */
   columns?: 2 | 3 | 4
+
+  /** Grid content (typically Card components) */
   children: ReactNode
+
+  /** Additional CSS classes */
   className?: string
 }
 

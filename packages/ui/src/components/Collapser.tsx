@@ -1,4 +1,5 @@
 import { ReactNode, useState, useRef, useEffect } from "react";
+import { useKeyPress } from "../hooks/useKeyPress";
 
 interface CollapserProps {
   title: string | ReactNode;
@@ -18,6 +19,9 @@ export function Collapser({
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const [height, setHeight] = useState<number | undefined>(undefined);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  // Keyboard shortcuts: 's' or 'f' to show, 'h' to hide
+  useKeyPress(['s', 'f', 'h'], (e) => setIsOpen(e.key !== 'h'));
 
   useEffect(() => {
     if (contentRef.current) {

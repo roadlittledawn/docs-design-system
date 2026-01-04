@@ -1,6 +1,7 @@
 .dds-collapser {
   display: flex;
   flex-direction: column;
+  margin: 1rem 0;
   border-radius: var(--dds-collapser-radius);
   border: 1px solid var(--dds-collapser-border);
   box-shadow: var(--dds-collapser-shadow);
@@ -28,6 +29,7 @@
   display: flex;
   align-items: center;
   flex: 1;
+  font-weight: bold;
   font-size: var(--dds-text-base-size);
   margin: 0;
   font-weight: var(--dds-font-medium);

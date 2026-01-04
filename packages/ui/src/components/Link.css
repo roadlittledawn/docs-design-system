@@ -1,0 +1,20 @@
+.dds-link {
+  color: var(--dds-link-color);
+  text-decoration: underline;
+  text-decoration-color: var(--dds-link-decoration);
+  transition: var(--dds-transition-colors);
+}
+
+.dds-link:hover {
+  color: var(--dds-link-color-hover);
+  text-decoration-color: var(--dds-link-decoration-hover);
+}
+
+.dds-link-icon {
+  display: inline-block;
+  width: 1rem; /* w-4 */
+  height: 1rem; /* h-4 */
+  margin-left: 0.25rem; /* ml-1 */
+  margin-bottom: 0.25rem; /* mb-1 */
+  vertical-align: middle;
+}

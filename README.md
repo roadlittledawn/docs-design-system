@@ -6,7 +6,7 @@ A comprehensive design system for creating effective, user-centered documentatio
 
 ## What This Is
 
-This monorepo has two primary components:
+This monorepo has three primary components:
 
 1. **Design System Website** (`website/`) - A Next.js documentation site that provides:
    - **Style Guide**: Standards and best practices for writing and content quality
@@ -16,6 +16,12 @@ This monorepo has two primary components:
 2. **Component Package** (`packages/ui/`) - An NPM package (`@docs-design-system/ui`) that provides:
    - **Reusable Content Components**: Documentation-specific UI components for building consistent documentation interfaces
    - **Distributable Package**: Components that can be installed and used in other documentation projects
+
+3. **Storybook** (`storybook/`) - Interactive component documentation that provides:
+   - **Live Examples**: All UI components with interactive controls
+   - **Auto-Generated API Docs**: Component props documentation from TypeScript
+   - **Accessibility Testing**: Built-in a11y violation reporting
+   - **Visual Documentation**: "When to Use" guidelines for each component
 
 ## To Do
 
@@ -51,8 +57,13 @@ npm install
 ### Development
 
 ```bash
-# Start the development server (watches both website and ui package)
+# Start all development servers (website, ui package, and Storybook)
 npm run dev
+
+# Start individual servers
+npm run dev --workspace=website        # Next.js site at http://localhost:3000
+npm run dev --workspace=packages/ui    # UI package build watcher
+npm run storybook                      # Storybook at http://localhost:6006
 
 # Build all packages
 npm run build
@@ -64,7 +75,9 @@ npm run lint
 npm run type-check
 ```
 
-The documentation site will be available at `http://localhost:3000`.
+**Development URLs:**
+- Documentation site: `http://localhost:3000`
+- Storybook: `http://localhost:6006`
 
 **Development Workflow Notes:**
 
@@ -79,16 +92,18 @@ When editing CSS files in `packages/ui/src/components/`:
 ```
 docs-design-system/
 ├── website/           # Next.js documentation site (design system website)
+├── storybook/         # Storybook component documentation
 ├── packages/
 │   └── ui/            # NPM package with reusable content components
 ├── shared/            # Shared utilities and design tokens
 └── README.md
 ```
 
-**Key distinction:**
+**Key distinctions:**
 
-- `website/` is the documentation site that teaches the design system
-- `packages/ui/` contains components that will be distributed via NPM for use in other projects
+- `website/` - The documentation site that teaches the design system
+- `packages/ui/` - Components distributed via NPM for use in other projects
+- `storybook/` - Interactive component documentation (not distributed)
 
 ## Built With
 
@@ -96,7 +111,24 @@ docs-design-system/
 - **TypeScript** - Type safety
 - **Tailwind CSS v4** - Utility-first CSS framework
 - **MDX** - Markdown for content pages
+- **Storybook 8** - Component documentation and development
 - **npm workspaces** - Monorepo management
+
+## Component Documentation
+
+All UI components are documented in Storybook with:
+- Interactive examples and prop controls
+- Auto-generated API documentation from TypeScript
+- Usage guidelines ("When to Use" / "When Not to Use")
+- Accessibility testing and best practices
+
+**View Component Docs:**
+```bash
+npm run storybook
+# Opens at http://localhost:6006
+```
+
+See `storybook/README.md` for more information on adding and documenting components.
 
 ## Contributing
 

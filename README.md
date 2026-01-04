@@ -4,14 +4,18 @@ A comprehensive design system for creating effective, user-centered documentatio
 
 > **⚠️ Work in Progress**: This project is currently under active development. Features and APIs may change.
 
-## What This Will Be
+## What This Is
 
-This documentation design system will provide:
+This monorepo has two primary components:
 
-- **Style Guide**: Standards and best practices for writing and content quality
-- **Design Principles**: Documentation UX / UI patterns and principles
-- **Component Library**: Reusable UI elements for building consistent documentation interfaces
-- **NPM Package**: Exportable components for easy integration into other projects
+1. **Design System Website** (`website/`) - A Next.js documentation site that provides:
+   - **Style Guide**: Standards and best practices for writing and content quality
+   - **Design Principles**: Documentation UX / UI patterns and principles
+   - **Gallery**: Showcase of exemplary documentation websites
+
+2. **Component Package** (`packages/ui/`) - An NPM package (`@docs-design-system/ui`) that provides:
+   - **Reusable Content Components**: Documentation-specific UI components for building consistent documentation interfaces
+   - **Distributable Package**: Components that can be installed and used in other documentation projects
 
 ## To Do
 
@@ -80,19 +84,23 @@ The documentation site will be available at `http://localhost:3000`.
 
 ```
 docs-design-system/
-├── apps/
-│   └── docs/          # Next.js documentation site
+├── website/           # Next.js documentation site (design system website)
 ├── packages/
-│   └── ui/            # Reusable UI components (future NPM package)
+│   └── ui/            # NPM package with reusable content components
 ├── shared/            # Shared utilities and design tokens
 └── README.md
 ```
 
+**Key distinction:**
+- `website/` is the documentation site that teaches the design system
+- `packages/ui/` contains components that will be distributed via NPM for use in other projects
+
 ## Built With
 
-- **Next.js 16** - React framework with App Router
+- **Next.js 16** - React framework with Pages Router
 - **TypeScript** - Type safety
-- **Tailwind CSS** - Utility-first CSS framework
+- **Tailwind CSS v4** - Utility-first CSS framework
+- **MDX** - Markdown for content pages
 - **npm workspaces** - Monorepo management
 
 ## Contributing

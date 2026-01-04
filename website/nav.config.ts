@@ -34,6 +34,11 @@ export const navigationConfig: NavigationConfig = {
           label: "Personalization",
           href: "/principles/personalization",
         },
+        {
+          type: "link",
+          label: "Quality Metrics",
+          href: "/principles/quality-metrics",
+        },
       ],
     },
     {

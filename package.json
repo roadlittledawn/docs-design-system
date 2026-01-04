@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "npm run dev --workspace=website",
+    "dev": "npm run dev --workspace=packages/ui & npm run dev --workspace=website",
     "build": "npm run build --workspace=packages/ui && npm run build --workspace=website",
     "lint": "npm run lint --workspaces --if-present",
     "type-check": "npm run type-check --workspaces --if-present"

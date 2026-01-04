@@ -1,0 +1,55 @@
+.dds-callout {
+  padding: var(--dds-callout-padding);
+  border-radius: var(--dds-callout-radius);
+  border: 1px solid;
+  border-left-width: 6px;
+  color: var(--dds-callout-text);
+}
+
+.dds-callout-title {
+  font-size: var(--dds-callout-title-size);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: var(--dds-callout-title-margin-bottom);
+  font-weight: var(--dds-font-semibold);
+}
+
+/* Caution variant - red */
+.dds-callout-caution {
+  border-color: var(--dds-callout-caution-border);
+  background-color: var(--dds-callout-caution-bg);
+}
+
+.dds-callout-title-caution {
+  color: var(--dds-callout-caution-title);
+}
+
+/* Important variant - yellow/orange */
+.dds-callout-important {
+  border-color: var(--dds-callout-important-border);
+  background-color: var(--dds-callout-important-bg);
+}
+
+.dds-callout-title-important {
+  color: var(--dds-callout-important-title);
+}
+
+/* Tip variant - blue */
+.dds-callout-tip {
+  border-color: var(--dds-callout-tip-border);
+  background-color: var(--dds-callout-tip-bg);
+}
+
+.dds-callout-title-tip {
+  color: var(--dds-callout-tip-title);
+}
+
+/* Course variant - green */
+.dds-callout-course {
+  border-color: var(--dds-callout-course-border);
+  background-color: var(--dds-callout-course-bg);
+}
+
+.dds-callout-title-course {
+  color: var(--dds-callout-course-title);
+}

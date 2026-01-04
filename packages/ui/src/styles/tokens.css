@@ -102,5 +102,41 @@
   --dds-link-color-hover: #1e40af; /* blue-800 */
   --dds-link-decoration: #93c5fd; /* blue-300 */
   --dds-link-decoration-hover: #60a5fa; /* blue-500 */
+
+  /* Callout Colors and Styles */
+  --dds-callout-text: #374151; /* gray-700 */
+  --dds-callout-padding: 1.25rem; /* p-5 */
+  --dds-callout-radius: 0.25rem; /* rounded */
+  --dds-callout-title-size: 0.75rem; /* text-xs */
+  --dds-callout-title-margin-bottom: 0.5rem; /* mb-2 */
+
+  /* Callout - Caution (red) */
+  --dds-callout-caution-border: #dc2626; /* red-600 */
+  --dds-callout-caution-bg: #fef2f2; /* red-50 */
+  --dds-callout-caution-title: #991b1b; /* red-800 */
+
+  /* Callout - Important (orange/yellow) */
+  --dds-callout-important-border: #f59e0b; /* amber-500 */
+  --dds-callout-important-bg: #fffbeb; /* amber-50 */
+  --dds-callout-important-title: #92400e; /* amber-800 */
+
+  /* Callout - Tip (blue) */
+  --dds-callout-tip-border: #2563eb; /* blue-600 */
+  --dds-callout-tip-bg: #eff6ff; /* blue-50 */
+  --dds-callout-tip-title: #1e40af; /* blue-800 */
+
+  /* Callout - Course (green) */
+  --dds-callout-course-border: #059669; /* emerald-600 */
+  --dds-callout-course-bg: #f0fdf4; /* green-50 */
+  --dds-callout-course-title: #065f46; /* emerald-800 */
+
+  /* Collapser Colors and Styles */
+  --dds-collapser-radius: 0.375rem; /* rounded-md */
+  --dds-collapser-border: #e5e7eb; /* gray-200 */
+  --dds-collapser-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --dds-collapser-button-padding: 0.75rem; /* p-3 */
+  --dds-collapser-button-hover-bg: #f9fafb; /* gray-50 */
+  --dds-collapser-icon-color: #6b7280; /* gray-500 */
+  --dds-collapser-content-padding: 1rem; /* p-4 */
 }
 

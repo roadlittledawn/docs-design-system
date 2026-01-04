@@ -10,7 +10,9 @@
   "scripts": {
     "build": "tsc && npm run build:css",
     "build:css": "postcss src/styles/components.css -o dist/styles.css",
-    "dev": "tsc --watch",
+    "dev": "npm run dev:ts & npm run dev:css",
+    "dev:ts": "tsc --watch",
+    "dev:css": "postcss src/styles/components.css -o dist/styles.css --watch",
     "lint": "eslint src/**/*.{ts,tsx}",
     "type-check": "tsc --noEmit"
   },

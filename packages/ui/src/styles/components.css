@@ -4,8 +4,10 @@
 /* Import component styles */
 @import "../components/Heading.css";
 @import "../components/Button.css";
+@import "../components/Callout.css";
 @import "../components/Card.css";
 @import "../components/CardGrid.css";
+@import "../components/Collapser.css";
 @import "../components/Typography.css";
 @import "../components/Link.css";
 

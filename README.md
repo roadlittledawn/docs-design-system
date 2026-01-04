@@ -51,7 +51,7 @@ npm install
 ### Development
 
 ```bash
-# Start the development server
+# Start the development server (watches both website and ui package)
 npm run dev
 
 # Build all packages
@@ -65,6 +65,14 @@ npm run type-check
 ```
 
 The documentation site will be available at `http://localhost:3000`.
+
+**Development Workflow Notes:**
+
+When editing CSS files in `packages/ui/src/components/`:
+- PostCSS automatically rebuilds `dist/styles.css` when you save changes
+- **Manual page refresh required** - The website dev server doesn't auto-reload for external package changes
+- This is a known limitation of consuming local packages in Next.js monorepos
+- The website treats `packages/ui` as a standard NPM package (consuming from `dist/`), which is the correct approach for a distributable component library
 
 ## Project Structure
 

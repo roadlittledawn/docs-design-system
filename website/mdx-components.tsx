@@ -1,5 +1,12 @@
 import type { MDXComponents } from "mdx/types";
-import { Heading, Card, CardGrid, Link } from "@docs-design-system/ui";
+import {
+  Heading,
+  Card,
+  CardGrid,
+  Link,
+  Collapser,
+  Callout,
+} from "@docs-design-system/ui";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -33,6 +40,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Heading,
     Card,
     CardGrid,
+    Collapser,
+    Callout,
     ...components,
   };
 }

@@ -12,8 +12,7 @@ There are three primary areas to integrate AI into documentation workflows:
 - **Reviewing**: Automate first-pass content review for quality and consistency
 - **Discovery**: Help users find answers through AI-powered search and chat
 
-## Authoring
-
+<Collapser title="Authoring">
 AI can help bridge the gap between subject matter experts and your docs platform. Use cases include:
 
 - **Format conversion**: Migrate content to your docs system's specific formatting (MDX, custom components, etc.)
@@ -22,10 +21,15 @@ AI can help bridge the gap between subject matter experts and your docs platform
 - **First draft generation**: Create initial content from specs, code comments, or meeting notes
 
 **Best practices:**
+
 - Provide the AI with your style guide, component examples, and existing docs as context
 - Use iterative prompting - don't expect perfect output on first try
 - Always review AI-generated content for technical accuracy
 - Consider setting up custom instructions or agents for common conversion tasks
+
+</Collapser>
+
+<Collapser title="Reviewing">
 
 ## Reviewing
 
@@ -37,12 +41,15 @@ If your writing team accepts contributions from outside the team, AI can augment
 - **Suggested improvements**: Get recommendations for clarity, completeness, or better examples
 
 **Best practices:**
+
 - Use AI as a first pass, not a replacement for human review
 - Train reviewers on how to use AI effectively in their workflow
 - Consider integrating AI review as a GitHub Action or pre-commit hook
 - Maintain human oversight for technical accuracy and product-specific nuance
 
-## Discovery
+</Collapser>
+
+<Collapser title="Discovery">
 
 Help users find information faster through AI-augmented interfaces:
 
@@ -51,21 +58,26 @@ Help users find information faster through AI-augmented interfaces:
 - **Semantic search**: Help users find relevant content even when they don't know the exact terms
 
 **Implementation considerations:**
+
 - Provide markdown exports or API endpoints for each docs page for indexing
 - Consider S3 or similar storage for syncing content to AI backends
 - Design for freshness - ensure your AI has access to the latest content
 - Monitor quality - track when AI gives incorrect or incomplete answers
 
 **Success metrics:**
+
 - Track defect ratio (were users able to complete their task?) rather than just satisfaction scores
 - Measure time to resolution
 - Monitor which questions AI can't answer well - these indicate content gaps
+
+</Collapser>
 
 ## Advanced patterns
 
 ### Docs as end-to-end tests
 
 Documentation can serve as executable specifications. An AI agent can:
+
 1. Read your user guide or tutorial
 2. Use a virtual browser or API client to follow the instructions
 3. Attempt to complete the documented tasks
@@ -74,6 +86,7 @@ Documentation can serve as executable specifications. An AI agent can:
 This creates a feedback loop where outdated docs are automatically flagged when product changes break the documented workflows.
 
 **Use cases:**
+
 - UI documentation testing with browser automation
 - API tutorial validation
 - Installation guide verification
@@ -83,14 +96,18 @@ This creates a feedback loop where outdated docs are automatically flagged when 
 Emerging platforms can source information from multiple systems (GitHub repos, Slack, wikis, etc.) and automatically generate or update documentation.
 
 **Where this works well:**
+
 - API documentation derived from code
 - Single-tool reference docs with clear source material
 - Changelog generation from commits
 
 **Current limitations:**
+
 - Cross-product documentation that spans multiple systems
 - Conceptual content that requires synthesis across sources
 - Docs requiring editorial judgment about what to include/exclude
 - Content needing consistent narrative voice
 
-**Recommendation:** Best used as a supplement to human-authored docs, not a complete replacement.
+<Callout variant="tip">
+  Best used as a supplement to human-authored docs, not a complete replacement.
+</Callout>

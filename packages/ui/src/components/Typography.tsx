@@ -1,5 +1,4 @@
 import React from 'react';
-import './Typography.css';
 
 interface TypographyProps {
   variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'caption';

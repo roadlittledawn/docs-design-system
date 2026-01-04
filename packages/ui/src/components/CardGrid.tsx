@@ -1,5 +1,4 @@
 import { ReactNode } from 'react'
-import './CardGrid.css'
 
 interface CardGridProps {
   columns?: 2 | 3 | 4

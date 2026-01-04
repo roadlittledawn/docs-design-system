@@ -1,5 +1,4 @@
 import React from "react";
-import "./Heading.css";
 
 interface HeadingProps {
   level: 1 | 2 | 3 | 4;

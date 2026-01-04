@@ -2,10 +2,22 @@ import { ReactNode, useState, useRef, useEffect } from "react";
 import { useKeyPress } from "../hooks/useKeyPress";
 
 interface CollapserProps {
+  /** Title text or element displayed in the collapsible header */
   title: string | ReactNode;
+
+  /** Optional ID for the title element */
   id?: string;
+
+  /**
+   * Whether the collapser should be open by default
+   * @default false
+   */
   defaultOpen?: boolean;
+
+  /** Content to show/hide when toggling */
   children: ReactNode;
+
+  /** Additional CSS classes */
   className?: string;
 }
 

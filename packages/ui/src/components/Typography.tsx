@@ -1,8 +1,16 @@
 import React from 'react';
 
 interface TypographyProps {
+  /**
+   * Typography style variant
+   * @default 'p'
+   */
   variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'caption';
+
+  /** Text content */
   children: React.ReactNode;
+
+  /** Additional CSS classes */
   className?: string;
 }
 

@@ -1,8 +1,13 @@
 import React from "react";
 
 interface HeadingProps {
+  /** Heading level (h1, h2, h3, or h4) */
   level: 1 | 2 | 3 | 4;
+
+  /** Heading content */
   children?: React.ReactNode;
+
+  /** Additional CSS classes */
   className?: string;
 }
 

@@ -1,8 +1,13 @@
 import React from 'react';
 
 interface LinkProps {
+  /** URL to link to. External links (starting with http:// or https://) open in new tab */
   href: string;
+
+  /** Link content */
   children?: React.ReactNode;
+
+  /** Additional CSS classes */
   className?: string;
 }
 

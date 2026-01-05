@@ -78,6 +78,10 @@ export const navigationConfig: NavigationConfig = {
               href: "/style-guide/content-components",
             },
             {
+              label: "Code Blocks",
+              href: "/style-guide/code-blocks",
+            },
+            {
               label: "Images & Screenshots",
               href: "/style-guide/images-screenshots",
             },

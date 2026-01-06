@@ -8,6 +8,10 @@
   transition: var(--dds-transition-shadow);
 }
 
+a:has(.dds-card-clickable) {
+  text-decoration: none;
+}
+
 .dds-card-clickable:hover {
   box-shadow: var(--dds-card-shadow-hover);
 }
@@ -97,4 +101,3 @@
 .dds-card-text-gray {
   color: var(--dds-card-text-gray);
 }
-

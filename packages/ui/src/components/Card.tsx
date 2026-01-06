@@ -67,11 +67,7 @@ export function Card({
   );
 
   if (href) {
-    return (
-      <a href={href} className="block">
-        {content}
-      </a>
-    );
+    return <a href={href}>{content}</a>;
   }
 
   return content;

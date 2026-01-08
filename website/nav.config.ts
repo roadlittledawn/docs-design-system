@@ -6,13 +6,7 @@ export const navigationConfig: NavigationConfig = {
       id: "home",
       label: "Home",
       icon: "house",
-      secondary: [
-        {
-          type: "link",
-          label: "Overview",
-          href: "/",
-        },
-      ],
+      href: "/",
     },
     {
       id: "principles",

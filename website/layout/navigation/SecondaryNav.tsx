@@ -1,44 +1,49 @@
-import { X } from 'lucide-react'
-import { useNavigation } from '../../hooks/useNavigation'
-import { PrimaryNavItem } from '../../types/navigation'
-import { SecondaryNavLink } from './SecondaryNavLink'
-import { SecondaryNavGroup } from './SecondaryNavGroup'
+import { X } from "lucide-react";
+import { useNavigation } from "../../hooks/useNavigation";
+import { PrimaryNavItem } from "../../types/navigation";
+import { SecondaryNavLink } from "./SecondaryNavLink";
+import { SecondaryNavGroup } from "./SecondaryNavGroup";
 
 interface SecondaryNavProps {
-  activePrimaryItem: PrimaryNavItem | null
-  isMobile?: boolean
-  isPinned?: boolean // Whether this is pinned (persistent) or hover (temporary overlay)
-  onClose?: () => void
+  activePrimaryItem: PrimaryNavItem | null;
+  isMobile?: boolean;
+  isPinned?: boolean; // Whether this is pinned (persistent) or hover (temporary overlay)
+  onClose?: () => void;
 }
 
-export function SecondaryNav({ activePrimaryItem, isMobile = false, isPinned = false, onClose }: SecondaryNavProps) {
-  const { setActivePrimary } = useNavigation()
+export function SecondaryNav({
+  activePrimaryItem,
+  isMobile = false,
+  isPinned = false,
+  onClose,
+}: SecondaryNavProps) {
+  const { setActivePrimary } = useNavigation();
 
   if (!activePrimaryItem) {
-    return null
+    return null;
   }
 
   const handleClose = () => {
     if (onClose) {
-      onClose()
+      onClose();
     } else if (!isPinned) {
-      setActivePrimary(null)
+      setActivePrimary(null);
     }
-  }
+  };
 
   const handleMouseLeave = () => {
     if (!isMobile && !isPinned) {
-      setActivePrimary(null)
+      setActivePrimary(null);
     }
-  }
+  };
 
   return (
     <nav
       onMouseLeave={handleMouseLeave}
       className={`
         bg-white border-r border-gray-200
-        ${isMobile ? 'w-full h-full border' : 'w-64 h-screen'}
-        ${isPinned ? '' : 'shadow-lg border'}
+        ${isMobile ? "w-full h-full border" : "w-64 h-screen"}
+        ${isPinned ? "" : "shadow-lg border"}
         overflow-y-auto
         transition-transform duration-300 ease-in-out
       `}
@@ -46,7 +51,9 @@ export function SecondaryNav({ activePrimaryItem, isMobile = false, isPinned = f
     >
       {/* Header - show close button only for non-pinned (hover/mobile) */}
       <div className="flex items-center justify-between p-4 border-b border-gray-200">
-        <h2 className="font-semibold text-gray-900">{activePrimaryItem.label}</h2>
+        <h2 className="font-semibold text-gray-900">
+          {activePrimaryItem.label}
+        </h2>
         {(!isPinned || isMobile) && (
           <button
             onClick={handleClose}
@@ -59,26 +66,23 @@ export function SecondaryNav({ activePrimaryItem, isMobile = false, isPinned = f
       </div>
 
       <div className="p-4 space-y-1">
-        {activePrimaryItem.secondary.map((item, index) => {
-          if (item.type === 'link') {
+        {activePrimaryItem.secondary?.map((item, index) => {
+          if (item.type === "link") {
             return (
               <SecondaryNavLink
                 key={item.href}
                 href={item.href}
                 label={item.label}
               />
-            )
-          } else if (item.type === 'group') {
+            );
+          } else if (item.type === "group") {
             return (
-              <SecondaryNavGroup
-                key={`${item.label}-${index}`}
-                group={item}
-              />
-            )
+              <SecondaryNavGroup key={`${item.label}-${index}`} group={item} />
+            );
           }
-          return null
+          return null;
         })}
       </div>
     </nav>
-  )
+  );
 }

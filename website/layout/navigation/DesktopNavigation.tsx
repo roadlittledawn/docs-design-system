@@ -28,7 +28,7 @@ export function DesktopNavigation() {
 
       {/* Hover secondary nav - shown as overlay */}
       {activePrimaryItem && (
-        <div className="fixed left-[88px] top-0 z-40">
+        <div className={`fixed top-0 z-40 ${pinnedPrimaryItem ? 'left-[352px]' : 'left-[88px]'}`}>
           <SecondaryNav activePrimaryItem={activePrimaryItem} isPinned={false} />
         </div>
       )}

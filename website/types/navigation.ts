@@ -21,7 +21,8 @@ export interface PrimaryNavItem {
   id: string
   label: string
   icon: string
-  secondary: SecondaryNavItem[]
+  href?: string // Optional: if provided, this is a direct link without secondary nav
+  secondary?: SecondaryNavItem[] // Optional: if provided, has secondary navigation
 }
 
 export interface NavigationConfig {

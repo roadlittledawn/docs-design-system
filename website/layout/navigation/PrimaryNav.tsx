@@ -10,7 +10,7 @@ interface PrimaryNavProps {
 
 export function PrimaryNav({ isMobile = false, onItemClick }: PrimaryNavProps) {
   const router = useRouter()
-  const { navigationConfig, activePrimaryId, setActivePrimary, toggleMobileMenu } = useNavigation()
+  const { navigationConfig, pinnedPrimaryId, setActivePrimary, toggleMobileMenu } = useNavigation()
 
   const handleItemClick = (item: PrimaryNavItem) => {
     if (isMobile && onItemClick) {
@@ -87,7 +87,7 @@ export function PrimaryNav({ isMobile = false, onItemClick }: PrimaryNavProps) {
       <div className="py-4 space-y-2">
         {navigationConfig.primary.map(item => {
           const Icon = getIcon(item.icon)
-          const isActive = activePrimaryId === item.id
+          const isActive = pinnedPrimaryId === item.id
 
           return (
             <button

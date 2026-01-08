@@ -7,7 +7,7 @@ import { SecondaryNavGroup } from './SecondaryNavGroup'
 interface SecondaryNavProps {
   activePrimaryItem: PrimaryNavItem | null
   isMobile?: boolean
-  isPinned?: boolean // Whether this is pinned (for current page) or temporary (hover)
+  isPinned?: boolean // Whether this is pinned (persistent) or hover (temporary overlay)
   onClose?: () => void
 }
 
@@ -36,18 +36,18 @@ export function SecondaryNav({ activePrimaryItem, isMobile = false, isPinned = f
     <nav
       onMouseLeave={handleMouseLeave}
       className={`
-        bg-white border border-gray-200
-        ${isMobile ? 'w-full h-full' : 'w-64 h-screen'}
-        ${isPinned ? '' : 'shadow-lg'}
+        bg-white border-r border-gray-200
+        ${isMobile ? 'w-full h-full border' : 'w-64 h-screen'}
+        ${isPinned ? '' : 'shadow-lg border'}
         overflow-y-auto
         transition-transform duration-300 ease-in-out
       `}
       aria-label="Secondary navigation"
     >
-      {/* Close button - only show for non-pinned or mobile */}
-      {(!isPinned || isMobile) && (
-        <div className="flex items-center justify-between p-4 border-b border-gray-200">
-          <h2 className="font-semibold text-gray-900">{activePrimaryItem.label}</h2>
+      {/* Header - show close button only for non-pinned (hover/mobile) */}
+      <div className="flex items-center justify-between p-4 border-b border-gray-200">
+        <h2 className="font-semibold text-gray-900">{activePrimaryItem.label}</h2>
+        {(!isPinned || isMobile) && (
           <button
             onClick={handleClose}
             className="p-1 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-colors"
@@ -55,15 +55,8 @@ export function SecondaryNav({ activePrimaryItem, isMobile = false, isPinned = f
           >
             <X className="w-5 h-5" />
           </button>
-        </div>
-      )}
-
-      {/* Header for pinned secondary nav (no close button) */}
-      {isPinned && !isMobile && (
-        <div className="p-4 border-b border-gray-200">
-          <h2 className="font-semibold text-gray-900">{activePrimaryItem.label}</h2>
-        </div>
-      )}
+        )}
+      </div>
 
       <div className="p-4 space-y-1">
         {activePrimaryItem.secondary.map((item, index) => {

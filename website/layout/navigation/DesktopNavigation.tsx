@@ -5,40 +5,34 @@ import { SecondaryNav } from './SecondaryNav'
 export function DesktopNavigation() {
   const { navigationConfig, activePrimaryId, pinnedPrimaryId } = useNavigation()
 
-  // Navigation width constants
-  const PRIMARY_NAV_WIDTH = 88 // px
-  const SECONDARY_NAV_WIDTH = 256 // px (w-64 = 16rem = 256px)
-
-  // Find the pinned primary item (for current page's section)
+  // Find the pinned primary item (for current page's section) - shown on large screens alongside content
   const pinnedPrimaryItem = pinnedPrimaryId
     ? navigationConfig.primary.find(item => item.id === pinnedPrimaryId) || null
     : null
 
-  // Find the active (hover) primary item - only show if different from pinned
-  const activePrimaryItem = activePrimaryId && activePrimaryId !== pinnedPrimaryId
+  // Find the hover primary item - shown as overlay on hover
+  const hoverPrimaryItem = activePrimaryId
     ? navigationConfig.primary.find(item => item.id === activePrimaryId) || null
     : null
 
-  // Calculate left position for hover overlay based on whether pinned nav is present
-  const hoverOverlayLeft = pinnedPrimaryItem 
-    ? PRIMARY_NAV_WIDTH + SECONDARY_NAV_WIDTH 
-    : PRIMARY_NAV_WIDTH
+  // Only show hover overlay if it's different from pinned (to avoid showing same nav twice)
+  const showHoverOverlay = hoverPrimaryItem && hoverPrimaryItem.id !== pinnedPrimaryId
 
   return (
     <div className="hidden md:flex relative">
       <PrimaryNav />
 
-      {/* Pinned secondary nav - shown alongside content */}
-      {pinnedPrimaryItem && (
-        <div className="w-64 border-r border-gray-200">
+      {/* Pinned secondary nav - shown alongside content on large screens only */}
+      {pinnedPrimaryItem && pinnedPrimaryItem.secondary && pinnedPrimaryItem.secondary.length > 0 && (
+        <div className="hidden lg:block w-64 border-r border-gray-200">
           <SecondaryNav activePrimaryItem={pinnedPrimaryItem} isPinned={true} />
         </div>
       )}
 
-      {/* Hover secondary nav - shown as overlay */}
-      {activePrimaryItem && (
-        <div className="fixed top-0 z-40" style={{ left: `${hoverOverlayLeft}px` }}>
-          <SecondaryNav activePrimaryItem={activePrimaryItem} isPinned={false} />
+      {/* Hover secondary nav - shown as overlay with slide-out animation */}
+      {showHoverOverlay && hoverPrimaryItem.secondary && hoverPrimaryItem.secondary.length > 0 && (
+        <div className="fixed left-[88px] top-0 z-40">
+          <SecondaryNav activePrimaryItem={hoverPrimaryItem} isPinned={false} />
         </div>
       )}
     </div>

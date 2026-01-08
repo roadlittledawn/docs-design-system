@@ -8,6 +8,7 @@ interface NavigationContextType {
   // Desktop state
   activePrimaryId: string | null
   setActivePrimary: (id: string | null) => void
+  pinnedPrimaryId: string | null // The primary nav item whose secondary should be persistently shown
 
   // Mobile state
   mobileMenuOpen: boolean
@@ -41,6 +42,7 @@ export function NavigationProvider({
 
   // Desktop state
   const [activePrimaryId, setActivePrimaryId] = useState<string | null>(null)
+  const [pinnedPrimaryId, setPinnedPrimaryId] = useState<string | null>(null)
 
   // Mobile state
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -79,11 +81,15 @@ export function NavigationProvider({
     return router.pathname === href
   }
 
-  // Set active primary on route change
+  // Set active primary and pinned primary on route change
   useEffect(() => {
     const activeId = getActivePrimaryFromPath()
     if (activeId) {
       setActivePrimaryId(activeId)
+      setPinnedPrimaryId(activeId) // Pin the secondary nav for the current page's section
+    } else {
+      setActivePrimaryId(null)
+      setPinnedPrimaryId(null) // Unpin if no active section
     }
   }, [router.pathname])
 
@@ -131,6 +137,7 @@ export function NavigationProvider({
     navigationConfig,
     activePrimaryId,
     setActivePrimary,
+    pinnedPrimaryId,
     mobileMenuOpen,
     mobileView,
     mobileActivePrimaryId,

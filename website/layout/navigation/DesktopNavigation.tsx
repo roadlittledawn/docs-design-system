@@ -3,21 +3,33 @@ import { PrimaryNav } from './PrimaryNav'
 import { SecondaryNav } from './SecondaryNav'
 
 export function DesktopNavigation() {
-  const { navigationConfig, activePrimaryId } = useNavigation()
+  const { navigationConfig, activePrimaryId, pinnedPrimaryId } = useNavigation()
 
-  // Find the active primary item
-  const activePrimaryItem = activePrimaryId
+  // Find the pinned primary item (for current page's section)
+  const pinnedPrimaryItem = pinnedPrimaryId
+    ? navigationConfig.primary.find(item => item.id === pinnedPrimaryId) || null
+    : null
+
+  // Find the active (hover) primary item - only show if different from pinned
+  const activePrimaryItem = activePrimaryId && activePrimaryId !== pinnedPrimaryId
     ? navigationConfig.primary.find(item => item.id === activePrimaryId) || null
     : null
 
   return (
-    <div className="hidden md:block relative">
+    <div className="hidden md:flex relative">
       <PrimaryNav />
 
-      {/* Secondary nav as overlay/flyover */}
+      {/* Pinned secondary nav - shown alongside content */}
+      {pinnedPrimaryItem && (
+        <div className="w-64 border-r border-gray-200">
+          <SecondaryNav activePrimaryItem={pinnedPrimaryItem} isPinned={true} />
+        </div>
+      )}
+
+      {/* Hover secondary nav - shown as overlay */}
       {activePrimaryItem && (
         <div className="fixed left-[88px] top-0 z-40">
-          <SecondaryNav activePrimaryItem={activePrimaryItem} />
+          <SecondaryNav activePrimaryItem={activePrimaryItem} isPinned={false} />
         </div>
       )}
     </div>

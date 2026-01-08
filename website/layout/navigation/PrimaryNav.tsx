@@ -16,16 +16,22 @@ export function PrimaryNav({ isMobile = false, onItemClick }: PrimaryNavProps) {
     if (isMobile && onItemClick) {
       onItemClick(item)
     } else {
-      // Desktop: navigate to the first child (Overview page)
-      const firstChild = item.secondary[0]
-      if (firstChild && firstChild.type === 'link') {
-        router.push(firstChild.href)
+      // Desktop: navigate to direct link or first secondary child
+      if (item.href) {
+        // Direct link primary item
+        router.push(item.href)
+      } else if (item.secondary && item.secondary.length > 0) {
+        // Navigate to the first child (Overview page)
+        const firstChild = item.secondary[0]
+        if (firstChild && firstChild.type === 'link') {
+          router.push(firstChild.href)
+        }
       }
     }
   }
 
   const handleItemHover = (item: PrimaryNavItem) => {
-    if (!isMobile && item.secondary.length > 0) {
+    if (!isMobile && item.secondary && item.secondary.length > 0) {
       setActivePrimary(item.id)
     }
   }

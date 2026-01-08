@@ -57,19 +57,26 @@ export function NavigationProvider({
     const { pathname } = router
 
     for (const item of navigationConfig.primary) {
-      // Check if any secondary item matches current path
-      const hasActiveSecondary = item.secondary.some(sec => {
-        if (sec.type === 'link') {
-          return pathname === sec.href
-        }
-        if (sec.type === 'group') {
-          return sec.items.some(child => pathname === child.href)
-        }
-        return false
-      })
-
-      if (hasActiveSecondary) {
+      // Check if this is a direct link primary item
+      if (item.href && pathname === item.href) {
         return item.id
+      }
+
+      // Check if any secondary item matches current path
+      if (item.secondary) {
+        const hasActiveSecondary = item.secondary.some(sec => {
+          if (sec.type === 'link') {
+            return pathname === sec.href
+          }
+          if (sec.type === 'group') {
+            return sec.items.some(child => pathname === child.href)
+          }
+          return false
+        })
+
+        if (hasActiveSecondary) {
+          return item.id
+        }
       }
     }
 

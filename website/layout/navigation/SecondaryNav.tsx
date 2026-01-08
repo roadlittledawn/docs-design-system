@@ -22,13 +22,11 @@ export function SecondaryNav({ activePrimaryItem, isMobile = false, isPinned = f
     if (onClose) {
       onClose()
     } else if (!isPinned) {
-      // Only allow closing via X button or mouse leave for non-pinned (hover) secondary nav
       setActivePrimary(null)
     }
   }
 
   const handleMouseLeave = () => {
-    // Only close on mouse leave for non-pinned (hover) secondary nav
     if (!isMobile && !isPinned) {
       setActivePrimary(null)
     }

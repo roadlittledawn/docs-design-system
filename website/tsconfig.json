@@ -26,8 +26,8 @@
       "@/*": [
         "./*"
       ],
-      "@docs-design-system/ui": [
-        "../packages/ui/src/index.ts"
+      "@roadlittledawn/docs-design-system/react": [
+        "../packages/react/src/index.ts"
       ]
     }
   },

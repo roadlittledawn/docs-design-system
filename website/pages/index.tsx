@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Heading, Button, Card, CardGrid } from '@docs-design-system/ui';
+import { Heading, Button, Card, CardGrid } from '@roadlittledawn/docs-design-system/react';
 
 export default function Home() {
   return (

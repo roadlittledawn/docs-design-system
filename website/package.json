@@ -11,7 +11,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@docs-design-system/ui": "file:../../packages/ui",
+    "@roadlittledawn/docs-design-system": "file:../packages/react",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "^16.1.1",

@@ -6,9 +6,6 @@
 .dds-card-clickable {
   cursor: pointer;
   transition: var(--dds-transition-shadow);
-}
-
-a:has(.dds-card-clickable) {
   text-decoration: none;
 }
 

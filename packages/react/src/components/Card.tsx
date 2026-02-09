@@ -51,7 +51,7 @@ export function Card({
     .join(" ");
 
   const titleClasses = ["dds-card-title", `dds-card-title-${titleColor}`].join(
-    " "
+    " ",
   );
 
   const textClasses =
@@ -68,7 +68,7 @@ export function Card({
 
   if (href) {
     return (
-      <a href={href} className="block">
+      <a href={href} className="no-text-decoration">
         {content}
       </a>
     );

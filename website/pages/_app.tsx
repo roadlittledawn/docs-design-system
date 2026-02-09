@@ -1,9 +1,9 @@
-import type { AppProps } from 'next/app';
+import type { AppProps } from "next/app";
 import { Geist, Geist_Mono } from "next/font/google";
-import { DocsLayout } from '../layout/DocsLayout';
-import { navigationConfig } from '../nav.config';
+import { DocsLayout } from "../layout/DocsLayout";
+import { navigationConfig } from "../nav.config";
 import "../globals.css";
-import '../../packages/ui/dist/styles.css';
+import "../../packages/react/dist/styles.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

@@ -8,7 +8,7 @@ import {
   Collapser,
   Callout,
   CodeBlock,
-} from "@docs-design-system/ui";
+} from "@roadlittledawn/docs-design-system/react";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {

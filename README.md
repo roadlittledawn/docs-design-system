@@ -13,9 +13,10 @@ This monorepo has three primary components:
    - **Design Principles**: Documentation UX / UI patterns and principles
    - **Gallery**: Showcase of exemplary documentation websites
 
-2. **Component Package** (`packages/ui/`) - An NPM package (`@docs-design-system/ui`) that provides:
+2. **Component Package** (`packages/react/`) - An NPM package (`@roadlittledawn/docs-design-system`) that provides:
    - **Reusable Content Components**: Documentation-specific UI components for building consistent documentation interfaces
    - **Distributable Package**: Components that can be installed and used in other documentation projects
+   - **React Implementation**: React-based components (with support planned for vanilla JS and Vue.js)
 
 3. **Storybook** (`storybook/`) - Interactive component documentation that provides:
    - **Live Examples**: All UI components with interactive controls
@@ -57,12 +58,12 @@ npm install
 ### Development
 
 ```bash
-# Start all development servers (website, ui package, and Storybook)
+# Start all development servers (website, react package, and Storybook)
 npm run dev
 
 # Start individual servers
 npm run dev --workspace=website        # Next.js site at http://localhost:3000
-npm run dev --workspace=packages/ui    # UI package build watcher
+npm run dev --workspace=packages/react # React package build watcher
 npm run storybook                      # Storybook at http://localhost:6006
 
 # Build all packages
@@ -81,11 +82,11 @@ npm run type-check
 
 **Development Workflow Notes:**
 
-When editing CSS files in `packages/ui/src/components/`:
+When editing CSS files in `packages/react/src/components/`:
 - PostCSS automatically rebuilds `dist/styles.css` when you save changes
 - **Manual page refresh required** - The website dev server doesn't auto-reload for external package changes
 - This is a known limitation of consuming local packages in Next.js monorepos
-- The website treats `packages/ui` as a standard NPM package (consuming from `dist/`), which is the correct approach for a distributable component library
+- The website treats `packages/react` as a standard NPM package (consuming from `dist/`), which is the correct approach for a distributable component library
 
 ## Project Structure
 
@@ -94,7 +95,7 @@ docs-design-system/
 ├── website/           # Next.js documentation site (design system website)
 ├── storybook/         # Storybook component documentation
 ├── packages/
-│   └── ui/            # NPM package with reusable content components
+│   └── react/         # NPM package with React components (@roadlittledawn/docs-design-system)
 ├── shared/            # Shared utilities and design tokens
 └── README.md
 ```
@@ -102,7 +103,7 @@ docs-design-system/
 **Key distinctions:**
 
 - `website/` - The documentation site that teaches the design system
-- `packages/ui/` - Components distributed via NPM for use in other projects
+- `packages/react/` - React components distributed via NPM for use in other projects
 - `storybook/` - Interactive component documentation (not distributed)
 
 ## Built With

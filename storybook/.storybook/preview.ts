@@ -1,20 +1,20 @@
-import type { Preview } from '@storybook/react';
-import '@docs-design-system/ui/dist/styles.css';
+import type { Preview } from "@storybook/react";
+import "@roadlittledawn/docs-design-system-react/dist/styles.css";
 
 const preview: Preview = {
   parameters: {
     docs: {
       source: {
-        type: 'dynamic',
-        language: 'tsx',
+        type: "dynamic",
+        language: "tsx",
       },
       toc: {
-        contentsSelector: '.sbdocs-content',
-        headingSelector: 'h2, h3',
-        title: 'Table of Contents',
+        contentsSelector: ".sbdocs-content",
+        headingSelector: "h2, h3",
+        title: "Table of Contents",
       },
     },
-    actions: { argTypesRegex: '^on[A-Z].*' },
+    actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -23,10 +23,10 @@ const preview: Preview = {
       expanded: true,
     },
     backgrounds: {
-      default: 'light',
+      default: "light",
       values: [
-        { name: 'light', value: '#ffffff' },
-        { name: 'dark', value: '#1a1a1a' },
+        { name: "light", value: "#ffffff" },
+        { name: "dark", value: "#1a1a1a" },
       ],
     },
   },

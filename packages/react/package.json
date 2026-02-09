@@ -1,7 +1,7 @@
 {
-  "name": "@docs-design-system/ui",
+  "name": "@roadlittledawn/docs-design-system-react",
   "version": "0.1.0",
-  "description": "UI components for documentation design system",
+  "description": "React components for documentation design system",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -34,11 +34,11 @@
     "react-dom": "^18.0.0"
   },
   "exports": {
-    ".": {
+    "./react": {
       "import": "./dist/index.js",
-      "require": "./dist/index.js"
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
-    "./dist/styles.css": "./dist/styles.css",
-    "./styles.css": "./dist/styles.css"
+    "./react/styles.css": "./dist/styles.css"
   }
 }

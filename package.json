@@ -3,8 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "npm run dev --workspace=packages/ui & npm run dev --workspace=website & npm run storybook",
-    "build": "npm run build --workspace=packages/ui && npm run build --workspace=website && npm run build-storybook",
+    "dev": "npm run dev --workspace=packages/react & npm run dev --workspace=website & npm run storybook",
+    "build": "npm run build --workspace=packages/react && npm run build --workspace=website && npm run build-storybook",
     "lint": "npm run lint --workspaces --if-present",
     "type-check": "npm run type-check --workspaces --if-present",
     "storybook": "npm run storybook --workspace=storybook",

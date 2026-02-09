@@ -1,4 +1,4 @@
-import { Heading } from "@docs-design-system/ui";
+import { Heading } from "@roadlittledawn/docs-design-system/react";
 
 export default function ComponentsPage() {
   return (

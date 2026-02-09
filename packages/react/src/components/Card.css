@@ -1,3 +1,7 @@
+a.no-text-decoration {
+  text-decoration: none;
+}
+
 .dds-card {
   padding: var(--dds-card-padding);
   border-radius: var(--dds-card-radius);
@@ -10,6 +14,10 @@
 
 .dds-card-clickable:hover {
   box-shadow: var(--dds-card-shadow-hover);
+}
+
+.dds-card-clickable > * {
+  text-decoration: none;
 }
 
 /* Background variants */
@@ -97,4 +105,3 @@
 .dds-card-text-gray {
   color: var(--dds-card-text-gray);
 }
-

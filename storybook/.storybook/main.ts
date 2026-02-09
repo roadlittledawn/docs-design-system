@@ -19,7 +19,7 @@ const config: StorybookConfig = {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...config.resolve.alias,
-      "@roadlittledawn/docs-design-system/react": resolve(
+      "@roadlittledawn/docs-design-system-react": resolve(
         __dirname,
         "../../packages/react",
       ),

@@ -2,7 +2,7 @@
   "name": "@docs-design-system/storybook",
   "version": "0.1.0",
   "private": true,
-  "description": "Storybook documentation for @docs-design-system/react components",
+  "description": "Storybook documentation for @roadlittledawn/docs-design-system-react components",
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build": "storybook build -o dist",

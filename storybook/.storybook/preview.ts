@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/react";
-import "@roadlittledawn/docs-design-system/react/dist/styles.css";
+import "@roadlittledawn/docs-design-system-react/dist/styles.css";
 
 const preview: Preview = {
   parameters: {

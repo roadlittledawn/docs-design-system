@@ -7,6 +7,10 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    # Required for OIDC token authentication with NPM
+    permissions:
+      contents: read
+      id-token: write
     strategy:
       matrix:
         package:
@@ -23,6 +27,9 @@ jobs:
           node-version: "22"
           cache: "npm"
           registry-url: "https://registry.npmjs.org"
+
+      - name: Update npm for OIDC support
+        run: npm install -g npm@latest
 
       - name: Check if version changed
         id: version-check
@@ -54,9 +61,7 @@ jobs:
         working-directory: ${{ matrix.package.path }}
         run: npm run build
 
-      - name: Publish to NPM
+      - name: Publish to NPM with provenance
         if: steps.version-check.outputs.should_publish == 'true'
         working-directory: ${{ matrix.package.path }}
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public --provenance

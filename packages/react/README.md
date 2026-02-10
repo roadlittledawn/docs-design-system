@@ -1,49 +1,136 @@
-# @roadlittledawn/docs-design-system
+# @roadlittledawn/docs-design-system-react
 
 React components for building documentation interfaces.
 
-## Overview
-
-This package contains the React-based component library that can be published to NPM for use in documentation sites.
+See [package on NPM](https://www.npmjs.com/package/@roadlittledawn/docs-design-system-react).
 
 ## Installation
 
 ```bash
-npm install @roadlittledawn/docs-design-system
+npm install @roadlittledawn/docs-design-system-react
 ```
 
 ## Usage
 
 ```tsx
-import { Typography, Button } from '@roadlittledawn/docs-design-system/react';
-
-export default function MyComponent() {
-  return (
-    <div>
-      <Typography variant="h1">Hello World</Typography>
-      <Button>Click me</Button>
-    </div>
-  );
-}
+import {
+  Callout,
+  CodeBlock,
+  Card,
+} from "@roadlittledawn/docs-design-system-react";
 ```
 
-## Importing Styles
+### Importing Styles
 
 Import the component styles in your app:
 
 ```tsx
-import '@roadlittledawn/docs-design-system/react/styles.css';
+import "@roadlittledawn/docs-design-system-react/styles.css";
 ```
 
-## Docs Content Component Ideas
+## Components
 
-Components specifically designed for documentation content:
+### Callout
 
-- **Callout** - Highlight important information, warnings, tips, or notes
-- **Collapser** - Expandable/collapsible sections for optional or detailed content
-- **Tabs** - Organize related content or code examples by language/framework
-- **CodeBlock** - Syntax-highlighted code with copy functionality
-- **CopyAsMarkdown** - Copy content in markdown format for easy sharing
+Highlight important information, warnings, tips, or notes.
+
+```tsx
+<Callout variant="tip">This is a helpful tip!</Callout>
+```
+
+### CodeBlock
+
+Syntax-highlighted code with copy functionality.
+
+```tsx
+<CodeBlock language="javascript">
+  {`const greeting = "Hello, world!";`}
+</CodeBlock>
+```
+
+### Collapser
+
+Expandable/collapsible sections for optional or detailed content.
+
+```tsx
+<Collapser title="More details">Hidden content revealed on expand.</Collapser>
+```
+
+### Card
+
+Clickable card for navigation or content grouping.
+
+```tsx
+<Card title="Getting Started" href="/docs/intro">
+  Learn the basics.
+</Card>
+```
+
+### CardGrid
+
+Grid layout for organizing multiple cards.
+
+```tsx
+<CardGrid columns={3}>
+  <Card title="Guide 1" href="/guide-1">
+    Description
+  </Card>
+  <Card title="Guide 2" href="/guide-2">
+    Description
+  </Card>
+</CardGrid>
+```
+
+### Typography
+
+Text component with semantic variants.
+
+```tsx
+<Typography variant="body">Paragraph text</Typography>
+```
+
+### Heading
+
+Semantic heading levels.
+
+```tsx
+<Heading level={2}>Section Title</Heading>
+```
+
+### Link
+
+Styled anchor with external link detection.
+
+```tsx
+<Link href="/docs">Internal link</Link>
+<Link href="https://example.com">External link</Link>
+```
+
+### Button
+
+Action button with variants.
+
+```tsx
+<Button variant="primary" onClick={handleClick}>
+  Click me
+</Button>
+```
+
+## Hooks
+
+### useKeyPress
+
+Listen for keyboard events.
+
+```tsx
+const isPressed = useKeyPress("Escape");
+```
+
+## Documentation
+
+Full component documentation with live examples is available in our Storybook.
+
+**Storybook URL:** _Coming soon_
 
 ## Development
 

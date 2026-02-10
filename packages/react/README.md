@@ -2,6 +2,8 @@
 
 React components for building documentation interfaces.
 
+See [package on NPM](https://www.npmjs.com/package/@roadlittledawn/docs-design-system-react).
+
 ## Installation
 
 ```bash
@@ -11,7 +13,11 @@ npm install @roadlittledawn/docs-design-system-react
 ## Usage
 
 ```tsx
-import { Callout, CodeBlock, Card } from '@roadlittledawn/docs-design-system-react';
+import {
+  Callout,
+  CodeBlock,
+  Card,
+} from "@roadlittledawn/docs-design-system-react";
 ```
 
 ### Importing Styles
@@ -19,7 +25,7 @@ import { Callout, CodeBlock, Card } from '@roadlittledawn/docs-design-system-rea
 Import the component styles in your app:
 
 ```tsx
-import '@roadlittledawn/docs-design-system-react/styles.css';
+import "@roadlittledawn/docs-design-system-react/styles.css";
 ```
 
 ## Components
@@ -47,9 +53,7 @@ Syntax-highlighted code with copy functionality.
 Expandable/collapsible sections for optional or detailed content.
 
 ```tsx
-<Collapser title="More details">
-  Hidden content revealed on expand.
-</Collapser>
+<Collapser title="More details">Hidden content revealed on expand.</Collapser>
 ```
 
 ### Card
@@ -68,8 +72,12 @@ Grid layout for organizing multiple cards.
 
 ```tsx
 <CardGrid columns={3}>
-  <Card title="Guide 1" href="/guide-1">Description</Card>
-  <Card title="Guide 2" href="/guide-2">Description</Card>
+  <Card title="Guide 1" href="/guide-1">
+    Description
+  </Card>
+  <Card title="Guide 2" href="/guide-2">
+    Description
+  </Card>
 </CardGrid>
 ```
 
@@ -103,7 +111,9 @@ Styled anchor with external link detection.
 Action button with variants.
 
 ```tsx
-<Button variant="primary" onClick={handleClick}>Click me</Button>
+<Button variant="primary" onClick={handleClick}>
+  Click me
+</Button>
 ```
 
 ## Hooks
@@ -113,7 +123,7 @@ Action button with variants.
 Listen for keyboard events.
 
 ```tsx
-const isPressed = useKeyPress('Escape');
+const isPressed = useKeyPress("Escape");
 ```
 
 ## Documentation

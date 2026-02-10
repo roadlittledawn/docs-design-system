@@ -77,12 +77,14 @@ npm run type-check
 ```
 
 **Development URLs:**
+
 - Documentation site: `http://localhost:3000`
 - Storybook: `http://localhost:6006`
 
 **Development Workflow Notes:**
 
 When editing CSS files in `packages/react/src/components/`:
+
 - PostCSS automatically rebuilds `dist/styles.css` when you save changes
 - **Manual page refresh required** - The website dev server doesn't auto-reload for external package changes
 - This is a known limitation of consuming local packages in Next.js monorepos
@@ -118,15 +120,16 @@ docs-design-system/
 ## Component Documentation
 
 All UI components are documented in Storybook with:
+
 - Interactive examples and prop controls
 - Auto-generated API documentation from TypeScript
 - Usage guidelines ("When to Use" / "When Not to Use")
 - Accessibility testing and best practices
 
 **View Component Docs:**
+
 ```bash
 npm run storybook
-# Opens at http://localhost:6006
 ```
 
 See `storybook/README.md` for more information on adding and documenting components.

@@ -1,0 +1,62 @@
+name: Publish to NPM
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package:
+          - name: react
+            path: packages/react
+            npm-name: "@roadlittledawn/docs-design-system-react"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Check if version changed
+        id: version-check
+        working-directory: ${{ matrix.package.path }}
+        run: |
+          PACKAGE_NAME="${{ matrix.package.npm-name }}"
+          LOCAL_VERSION=$(node -p "require('./package.json').version")
+
+          # Get published version from NPM (returns empty if not published)
+          NPM_VERSION=$(npm view "$PACKAGE_NAME" version 2>/dev/null || echo "")
+
+          echo "Local version: $LOCAL_VERSION"
+          echo "NPM version: $NPM_VERSION"
+
+          if [ "$LOCAL_VERSION" != "$NPM_VERSION" ]; then
+            echo "should_publish=true" >> $GITHUB_OUTPUT
+            echo "Version changed, will publish"
+          else
+            echo "should_publish=false" >> $GITHUB_OUTPUT
+            echo "Version unchanged, skipping publish"
+          fi
+
+      - name: Install dependencies
+        if: steps.version-check.outputs.should_publish == 'true'
+        run: npm ci
+
+      - name: Build package
+        if: steps.version-check.outputs.should_publish == 'true'
+        working-directory: ${{ matrix.package.path }}
+        run: npm run build
+
+      - name: Publish to NPM
+        if: steps.version-check.outputs.should_publish == 'true'
+        working-directory: ${{ matrix.package.path }}
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

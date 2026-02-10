@@ -1,0 +1,3 @@
+[build]
+  command = "cd .. && npm ci && npm run build-storybook"
+  publish = "dist"

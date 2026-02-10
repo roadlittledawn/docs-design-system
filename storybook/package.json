@@ -4,7 +4,7 @@
   "private": true,
   "description": "Storybook documentation for @roadlittledawn/docs-design-system-react components",
   "scripts": {
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006 --no-open",
     "build": "storybook build -o dist",
     "preview": "npx http-server dist",
     "prestorybook": "cd .. && npm run build --workspace=packages/react"

@@ -1,4 +1,4 @@
-import { Heading } from "@docs-design-system/ui";
+import { Heading } from "@roadlittledawn/docs-design-system/react";
 import { GalleryData } from "@/types/gallery";
 import galleryData from "../../data/gallery.json";
 import Link from "next/link";

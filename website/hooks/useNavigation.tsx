@@ -6,8 +6,9 @@ interface NavigationContextType {
   navigationConfig: NavigationConfig
 
   // Desktop state
-  activePrimaryId: string | null
+  activePrimaryId: string | null // Currently hovered/active primary nav item
   setActivePrimary: (id: string | null) => void
+  pinnedPrimaryId: string | null // Primary nav item whose secondary should be persistently shown alongside content (not overlay)
 
   // Mobile state
   mobileMenuOpen: boolean
@@ -41,6 +42,7 @@ export function NavigationProvider({
 
   // Desktop state
   const [activePrimaryId, setActivePrimaryId] = useState<string | null>(null)
+  const [pinnedPrimaryId, setPinnedPrimaryId] = useState<string | null>(null)
 
   // Mobile state
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -55,19 +57,26 @@ export function NavigationProvider({
     const { pathname } = router
 
     for (const item of navigationConfig.primary) {
-      // Check if any secondary item matches current path
-      const hasActiveSecondary = item.secondary.some(sec => {
-        if (sec.type === 'link') {
-          return pathname === sec.href
-        }
-        if (sec.type === 'group') {
-          return sec.items.some(child => pathname === child.href)
-        }
-        return false
-      })
-
-      if (hasActiveSecondary) {
+      // Check if this is a direct link primary item
+      if (item.href && pathname === item.href) {
         return item.id
+      }
+
+      // Check if any secondary item matches current path
+      if (item.secondary) {
+        const hasActiveSecondary = item.secondary.some(sec => {
+          if (sec.type === 'link') {
+            return pathname === sec.href
+          }
+          if (sec.type === 'group') {
+            return sec.items.some(child => pathname === child.href)
+          }
+          return false
+        })
+
+        if (hasActiveSecondary) {
+          return item.id
+        }
       }
     }
 
@@ -79,13 +88,11 @@ export function NavigationProvider({
     return router.pathname === href
   }
 
-  // Set active primary on route change
+  // Set pinned primary on route change (for persistent secondary nav on large screens)
   useEffect(() => {
     const activeId = getActivePrimaryFromPath()
-    if (activeId) {
-      setActivePrimaryId(activeId)
-    }
-  }, [router.pathname])
+    setPinnedPrimaryId(activeId)
+  }, [router.pathname, navigationConfig.primary])
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -131,6 +138,7 @@ export function NavigationProvider({
     navigationConfig,
     activePrimaryId,
     setActivePrimary,
+    pinnedPrimaryId,
     mobileMenuOpen,
     mobileView,
     mobileActivePrimaryId,

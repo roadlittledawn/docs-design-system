@@ -3,7 +3,7 @@ import createMDX from '@next/mdx'
 
 const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-  transpilePackages: ['@docs-design-system/ui'],
+  transpilePackages: ['@roadlittledawn/docs-design-system'],
 };
 
 const withMDX = createMDX({

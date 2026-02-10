@@ -1,0 +1,38 @@
+.dds-typography {
+  color: var(--dds-heading-color);
+}
+
+.dds-typography-h1 {
+  font-size: var(--dds-heading-1-size);
+  font-weight: var(--dds-font-bold);
+  line-height: var(--dds-line-height-tight);
+}
+
+.dds-typography-h2 {
+  font-size: var(--dds-heading-2-size);
+  font-weight: var(--dds-font-semibold);
+  line-height: var(--dds-line-height-tight);
+}
+
+.dds-typography-h3 {
+  font-size: var(--dds-heading-3-size);
+  font-weight: var(--dds-font-medium);
+  line-height: var(--dds-line-height-tight);
+}
+
+.dds-typography-h4 {
+  font-size: var(--dds-heading-4-size);
+  font-weight: var(--dds-font-medium);
+  line-height: var(--dds-line-height-tight);
+}
+
+.dds-typography-p {
+  font-size: var(--dds-text-base-size);
+  line-height: var(--dds-line-height-relaxed);
+}
+
+.dds-typography-caption {
+  font-size: var(--dds-text-sm-size);
+  color: #4b5563; /* gray-600 */
+}
+

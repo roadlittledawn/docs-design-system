@@ -1,0 +1,47 @@
+.dds-card-grid {
+  display: grid;
+  gap: 1.5rem; /* gap-6 */
+}
+
+.dds-card-grid-2 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .dds-card-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.dds-card-grid-3 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .dds-card-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .dds-card-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.dds-card-grid-4 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .dds-card-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .dds-card-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+

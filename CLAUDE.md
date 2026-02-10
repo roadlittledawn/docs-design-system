@@ -4,11 +4,15 @@ This file contains important context and instructions for Claude Code when worki
 
 ## Project Overview
 
-This is a documentation design system monorepo that provides:
-- A comprehensive design system for creating effective documentation
-- Reusable UI components that can be packaged for NPM
+This is a documentation design system monorepo with two primary purposes:
+
+1. **Design System Website** (`website/`) - A Next.js site that documents best practices, principles, and guidelines for creating effective documentation
+2. **Component Package** (`packages/ui/`) - An NPM package (`@docs-design-system/ui`) containing reusable content components that can be distributed and used in other documentation projects
+
+The monorepo provides:
 - Guidelines and principles for technical writers and developers
 - A gallery of exemplary documentation websites
+- Reusable UI components specifically designed for documentation use cases
 
 ## Development Commands
 
@@ -22,14 +26,15 @@ npm run type-check   # Run TypeScript checking
 ```
 
 ### Package Structure
-- `apps/docs/` - Next.js documentation site
-- `packages/ui/` - Reusable UI components (future NPM package)
+- `website/` - Next.js documentation site (the design system website itself)
+- `packages/ui/` - NPM package with reusable content components for distribution
 - `shared/` - Shared utilities and design tokens
 
 ### Component Development
 - UI components are in `packages/ui/src/components/`
-- Import components in docs app using `@docs-design-system/ui`
-- TypeScript path alias is configured in `apps/docs/tsconfig.json`
+- Import components in the website using `@docs-design-system/ui`
+- TypeScript path alias is configured in `website/tsconfig.json`
+- Components in `packages/ui/` are built for NPM distribution to be used in other projects
 
 ### Testing
 - Always run `npm run build` and `npm run type-check` before committing
@@ -41,11 +46,12 @@ npm run type-check   # Run TypeScript checking
 ### Monorepo Structure
 Using npm workspaces for simple monorepo management without additional tooling complexity.
 
-### UI Package
-Components are built with:
+### UI Package (`packages/ui/`)
+This package is designed for NPM distribution. Components are built with:
 - React + TypeScript
 - Tailwind CSS for styling
-- Designed to be easily extractable to NPM package later
+- Focus on documentation-specific content components (not general UI components)
+- Intended to be installed and used by other documentation projects
 
 ### Documentation Framework
 Following the Diátaxis framework for organizing documentation into four types:

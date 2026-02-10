@@ -4,34 +4,31 @@ A comprehensive design system for creating effective, user-centered documentatio
 
 > **⚠️ Work in Progress**: This project is currently under active development. Features and APIs may change.
 
-## What This Will Be
+## What This Is
 
-This documentation design system will provide:
+This monorepo has three primary components:
 
-- **Style Guide**: Standards and best practices for writing and content quality
-- **Design Principles**: Documentation UX / UI patterns and principles
-- **Component Library**: Reusable UI elements for building consistent documentation interfaces
-- **NPM Package**: Exportable components for easy integration into other projects
+1. **Design System Website** (`website/`) - A Next.js documentation site that provides:
+   - **Style Guide**: Standards and best practices for writing and content quality
+   - **Design Principles**: Documentation UX / UI patterns and principles
+   - **Gallery**: Showcase of exemplary documentation websites
+
+2. **Component Package** (`packages/react/`) - An NPM package (`@roadlittledawn/docs-design-system`) that provides:
+   - **Reusable Content Components**: Documentation-specific UI components for building consistent documentation interfaces
+   - **Distributable Package**: Components that can be installed and used in other documentation projects
+   - **React Implementation**: React-based components (with support planned for vanilla JS and Vue.js)
+
+3. **Storybook** (`storybook/`) - Interactive component documentation that provides:
+   - **Live Examples**: All UI components with interactive controls
+   - **Auto-Generated API Docs**: Component props documentation from TypeScript
+   - **Accessibility Testing**: Built-in a11y violation reporting
+   - **Visual Documentation**: "When to Use" guidelines for each component
 
 ## To Do
 
 ### App: Style guide
 
 ### App: Design principles
-
-- AI: Discovery, Writing, Reviewing
-  - Discovery
-    - AI chat bot to answer questions,
-    - copy content in markdown, upload content to S3 for indexing in RAG / AI backends
-    - Success metrics: defect ratio when using docs (instead of helpfulness/CSAT)
-- Content quality measures & success metrics
-  - CSAT / helpfulness as content freshness mechanism, not success metric
-    - low sample size, biases toward bad, not always about the content itself
-  - AI: defect ratios in gen AI apps using docs to answer questions
-  - in AI completeness takes on new significance (e.g., documenting the obvious important for AI knowledge)
-  - AI needs meta data and more signals for freshness / engagement / sentiment and multiple content/corpous sources
-    - e.g., KT applying simple filters on 15M wiki pages and increasing helpfulness, biasing toward more authoritative sources first
-    - starts to resemble page ranking search algorithms
 
 ### App: Gallery
 
@@ -61,8 +58,13 @@ npm install
 ### Development
 
 ```bash
-# Start the development server
+# Start all development servers (website, react package, and Storybook)
 npm run dev
+
+# Start individual servers
+npm run dev --workspace=website        # Next.js site at http://localhost:3000
+npm run dev --workspace=packages/react # React package build watcher
+npm run storybook                      # Storybook at http://localhost:6006
 
 # Build all packages
 npm run build
@@ -74,26 +76,60 @@ npm run lint
 npm run type-check
 ```
 
-The documentation site will be available at `http://localhost:3000`.
+**Development URLs:**
+- Documentation site: `http://localhost:3000`
+- Storybook: `http://localhost:6006`
+
+**Development Workflow Notes:**
+
+When editing CSS files in `packages/react/src/components/`:
+- PostCSS automatically rebuilds `dist/styles.css` when you save changes
+- **Manual page refresh required** - The website dev server doesn't auto-reload for external package changes
+- This is a known limitation of consuming local packages in Next.js monorepos
+- The website treats `packages/react` as a standard NPM package (consuming from `dist/`), which is the correct approach for a distributable component library
 
 ## Project Structure
 
 ```
 docs-design-system/
-├── apps/
-│   └── docs/          # Next.js documentation site
+├── website/           # Next.js documentation site (design system website)
+├── storybook/         # Storybook component documentation
 ├── packages/
-│   └── ui/            # Reusable UI components (future NPM package)
+│   └── react/         # NPM package with React components (@roadlittledawn/docs-design-system)
 ├── shared/            # Shared utilities and design tokens
 └── README.md
 ```
 
+**Key distinctions:**
+
+- `website/` - The documentation site that teaches the design system
+- `packages/react/` - React components distributed via NPM for use in other projects
+- `storybook/` - Interactive component documentation (not distributed)
+
 ## Built With
 
-- **Next.js 16** - React framework with App Router
+- **Next.js 16** - React framework with Pages Router
 - **TypeScript** - Type safety
-- **Tailwind CSS** - Utility-first CSS framework
+- **Tailwind CSS v4** - Utility-first CSS framework
+- **MDX** - Markdown for content pages
+- **Storybook 8** - Component documentation and development
 - **npm workspaces** - Monorepo management
+
+## Component Documentation
+
+All UI components are documented in Storybook with:
+- Interactive examples and prop controls
+- Auto-generated API documentation from TypeScript
+- Usage guidelines ("When to Use" / "When Not to Use")
+- Accessibility testing and best practices
+
+**View Component Docs:**
+```bash
+npm run storybook
+# Opens at http://localhost:6006
+```
+
+See `storybook/README.md` for more information on adding and documenting components.
 
 ## Contributing
 

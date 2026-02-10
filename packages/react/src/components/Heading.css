@@ -1,0 +1,29 @@
+.dds-heading {
+  font-weight: var(--dds-font-bold);
+  color: var(--dds-heading-color);
+}
+
+.dds-heading-1 {
+  font-size: var(--dds-heading-1-size);
+  margin-top: var(--dds-heading-1-margin-top);
+  margin-bottom: var(--dds-heading-1-margin-bottom);
+}
+
+.dds-heading-2 {
+  font-size: var(--dds-heading-2-size);
+  margin-top: var(--dds-heading-2-margin-top);
+  margin-bottom: var(--dds-heading-2-margin-bottom);
+}
+
+.dds-heading-3 {
+  font-size: var(--dds-heading-3-size);
+  margin-top: var(--dds-heading-3-margin-top);
+  margin-bottom: var(--dds-heading-3-margin-bottom);
+}
+
+.dds-heading-4 {
+  font-size: var(--dds-heading-4-size);
+  margin-top: var(--dds-heading-4-margin-top);
+  margin-bottom: var(--dds-heading-4-margin-bottom);
+}
+

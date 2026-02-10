@@ -1,0 +1,69 @@
+---
+title: Content Quality & Success Metrics
+---
+
+# Content Quality & Success Metrics
+
+Measuring content quality is notoriously difficult, especially at scale. Rather than relying on a single metric, effective measurement uses a combination of signals:
+
+- **Feedback & helpfulness** - ratings and especially actionable comments from users
+- **Usage data** - traditional web analytics like unique users, page views
+- **Freshness & authoring** - last edited dates, last verified timestamps, review cycles
+
+With the advent of AI, there's a new channel of interaction to measure: citations in AI answers, helpfulness ratings from AI chat applications, and feedback specific to AI-generated responses using your documentation. However, AI-era measurement introduces a critical challenge: it's extremely difficult to differentiate **retrieval problems** (where AI mistakenly attempts to use documentation when the answer shouldn't be in docs at all) from **content quality issues** that lead to inaccurate or unhelpful answers.
+
+## Rethinking CSAT & Helpfulness Scores
+
+CSAT and helpfulness ratings are valuable as content freshness signals and drivers, but problematic as primary success metrics:
+
+- **Low sample sizes** create unreliable data
+- **Negativity bias** - dissatisfied users disproportionately respond
+- **Context matters** - poor ratings may reflect external factors (product issues, user expectations) rather than content quality
+
+**Better approach:** Use CSAT as a trigger for content review and updates, not as a standalone quality measure.
+
+## AI-Era Quality Signals
+
+### Defect Ratios in AI Applications
+
+When docs power AI-driven support or code generation:
+
+- Track **hallucination rates** and incorrect answers traced to documentation gaps
+- Monitor **clarification requests** that indicate incomplete or ambiguous content
+- Measure **correction frequency** when AI responses require human intervention
+
+### Completeness Takes New Importance
+
+In the AI context, documenting obvious details matters:
+
+- AI systems need explicit, comprehensive information - they can't infer from context like humans
+- Edge cases and basic information both contribute to AI knowledge graphs
+- Gaps that humans navigate easily become blind spots for AI
+
+## Metadata & Multi-Signal Approaches
+
+AI systems need richer signals beyond content alone:
+
+- **Freshness indicators** - last updated, last verified
+- **Engagement metrics** - usage patterns, bounce rates
+- **Sentiment signals** - aggregated feedback across multiple touchpoints
+- **Authority weighting** - source credibility, expertise markers, review status
+
+### Example: Knowledge Base Filtering
+
+Organizations applying simple filtering on large content repositories (e.g., 15M+ wiki pages) achieve measurable improvements:
+
+- Filter by authoritativeness and recency
+- Bias AI systems toward vetted, maintained content first
+- Similar to page ranking in search algorithms - quality signals compound
+
+## Measuring What Matters
+
+Focus metrics on outcomes:
+
+- **Task completion rates** - can users accomplish their goals?
+- **Time to resolution** - how quickly do they find answers?
+- **AI-assisted accuracy** - when AI uses your docs, what's the success rate?
+- **Content utilization** - which docs actually get used (by humans and AI)?
+
+Quality measurement is shifting from satisfaction scores to effectiveness signals across both human and AI consumption patterns.

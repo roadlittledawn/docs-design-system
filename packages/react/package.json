@@ -1,0 +1,45 @@
+{
+  "name": "@roadlittledawn/docs-design-system-react",
+  "version": "0.1.1",
+  "license": "MIT",
+  "description": "React components for documentation design system",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && npm run build:css",
+    "build:css": "postcss src/styles/components.css -o dist/styles.css",
+    "dev": "npm run dev:ts & npm run dev:css",
+    "dev:ts": "tsc --watch",
+    "dev:css": "postcss src/styles/components.css -o dist/styles.css --watch",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "prismjs": "^1.29.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "postcss": "^8.4.0",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.0.0",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles.css": "./dist/styles.css"
+  }
+}

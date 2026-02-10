@@ -1,4 +1,4 @@
-import { Heading, Button } from '@docs-design-system/ui';
+import { Heading, Button } from '@roadlittledawn/docs-design-system/react';
 import { GalleryData, GallerySite } from '@/types/gallery';
 import galleryData from '../../data/gallery.json';
 import Link from 'next/link';

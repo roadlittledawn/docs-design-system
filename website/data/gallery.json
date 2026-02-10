@@ -9,12 +9,8 @@
       "date": "2024-07-16",
       "images": [
         {
-          "url": "/gallery/stripe-docs/hero.png",
-          "caption": "Clean homepage with clear navigation paths"
-        },
-        {
-          "url": "/gallery/stripe-docs/api-reference.png",
-          "caption": "Interactive API reference with code examples"
+          "url": "/stripe-docs.png",
+          "caption": "Homepage screenshot"
         }
       ],
       "links": [
@@ -43,8 +39,8 @@
       "date": "2024-07-16",
       "images": [
         {
-          "url": "/gallery/vercel-docs/hero.png",
-          "caption": "Modern, clean documentation homepage"
+          "url": "/vercel-docs.png",
+          "caption": "Homepage screenshot"
         }
       ],
       "links": [
@@ -73,12 +69,8 @@
       "date": "2024-07-16",
       "images": [
         {
-          "url": "/gallery/tailwind-css/hero.png",
-          "caption": "Elegant documentation with instant search"
-        },
-        {
-          "url": "/gallery/tailwind-css/playground.png",
-          "caption": "Interactive playground for testing styles"
+          "url": "/tailwind-css.png",
+          "caption": "Homepage screenshot"
         }
       ],
       "links": [
@@ -108,12 +100,8 @@
       "date": "2024-07-16",
       "images": [
         {
-          "url": "/gallery/github-docs/hero.png",
-          "caption": "Well-organized landing page with clear paths"
-        },
-        {
-          "url": "/gallery/github-docs/guides.png",
-          "caption": "Comprehensive guides with step-by-step instructions"
+          "url": "/github-docs.png",
+          "caption": "Homepage screenshot"
         }
       ],
       "links": [
@@ -139,16 +127,8 @@
       "date": "2024-07-16",
       "images": [
         {
-          "url": "/gallery/react-docs/hero.png",
-          "caption": "Modern redesign with focus on learning"
-        },
-        {
-          "url": "/gallery/react-docs/interactive.png",
-          "caption": "Interactive code sandboxes throughout"
-        },
-        {
-          "url": "/gallery/react-docs/challenges.png",
-          "caption": "Built-in challenges to test understanding"
+          "url": "/react-docs.png",
+          "caption": "Homepage screenshot"
         }
       ],
       "links": [
@@ -178,12 +158,8 @@
       "date": "2024-07-16",
       "images": [
         {
-          "url": "/gallery/mdn-web-docs/hero.png",
-          "caption": "Comprehensive web development documentation"
-        },
-        {
-          "url": "/gallery/mdn-web-docs/compatibility.png",
-          "caption": "Detailed browser compatibility tables"
+          "url": "/mdn-web-docs.png",
+          "caption": "Homepage screenshot"
         }
       ],
       "links": [
@@ -213,12 +189,8 @@
       "date": "2024-07-16",
       "images": [
         {
-          "url": "/gallery/supabase-docs/hero.png",
-          "caption": "Clean, modern documentation design"
-        },
-        {
-          "url": "/gallery/supabase-docs/quickstart.png",
-          "caption": "Framework-specific quickstart guides"
+          "url": "/supabase-docs.png",
+          "caption": "Homepage screenshot"
         }
       ],
       "links": [
@@ -248,8 +220,8 @@
       "date": "2025-12-05",
       "images": [
         {
-          "url": "/gallery/astro-docs/hero.png",
-          "caption": "Documentation homepage"
+          "url": "/astro-docs.png",
+          "caption": "Homepage screenshot"
         }
       ],
       "links": [
@@ -274,8 +246,8 @@
       "date": "2025-12-05",
       "images": [
         {
-          "url": "/gallery/new-relic-docs/hero.png",
-          "caption": "Documentation homepage"
+          "url": "/new-relic-docs.png",
+          "caption": "Homepage screenshot"
         }
       ],
       "links": [
@@ -301,8 +273,8 @@
       "date": "2025-12-09",
       "images": [
         {
-          "url": "/gallery/apollo-graphql-docs/hero.png",
-          "caption": "Documentation homepage"
+          "url": "/apollo-graphql-docs.png",
+          "caption": "Homepage screenshot"
         }
       ],
       "links": [
@@ -327,8 +299,8 @@
       "date": "2025-12-30",
       "images": [
         {
-          "url": "/gallery/netlify-docs/hero.png",
-          "caption": "Documentation homepage"
+          "url": "/netlify-docs.png",
+          "caption": "Homepage screenshot"
         }
       ],
       "links": [
@@ -358,8 +330,8 @@
       "date": "2025-12-30",
       "images": [
         {
-          "url": "/gallery/twilio-docs/hero.png",
-          "caption": "Documentation homepage"
+          "url": "/twilio-docs.png",
+          "caption": "Homepage screenshot"
         }
       ],
       "links": [

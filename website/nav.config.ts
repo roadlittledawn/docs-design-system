@@ -104,13 +104,7 @@ export const navigationConfig: NavigationConfig = {
       id: "gallery",
       label: "Gallery",
       icon: "image",
-      secondary: [
-        {
-          type: "link",
-          label: "Overview",
-          href: "/gallery",
-        },
-      ],
+      href: "/gallery",
     },
   ],
 };

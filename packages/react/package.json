@@ -1,8 +1,13 @@
 {
   "name": "@roadlittledawn/docs-design-system-react",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "description": "React components for documentation design system",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/roadlittledawn/docs-design-system",
+    "directory": "packages/react"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [

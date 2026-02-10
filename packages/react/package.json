@@ -34,11 +34,11 @@
     "react-dom": "^18.0.0"
   },
   "exports": {
-    "./react": {
+    ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
-    "./react/styles.css": "./dist/styles.css"
+    "./styles.css": "./dist/styles.css"
   }
 }

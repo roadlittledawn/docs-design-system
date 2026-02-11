@@ -152,6 +152,7 @@
   line-height: var(--dds-code-block-line-height, 1.5);
   color: var(--dds-code-block-text);
   background-color: transparent;
+  text-shadow: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -214,7 +215,11 @@
   font-size: var(--dds-code-block-message-size);
 }
 
-/* Prism theme overrides for light mode */
+/* Prism theme overrides */
+.dds-code-block-content .token {
+  text-shadow: none;
+}
+
 .dds-code-block-content .token.comment,
 .dds-code-block-content .token.prolog,
 .dds-code-block-content .token.doctype,
@@ -277,4 +282,18 @@
 .dds-code-block-content .token.important,
 .dds-code-block-content .token.variable {
   color: var(--dds-prism-regex);
+}
+
+/* Dark mode: disable tab position trick, rely on color contrast */
+.dds-dark .dds-code-block-tab-active,
+[data-dds-theme="dark"] .dds-code-block-tab-active {
+  margin-bottom: 0;
+  padding-bottom: var(--dds-code-block-tab-padding);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.dds-light):not([data-dds-theme="light"]) .dds-code-block-tab-active {
+    margin-bottom: 0;
+    padding-bottom: var(--dds-code-block-tab-padding);
+  }
 }

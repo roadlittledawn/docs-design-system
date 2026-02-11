@@ -5,15 +5,17 @@ a.no-text-decoration {
 .dds-card {
   padding: var(--dds-card-padding);
   border-radius: var(--dds-card-radius);
+  border: 1px solid var(--dds-card-border);
 }
 
 .dds-card-clickable {
   cursor: pointer;
-  transition: var(--dds-transition-shadow);
+  transition: var(--dds-transition-shadow), border-color 150ms ease-in-out;
 }
 
 .dds-card-clickable:hover {
   box-shadow: var(--dds-card-shadow-hover);
+  border-color: var(--dds-card-border-hover);
 }
 
 .dds-card-clickable > * {
@@ -47,7 +49,6 @@ a.no-text-decoration {
 
 .dds-card-bg-white {
   background-color: var(--dds-card-bg-white);
-  border: 1px solid var(--dds-card-border);
 }
 
 /* Title color variants */

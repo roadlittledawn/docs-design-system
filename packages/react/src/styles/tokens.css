@@ -28,6 +28,7 @@
   --dds-card-bg-gray: #f9fafb; /* gray-50 */
   --dds-card-bg-white: #ffffff;
   --dds-card-border: #e5e7eb; /* gray-200 */
+  --dds-card-border-hover: #d1d5db; /* gray-300 */
 
   --dds-card-title-blue: #1e3a8a; /* blue-900 */
   --dds-card-title-green: #14532d; /* green-900 */
@@ -199,6 +200,7 @@
   --dds-collapser-button-padding: 0.75rem; /* p-3 */
   --dds-collapser-button-hover-bg: #f9fafb; /* gray-50 */
   --dds-collapser-icon-color: #6b7280; /* gray-500 */
+  --dds-collapser-text: #374151; /* gray-700 */
   --dds-collapser-content-padding: 1rem; /* p-4 */
 }
 
@@ -238,14 +240,16 @@
   --dds-focus-ring-bg: transparent;
 
   /* Card */
-  --dds-card-bg-blue: transparent;
-  --dds-card-bg-green: transparent;
-  --dds-card-bg-purple: transparent;
-  --dds-card-bg-red: transparent;
-  --dds-card-bg-yellow: transparent;
-  --dds-card-bg-gray: transparent;
+  --dds-card-bg-blue: rgba(59, 130, 246, 0.08);
+  --dds-card-bg-green: rgba(34, 197, 94, 0.08);
+  --dds-card-bg-purple: rgba(168, 85, 247, 0.08);
+  --dds-card-bg-red: rgba(239, 68, 68, 0.08);
+  --dds-card-bg-yellow: rgba(234, 179, 8, 0.08);
+  --dds-card-bg-gray: rgba(156, 163, 175, 0.08);
   --dds-card-bg-white: transparent;
   --dds-card-border: #4b5563; /* gray-600 */
+  --dds-card-border-hover: #9ca3af; /* gray-400 */
+  --dds-card-shadow-hover: none;
 
   --dds-card-title-blue: #93c5fd; /* blue-300 */
   --dds-card-title-green: #86efac; /* green-300 */
@@ -286,6 +290,7 @@
   --dds-collapser-border: #4b5563; /* gray-600 */
   --dds-collapser-button-hover-bg: rgba(255, 255, 255, 0.05);
   --dds-collapser-icon-color: #9ca3af; /* gray-400 */
+  --dds-collapser-text: #e5e7eb; /* gray-200 */
 
   /* CodeBlock */
   --dds-code-block-bg: transparent;
@@ -358,14 +363,16 @@
     --dds-focus-ring-bg: transparent;
 
     /* Card */
-    --dds-card-bg-blue: transparent;
-    --dds-card-bg-green: transparent;
-    --dds-card-bg-purple: transparent;
-    --dds-card-bg-red: transparent;
-    --dds-card-bg-yellow: transparent;
-    --dds-card-bg-gray: transparent;
+    --dds-card-bg-blue: rgba(59, 130, 246, 0.08);
+    --dds-card-bg-green: rgba(34, 197, 94, 0.08);
+    --dds-card-bg-purple: rgba(168, 85, 247, 0.08);
+    --dds-card-bg-red: rgba(239, 68, 68, 0.08);
+    --dds-card-bg-yellow: rgba(234, 179, 8, 0.08);
+    --dds-card-bg-gray: rgba(156, 163, 175, 0.08);
     --dds-card-bg-white: transparent;
     --dds-card-border: #4b5563;
+    --dds-card-border-hover: #9ca3af;
+    --dds-card-shadow-hover: none;
 
     --dds-card-title-blue: #93c5fd;
     --dds-card-title-green: #86efac;
@@ -406,6 +413,7 @@
     --dds-collapser-border: #4b5563;
     --dds-collapser-button-hover-bg: rgba(255, 255, 255, 0.05);
     --dds-collapser-icon-color: #9ca3af;
+    --dds-collapser-text: #e5e7eb;
 
     /* CodeBlock */
     --dds-code-block-bg: transparent;

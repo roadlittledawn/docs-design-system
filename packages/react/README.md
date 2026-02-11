@@ -116,6 +116,55 @@ Action button with variants.
 </Button>
 ```
 
+## Dark Mode
+
+The package includes built-in dark mode support. All components use transparent backgrounds in dark mode so they don't clash with your site's own dark theme.
+
+### Auto (zero-config)
+
+Dark mode follows OS preference automatically when you import `styles.css` — no extra setup needed.
+
+```tsx
+import "@roadlittledawn/docs-design-system-react/styles.css";
+// Components automatically adapt to OS dark/light preference
+```
+
+### Explicit toggle
+
+Add `class="dds-dark"` or `data-dds-theme="dark"` to any ancestor element:
+
+```html
+<html class="dds-dark">
+  <!-- all components render in dark mode -->
+</html>
+```
+
+```html
+<html data-dds-theme="dark">
+  <!-- same effect -->
+</html>
+```
+
+### Force light mode
+
+Override OS dark preference by adding `class="dds-light"` or `data-dds-theme="light"`:
+
+```html
+<html class="dds-light">
+  <!-- components stay light even if OS prefers dark -->
+</html>
+```
+
+### Component-level dark islands
+
+Apply dark mode to a specific section:
+
+```html
+<div class="dds-dark">
+  <!-- only components inside this div use dark mode -->
+</div>
+```
+
 ## Hooks
 
 ### useKeyPress

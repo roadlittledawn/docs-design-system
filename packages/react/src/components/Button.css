@@ -19,7 +19,7 @@
 }
 
 .dds-button-primary:focus {
-  box-shadow: 0 0 0 var(--dds-focus-ring-offset) #ffffff, 0 0 0 calc(var(--dds-focus-ring-offset) + 2px) var(--dds-button-primary-focus-ring);
+  box-shadow: 0 0 0 var(--dds-focus-ring-offset) var(--dds-focus-ring-bg), 0 0 0 calc(var(--dds-focus-ring-offset) + 2px) var(--dds-button-primary-focus-ring);
 }
 
 .dds-button-secondary {
@@ -32,7 +32,7 @@
 }
 
 .dds-button-secondary:focus {
-  box-shadow: 0 0 0 var(--dds-focus-ring-offset) #ffffff, 0 0 0 calc(var(--dds-focus-ring-offset) + 2px) var(--dds-button-secondary-focus-ring);
+  box-shadow: 0 0 0 var(--dds-focus-ring-offset) var(--dds-focus-ring-bg), 0 0 0 calc(var(--dds-focus-ring-offset) + 2px) var(--dds-button-secondary-focus-ring);
 }
 
 .dds-button-outline {
@@ -46,7 +46,7 @@
 }
 
 .dds-button-outline:focus {
-  box-shadow: 0 0 0 var(--dds-focus-ring-offset) #ffffff, 0 0 0 calc(var(--dds-focus-ring-offset) + 2px) var(--dds-button-outline-focus-ring);
+  box-shadow: 0 0 0 var(--dds-focus-ring-offset) var(--dds-focus-ring-bg), 0 0 0 calc(var(--dds-focus-ring-offset) + 2px) var(--dds-button-outline-focus-ring);
 }
 
 /* Sizes */

@@ -54,4 +54,5 @@
 .dds-collapser-content {
   border-top: 1px solid var(--dds-collapser-border);
   padding: var(--dds-collapser-content-padding);
+  color: var(--dds-collapser-text);
 }

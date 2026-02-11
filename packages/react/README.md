@@ -118,7 +118,7 @@ Action button with variants.
 
 ## Dark Mode
 
-The package includes built-in dark mode support. All components use transparent backgrounds in dark mode so they don't clash with your site's own dark theme.
+The package includes built-in dark mode support. All components use transparent backgrounds (unless background color specified via props) in dark mode so they don't clash with your site's own dark theme.
 
 ### Auto (zero-config)
 

@@ -75,10 +75,6 @@
   color: var(--dds-code-block-tab-text-active);
   background-color: var(--dds-code-block-tab-bg-active);
   border-color: var(--dds-code-block-border);
-  z-index: 1;
-  /* Connect to content area */
-  margin-bottom: -1px;
-  padding-bottom: calc(var(--dds-code-block-tab-padding) + 1px);
 }
 
 .dds-code-block-tab-active:hover {
@@ -164,6 +160,7 @@
   font-size: inherit;
   color: inherit;
   background-color: transparent !important;
+  text-shadow: none !important;
   padding: 0;
   border-radius: 0;
   -webkit-font-smoothing: antialiased;
@@ -284,16 +281,3 @@
   color: var(--dds-prism-regex);
 }
 
-/* Dark mode: disable tab position trick, rely on color contrast */
-.dds-dark .dds-code-block-tab-active,
-[data-dds-theme="dark"] .dds-code-block-tab-active {
-  margin-bottom: 0;
-  padding-bottom: var(--dds-code-block-tab-padding);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not(.dds-light):not([data-dds-theme="light"]) .dds-code-block-tab-active {
-    margin-bottom: 0;
-    padding-bottom: var(--dds-code-block-tab-padding);
-  }
-}

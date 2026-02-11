@@ -1,5 +1,6 @@
 .dds-callout {
   padding: var(--dds-callout-padding);
+  margin: var(--dds-callout-margin);
   border-radius: var(--dds-callout-radius);
   border: 1px solid;
   border-left-width: 6px;

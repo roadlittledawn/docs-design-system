@@ -28,6 +28,7 @@
   --dds-card-bg-gray: #f9fafb; /* gray-50 */
   --dds-card-bg-white: #ffffff;
   --dds-card-border: #e5e7eb; /* gray-200 */
+  --dds-card-border-hover: #d1d5db; /* gray-300 */
 
   --dds-card-title-blue: #1e3a8a; /* blue-900 */
   --dds-card-title-green: #14532d; /* green-900 */
@@ -130,6 +131,68 @@
   --dds-callout-course-bg: #f0fdf4; /* green-50 */
   --dds-callout-course-title: #065f46; /* emerald-800 */
 
+  /* Typography - Caption */
+  --dds-typography-caption-color: #4b5563; /* gray-600 */
+
+  /* Focus Ring */
+  --dds-focus-ring-bg: #ffffff;
+
+  /* CodeBlock */
+  --dds-code-block-border: #e5e7eb; /* gray-200 */
+  --dds-code-block-radius: 8px;
+  --dds-code-block-bg: #ffffff;
+  --dds-code-block-margin: 1rem 0;
+  --dds-code-block-header-bg: #ffffff;
+  --dds-code-block-header-gap: 0.75rem;
+  --dds-code-block-header-padding: 0.75rem 1rem;
+  --dds-code-block-tab-padding: 0.5rem 1rem;
+  --dds-code-block-tab-bg: #f3f4f6; /* gray-100 */
+  --dds-code-block-tab-text: #6b7280; /* gray-500 */
+  --dds-code-block-tab-radius: 6px;
+  --dds-code-block-tab-text-hover: #374151; /* gray-700 */
+  --dds-code-block-tab-bg-hover: #e5e7eb; /* gray-200 */
+  --dds-code-block-tab-text-active: #111827; /* gray-900 */
+  --dds-code-block-tab-bg-active: #ffffff;
+  --dds-code-block-select-padding: 0.375rem 0.75rem;
+  --dds-code-block-select-border: #d1d5db; /* gray-300 */
+  --dds-code-block-select-radius: 4px;
+  --dds-code-block-select-bg: #ffffff;
+  --dds-code-block-select-text: #374151; /* gray-700 */
+  --dds-code-block-select-size: 0.875rem;
+  --dds-code-block-select-border-hover: #9ca3af; /* gray-400 */
+  --dds-code-block-select-border-focus: #3b82f6; /* blue-500 */
+  --dds-code-block-select-focus-ring: rgba(59, 130, 246, 0.1);
+  --dds-code-block-label-size: 0.875rem;
+  --dds-code-block-label-text: #6b7280; /* gray-500 */
+  --dds-code-block-copy-padding: 0.375rem 0.75rem;
+  --dds-code-block-copy-bg: #ffffff;
+  --dds-code-block-copy-border: #d1d5db; /* gray-300 */
+  --dds-code-block-copy-radius: 4px;
+  --dds-code-block-copy-text: #374151; /* gray-700 */
+  --dds-code-block-copy-size: 0.875rem;
+  --dds-code-block-copy-bg-hover: #f9fafb; /* gray-50 */
+  --dds-code-block-copy-border-hover: #9ca3af; /* gray-400 */
+  --dds-code-block-copy-bg-active: #f3f4f6; /* gray-100 */
+  --dds-code-block-content-bg: #f9fafb; /* gray-50 */
+  --dds-code-block-pre-padding: 1rem;
+  --dds-code-block-text: #111827; /* gray-900 */
+  --dds-code-block-highlight-bg: rgba(59, 130, 246, 0.2);
+  --dds-code-block-highlight-border: #3b82f6; /* blue-500 */
+  --dds-code-block-message-padding: 1rem;
+  --dds-code-block-loading-text: #6b7280; /* gray-500 */
+  --dds-code-block-error-text: #dc2626; /* red-600 */
+  --dds-code-block-message-size: 0.875rem;
+
+  /* Prism Syntax Highlighting */
+  --dds-prism-comment: #6b7280; /* gray-500 */
+  --dds-prism-punctuation: #374151; /* gray-700 */
+  --dds-prism-property: #dc2626; /* red-600 */
+  --dds-prism-string: #059669; /* emerald-600 */
+  --dds-prism-operator: #d97706; /* amber-600 */
+  --dds-prism-keyword: #2563eb; /* blue-600 */
+  --dds-prism-function: #7c3aed; /* violet-600 */
+  --dds-prism-regex: #ea580c; /* orange-600 */
+
   /* Collapser Colors and Styles */
   --dds-collapser-radius: 0.375rem; /* rounded-md */
   --dds-collapser-border: #e5e7eb; /* gray-200 */
@@ -137,6 +200,260 @@
   --dds-collapser-button-padding: 0.75rem; /* p-3 */
   --dds-collapser-button-hover-bg: #f9fafb; /* gray-50 */
   --dds-collapser-icon-color: #6b7280; /* gray-500 */
+  --dds-collapser-text: #374151; /* gray-700 */
   --dds-collapser-content-padding: 1rem; /* p-4 */
+}
+
+/* ==========================================================================
+   Dark Mode Tokens
+   Transparent backgrounds, readable foregrounds.
+   Activated via .dds-dark class, data-dds-theme="dark", or OS preference.
+   ========================================================================== */
+
+/* Explicit dark mode activation */
+.dds-dark,
+[data-dds-theme="dark"] {
+  /* Heading / Typography */
+  --dds-heading-color: #f9fafb; /* gray-50 */
+  --dds-typography-caption-color: #9ca3af; /* gray-400 */
+
+  /* Button - Primary (keep fill bg as accent) */
+  --dds-button-primary-bg: #3b82f6; /* blue-500 */
+  --dds-button-primary-bg-hover: #2563eb; /* blue-600 */
+  --dds-button-primary-text: #ffffff;
+  --dds-button-primary-focus-ring: #60a5fa; /* blue-400 */
+
+  /* Button - Secondary */
+  --dds-button-secondary-bg: transparent;
+  --dds-button-secondary-bg-hover: rgba(255, 255, 255, 0.1);
+  --dds-button-secondary-text: #e5e7eb; /* gray-200 */
+  --dds-button-secondary-focus-ring: #9ca3af; /* gray-400 */
+
+  /* Button - Outline */
+  --dds-button-outline-bg: transparent;
+  --dds-button-outline-bg-hover: rgba(255, 255, 255, 0.05);
+  --dds-button-outline-border: #6b7280; /* gray-500 */
+  --dds-button-outline-text: #e5e7eb; /* gray-200 */
+  --dds-button-outline-focus-ring: #9ca3af; /* gray-400 */
+
+  /* Focus Ring */
+  --dds-focus-ring-bg: transparent;
+
+  /* Card */
+  --dds-card-bg-blue: rgba(59, 130, 246, 0.08);
+  --dds-card-bg-green: rgba(34, 197, 94, 0.08);
+  --dds-card-bg-purple: rgba(168, 85, 247, 0.08);
+  --dds-card-bg-red: rgba(239, 68, 68, 0.08);
+  --dds-card-bg-yellow: rgba(234, 179, 8, 0.08);
+  --dds-card-bg-gray: rgba(156, 163, 175, 0.08);
+  --dds-card-bg-white: transparent;
+  --dds-card-border: #4b5563; /* gray-600 */
+  --dds-card-border-hover: #9ca3af; /* gray-400 */
+  --dds-card-shadow-hover: none;
+
+  --dds-card-title-blue: #93c5fd; /* blue-300 */
+  --dds-card-title-green: #86efac; /* green-300 */
+  --dds-card-title-purple: #d8b4fe; /* purple-300 */
+  --dds-card-title-red: #fca5a5; /* red-300 */
+  --dds-card-title-yellow: #fde047; /* yellow-300 */
+  --dds-card-title-gray: #e5e7eb; /* gray-200 */
+
+  --dds-card-text-blue: #bfdbfe; /* blue-200 */
+  --dds-card-text-green: #bbf7d0; /* green-200 */
+  --dds-card-text-purple: #e9d5ff; /* purple-200 */
+  --dds-card-text-red: #fecaca; /* red-200 */
+  --dds-card-text-yellow: #fef08a; /* yellow-200 */
+  --dds-card-text-gray: #d1d5db; /* gray-300 */
+
+  /* Link */
+  --dds-link-color: #60a5fa; /* blue-400 */
+  --dds-link-color-hover: #93c5fd; /* blue-300 */
+  --dds-link-decoration: #3b82f6; /* blue-500 */
+  --dds-link-decoration-hover: #60a5fa; /* blue-400 */
+
+  /* Callout */
+  --dds-callout-text: #e5e7eb; /* gray-200 */
+
+  --dds-callout-caution-bg: transparent;
+  --dds-callout-caution-title: #fca5a5; /* red-300 */
+
+  --dds-callout-important-bg: transparent;
+  --dds-callout-important-title: #fcd34d; /* amber-300 */
+
+  --dds-callout-tip-bg: transparent;
+  --dds-callout-tip-title: #93c5fd; /* blue-300 */
+
+  --dds-callout-course-bg: transparent;
+  --dds-callout-course-title: #6ee7b7; /* emerald-300 */
+
+  /* Collapser */
+  --dds-collapser-border: #4b5563; /* gray-600 */
+  --dds-collapser-button-hover-bg: rgba(255, 255, 255, 0.05);
+  --dds-collapser-icon-color: #9ca3af; /* gray-400 */
+  --dds-collapser-text: #e5e7eb; /* gray-200 */
+
+  /* CodeBlock */
+  --dds-code-block-bg: transparent;
+  --dds-code-block-border: #4b5563; /* gray-600 */
+  --dds-code-block-header-bg: transparent;
+  --dds-code-block-tab-bg: rgba(255, 255, 255, 0.05);
+  --dds-code-block-tab-text: #9ca3af; /* gray-400 */
+  --dds-code-block-tab-text-hover: #e5e7eb; /* gray-200 */
+  --dds-code-block-tab-bg-hover: rgba(255, 255, 255, 0.1);
+  --dds-code-block-tab-text-active: #f9fafb; /* gray-50 */
+  --dds-code-block-tab-bg-active: transparent;
+  --dds-code-block-select-border: #4b5563; /* gray-600 */
+  --dds-code-block-select-bg: transparent;
+  --dds-code-block-select-text: #e5e7eb; /* gray-200 */
+  --dds-code-block-select-border-hover: #6b7280; /* gray-500 */
+  --dds-code-block-select-border-focus: #60a5fa; /* blue-400 */
+  --dds-code-block-select-focus-ring: rgba(96, 165, 250, 0.2);
+  --dds-code-block-label-text: #9ca3af; /* gray-400 */
+  --dds-code-block-copy-bg: transparent;
+  --dds-code-block-copy-border: #4b5563; /* gray-600 */
+  --dds-code-block-copy-text: #e5e7eb; /* gray-200 */
+  --dds-code-block-copy-bg-hover: rgba(255, 255, 255, 0.05);
+  --dds-code-block-copy-border-hover: #6b7280; /* gray-500 */
+  --dds-code-block-copy-bg-active: rgba(255, 255, 255, 0.1);
+  --dds-code-block-content-bg: transparent;
+  --dds-code-block-text: #e2e8f0; /* slate-200 */
+  --dds-code-block-highlight-bg: rgba(96, 165, 250, 0.15);
+  --dds-code-block-highlight-border: #60a5fa; /* blue-400 */
+  --dds-code-block-loading-text: #9ca3af; /* gray-400 */
+  --dds-code-block-error-text: #f87171; /* red-400 */
+
+  /* Prism Syntax - Dark palette */
+  --dds-prism-comment: #9ca3af; /* gray-400 */
+  --dds-prism-punctuation: #d1d5db; /* gray-300 */
+  --dds-prism-property: #f87171; /* red-400 */
+  --dds-prism-string: #34d399; /* emerald-400 */
+  --dds-prism-operator: #fbbf24; /* amber-400 */
+  --dds-prism-keyword: #60a5fa; /* blue-400 */
+  --dds-prism-function: #a78bfa; /* violet-400 */
+  --dds-prism-regex: #fb923c; /* orange-400 */
+}
+
+/* Auto dark mode — follows OS preference, opt-out with .dds-light */
+@media (prefers-color-scheme: dark) {
+  :root:not(.dds-light):not([data-dds-theme="light"]) {
+    /* Heading / Typography */
+    --dds-heading-color: #f9fafb;
+    --dds-typography-caption-color: #9ca3af;
+
+    /* Button - Primary */
+    --dds-button-primary-bg: #3b82f6;
+    --dds-button-primary-bg-hover: #2563eb;
+    --dds-button-primary-text: #ffffff;
+    --dds-button-primary-focus-ring: #60a5fa;
+
+    /* Button - Secondary */
+    --dds-button-secondary-bg: transparent;
+    --dds-button-secondary-bg-hover: rgba(255, 255, 255, 0.1);
+    --dds-button-secondary-text: #e5e7eb;
+    --dds-button-secondary-focus-ring: #9ca3af;
+
+    /* Button - Outline */
+    --dds-button-outline-bg: transparent;
+    --dds-button-outline-bg-hover: rgba(255, 255, 255, 0.05);
+    --dds-button-outline-border: #6b7280;
+    --dds-button-outline-text: #e5e7eb;
+    --dds-button-outline-focus-ring: #9ca3af;
+
+    /* Focus Ring */
+    --dds-focus-ring-bg: transparent;
+
+    /* Card */
+    --dds-card-bg-blue: rgba(59, 130, 246, 0.08);
+    --dds-card-bg-green: rgba(34, 197, 94, 0.08);
+    --dds-card-bg-purple: rgba(168, 85, 247, 0.08);
+    --dds-card-bg-red: rgba(239, 68, 68, 0.08);
+    --dds-card-bg-yellow: rgba(234, 179, 8, 0.08);
+    --dds-card-bg-gray: rgba(156, 163, 175, 0.08);
+    --dds-card-bg-white: transparent;
+    --dds-card-border: #4b5563;
+    --dds-card-border-hover: #9ca3af;
+    --dds-card-shadow-hover: none;
+
+    --dds-card-title-blue: #93c5fd;
+    --dds-card-title-green: #86efac;
+    --dds-card-title-purple: #d8b4fe;
+    --dds-card-title-red: #fca5a5;
+    --dds-card-title-yellow: #fde047;
+    --dds-card-title-gray: #e5e7eb;
+
+    --dds-card-text-blue: #bfdbfe;
+    --dds-card-text-green: #bbf7d0;
+    --dds-card-text-purple: #e9d5ff;
+    --dds-card-text-red: #fecaca;
+    --dds-card-text-yellow: #fef08a;
+    --dds-card-text-gray: #d1d5db;
+
+    /* Link */
+    --dds-link-color: #60a5fa;
+    --dds-link-color-hover: #93c5fd;
+    --dds-link-decoration: #3b82f6;
+    --dds-link-decoration-hover: #60a5fa;
+
+    /* Callout */
+    --dds-callout-text: #e5e7eb;
+
+    --dds-callout-caution-bg: transparent;
+    --dds-callout-caution-title: #fca5a5;
+
+    --dds-callout-important-bg: transparent;
+    --dds-callout-important-title: #fcd34d;
+
+    --dds-callout-tip-bg: transparent;
+    --dds-callout-tip-title: #93c5fd;
+
+    --dds-callout-course-bg: transparent;
+    --dds-callout-course-title: #6ee7b7;
+
+    /* Collapser */
+    --dds-collapser-border: #4b5563;
+    --dds-collapser-button-hover-bg: rgba(255, 255, 255, 0.05);
+    --dds-collapser-icon-color: #9ca3af;
+    --dds-collapser-text: #e5e7eb;
+
+    /* CodeBlock */
+    --dds-code-block-bg: transparent;
+    --dds-code-block-border: #4b5563;
+    --dds-code-block-header-bg: transparent;
+    --dds-code-block-tab-bg: rgba(255, 255, 255, 0.05);
+    --dds-code-block-tab-text: #9ca3af;
+    --dds-code-block-tab-text-hover: #e5e7eb;
+    --dds-code-block-tab-bg-hover: rgba(255, 255, 255, 0.1);
+    --dds-code-block-tab-text-active: #f9fafb;
+    --dds-code-block-tab-bg-active: transparent;
+    --dds-code-block-select-border: #4b5563;
+    --dds-code-block-select-bg: transparent;
+    --dds-code-block-select-text: #e5e7eb;
+    --dds-code-block-select-border-hover: #6b7280;
+    --dds-code-block-select-border-focus: #60a5fa;
+    --dds-code-block-select-focus-ring: rgba(96, 165, 250, 0.2);
+    --dds-code-block-label-text: #9ca3af;
+    --dds-code-block-copy-bg: transparent;
+    --dds-code-block-copy-border: #4b5563;
+    --dds-code-block-copy-text: #e5e7eb;
+    --dds-code-block-copy-bg-hover: rgba(255, 255, 255, 0.05);
+    --dds-code-block-copy-border-hover: #6b7280;
+    --dds-code-block-copy-bg-active: rgba(255, 255, 255, 0.1);
+    --dds-code-block-content-bg: transparent;
+    --dds-code-block-text: #e2e8f0;
+    --dds-code-block-highlight-bg: rgba(96, 165, 250, 0.15);
+    --dds-code-block-highlight-border: #60a5fa;
+    --dds-code-block-loading-text: #9ca3af;
+    --dds-code-block-error-text: #f87171;
+
+    /* Prism Syntax - Dark palette */
+    --dds-prism-comment: #9ca3af;
+    --dds-prism-punctuation: #d1d5db;
+    --dds-prism-property: #f87171;
+    --dds-prism-string: #34d399;
+    --dds-prism-operator: #fbbf24;
+    --dds-prism-keyword: #60a5fa;
+    --dds-prism-function: #a78bfa;
+    --dds-prism-regex: #fb923c;
+  }
 }
 

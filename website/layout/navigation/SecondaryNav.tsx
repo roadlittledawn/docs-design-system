@@ -41,8 +41,8 @@ export function SecondaryNav({
     <nav
       onMouseLeave={handleMouseLeave}
       className={`
-        bg-white border-r border-gray-200
-        ${isMobile ? "w-full h-full border" : "w-64 h-screen"}
+        bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800
+        ${isMobile ? "w-full h-full border" : "w-64 h-full"}
         ${isPinned ? "" : "shadow-lg border"}
         overflow-y-auto
         transition-transform duration-300 ease-in-out
@@ -50,14 +50,14 @@ export function SecondaryNav({
       aria-label="Secondary navigation"
     >
       {/* Header - show close button only for non-pinned (hover/mobile) */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-200">
-        <h2 className="font-semibold text-gray-900">
+      <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800">
+        <h2 className="font-semibold text-gray-900 dark:text-gray-100">
           {activePrimaryItem.label}
         </h2>
         {(!isPinned || isMobile) && (
           <button
             onClick={handleClose}
-            className="p-1 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+            className="p-1 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-100 transition-colors"
             aria-label="Close navigation"
           >
             <X className="w-5 h-5" />

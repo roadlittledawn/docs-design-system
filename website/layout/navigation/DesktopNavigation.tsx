@@ -24,7 +24,7 @@ export function DesktopNavigation() {
 
       {/* Pinned secondary nav - shown alongside content on large screens only */}
       {pinnedPrimaryItem && pinnedPrimaryItem.secondary && pinnedPrimaryItem.secondary.length > 0 && (
-        <div className="hidden lg:block w-64 border-r border-gray-200">
+        <div className="hidden lg:block w-64 border-r border-gray-200 dark:border-gray-800">
           <SecondaryNav activePrimaryItem={pinnedPrimaryItem} isPinned={true} />
         </div>
       )}

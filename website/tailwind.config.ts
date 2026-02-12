@@ -6,6 +6,7 @@ export default {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     '.**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'media',
   theme: {
     extend: {},
   },

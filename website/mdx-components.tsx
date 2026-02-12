@@ -20,7 +20,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     // Style paragraphs with proper spacing
     p: ({ className, ...props }: any) => (
       <p
-        className={`text-gray-700 leading-relaxed mb-4 ${className || ""}`}
+        className={`text-gray-700 dark:text-gray-300 leading-relaxed mb-4 ${className || ""}`}
         {...props}
       />
     ),
@@ -37,7 +37,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       // Otherwise, it's inline code
       return (
         <code
-          className={`bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800 ${className || ""}`}
+          className={`bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800 dark:text-gray-200 ${className || ""}`}
           {...props}
         >
           {children}

@@ -12,11 +12,11 @@ interface DocsLayoutProps {
 export function DocsLayout({ children, navigationConfig }: DocsLayoutProps) {
   return (
     <NavigationProvider navigationConfig={navigationConfig}>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-200">
         <Header />
         <div className="flex">
           <Sidebar />
-          <main className="flex-1 p-8">{children}</main>
+          <main className="flex-1 p-8 max-w-7xl">{children}</main>
         </div>
       </div>
     </NavigationProvider>

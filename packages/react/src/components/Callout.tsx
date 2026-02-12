@@ -32,24 +32,19 @@ export function Callout({
   children,
   className = "",
 }: CalloutProps) {
-  const calloutClasses = [
-    "dds-callout",
-    `dds-callout-${variant}`,
-    className,
-  ]
+  const calloutClasses = ["dds-callout", `dds-callout-${variant}`, className]
     .filter(Boolean)
     .join(" ");
 
-  const titleClasses = ["dds-callout-title", `dds-callout-title-${variant}`].join(
-    " "
-  );
+  const titleClasses = [
+    "dds-callout-title",
+    `dds-callout-title-${variant}`,
+  ].join(" ");
 
   return (
     <div className={calloutClasses}>
       {title !== null && (
-        <h4 className={titleClasses}>
-          {title || defaultTitles[variant]}
-        </h4>
+        <p className={titleClasses}>{title || defaultTitles[variant]}</p>
       )}
       {children}
     </div>

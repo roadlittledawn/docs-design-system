@@ -18,7 +18,7 @@ interface HeadingProps {
 export function Heading({ level, children, id, className = "" }: HeadingProps) {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
   const classNames = `dds-heading dds-heading-${level} ${className}`.trim();
-  const generatedId = slugify({ value: children as string }) ?? undefined;
+  const generatedId = typeof children === "string" ? slugify({ value: children }) ?? undefined : undefined;
   const idAttr = id ?? generatedId;
 
   return (

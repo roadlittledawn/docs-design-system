@@ -1,4 +1,4 @@
-import slug from "slug";
+import slug, { Options as SlugOptions } from "slug";
 
 slug.extend({
   "/": "-",
@@ -10,19 +10,14 @@ slug.extend({
 
 interface SlugifyProps {
   value: string;
-  options?: object | string;
+  options?: SlugOptions | string;
 }
 
-export default function slugify({ value, options }: SlugifyProps) {
-  if (Number.isNaN(value)) return null;
-  if (value === null || value === undefined) return null;
-  if (typeof value === "string" && value.match(/^\s+$/)) return null;
-
-  let v = value;
-  if (typeof v === "number") v = `${v}`;
+export default function slugify({ value, options }: SlugifyProps): string | null {
+  if (!value || value.match(/^\s+$/)) return null;
 
   const slugified =
-    typeof options === "string" ? slug(v, options) : slug(v, options as any);
+    typeof options === "string" ? slug(value, options) : slug(value, options);
 
   // remove repetitive dashes
   const repetitiveRemoved = slugified.replace(/-{2,}/g, "-");

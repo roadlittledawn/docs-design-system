@@ -1,5 +1,7 @@
 import { Heading } from "@roadlittledawn/docs-design-system/react";
 
+const STORYBOOK_URL = "https://docs-design-system-storybook.netlify.app";
+
 export default function ComponentsPage() {
   return (
     <div className="prose prose-lg max-w-none">
@@ -61,7 +63,7 @@ export default function ComponentsPage() {
             auto-generated API references, and accessibility testing in Storybook.
           </p>
           <a
-            href="https://docs-design-system-storybook.netlify.app/"
+            href={STORYBOOK_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
@@ -79,7 +81,7 @@ export default function ComponentsPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           <a
-            href="https://docs-design-system-storybook.netlify.app/?path=/docs/components-button--docs"
+            href={`${STORYBOOK_URL}/?path=/docs/components-button--docs`}
             target="_blank"
             rel="noopener noreferrer"
             className="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition-all"
@@ -89,7 +91,7 @@ export default function ComponentsPage() {
           </a>
 
           <a
-            href="https://docs-design-system-storybook.netlify.app/?path=/docs/components-callout--docs"
+            href={`${STORYBOOK_URL}/?path=/docs/components-callout--docs`}
             target="_blank"
             rel="noopener noreferrer"
             className="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition-all"
@@ -99,7 +101,7 @@ export default function ComponentsPage() {
           </a>
 
           <a
-            href="https://docs-design-system-storybook.netlify.app/?path=/docs/components-card--docs"
+            href={`${STORYBOOK_URL}/?path=/docs/components-card--docs`}
             target="_blank"
             rel="noopener noreferrer"
             className="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition-all"
@@ -109,7 +111,7 @@ export default function ComponentsPage() {
           </a>
 
           <a
-            href="https://docs-design-system-storybook.netlify.app/?path=/docs/components-cardgrid--docs"
+            href={`${STORYBOOK_URL}/?path=/docs/components-cardgrid--docs`}
             target="_blank"
             rel="noopener noreferrer"
             className="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition-all"
@@ -119,7 +121,7 @@ export default function ComponentsPage() {
           </a>
 
           <a
-            href="https://docs-design-system-storybook.netlify.app/?path=/docs/components-collapser--docs"
+            href={`${STORYBOOK_URL}/?path=/docs/components-collapser--docs`}
             target="_blank"
             rel="noopener noreferrer"
             className="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition-all"
@@ -129,7 +131,7 @@ export default function ComponentsPage() {
           </a>
 
           <a
-            href="https://docs-design-system-storybook.netlify.app/?path=/docs/components-heading--docs"
+            href={`${STORYBOOK_URL}/?path=/docs/components-heading--docs`}
             target="_blank"
             rel="noopener noreferrer"
             className="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition-all"
@@ -139,7 +141,7 @@ export default function ComponentsPage() {
           </a>
 
           <a
-            href="https://docs-design-system-storybook.netlify.app/?path=/docs/components-link--docs"
+            href={`${STORYBOOK_URL}/?path=/docs/components-link--docs`}
             target="_blank"
             rel="noopener noreferrer"
             className="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition-all"
@@ -149,7 +151,7 @@ export default function ComponentsPage() {
           </a>
 
           <a
-            href="https://docs-design-system-storybook.netlify.app/?path=/docs/components-typography--docs"
+            href={`${STORYBOOK_URL}/?path=/docs/components-typography--docs`}
             target="_blank"
             rel="noopener noreferrer"
             className="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition-all"

@@ -1,3 +1,10 @@
+---
+name: bump-version
+description: Bump the semver version of a package in packages/ directory.
+argument-hint: [patch|minor|major] [package-name]
+disable-model-invocation: true
+---
+
 # bump-version
 
 Bump the version of a package in packages/ directory.

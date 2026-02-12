@@ -1,6 +1,9 @@
-# develop-react-components
+---
+name: develop-react-components
+description: Guide for adding or modifying components in packages/react. Use when creating new components, updating existing ones, adding styles/tokens, or writing Storybook stories for the react component library.
+---
 
-Guide for adding or modifying components in `packages/react`.
+# Developing packages/react components
 
 ## File structure
 

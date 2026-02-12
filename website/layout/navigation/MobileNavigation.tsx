@@ -1,10 +1,12 @@
 import { ArrowLeft } from 'lucide-react'
+import { useRouter } from 'next/router'
 import { useNavigation } from '../../hooks/useNavigation'
 import { PrimaryNav } from './PrimaryNav'
 import { SecondaryNav } from './SecondaryNav'
 import { PrimaryNavItem } from '../../types/navigation'
 
 export function MobileNavigation() {
+  const router = useRouter()
   const {
     mobileMenuOpen,
     mobileView,
@@ -20,7 +22,14 @@ export function MobileNavigation() {
   }
 
   const handlePrimaryItemClick = (item: PrimaryNavItem) => {
-    navigateToSecondary(item.id)
+    // If the item has a direct href and no secondary nav, navigate to it
+    if (item.href && !item.secondary) {
+      router.push(item.href)
+      toggleMobileMenu() // Close the mobile menu
+    } else {
+      // Otherwise, show the secondary nav
+      navigateToSecondary(item.id)
+    }
   }
 
   const activePrimaryItem = mobileActivePrimaryId

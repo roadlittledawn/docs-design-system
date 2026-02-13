@@ -16,7 +16,7 @@ export function DocsLayout({ children, navigationConfig }: DocsLayoutProps) {
         <Header />
         <div className="flex">
           <Sidebar />
-          <main className="flex-1 p-8 max-w-7xl">{children}</main>
+          <main className="flex-1 p-8 mx-auto max-w-7xl w-full">{children}</main>
         </div>
       </div>
     </NavigationProvider>

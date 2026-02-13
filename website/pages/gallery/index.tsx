@@ -12,7 +12,7 @@ export default function GalleryPage() {
         <Heading level={1} className="mb-4">
           Documentation Gallery
         </Heading>
-        <p className="text-xl text-gray-600 max-w-3xl">
+        <p className="text-xl max-w-3xl">
           Explore exemplary documentation sites that set the standard for
           clarity, usability, and design. Click on any site to see detailed
           analysis and screenshots.
@@ -26,14 +26,14 @@ export default function GalleryPage() {
             href={`/gallery/${site.id}`}
             className="group cursor-pointer"
           >
-            <div className="space-y-3">
-              <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-gray-200 group-hover:border-gray-300 transition-all group-hover:shadow-md min-w-0">
+            <div className="space-y-6">
+              <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 group-hover:border-gray-300 dark:group-hover:border-gray-600 transition-all group-hover:shadow-md min-w-0">
                 {site.images[0] && (
                   <>
                     <img
                       src={site.images[0].url}
                       alt={site.name}
-                      className="absolute inset-0 w-full h-full object-contain"
+                      className="absolute inset-0 w-full h-full object-contain dark:[filter:brightness(0.85)_contrast(0.95)]"
                     />
                     <div className="absolute top-2 right-2 bg-black/50 backdrop-blur px-2 py-1 rounded text-xs text-white">
                       {site.images.length}{" "}
@@ -45,13 +45,10 @@ export default function GalleryPage() {
               <div>
                 <Heading
                   level={4}
-                  className="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition-colors"
+                  className="text-sm font-medium text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
                 >
                   {site.name}
                 </Heading>
-                <span className="text-xs text-gray-500 capitalize">
-                  {site.category.replace("-", " ")}
-                </span>
               </div>
             </div>
           </Link>

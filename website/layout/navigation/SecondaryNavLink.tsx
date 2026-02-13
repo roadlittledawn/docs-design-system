@@ -14,10 +14,10 @@ export function SecondaryNavLink({ href, label }: SecondaryNavLinkProps) {
     <Link
       href={href}
       className={`
-        block px-4 py-2 rounded-lg transition-colors
+        block px-4 py-2 rounded-lg transition-all duration-200
         ${isActive
-          ? 'bg-blue-100 text-blue-900 font-medium'
-          : 'text-gray-700 hover:bg-gray-100'
+          ? 'bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-100 font-medium shadow-sm'
+          : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'
         }
       `}
     >

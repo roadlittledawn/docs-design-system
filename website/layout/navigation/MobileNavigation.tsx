@@ -50,7 +50,7 @@ export function MobileNavigation() {
         {/* Primary navigation */}
         <div
           className={`
-            absolute top-0 left-0 h-full w-full bg-white
+            absolute top-0 left-0 h-full w-full bg-white dark:bg-gray-900
             transition-transform duration-300 ease-in-out
             ${mobileView === 'secondary' ? '-translate-x-full' : 'translate-x-0'}
           `}
@@ -61,16 +61,16 @@ export function MobileNavigation() {
         {/* Secondary navigation */}
         <div
           className={`
-            absolute top-0 left-0 h-full w-full bg-white
+            absolute top-0 left-0 h-full w-full bg-white dark:bg-gray-900
             transition-transform duration-300 ease-in-out
             ${mobileView === 'secondary' ? 'translate-x-0' : 'translate-x-full'}
           `}
         >
           {/* Back to main menu button */}
-          <div className="border-b border-gray-200 p-4">
+          <div className="border-b border-gray-200 dark:border-gray-800 p-4">
             <button
               onClick={navigateBackToPrimary}
-              className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
+              className="flex items-center gap-2 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
               <span className="font-medium">Main menu</span>

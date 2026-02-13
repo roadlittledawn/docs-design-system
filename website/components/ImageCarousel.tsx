@@ -29,7 +29,7 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
           <img
             src={images[currentIndex].url}
             alt={images[currentIndex].caption}
-            className="absolute inset-0 w-full h-full object-contain"
+            className="absolute inset-0 w-full h-full object-contain dark:[filter:brightness(0.85)_contrast(0.95)]"
           />
 
           {images.length > 1 && (
@@ -76,8 +76,8 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
           )}
         </div>
 
-        <div className="px-4 py-3 bg-white border-t">
-          <span className="text-gray-600">{images[currentIndex].caption}</span>
+        <div className="px-4 py-3 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+          <figcaption className="text-gray-600 dark:text-gray-400">{images[currentIndex].caption}</figcaption>
         </div>
       </div>
 

@@ -15,7 +15,7 @@ export function SecondaryNavGroup({ group }: SecondaryNavGroupProps) {
     <div>
       <button
         onClick={() => toggleGroup(group.label)}
-        className="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+        className="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-lg transition-colors"
         aria-expanded={isExpanded}
       >
         <span className="font-medium">{group.label}</span>

@@ -50,12 +50,12 @@ export function PrimaryNav({ isMobile = false, onItemClick }: PrimaryNavProps) {
   if (isMobile) {
     // Mobile: horizontal layout with arrow
     return (
-      <nav className="bg-white h-full" aria-label="Primary navigation">
+      <nav className="bg-white dark:bg-gray-900 h-full" aria-label="Primary navigation">
         {/* Close button */}
-        <div className="border-b border-gray-200 p-4">
+        <div className="border-b border-gray-200 dark:border-gray-800 p-4">
           <button
             onClick={toggleMobileMenu}
-            className="p-1 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+            className="p-1 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-100 transition-colors"
             aria-label="Close navigation"
           >
             <LucideIcons.X className="w-5 h-5" />
@@ -69,7 +69,7 @@ export function PrimaryNav({ isMobile = false, onItemClick }: PrimaryNavProps) {
               <button
                 key={item.id}
                 onClick={() => handleItemClick(item)}
-                className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors min-h-[56px]"
+                className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-lg transition-colors min-h-[56px]"
               >
                 <div className="flex items-center gap-3">
                   <Icon className="w-6 h-6" />
@@ -87,7 +87,7 @@ export function PrimaryNav({ isMobile = false, onItemClick }: PrimaryNavProps) {
   // Desktop: vertical layout with icon on top
   return (
     <nav
-      className="w-[88px] bg-gray-50 border-r border-gray-200 min-h-screen"
+      className="w-[88px] bg-gray-50 dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 min-h-screen"
       aria-label="Primary navigation"
     >
       <div className="py-4 space-y-2">
@@ -102,10 +102,10 @@ export function PrimaryNav({ isMobile = false, onItemClick }: PrimaryNavProps) {
               onClick={() => handleItemClick(item)}
               className={`
                 w-full h-[72px] flex flex-col items-center justify-center gap-1
-                transition-colors
+                transition-all duration-200
                 ${isActive
-                  ? 'bg-blue-100 text-blue-900'
-                  : 'text-gray-700 hover:bg-gray-100'
+                  ? 'bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-100 shadow-sm'
+                  : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 hover:scale-105'
                 }
               `}
               aria-pressed={isActive}

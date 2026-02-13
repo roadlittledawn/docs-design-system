@@ -92,13 +92,7 @@ export const navigationConfig: NavigationConfig = {
       id: "components",
       label: "Components",
       icon: "layout-grid",
-      secondary: [
-        {
-          type: "link",
-          label: "Overview",
-          href: "/components",
-        },
-      ],
+      href: "/components",
     },
     {
       id: "gallery",

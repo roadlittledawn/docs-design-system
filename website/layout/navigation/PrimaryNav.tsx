@@ -102,10 +102,10 @@ export function PrimaryNav({ isMobile = false, onItemClick }: PrimaryNavProps) {
               onClick={() => handleItemClick(item)}
               className={`
                 w-full h-[72px] flex flex-col items-center justify-center gap-1
-                transition-colors
+                transition-all duration-200
                 ${isActive
-                  ? 'bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-100'
-                  : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'
+                  ? 'bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-100 shadow-sm'
+                  : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 hover:scale-105'
                 }
               `}
               aria-pressed={isActive}

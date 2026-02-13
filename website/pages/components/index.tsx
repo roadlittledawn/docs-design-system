@@ -1,8 +1,8 @@
 import {
   Heading,
-  Card,
   CardGrid,
   Button,
+  Card,
 } from "@roadlittledawn/docs-design-system/react";
 import Link from "next/link";
 
@@ -63,7 +63,7 @@ export default function ComponentsPage() {
         </li>
       </ul>
 
-      <Card variant="info" className="mb-8">
+      <Card backgroundColor="blue" className="mb-8">
         <Heading level={3} className="mb-3">
           Interactive Documentation in Storybook
         </Heading>

@@ -42,7 +42,7 @@ export function SecondaryNav({
       onMouseLeave={handleMouseLeave}
       className={`
         bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800
-        ${isMobile ? "w-full h-full border" : "w-64 h-full"}
+        ${isMobile ? "w-full h-full border" : isPinned ? "w-64 h-full" : "w-64 h-screen"}
         ${isPinned ? "" : "shadow-lg border"}
         overflow-y-auto
         transition-transform duration-300 ease-in-out

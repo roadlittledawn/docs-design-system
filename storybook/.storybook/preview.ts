@@ -14,6 +14,7 @@ const preview: Preview = {
         headingSelector: "h2, h3",
         title: "Table of Contents",
       },
+      theme: "dark",
     },
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
@@ -31,6 +32,28 @@ const preview: Preview = {
       ],
     },
   },
+  globalTypes: {
+    theme: {
+      description: "Global theme for components",
+      defaultValue: "dark",
+      toolbar: {
+        title: "Theme",
+        icon: "circlehollow",
+        items: ["light", "dark"],
+        dynamicTitle: true,
+      },
+    },
+  },
+  decorators: [
+    (Story, context) => {
+      const theme = context.globals.theme || "dark";
+      return (
+        <div data-dds-theme={theme}>
+          <Story />
+        </div>
+      );
+    },
+  ],
 };
 
 export default preview;

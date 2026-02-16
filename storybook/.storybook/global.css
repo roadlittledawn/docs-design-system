@@ -7,3 +7,14 @@ body {
   font-style: normal;
   font-variation-settings: "wdth" 100;
 }
+
+/* Theme-based preview backgrounds */
+[data-dds-theme="light"] .sb-show-main,
+[data-dds-theme="light"] .docs-story {
+  background-color: #ffffff !important;
+}
+
+[data-dds-theme="dark"] .sb-show-main,
+[data-dds-theme="dark"] .docs-story {
+  background-color: #1a1a1a !important;
+}

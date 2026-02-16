@@ -351,6 +351,96 @@
         "Interactive tutorials",
         "Excellent search functionality"
       ]
+    },
+    {
+      "id": "next-js-docs",
+      "name": "Next.js Documentation",
+      "url": "https://nextjs.org/docs",
+      "description": "Next.js documentation provides a comprehensive guide to the React framework for production. It features excellent code examples, MDX-powered content, and AI-integrated help. The documentation covers multiple versions with a robust design and clear explanations.",
+      "category": "open-source",
+      "date": "2026-02-16",
+      "images": [
+        {
+          "url": "/next-js-docs.png",
+          "caption": "Homepage screenshot"
+        }
+      ],
+      "links": [
+        {
+          "label": "Documentation",
+          "url": "https://nextjs.org/docs"
+        },
+        {
+          "label": "Learn",
+          "url": "https://nextjs.org/learn"
+        }
+      ],
+      "highlights": [
+        "Snazzy robust code blocks",
+        "Uses MDX",
+        "Open source",
+        "Great look and feel",
+        "Covers multiple versions of Next.js",
+        "AI integrated (Ask AI, markdown pages at same URL paths)"
+      ]
+    },
+    {
+      "id": "storybook-docs",
+      "name": "Storybook Documentation",
+      "url": "https://storybook.js.org/docs",
+      "description": "Storybook's documentation excels at teaching component-driven development. It features comprehensive guides for building, testing, and documenting UI components with excellent examples and clear explanations of complex workflows.",
+      "category": "developer-tools",
+      "date": "2026-02-16",
+      "images": [
+        {
+          "url": "/storybook-docs.png",
+          "caption": "Homepage screenshot"
+        }
+      ],
+      "links": [
+        {
+          "label": "Documentation",
+          "url": "https://storybook.js.org/docs"
+        },
+        {
+          "label": "Tutorials",
+          "url": "https://storybook.js.org/tutorials"
+        }
+      ],
+      "highlights": [
+        "Component-driven development guides",
+        "Nifty code block components",
+        "MDX driven content",
+        "Open source docs",
+        "Interactive tutorials"
+      ]
+    },
+    {
+      "id": "state-of-js",
+      "name": "State of JS",
+      "url": "https://stateofjs.com/en-US",
+      "description": "State of JS showcases how technical content can be both informative and visually stunning. While not traditional documentation, it demonstrates exceptional data visualization and content design for communicating complex technical information to developer audiences.",
+      "category": "technical-writing",
+      "date": "2026-02-16",
+      "images": [
+        {
+          "url": "/state-of-js.png",
+          "caption": "Homepage screenshot"
+        }
+      ],
+      "links": [
+        {
+          "label": "State of JS",
+          "url": "https://stateofjs.com/en-US"
+        }
+      ],
+      "highlights": [
+        "Beautiful design",
+        "Compelling data visualizations",
+        "Great content",
+        "Content-driven application",
+        "Technical information for technical audiences"
+      ]
     }
   ]
 }

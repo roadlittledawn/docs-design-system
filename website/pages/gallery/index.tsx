@@ -19,7 +19,7 @@ export default function GalleryPage() {
         </p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-3">
+      <div className="grid md:gap-x-6 md:gap-y-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-16">
         {data.sites.map((site) => (
           <Link
             key={site.id}

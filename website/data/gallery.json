@@ -351,6 +351,38 @@
         "Interactive tutorials",
         "Excellent search functionality"
       ]
+    },
+    {
+      "id": "next-js-docs",
+      "name": "Next.js Documentation",
+      "url": "https://nextjs.org/docs",
+      "description": "Next.js documentation provides a comprehensive guide to the React framework for production. It features excellent code examples, MDX-powered content, and AI-integrated help. The documentation covers multiple versions with a robust design and clear explanations.",
+      "category": "open-source",
+      "date": "2026-02-16",
+      "images": [
+        {
+          "url": "/next-js-docs.png",
+          "caption": "Homepage screenshot"
+        }
+      ],
+      "links": [
+        {
+          "label": "Documentation",
+          "url": "https://nextjs.org/docs"
+        },
+        {
+          "label": "Learn",
+          "url": "https://nextjs.org/learn"
+        }
+      ],
+      "highlights": [
+        "Snazzy robust code blocks",
+        "Uses MDX",
+        "Open source",
+        "Great look and feel",
+        "Covers multiple versions of Next.js",
+        "AI integrated (Ask AI, markdown pages at same URL paths)"
+      ]
     }
   ]
 }

@@ -414,6 +414,33 @@
         "Open source docs",
         "Interactive tutorials"
       ]
+    },
+    {
+      "id": "state-of-js",
+      "name": "State of JS",
+      "url": "https://stateofjs.com/en-US",
+      "description": "State of JS showcases how technical content can be both informative and visually stunning. While not traditional documentation, it demonstrates exceptional data visualization and content design for communicating complex technical information to developer audiences.",
+      "category": "technical-writing",
+      "date": "2026-02-16",
+      "images": [
+        {
+          "url": "/state-of-js.png",
+          "caption": "Homepage screenshot"
+        }
+      ],
+      "links": [
+        {
+          "label": "State of JS",
+          "url": "https://stateofjs.com/en-US"
+        }
+      ],
+      "highlights": [
+        "Beautiful design",
+        "Compelling data visualizations",
+        "Great content",
+        "Content-driven application",
+        "Technical information for technical audiences"
+      ]
     }
   ]
 }

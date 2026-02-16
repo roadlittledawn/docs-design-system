@@ -458,3 +458,125 @@
     --dds-prism-regex: #fb923c;
   }
 }
+
+/* Explicit dark mode via data attribute (overrides OS preference) */
+[data-dds-theme="dark"] {
+  /* Heading / Typography */
+  --dds-heading-color: #f9fafb;
+  --dds-typography-caption-color: #9ca3af;
+
+  /* Button - Primary */
+  --dds-button-primary-bg: #3b82f6;
+  --dds-button-primary-bg-hover: #2563eb;
+  --dds-button-primary-text: #ffffff;
+  --dds-button-primary-focus-ring: #60a5fa;
+
+  /* Button - Secondary */
+  --dds-button-secondary-bg: transparent;
+  --dds-button-secondary-bg-hover: rgba(255, 255, 255, 0.1);
+  --dds-button-secondary-text: #e5e7eb;
+  --dds-button-secondary-focus-ring: #9ca3af;
+
+  /* Button - Outline */
+  --dds-button-outline-bg: transparent;
+  --dds-button-outline-bg-hover: rgba(255, 255, 255, 0.05);
+  --dds-button-outline-border: #6b7280;
+  --dds-button-outline-text: #e5e7eb;
+  --dds-button-outline-focus-ring: #9ca3af;
+
+  /* Focus Ring */
+  --dds-focus-ring-bg: transparent;
+
+  /* Card */
+  --dds-card-bg-blue: rgba(59, 130, 246, 0.08);
+  --dds-card-bg-green: rgba(34, 197, 94, 0.08);
+  --dds-card-bg-purple: rgba(168, 85, 247, 0.08);
+  --dds-card-bg-red: rgba(239, 68, 68, 0.08);
+  --dds-card-bg-yellow: rgba(234, 179, 8, 0.08);
+  --dds-card-bg-gray: rgba(156, 163, 175, 0.08);
+  --dds-card-bg-white: transparent;
+  --dds-card-border: #4b5563;
+  --dds-card-border-hover: #9ca3af;
+  --dds-card-shadow-hover: none;
+
+  --dds-card-title-blue: #93c5fd;
+  --dds-card-title-green: #86efac;
+  --dds-card-title-purple: #d8b4fe;
+  --dds-card-title-red: #fca5a5;
+  --dds-card-title-yellow: #fde047;
+  --dds-card-title-gray: #e5e7eb;
+
+  --dds-card-text-blue: #bfdbfe;
+  --dds-card-text-green: #bbf7d0;
+  --dds-card-text-purple: #e9d5ff;
+  --dds-card-text-red: #fecaca;
+  --dds-card-text-yellow: #fef08a;
+  --dds-card-text-gray: #d1d5db;
+
+  /* Link */
+  --dds-link-color: #60a5fa;
+  --dds-link-color-hover: #93c5fd;
+  --dds-link-decoration: #3b82f6;
+  --dds-link-decoration-hover: #60a5fa;
+
+  /* Callout */
+  --dds-callout-text: #e5e7eb;
+
+  --dds-callout-caution-bg: transparent;
+  --dds-callout-caution-title: #fca5a5;
+
+  --dds-callout-important-bg: transparent;
+  --dds-callout-important-title: #fcd34d;
+
+  --dds-callout-tip-bg: transparent;
+  --dds-callout-tip-title: #93c5fd;
+
+  --dds-callout-course-bg: transparent;
+  --dds-callout-course-title: #6ee7b7;
+
+  /* Collapser */
+  --dds-collapser-border: #4b5563;
+  --dds-collapser-button-hover-bg: rgba(255, 255, 255, 0.05);
+  --dds-collapser-icon-color: #9ca3af;
+  --dds-collapser-text: #e5e7eb;
+
+  /* CodeBlock */
+  --dds-code-block-bg: transparent;
+  --dds-code-block-border: #4b5563;
+  --dds-code-block-header-bg: transparent;
+  --dds-code-block-tab-bg: rgba(255, 255, 255, 0.05);
+  --dds-code-block-tab-text: #9ca3af;
+  --dds-code-block-tab-text-hover: #e5e7eb;
+  --dds-code-block-tab-bg-hover: rgba(255, 255, 255, 0.1);
+  --dds-code-block-tab-text-active: #f9fafb;
+  --dds-code-block-tab-bg-active: transparent;
+  --dds-code-block-select-border: #4b5563;
+  --dds-code-block-select-bg: transparent;
+  --dds-code-block-select-text: #e5e7eb;
+  --dds-code-block-select-border-hover: #6b7280;
+  --dds-code-block-select-border-focus: #60a5fa;
+  --dds-code-block-select-focus-ring: rgba(96, 165, 250, 0.2);
+  --dds-code-block-label-text: #9ca3af;
+  --dds-code-block-copy-bg: transparent;
+  --dds-code-block-copy-border: #4b5563;
+  --dds-code-block-copy-text: #e5e7eb;
+  --dds-code-block-copy-bg-hover: rgba(255, 255, 255, 0.05);
+  --dds-code-block-copy-border-hover: #6b7280;
+  --dds-code-block-copy-bg-active: rgba(255, 255, 255, 0.1);
+  --dds-code-block-content-bg: transparent;
+  --dds-code-block-text: #e2e8f0;
+  --dds-code-block-highlight-bg: rgba(96, 165, 250, 0.15);
+  --dds-code-block-highlight-border: #60a5fa;
+  --dds-code-block-loading-text: #9ca3af;
+  --dds-code-block-error-text: #f87171;
+
+  /* Prism Syntax - Dark palette */
+  --dds-prism-comment: #9ca3af;
+  --dds-prism-punctuation: #d1d5db;
+  --dds-prism-property: #f87171;
+  --dds-prism-string: #34d399;
+  --dds-prism-operator: #fbbf24;
+  --dds-prism-keyword: #60a5fa;
+  --dds-prism-function: #a78bfa;
+  --dds-prism-regex: #fb923c;
+}

@@ -1,3 +1,4 @@
+import React from "react";
 import type { Preview } from "@storybook/react";
 import "@roadlittledawn/docs-design-system-react/dist/styles.css";
 import "./global.css";
@@ -14,7 +15,6 @@ const preview: Preview = {
         headingSelector: "h2, h3",
         title: "Table of Contents",
       },
-      theme: "dark",
     },
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
@@ -24,22 +24,21 @@ const preview: Preview = {
       },
       expanded: true,
     },
-    backgrounds: {
-      default: "dark",
-      values: [
-        { name: "light", value: "#ffffff" },
-        { name: "dark", value: "#1a1a1a" },
-      ],
-    },
+    backgrounds: { disable: true },
+  },
+  initialGlobals: {
+    theme: "dark",
   },
   globalTypes: {
     theme: {
       description: "Global theme for components",
-      defaultValue: "dark",
       toolbar: {
         title: "Theme",
         icon: "circlehollow",
-        items: ["light", "dark"],
+        items: [
+          { value: "light", title: "Light" },
+          { value: "dark", title: "Dark" },
+        ],
         dynamicTitle: true,
       },
     },
@@ -47,11 +46,13 @@ const preview: Preview = {
   decorators: [
     (Story, context) => {
       const theme = context.globals.theme || "dark";
-      return (
-        <div data-dds-theme={theme}>
-          <Story />
-        </div>
-      );
+
+      // Apply theme to document root
+      React.useEffect(() => {
+        document.documentElement.setAttribute("data-dds-theme", theme);
+      }, [theme]);
+
+      return <Story />;
     },
   ],
 };

@@ -409,9 +409,9 @@
       ],
       "highlights": [
         "Component-driven development guides",
-        "Framework-agnostic examples",
-        "Addon ecosystem documentation",
-        "Testing and accessibility guides",
+        "Nifty code block components",
+        "MDX driven content",
+        "Open source docs",
         "Interactive tutorials"
       ]
     }

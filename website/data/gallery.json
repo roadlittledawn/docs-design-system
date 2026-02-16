@@ -359,12 +359,7 @@
       "description": "Next.js documentation provides a comprehensive guide to the React framework for production. It features excellent code examples, MDX-powered content, and AI-integrated help. The documentation covers multiple versions with a robust design and clear explanations.",
       "category": "open-source",
       "date": "2026-02-16",
-      "images": [
-        {
-          "url": "/next-js-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
+      "images": [],
       "links": [
         {
           "label": "Documentation",

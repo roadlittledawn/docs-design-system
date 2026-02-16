@@ -51,9 +51,6 @@ export default function GalleryItemPage() {
           <Heading level={1} className="text-3xl">
             {site.name}
           </Heading>
-          <span className="text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full">
-            {site.category.replace("-", " ")}
-          </span>
         </div>
 
         {/* External Links */}

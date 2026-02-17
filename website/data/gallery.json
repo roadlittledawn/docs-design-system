@@ -441,6 +441,36 @@
         "Content-driven application",
         "Technical information for technical audiences"
       ]
+    },
+    {
+      "id": "divio-docs",
+      "name": "Divio Documentation",
+      "url": "https://docs.divio.com/",
+      "description": "Divio's documentation features a clean, simple UI with excellent content organization. Their open-source documentation system guide demonstrates thoughtful information architecture with stylized ordered lists and integrated AI-powered search and answers.",
+      "category": "developer-tools",
+      "date": "2026-02-16",
+      "images": [
+        {
+          "url": "/divio-docs.png",
+          "caption": "Homepage screenshot"
+        }
+      ],
+      "links": [
+        {
+          "label": "Documentation",
+          "url": "https://docs.divio.com/"
+        },
+        {
+          "label": "Documentation System",
+          "url": "https://docs.divio.com/documentation-system/"
+        }
+      ],
+      "highlights": [
+        "Stylized ordered lists",
+        "Gen AI answers/search",
+        "Simple clean UI",
+        "Open source style guide"
+      ]
     }
   ]
 }

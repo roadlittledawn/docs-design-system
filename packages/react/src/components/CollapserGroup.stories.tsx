@@ -46,8 +46,12 @@ type Story = StoryObj<typeof CollapserGroup>;
  * Basic group with default spacing, allowing multiple collapsers to be open.
  */
 export const Basic: Story = {
-  render: () => (
-    <CollapserGroup>
+  args: {
+    spacing: '0.5rem',
+    allowMultiple: true,
+  },
+  render: (args) => (
+    <CollapserGroup {...args}>
       <Collapser title="What is this documentation system?">
         <p>
           This is a comprehensive documentation design system that provides
@@ -75,8 +79,11 @@ export const Basic: Story = {
  * Accordion mode - only one collapser can be open at a time.
  */
 export const AccordionMode: Story = {
-  render: () => (
-    <CollapserGroup allowMultiple={false}>
+  args: {
+    allowMultiple: false,
+  },
+  render: (args) => (
+    <CollapserGroup {...args}>
       <Collapser title="Installation">
         <p>Install the package using npm or yarn:</p>
         <pre>npm install @roadlittledawn/docs-design-system</pre>
@@ -97,8 +104,11 @@ export const AccordionMode: Story = {
  * Custom spacing between collapsers.
  */
 export const CustomSpacing: Story = {
-  render: () => (
-    <CollapserGroup spacing="1.5rem">
+  args: {
+    spacing: '1.5rem',
+  },
+  render: (args) => (
+    <CollapserGroup {...args}>
       <Collapser title="Section 1">
         <p>Content with larger spacing between sections.</p>
       </Collapser>
@@ -116,8 +126,11 @@ export const CustomSpacing: Story = {
  * One collapser open by default.
  */
 export const DefaultOpen: Story = {
-  render: () => (
-    <CollapserGroup defaultOpen={0}>
+  args: {
+    defaultOpen: 0,
+  },
+  render: (args) => (
+    <CollapserGroup {...args}>
       <Collapser title="Getting Started">
         <p>This section is open by default.</p>
       </Collapser>
@@ -135,8 +148,11 @@ export const DefaultOpen: Story = {
  * Multiple collapsers open by default.
  */
 export const MultipleDefaultOpen: Story = {
-  render: () => (
-    <CollapserGroup defaultOpen={[0, 2]}>
+  args: {
+    defaultOpen: [0, 2],
+  },
+  render: (args) => (
+    <CollapserGroup {...args}>
       <Collapser title="Introduction">
         <p>This section is open by default.</p>
       </Collapser>

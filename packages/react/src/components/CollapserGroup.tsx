@@ -1,5 +1,4 @@
 import React, { useState, Children, cloneElement, isValidElement } from 'react';
-import './CollapserGroup.css';
 
 export interface CollapserGroupProps {
   children: React.ReactNode;

@@ -1,0 +1,8 @@
+.dds-collapser-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.dds-collapser-group > .dds-collapser {
+  margin: 0;
+}

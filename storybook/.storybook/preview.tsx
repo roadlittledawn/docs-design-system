@@ -7,8 +7,36 @@ const preview: Preview = {
   parameters: {
     docs: {
       source: {
-        type: "dynamic",
         language: "tsx",
+        type: "dynamic",
+        transform: (code: string, storyContext: any) => {
+          // For args-based stories, generate clean JSX
+          const { component, args, parameters } = storyContext;
+          
+          // If story has custom render, use the extracted code
+          if (parameters?.docs?.source?.code || !args || Object.keys(args).length === 0) {
+            return code;
+          }
+          
+          if (!component) return code;
+          
+          const componentName = component.displayName || component.name;
+          if (!componentName) return code;
+          
+          const props = Object.entries(args)
+            .map(([key, value]) => {
+              if (typeof value === 'string') return `${key}="${value}"`;
+              if (typeof value === 'boolean') return value ? key : '';
+              if (typeof value === 'number') return `${key}={${value}}`;
+              return `${key}={${JSON.stringify(value)}}`;
+            })
+            .filter(Boolean);
+          
+          if (props.length === 0) return `<${componentName} />`;
+          if (props.length === 1) return `<${componentName} ${props[0]} />`;
+          
+          return `<${componentName}\n  ${props.join('\n  ')}\n/>`;
+        },
       },
       toc: {
         contentsSelector: ".sbdocs-content",

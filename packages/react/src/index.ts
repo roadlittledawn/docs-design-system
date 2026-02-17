@@ -4,6 +4,7 @@ export * from './components/Callout';
 export * from './components/Card';
 export * from './components/CardGrid';
 export * from './components/Collapser';
+export * from './components/CollapserGroup';
 export * from './components/CodeBlock';
 export * from './components/Typography';
 export * from './components/Heading';

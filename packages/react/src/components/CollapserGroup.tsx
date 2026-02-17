@@ -1,4 +1,5 @@
 import React, { useState, Children, cloneElement, isValidElement } from 'react';
+import './CollapserGroup.css';
 
 export interface CollapserGroupProps {
   children: React.ReactNode;
@@ -45,7 +46,7 @@ export const CollapserGroup: React.FC<CollapserGroupProps> = ({
   };
 
   return (
-    <div className={className} style={{ display: 'flex', flexDirection: 'column', gap: spacing }}>
+    <div className={`dds-collapser-group ${className}`.trim()} style={{ gap: spacing }}>
       {Children.map(children, (child, index) => {
         if (!isValidElement(child)) return child;
         

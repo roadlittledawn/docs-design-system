@@ -208,6 +208,21 @@
   --dds-collapser-icon-color: #6b7280; /* gray-500 */
   --dds-collapser-text: #374151; /* gray-700 */
   --dds-collapser-content-padding: 1rem; /* p-4 */
+
+  /* Tabs */
+  --dds-tabs-margin: 1rem 0;
+  --dds-tabs-border: #e5e7eb; /* gray-200 */
+  --dds-tabs-tab-padding: 0.75rem 1rem;
+  --dds-tabs-tab-bg: transparent;
+  --dds-tabs-tab-text: #6b7280; /* gray-500 */
+  --dds-tabs-tab-size: 0.875rem;
+  --dds-tabs-tab-text-hover: #374151; /* gray-700 */
+  --dds-tabs-tab-bg-hover: transparent;
+  --dds-tabs-tab-text-active: #111827; /* gray-900 */
+  --dds-tabs-tab-bg-active: transparent;
+  --dds-tabs-tab-border-active: #3b82f6; /* blue-500 */
+  --dds-tabs-panel-padding: 1.25rem 0;
+  --dds-tabs-panel-text: #111827; /* gray-900 */
 }
 
 /* ==========================================================================
@@ -297,6 +312,17 @@
   --dds-collapser-button-hover-bg: rgba(255, 255, 255, 0.05);
   --dds-collapser-icon-color: #9ca3af; /* gray-400 */
   --dds-collapser-text: #e5e7eb; /* gray-200 */
+
+  /* Tabs */
+  --dds-tabs-border: #4b5563; /* gray-600 */
+  --dds-tabs-tab-bg: transparent;
+  --dds-tabs-tab-text: #9ca3af; /* gray-400 */
+  --dds-tabs-tab-text-hover: #e5e7eb; /* gray-200 */
+  --dds-tabs-tab-bg-hover: transparent;
+  --dds-tabs-tab-text-active: #f9fafb; /* gray-50 */
+  --dds-tabs-tab-bg-active: transparent;
+  --dds-tabs-tab-border-active: #60a5fa; /* blue-400 */
+  --dds-tabs-panel-text: #e5e7eb; /* gray-200 */
 
   /* CodeBlock */
   --dds-code-block-bg: #0a0a0a;
@@ -423,6 +449,17 @@
     --dds-collapser-button-hover-bg: rgba(255, 255, 255, 0.05);
     --dds-collapser-icon-color: #9ca3af;
     --dds-collapser-text: #e5e7eb;
+
+    /* Tabs */
+    --dds-tabs-border: #4b5563;
+    --dds-tabs-tab-bg: transparent;
+    --dds-tabs-tab-text: #9ca3af;
+    --dds-tabs-tab-text-hover: #e5e7eb;
+    --dds-tabs-tab-bg-hover: transparent;
+    --dds-tabs-tab-text-active: #f9fafb;
+    --dds-tabs-tab-bg-active: transparent;
+    --dds-tabs-tab-border-active: #60a5fa;
+    --dds-tabs-panel-text: #e5e7eb;
 
     /* CodeBlock */
     --dds-code-block-bg: #0a0a0a;

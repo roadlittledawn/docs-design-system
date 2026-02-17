@@ -9,19 +9,20 @@
 .dds-code-block-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   padding: 0;
   background-color: var(--dds-code-block-header-bg);
   border-bottom: 1px solid var(--dds-code-block-border);
-  min-height: 2.75rem;
+  height: var(--dds-code-block-header-height);
   overflow: hidden;
 }
 
 .dds-code-block-header-left {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   flex: 1;
   min-width: 0;
+  height: 100%;
 }
 
 .dds-code-block-header-right {
@@ -39,7 +40,8 @@
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-  align-items: flex-end;
+  align-items: center;
+  height: 100%;
   /* Hide scrollbar but keep functionality */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
@@ -52,18 +54,18 @@
 .dds-code-block-tab {
   padding: var(--dds-code-block-tab-padding);
   background-color: var(--dds-code-block-tab-bg);
-  border: 1px solid var(--dds-code-block-border);
-  border-bottom: none;
-  border-top-left-radius: var(--dds-code-block-tab-radius);
-  border-top-right-radius: var(--dds-code-block-tab-radius);
+  border: none;
+  border-bottom: 2px solid transparent;
   color: var(--dds-code-block-tab-text);
-  font-size: var(--dds-code-block-tab-size, 0.875rem);
+  font-size: 0.8125rem;
   font-weight: var(--dds-font-medium);
   cursor: pointer;
   white-space: nowrap;
   transition: var(--dds-transition-colors);
-  margin-right: 2px;
   position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .dds-code-block-tab:hover {
@@ -74,11 +76,19 @@
 .dds-code-block-tab-active {
   color: var(--dds-code-block-tab-text-active);
   background-color: var(--dds-code-block-tab-bg-active);
-  border-color: var(--dds-code-block-border);
+  border-bottom-color: var(--dds-code-block-tab-border-active);
 }
 
 .dds-code-block-tab-active:hover {
   background-color: var(--dds-code-block-tab-bg-active);
+}
+
+.dds-code-block-filename {
+  font-size: var(--dds-code-block-filename-size);
+  color: var(--dds-code-block-filename-text);
+  font-weight: var(--dds-font-medium);
+  padding: var(--dds-code-block-header-padding);
+  white-space: nowrap;
 }
 
 .dds-code-block-language-select {
@@ -113,19 +123,21 @@
 .dds-code-block-copy-button {
   padding: var(--dds-code-block-copy-padding);
   background-color: var(--dds-code-block-copy-bg);
-  border: 1px solid var(--dds-code-block-copy-border);
+  border: none;
   border-radius: var(--dds-code-block-copy-radius);
   color: var(--dds-code-block-copy-text);
-  font-size: var(--dds-code-block-copy-size);
-  font-weight: var(--dds-font-medium);
   cursor: pointer;
   transition: var(--dds-transition-colors);
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 .dds-code-block-copy-button:hover {
   background-color: var(--dds-code-block-copy-bg-hover);
-  border-color: var(--dds-code-block-copy-border-hover);
 }
 
 .dds-code-block-copy-button:active {
@@ -178,11 +190,13 @@
 
 .dds-code-block-line-highlights {
   position: absolute;
-  top: 0;
+  top: var(--dds-code-block-pre-padding);
   left: 0;
   right: 0;
   bottom: 0;
   pointer-events: none;
+  font-size: var(--dds-code-block-font-size, 0.875rem);
+  line-height: var(--dds-code-block-line-height, 1.5);
 }
 
 .dds-code-block-line-highlight {
@@ -280,4 +294,3 @@
 .dds-code-block-content .token.variable {
   color: var(--dds-prism-regex);
 }
-

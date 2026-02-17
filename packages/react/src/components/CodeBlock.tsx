@@ -16,6 +16,8 @@ import "prismjs/components/prism-python";
 import "prismjs/components/prism-java";
 import "prismjs/components/prism-sql";
 import "prismjs/components/prism-yaml";
+import "prismjs/components/prism-markup-templating";
+import "prismjs/components/prism-php";
 
 export interface CodeSnippet {
   /** The code content */
@@ -53,6 +55,24 @@ interface ParsedSnippet {
   filename?: string;
   tabTitle?: string;
   highlightLines?: number[];
+}
+
+/**
+ * Register additional Prism languages via dynamic import.
+ * Call this before rendering CodeBlock with unsupported languages.
+ *
+ * @example
+ * ```ts
+ * await registerLanguages(async () => {
+ *   await import('prismjs/components/prism-go');
+ *   await import('prismjs/components/prism-rust');
+ * });
+ * ```
+ */
+export async function registerLanguages(
+  loader: () => Promise<void>
+): Promise<void> {
+  await loader();
 }
 
 /**
@@ -115,6 +135,39 @@ function groupSnippetsByLanguage(
 
   return grouped;
 }
+
+const ClipboardIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+  </svg>
+);
+
+const CheckIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <polyline points="20 6 9 17 4 12" />
+  </svg>
+);
 
 export function CodeBlock({
   code,
@@ -264,6 +317,7 @@ export function CodeBlock({
   const hasTabs = activeSnippets.length > 1;
   const hasLanguageDropdown = snippetsByLanguage.size > 1;
   const displayLanguage = currentSnippet.language || "text";
+  const showFilenameLabel = !hasTabs && currentSnippet.filename;
 
   return (
     <div className={`dds-code-block ${className}`}>
@@ -287,6 +341,13 @@ export function CodeBlock({
               ))}
             </div>
           )}
+
+          {/* Filename label for single snippets */}
+          {showFilenameLabel && (
+            <span className="dds-code-block-filename">
+              {currentSnippet.filename}
+            </span>
+          )}
         </div>
 
         <div className="dds-code-block-header-right">
@@ -308,21 +369,23 @@ export function CodeBlock({
             </select>
           )}
 
-          {/* Language display (when no dropdown) */}
-          {!hasLanguageDropdown && displayLanguage !== "text" && (
-            <span className="dds-code-block-language-label">
-              {displayLanguage}
-            </span>
-          )}
+          {/* Language display (when no dropdown and no filename shown) */}
+          {!hasLanguageDropdown &&
+            !showFilenameLabel &&
+            displayLanguage !== "text" && (
+              <span className="dds-code-block-language-label">
+                {displayLanguage}
+              </span>
+            )}
 
           {/* Copy button */}
           <button
             className="dds-code-block-copy-button"
             onClick={handleCopy}
             type="button"
-            aria-label="Copy code"
+            aria-label={copied ? "Copied" : "Copy code"}
           >
-            {copied ? "Copied!" : "Copy"}
+            {copied ? <CheckIcon /> : <ClipboardIcon />}
           </button>
         </div>
       </div>

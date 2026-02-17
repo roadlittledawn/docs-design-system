@@ -140,20 +140,22 @@
 
   /* CodeBlock */
   --dds-code-block-border: #e5e7eb; /* gray-200 */
-  --dds-code-block-radius: 8px;
-  --dds-code-block-bg: #ffffff;
+  --dds-code-block-radius: 12px;
+  --dds-code-block-bg: #fafafa;
   --dds-code-block-margin: 1rem 0;
-  --dds-code-block-header-bg: #ffffff;
-  --dds-code-block-header-gap: 0.75rem;
-  --dds-code-block-header-padding: 0.75rem 1rem;
-  --dds-code-block-tab-padding: 0.5rem 1rem;
-  --dds-code-block-tab-bg: #f3f4f6; /* gray-100 */
+  --dds-code-block-header-bg: #f5f5f5;
+  --dds-code-block-header-height: 2.25rem;
+  --dds-code-block-header-gap: 0.5rem;
+  --dds-code-block-header-padding: 0 1rem;
+  --dds-code-block-tab-padding: 0 0.75rem;
+  --dds-code-block-tab-bg: transparent;
   --dds-code-block-tab-text: #6b7280; /* gray-500 */
-  --dds-code-block-tab-radius: 6px;
+  --dds-code-block-tab-radius: 0;
   --dds-code-block-tab-text-hover: #374151; /* gray-700 */
-  --dds-code-block-tab-bg-hover: #e5e7eb; /* gray-200 */
+  --dds-code-block-tab-bg-hover: transparent;
   --dds-code-block-tab-text-active: #111827; /* gray-900 */
-  --dds-code-block-tab-bg-active: #ffffff;
+  --dds-code-block-tab-bg-active: transparent;
+  --dds-code-block-tab-border-active: #3b82f6; /* blue-500 */
   --dds-code-block-select-padding: 0.375rem 0.75rem;
   --dds-code-block-select-border: #d1d5db; /* gray-300 */
   --dds-code-block-select-radius: 4px;
@@ -165,17 +167,17 @@
   --dds-code-block-select-focus-ring: rgba(59, 130, 246, 0.1);
   --dds-code-block-label-size: 0.875rem;
   --dds-code-block-label-text: #6b7280; /* gray-500 */
-  --dds-code-block-copy-padding: 0.375rem 0.75rem;
-  --dds-code-block-copy-bg: #ffffff;
-  --dds-code-block-copy-border: #d1d5db; /* gray-300 */
+  --dds-code-block-copy-padding: 0.375rem;
+  --dds-code-block-copy-bg: transparent;
+  --dds-code-block-copy-border: transparent;
   --dds-code-block-copy-radius: 4px;
-  --dds-code-block-copy-text: #374151; /* gray-700 */
+  --dds-code-block-copy-text: #9ca3af; /* gray-400 */
   --dds-code-block-copy-size: 0.875rem;
-  --dds-code-block-copy-bg-hover: #f9fafb; /* gray-50 */
-  --dds-code-block-copy-border-hover: #9ca3af; /* gray-400 */
-  --dds-code-block-copy-bg-active: #f3f4f6; /* gray-100 */
-  --dds-code-block-content-bg: #f9fafb; /* gray-50 */
-  --dds-code-block-pre-padding: 1rem;
+  --dds-code-block-copy-bg-hover: rgba(0, 0, 0, 0.05);
+  --dds-code-block-copy-border-hover: transparent;
+  --dds-code-block-copy-bg-active: rgba(0, 0, 0, 0.08);
+  --dds-code-block-content-bg: #fafafa;
+  --dds-code-block-pre-padding: 1.25rem;
   --dds-code-block-text: #111827; /* gray-900 */
   --dds-code-block-highlight-bg: rgba(59, 130, 246, 0.2);
   --dds-code-block-highlight-border: #3b82f6; /* blue-500 */
@@ -183,6 +185,8 @@
   --dds-code-block-loading-text: #6b7280; /* gray-500 */
   --dds-code-block-error-text: #dc2626; /* red-600 */
   --dds-code-block-message-size: 0.875rem;
+  --dds-code-block-filename-text: #6b7280; /* gray-500 */
+  --dds-code-block-filename-size: 0.8125rem;
 
   /* Prism Syntax Highlighting */
   --dds-prism-comment: #6b7280; /* gray-500 */
@@ -295,15 +299,16 @@
   --dds-collapser-text: #e5e7eb; /* gray-200 */
 
   /* CodeBlock */
-  --dds-code-block-bg: transparent;
-  --dds-code-block-border: #4b5563; /* gray-600 */
-  --dds-code-block-header-bg: transparent;
-  --dds-code-block-tab-bg: rgba(255, 255, 255, 0.05);
+  --dds-code-block-bg: #0a0a0a;
+  --dds-code-block-border: #2e2e2e; /* hsla(0,0%,18%,1) */
+  --dds-code-block-header-bg: #141414;
+  --dds-code-block-tab-bg: transparent;
   --dds-code-block-tab-text: #9ca3af; /* gray-400 */
   --dds-code-block-tab-text-hover: #e5e7eb; /* gray-200 */
-  --dds-code-block-tab-bg-hover: rgba(255, 255, 255, 0.1);
+  --dds-code-block-tab-bg-hover: transparent;
   --dds-code-block-tab-text-active: #f9fafb; /* gray-50 */
   --dds-code-block-tab-bg-active: transparent;
+  --dds-code-block-tab-border-active: #60a5fa; /* blue-400 */
   --dds-code-block-select-border: #4b5563; /* gray-600 */
   --dds-code-block-select-bg: transparent;
   --dds-code-block-select-text: #e5e7eb; /* gray-200 */
@@ -312,17 +317,19 @@
   --dds-code-block-select-focus-ring: rgba(96, 165, 250, 0.2);
   --dds-code-block-label-text: #9ca3af; /* gray-400 */
   --dds-code-block-copy-bg: transparent;
-  --dds-code-block-copy-border: #4b5563; /* gray-600 */
-  --dds-code-block-copy-text: #e5e7eb; /* gray-200 */
-  --dds-code-block-copy-bg-hover: rgba(255, 255, 255, 0.05);
-  --dds-code-block-copy-border-hover: #6b7280; /* gray-500 */
-  --dds-code-block-copy-bg-active: rgba(255, 255, 255, 0.1);
-  --dds-code-block-content-bg: transparent;
+  --dds-code-block-copy-border: transparent;
+  --dds-code-block-copy-text: #6b7280; /* gray-500 */
+  --dds-code-block-copy-bg-hover: rgba(255, 255, 255, 0.08);
+  --dds-code-block-copy-border-hover: transparent;
+  --dds-code-block-copy-bg-active: rgba(255, 255, 255, 0.12);
+  --dds-code-block-content-bg: #0a0a0a; /* hsla(0,0%,4%,1) */
   --dds-code-block-text: #e2e8f0; /* slate-200 */
   --dds-code-block-highlight-bg: rgba(96, 165, 250, 0.15);
   --dds-code-block-highlight-border: #60a5fa; /* blue-400 */
   --dds-code-block-loading-text: #9ca3af; /* gray-400 */
   --dds-code-block-error-text: #f87171; /* red-400 */
+  --dds-code-block-filename-text: #9ca3af; /* gray-400 */
+  --dds-code-block-filename-size: 0.8125rem;
 
   /* Prism Syntax - Dark palette */
   --dds-prism-comment: #9ca3af; /* gray-400 */
@@ -418,15 +425,16 @@
     --dds-collapser-text: #e5e7eb;
 
     /* CodeBlock */
-    --dds-code-block-bg: transparent;
-    --dds-code-block-border: #4b5563;
-    --dds-code-block-header-bg: transparent;
-    --dds-code-block-tab-bg: rgba(255, 255, 255, 0.05);
+    --dds-code-block-bg: #0a0a0a;
+    --dds-code-block-border: #262626;
+    --dds-code-block-header-bg: #141414;
+    --dds-code-block-tab-bg: transparent;
     --dds-code-block-tab-text: #9ca3af;
     --dds-code-block-tab-text-hover: #e5e7eb;
-    --dds-code-block-tab-bg-hover: rgba(255, 255, 255, 0.1);
+    --dds-code-block-tab-bg-hover: transparent;
     --dds-code-block-tab-text-active: #f9fafb;
     --dds-code-block-tab-bg-active: transparent;
+    --dds-code-block-tab-border-active: #60a5fa;
     --dds-code-block-select-border: #4b5563;
     --dds-code-block-select-bg: transparent;
     --dds-code-block-select-text: #e5e7eb;
@@ -435,17 +443,19 @@
     --dds-code-block-select-focus-ring: rgba(96, 165, 250, 0.2);
     --dds-code-block-label-text: #9ca3af;
     --dds-code-block-copy-bg: transparent;
-    --dds-code-block-copy-border: #4b5563;
-    --dds-code-block-copy-text: #e5e7eb;
-    --dds-code-block-copy-bg-hover: rgba(255, 255, 255, 0.05);
-    --dds-code-block-copy-border-hover: #6b7280;
-    --dds-code-block-copy-bg-active: rgba(255, 255, 255, 0.1);
-    --dds-code-block-content-bg: transparent;
+    --dds-code-block-copy-border: transparent;
+    --dds-code-block-copy-text: #6b7280;
+    --dds-code-block-copy-bg-hover: rgba(255, 255, 255, 0.08);
+    --dds-code-block-copy-border-hover: transparent;
+    --dds-code-block-copy-bg-active: rgba(255, 255, 255, 0.12);
+    --dds-code-block-content-bg: #0a0a0a; /* hsla(0,0%,4%,1) */
     --dds-code-block-text: #e2e8f0;
     --dds-code-block-highlight-bg: rgba(96, 165, 250, 0.15);
     --dds-code-block-highlight-border: #60a5fa;
     --dds-code-block-loading-text: #9ca3af;
     --dds-code-block-error-text: #f87171;
+    --dds-code-block-filename-text: #9ca3af;
+    --dds-code-block-filename-size: 0.8125rem;
 
     /* Prism Syntax - Dark palette */
     --dds-prism-comment: #9ca3af;
@@ -541,15 +551,16 @@
   --dds-collapser-text: #e5e7eb;
 
   /* CodeBlock */
-  --dds-code-block-bg: transparent;
-  --dds-code-block-border: #4b5563;
-  --dds-code-block-header-bg: transparent;
-  --dds-code-block-tab-bg: rgba(255, 255, 255, 0.05);
+  --dds-code-block-bg: #0a0a0a;
+  --dds-code-block-border: #2e2e2e; /* hsla(0,0%,18%,1) */
+  --dds-code-block-header-bg: #141414;
+  --dds-code-block-tab-bg: transparent;
   --dds-code-block-tab-text: #9ca3af;
   --dds-code-block-tab-text-hover: #e5e7eb;
-  --dds-code-block-tab-bg-hover: rgba(255, 255, 255, 0.1);
+  --dds-code-block-tab-bg-hover: transparent;
   --dds-code-block-tab-text-active: #f9fafb;
   --dds-code-block-tab-bg-active: transparent;
+  --dds-code-block-tab-border-active: #60a5fa;
   --dds-code-block-select-border: #4b5563;
   --dds-code-block-select-bg: transparent;
   --dds-code-block-select-text: #e5e7eb;
@@ -558,17 +569,19 @@
   --dds-code-block-select-focus-ring: rgba(96, 165, 250, 0.2);
   --dds-code-block-label-text: #9ca3af;
   --dds-code-block-copy-bg: transparent;
-  --dds-code-block-copy-border: #4b5563;
-  --dds-code-block-copy-text: #e5e7eb;
-  --dds-code-block-copy-bg-hover: rgba(255, 255, 255, 0.05);
-  --dds-code-block-copy-border-hover: #6b7280;
-  --dds-code-block-copy-bg-active: rgba(255, 255, 255, 0.1);
-  --dds-code-block-content-bg: transparent;
+  --dds-code-block-copy-border: transparent;
+  --dds-code-block-copy-text: #6b7280;
+  --dds-code-block-copy-bg-hover: rgba(255, 255, 255, 0.08);
+  --dds-code-block-copy-border-hover: transparent;
+  --dds-code-block-copy-bg-active: rgba(255, 255, 255, 0.12);
+  --dds-code-block-content-bg: #0a0a0a; /* hsla(0,0%,4%,1) */
   --dds-code-block-text: #e2e8f0;
   --dds-code-block-highlight-bg: rgba(96, 165, 250, 0.15);
   --dds-code-block-highlight-border: #60a5fa;
   --dds-code-block-loading-text: #9ca3af;
   --dds-code-block-error-text: #f87171;
+  --dds-code-block-filename-text: #9ca3af;
+  --dds-code-block-filename-size: 0.8125rem;
 
   /* Prism Syntax - Dark palette */
   --dds-prism-comment: #9ca3af;

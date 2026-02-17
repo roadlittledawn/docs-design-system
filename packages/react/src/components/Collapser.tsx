@@ -9,10 +9,20 @@ interface CollapserProps {
   id?: string;
 
   /**
-   * Whether the collapser should be open by default
+   * Whether the collapser should be open by default (uncontrolled)
    * @default false
    */
   defaultOpen?: boolean;
+
+  /**
+   * Controlled open state (used by CollapserGroup)
+   */
+  open?: boolean;
+
+  /**
+   * Callback when toggle is clicked (used by CollapserGroup)
+   */
+  onToggle?: () => void;
 
   /** Content to show/hide when toggling */
   children: ReactNode;
@@ -25,15 +35,23 @@ export function Collapser({
   title,
   id,
   defaultOpen = false,
+  open: controlledOpen,
+  onToggle,
   children,
   className = "",
 }: CollapserProps) {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
+  const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen);
+  const isControlled = controlledOpen !== undefined;
+  const isOpen = isControlled ? controlledOpen : uncontrolledOpen;
   const [height, setHeight] = useState<number | undefined>(undefined);
   const contentRef = useRef<HTMLDivElement>(null);
 
   // Keyboard shortcuts: 's' or 'f' to show, 'h' to hide
-  useKeyPress(['s', 'f', 'h'], (e) => setIsOpen(e.key !== 'h'));
+  useKeyPress(['s', 'f', 'h'], (e) => {
+    if (!isControlled) {
+      setUncontrolledOpen(e.key !== 'h');
+    }
+  });
 
   useEffect(() => {
     if (contentRef.current) {
@@ -42,7 +60,11 @@ export function Collapser({
   }, [children]);
 
   const toggleOpen = () => {
-    setIsOpen(!isOpen);
+    if (onToggle) {
+      onToggle();
+    } else {
+      setUncontrolledOpen(!uncontrolledOpen);
+    }
   };
 
   const collapserClasses = ["dds-collapser", className]

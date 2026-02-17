@@ -1,4 +1,5 @@
 import React, { useState, Children, cloneElement, isValidElement } from 'react';
+import { Collapser } from './Collapser';
 
 export interface CollapserGroupProps {
   children: React.ReactNode;
@@ -49,11 +50,16 @@ export const CollapserGroup: React.FC<CollapserGroupProps> = ({
       {Children.map(children, (child, index) => {
         if (!isValidElement(child)) return child;
         
-        return cloneElement(child, {
-          ...child.props,
-          open: openIndexes.includes(index),
-          onToggle: () => handleToggle(index),
-        } as any);
+        // Only inject props if child is a Collapser component
+        if (child.type === Collapser) {
+          return cloneElement(child, {
+            ...child.props,
+            open: openIndexes.includes(index),
+            onToggle: () => handleToggle(index),
+          } as any);
+        }
+        
+        return child;
       })}
     </div>
   );

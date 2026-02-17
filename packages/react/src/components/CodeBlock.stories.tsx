@@ -257,3 +257,128 @@ npm test`,
   },
 };
 
+/**
+ * Multiple TSX files displayed as flat tabs with bottom-border accent.
+ */
+export const WithFilenameTabs: Story = {
+  args: {
+    snippets: [
+      {
+        code: `import { CodeBlock } from '@docs-design-system/ui';
+
+export function Example() {
+  return (
+    <CodeBlock
+      code="console.log('hello')"
+      language="typescript"
+    />
+  );
+}`,
+        language: 'tsx',
+        filename: 'Example.tsx',
+        tabTitle: 'Example.tsx',
+      },
+      {
+        code: `import { CodeBlock } from '@docs-design-system/ui';
+
+export function Advanced() {
+  return (
+    <CodeBlock
+      snippets={[
+        { code: 'const a = 1;', language: 'typescript', tabTitle: 'a.ts' },
+        { code: 'const b = 2;', language: 'typescript', tabTitle: 'b.ts' },
+      ]}
+    />
+  );
+}`,
+        language: 'tsx',
+        filename: 'Advanced.tsx',
+        tabTitle: 'Advanced.tsx',
+      },
+    ],
+  },
+};
+
+/**
+ * Single snippet with a filename — displays a flat filename label in the header.
+ */
+export const SingleFilename: Story = {
+  args: {
+    code: `export default function Home() {
+  return <h1>Welcome</h1>;
+}`,
+    language: 'tsx',
+    filename: 'page.tsx',
+  },
+};
+
+/**
+ * PHP syntax highlighting example.
+ */
+export const PHPExample: Story = {
+  args: {
+    code: `<?php
+
+namespace App\\Http\\Controllers;
+
+use Illuminate\\Http\\Request;
+
+class UserController extends Controller
+{
+    public function index()
+    {
+        $users = User::all();
+        return view('users.index', compact('users'));
+    }
+
+    public function show(int $id)
+    {
+        $user = User::findOrFail($id);
+        return response()->json($user);
+    }
+}`,
+    language: 'php',
+    filename: 'UserController.php',
+  },
+};
+
+/**
+ * Many tabs to verify horizontal scroll behavior.
+ */
+export const ManyTabs: Story = {
+  args: {
+    snippets: [
+      {
+        code: `export const App = () => <div>App</div>;`,
+        language: 'tsx',
+        tabTitle: 'App.tsx',
+      },
+      {
+        code: `export const Header = () => <header>Header</header>;`,
+        language: 'tsx',
+        tabTitle: 'Header.tsx',
+      },
+      {
+        code: `export const Footer = () => <footer>Footer</footer>;`,
+        language: 'tsx',
+        tabTitle: 'Footer.tsx',
+      },
+      {
+        code: `export const Sidebar = () => <aside>Sidebar</aside>;`,
+        language: 'tsx',
+        tabTitle: 'Sidebar.tsx',
+      },
+      {
+        code: `export const Nav = () => <nav>Nav</nav>;`,
+        language: 'tsx',
+        tabTitle: 'Navigation.tsx',
+      },
+      {
+        code: `export const Content = () => <main>Content</main>;`,
+        language: 'tsx',
+        tabTitle: 'ContentArea.tsx',
+      },
+    ],
+  },
+};
+

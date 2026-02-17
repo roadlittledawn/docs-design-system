@@ -21,7 +21,26 @@ The CodeBlock component provides a comprehensive solution for displaying code sn
 - **Line Highlighting**: Highlight specific lines to draw attention
 - **Tabs**: Display multiple code snippets in tabs (typically for different files)
 - **Language Switching**: Dropdown to switch between different language versions
+- **Filename Labels**: Single-file snippets display a flat filename label in the header
 - **External Snippets**: Load code snippets from markdown files via path prop
+
+## Supported Languages
+
+The following languages are bundled by default: JavaScript, TypeScript, JSX, TSX, CSS, Markdown, JSON, Bash, Ruby, Python, Java, SQL, YAML, and PHP.
+
+To add additional languages, use the \`registerLanguages\` utility before rendering:
+
+\`\`\`ts
+import { registerLanguages, CodeBlock } from '@roadlittledawn/docs-design-system-react';
+
+// Call once at app startup or before rendering CodeBlock with new languages.
+// Prism is already loaded by the package — dynamic language imports
+// register themselves against it automatically.
+await registerLanguages(async () => {
+  await import('prismjs/components/prism-go');
+  await import('prismjs/components/prism-rust');
+});
+\`\`\`
 
 ## When to Use
 

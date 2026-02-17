@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Collapser } from './Collapser';
+import { CollapserGroup } from './CollapserGroup';
 
 /**
  * The Collapser component creates expandable/collapsible content sections with smooth animations.
@@ -116,11 +117,11 @@ export const ComplexContent: Story = {
 };
 
 /**
- * Multiple collapsers in a FAQ-style layout.
+ * Multiple collapsers in a FAQ-style layout using CollapserGroup.
  */
 export const FAQExample: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+    <CollapserGroup>
       <Collapser title="What is this documentation system?">
         <p>
           This is a comprehensive documentation design system that provides
@@ -146,6 +147,6 @@ export const FAQExample: Story = {
           practices and are keyboard navigable.
         </p>
       </Collapser>
-    </div>
+    </CollapserGroup>
   ),
 };

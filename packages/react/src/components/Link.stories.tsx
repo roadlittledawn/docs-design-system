@@ -57,6 +57,13 @@ export const Internal: Story = {
     href: '/docs/components',
     children: 'View Components Documentation',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Link href="/docs/components">View Components Documentation</Link>`,
+      },
+    },
+  },
 };
 
 /**
@@ -66,6 +73,13 @@ export const External: Story = {
   args: {
     href: 'https://github.com/your-repo/docs-design-system',
     children: 'View on GitHub',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Link href="https://github.com/your-repo/docs-design-system">View on GitHub</Link>`,
+      },
+    },
   },
 };
 
@@ -77,12 +91,31 @@ export const AnchorLink: Story = {
     href: '#installation',
     children: 'Jump to Installation',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Link href="#installation">Jump to Installation</Link>`,
+      },
+    },
+  },
 };
 
 /**
  * Link within body text.
  */
 export const InlineLink: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `<p>
+  For more information, check out the{' '}
+  <Link href="/docs/getting-started">Getting Started guide</Link>
+  {' '}or visit our{' '}
+  <Link href="https://github.com">GitHub repository</Link>.
+</p>`,
+      },
+    },
+  },
   render: () => (
     <p>
       For more information, check out the{' '}
@@ -97,6 +130,19 @@ export const InlineLink: Story = {
  * Multiple links in a list.
  */
 export const LinkList: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `<ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+  <li><Link href="/docs/introduction">Introduction</Link></li>
+  <li><Link href="/docs/components">Components</Link></li>
+  <li><Link href="/docs/best-practices">Best Practices</Link></li>
+  <li><Link href="https://github.com">GitHub</Link></li>
+  <li><Link href="https://npmjs.com">NPM</Link></li>
+</ul>`,
+      },
+    },
+  },
   render: () => (
     <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
       <li>
@@ -122,6 +168,30 @@ export const LinkList: Story = {
  * Comparison of internal and external links.
  */
 export const InternalVsExternal: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `<div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+  <div>
+    <strong>Internal Link:</strong>
+    <br />
+    <Link href="/docs/components">Components (internal)</Link>
+    <p style={{ fontSize: '0.875rem', color: '#666', marginTop: '0.5rem' }}>
+      Opens in the same tab, no icon
+    </p>
+  </div>
+  <div>
+    <strong>External Link:</strong>
+    <br />
+    <Link href="https://example.com">Example.com (external)</Link>
+    <p style={{ fontSize: '0.875rem', color: '#666', marginTop: '0.5rem' }}>
+      Opens in new tab, includes external link icon
+    </p>
+  </div>
+</div>`,
+      },
+    },
+  },
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <div>

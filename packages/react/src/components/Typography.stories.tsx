@@ -49,6 +49,13 @@ export const H1: Story = {
     variant: 'h1',
     children: 'Heading 1 Style',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Typography variant="h1">Heading 1 Style</Typography>`,
+      },
+    },
+  },
 };
 
 /**
@@ -58,6 +65,13 @@ export const H2: Story = {
   args: {
     variant: 'h2',
     children: 'Heading 2 Style',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Typography variant="h2">Heading 2 Style</Typography>`,
+      },
+    },
   },
 };
 
@@ -69,6 +83,13 @@ export const H3: Story = {
     variant: 'h3',
     children: 'Heading 3 Style',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Typography variant="h3">Heading 3 Style</Typography>`,
+      },
+    },
+  },
 };
 
 /**
@@ -78,6 +99,13 @@ export const H4: Story = {
   args: {
     variant: 'h4',
     children: 'Heading 4 Style',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Typography variant="h4">Heading 4 Style</Typography>`,
+      },
+    },
   },
 };
 
@@ -89,6 +117,15 @@ export const Paragraph: Story = {
     variant: 'p',
     children: 'This is a paragraph with the default typography style. It provides readable text for body content.',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Typography variant="p">
+  This is a paragraph with the default typography style. It provides readable text for body content.
+</Typography>`,
+      },
+    },
+  },
 };
 
 /**
@@ -99,12 +136,40 @@ export const Caption: Story = {
     variant: 'caption',
     children: 'This is caption text, typically used for figure captions or footnotes.',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Typography variant="caption">
+  This is caption text, typically used for figure captions or footnotes.
+</Typography>`,
+      },
+    },
+  },
 };
 
 /**
  * All typography variants displayed together.
  */
 export const AllVariants: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `<div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+  <Typography variant="h1">Heading 1 Style</Typography>
+  <Typography variant="h2">Heading 2 Style</Typography>
+  <Typography variant="h3">Heading 3 Style</Typography>
+  <Typography variant="h4">Heading 4 Style</Typography>
+  <Typography variant="p">
+    This is paragraph text. It's the default variant and is suitable for
+    body content and general text throughout your documentation.
+  </Typography>
+  <Typography variant="caption">
+    This is caption text, used for smaller annotations or supplementary information.
+  </Typography>
+</div>`,
+      },
+    },
+  },
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <Typography variant="h1">Heading 1 Style</Typography>

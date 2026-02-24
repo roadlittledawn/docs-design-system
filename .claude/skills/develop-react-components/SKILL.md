@@ -123,6 +123,13 @@ type Story = StoryObj<typeof ComponentName>;
 
 export const Default: Story = {
   args: { /* ... */ },
+  parameters: {
+    docs: {
+      source: {
+        code: `<ComponentName prop="value">children</ComponentName>`,
+      },
+    },
+  },
 };
 ```
 
@@ -167,3 +174,4 @@ Storybook auto-discovers stories from `packages/react/src/**/*.stories.tsx` -- n
 - **Forgetting the auto dark mode `@media` block** -- users who rely on OS-level dark mode won't get dark styles.
 - **Using pure black/white in dark mode** -- creates harsh contrast that looks bad on various dark backgrounds.
 - **Not adding new dependency to `package.json`** -- if the component uses a new npm dependency, add it to `packages/react/package.json` (runtime deps in `dependencies`, types in `devDependencies`).
+- **Missing `parameters.docs.source.code` on stories** -- in production builds, React minifies `component.name` to a single letter, so the auto-generated source panel shows `<c .../>` instead of `<ComponentName .../>`. Every story **must** have an explicit `parameters.docs.source.code` string. This applies to all story types: args-only, args+render, and render-only. See Tabs.stories.tsx as the reference implementation.

@@ -49,6 +49,13 @@ export const Primary: Story = {
     variant: 'primary',
     children: 'Primary Button',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Button variant="primary">Primary Button</Button>`,
+      },
+    },
+  },
 };
 
 /**
@@ -59,6 +66,13 @@ export const Secondary: Story = {
     variant: 'secondary',
     children: 'Secondary Button',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Button variant="secondary">Secondary Button</Button>`,
+      },
+    },
+  },
 };
 
 /**
@@ -68,6 +82,13 @@ export const Outline: Story = {
   args: {
     variant: 'outline',
     children: 'Outline Button',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Button variant="outline">Outline Button</Button>`,
+      },
+    },
   },
 };
 
@@ -80,6 +101,13 @@ export const Small: Story = {
     size: 'sm',
     children: 'Small Button',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Button variant="primary" size="sm">Small Button</Button>`,
+      },
+    },
+  },
 };
 
 /**
@@ -90,6 +118,13 @@ export const Medium: Story = {
     variant: 'primary',
     size: 'md',
     children: 'Medium Button',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Button variant="primary" size="md">Medium Button</Button>`,
+      },
+    },
   },
 };
 
@@ -102,6 +137,13 @@ export const Large: Story = {
     size: 'lg',
     children: 'Large Button',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Button variant="primary" size="lg">Large Button</Button>`,
+      },
+    },
+  },
 };
 
 /**
@@ -113,12 +155,30 @@ export const Disabled: Story = {
     children: 'Disabled Button',
     disabled: true,
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Button variant="primary" disabled>Disabled Button</Button>`,
+      },
+    },
+  },
 };
 
 /**
  * Example showing all button variants side by side for comparison.
  */
 export const AllVariants: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `<div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+  <Button variant="primary">Primary</Button>
+  <Button variant="secondary">Secondary</Button>
+  <Button variant="outline">Outline</Button>
+</div>`,
+      },
+    },
+  },
   render: () => (
     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
       <Button variant="primary">Primary</Button>
@@ -132,6 +192,17 @@ export const AllVariants: Story = {
  * Example showing all button sizes side by side for comparison.
  */
 export const AllSizes: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `<div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+  <Button size="sm">Small</Button>
+  <Button size="md">Medium</Button>
+  <Button size="lg">Large</Button>
+</div>`,
+      },
+    },
+  },
   render: () => (
     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
       <Button size="sm">Small</Button>

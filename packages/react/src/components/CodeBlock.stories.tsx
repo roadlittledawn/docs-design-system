@@ -81,6 +81,20 @@ export const Basic: Story = {
 console.log(greet("World"));`,
     language: 'typescript',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CodeBlock
+  language="typescript"
+  code={\`function greet(name: string) {
+  return \\\`Hello, \\\${name}!\\\`;
+}
+
+console.log(greet("World"));\`}
+/>`,
+      },
+    },
+  },
 };
 
 /**
@@ -98,6 +112,23 @@ export const WithFilename: Story = {
     language: 'jsx',
     filename: 'Button.jsx',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CodeBlock
+  language="jsx"
+  filename="Button.jsx"
+  code={\`export const Button = ({ children, onClick }) => {
+  return (
+    <button onClick={onClick}>
+      {children}
+    </button>
+  );
+};\`}
+/>`,
+      },
+    },
+  },
 };
 
 /**
@@ -114,6 +145,23 @@ export const WithHighlightedLines: Story = {
 }`,
     language: 'javascript',
     highlightLines: [2, 3, 4],
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CodeBlock
+  language="javascript"
+  highlightLines={[2, 3, 4]}
+  code={\`function calculateTotal(items) {
+  let total = 0;
+  for (const item of items) {
+    total += item.price * item.quantity;
+  }
+  return total;
+}\`}
+/>`,
+      },
+    },
   },
 };
 
@@ -153,6 +201,44 @@ export default {
       },
     ],
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CodeBlock
+  snippets={[
+    {
+      code: \`export const Button = ({ children }) => {
+  return <button>{children}</button>;
+};\`,
+      language: 'jsx',
+      filename: 'Button.jsx',
+      tabTitle: 'Button.jsx',
+    },
+    {
+      code: \`.button {
+  padding: 0.5rem 1rem;
+  background-color: blue;
+  color: white;
+}\`,
+      language: 'css',
+      filename: 'Button.css',
+      tabTitle: 'Button.css',
+    },
+    {
+      code: \`import { Button } from './Button';
+
+export default {
+  component: Button,
+};\`,
+      language: 'typescript',
+      filename: 'Button.stories.ts',
+      tabTitle: 'Button.stories.ts',
+    },
+  ]}
+/>`,
+      },
+    },
+  },
 };
 
 /**
@@ -189,6 +275,27 @@ end`,
         filename: 'greet.rb',
       },
     ],
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CodeBlock
+  snippets={[
+    { code: \`function greet(name: string): string {
+  return \\\`Hello, \\\${name}!\\\`;
+}\`, language: 'typescript', filename: 'greet.ts' },
+    { code: \`function greet(name) {
+  return \\\`Hello, \\\${name}!\\\`;
+}\`, language: 'javascript', filename: 'greet.js' },
+    { code: \`def greet(name):
+    return f"Hello, {name}!"\`, language: 'python', filename: 'greet.py' },
+    { code: \`def greet(name)
+  "Hello, #{name}!"
+end\`, language: 'ruby', filename: 'greet.rb' },
+  ]}
+/>`,
+      },
+    },
   },
 };
 
@@ -227,6 +334,43 @@ export function Button({ children, onClick }) {
       },
     ],
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CodeBlock
+  snippets={[
+    {
+      code: \`import React from 'react';
+
+export function Button({ children, onClick }) {
+  return (
+    <button onClick={onClick} className="btn">
+      {children}
+    </button>
+  );
+}\`,
+      language: 'jsx',
+      filename: 'Button.jsx',
+      tabTitle: 'Button.jsx',
+      highlightLines: [3, 4, 5],
+    },
+    {
+      code: \`.btn {
+  padding: 0.5rem 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 0.375rem;
+}\`,
+      language: 'css',
+      filename: 'Button.css',
+      tabTitle: 'Button.css',
+      highlightLines: [2, 3],
+    },
+  ]}
+/>`,
+      },
+    },
+  },
 };
 
 /**
@@ -236,6 +380,13 @@ export function Button({ children, onClick }) {
 export const WithPath: Story = {
   args: {
     path: 'https://raw.githubusercontent.com/storybookjs/storybook/47e331ffbaa61a476ddb873bdb12bf46a93a5131/docs/_snippets/before-each-in-meta-mock-date.md',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CodeBlock path="https://raw.githubusercontent.com/storybookjs/storybook/47e331ffbaa61a476ddb873bdb12bf46a93a5131/docs/_snippets/before-each-in-meta-mock-date.md" />`,
+      },
+    },
   },
 };
 
@@ -253,6 +404,23 @@ export const JSONExample: Story = {
 }`,
     language: 'json',
     filename: 'package.json',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CodeBlock
+  language="json"
+  filename="package.json"
+  code={\`{
+  "name": "docs-design-system",
+  "version": "0.1.0",
+  "dependencies": {
+    "react": "^18.0.0"
+  }
+}\`}
+/>`,
+      },
+    },
   },
 };
 
@@ -273,6 +441,26 @@ npm run build
 npm test`,
     language: 'bash',
     filename: 'setup.sh',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CodeBlock
+  language="bash"
+  filename="setup.sh"
+  code={\`#!/bin/bash
+
+# Install dependencies
+npm install
+
+# Build the project
+npm run build
+
+# Run tests
+npm test\`}
+/>`,
+      },
+    },
   },
 };
 
@@ -316,6 +504,48 @@ export function Advanced() {
       },
     ],
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CodeBlock
+  snippets={[
+    {
+      code: \`import { CodeBlock } from '@docs-design-system/ui';
+
+export function Example() {
+  return (
+    <CodeBlock
+      code="console.log('hello')"
+      language="typescript"
+    />
+  );
+}\`,
+      language: 'tsx',
+      filename: 'Example.tsx',
+      tabTitle: 'Example.tsx',
+    },
+    {
+      code: \`import { CodeBlock } from '@docs-design-system/ui';
+
+export function Advanced() {
+  return (
+    <CodeBlock
+      snippets={[
+        { code: 'const a = 1;', language: 'typescript', tabTitle: 'a.ts' },
+        { code: 'const b = 2;', language: 'typescript', tabTitle: 'b.ts' },
+      ]}
+    />
+  );
+}\`,
+      language: 'tsx',
+      filename: 'Advanced.tsx',
+      tabTitle: 'Advanced.tsx',
+    },
+  ]}
+/>`,
+      },
+    },
+  },
 };
 
 /**
@@ -328,6 +558,19 @@ export const SingleFilename: Story = {
 }`,
     language: 'tsx',
     filename: 'page.tsx',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CodeBlock
+  language="tsx"
+  filename="page.tsx"
+  code={\`export default function Home() {
+  return <h1>Welcome</h1>;
+}\`}
+/>`,
+      },
+    },
   },
 };
 
@@ -358,6 +601,36 @@ class UserController extends Controller
 }`,
     language: 'php',
     filename: 'UserController.php',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CodeBlock
+  language="php"
+  filename="UserController.php"
+  code={\`<?php
+
+namespace App\\\\Http\\\\Controllers;
+
+use Illuminate\\\\Http\\\\Request;
+
+class UserController extends Controller
+{
+    public function index()
+    {
+        $users = User::all();
+        return view('users.index', compact('users'));
+    }
+
+    public function show(int $id)
+    {
+        $user = User::findOrFail($id);
+        return response()->json($user);
+    }
+}\`}
+/>`,
+      },
+    },
   },
 };
 
@@ -399,5 +672,20 @@ export const ManyTabs: Story = {
       },
     ],
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CodeBlock
+  snippets={[
+    { code: \`export const App = () => <div>App</div>;\`, language: 'tsx', tabTitle: 'App.tsx' },
+    { code: \`export const Header = () => <header>Header</header>;\`, language: 'tsx', tabTitle: 'Header.tsx' },
+    { code: \`export const Footer = () => <footer>Footer</footer>;\`, language: 'tsx', tabTitle: 'Footer.tsx' },
+    { code: \`export const Sidebar = () => <aside>Sidebar</aside>;\`, language: 'tsx', tabTitle: 'Sidebar.tsx' },
+    { code: \`export const Nav = () => <nav>Nav</nav>;\`, language: 'tsx', tabTitle: 'Navigation.tsx' },
+    { code: \`export const Content = () => <main>Content</main>;\`, language: 'tsx', tabTitle: 'ContentArea.tsx' },
+  ]}
+/>`,
+      },
+    },
+  },
 };
-

@@ -56,6 +56,18 @@ export const TwoColumns: Story = {
       </>
     ),
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CardGrid columns={2}>
+  <Card title="Getting Started">Learn the basics of our documentation system.</Card>
+  <Card title="Components">Explore all available UI components.</Card>
+  <Card title="Best Practices">Follow guidelines for effective documentation.</Card>
+  <Card title="Examples">See real-world usage examples.</Card>
+</CardGrid>`,
+      },
+    },
+  },
 };
 
 /**
@@ -74,6 +86,20 @@ export const ThreeColumns: Story = {
         <Card title="FAQ">Frequently asked questions.</Card>
       </>
     ),
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CardGrid columns={3}>
+  <Card title="Tutorials">Step-by-step learning guides.</Card>
+  <Card title="How-To Guides">Task-oriented instructions.</Card>
+  <Card title="Reference">Technical reference documentation.</Card>
+  <Card title="Explanation">Conceptual background information.</Card>
+  <Card title="API">Complete API documentation.</Card>
+  <Card title="FAQ">Frequently asked questions.</Card>
+</CardGrid>`,
+      },
+    },
   },
 };
 
@@ -96,6 +122,22 @@ export const FourColumns: Story = {
       </>
     ),
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CardGrid columns={4}>
+  <Card titleColor="blue" backgroundColor="blue">Feature 1</Card>
+  <Card titleColor="green" backgroundColor="green">Feature 2</Card>
+  <Card titleColor="purple" backgroundColor="purple">Feature 3</Card>
+  <Card titleColor="red" backgroundColor="red">Feature 4</Card>
+  <Card titleColor="yellow" backgroundColor="yellow">Feature 5</Card>
+  <Card titleColor="gray" backgroundColor="gray">Feature 6</Card>
+  <Card titleColor="blue" backgroundColor="blue">Feature 7</Card>
+  <Card titleColor="green" backgroundColor="green">Feature 8</Card>
+</CardGrid>`,
+      },
+    },
+  },
 };
 
 /**
@@ -111,5 +153,16 @@ export const ClickableCards: Story = {
         <Card title="Examples" href="/examples">Code examples and patterns</Card>
       </>
     ),
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CardGrid columns={3}>
+  <Card title="Documentation" href="/docs">Complete documentation guide</Card>
+  <Card title="API Reference" href="/api">Detailed API reference</Card>
+  <Card title="Examples" href="/examples">Code examples and patterns</Card>
+</CardGrid>`,
+      },
+    },
   },
 };

@@ -48,6 +48,15 @@ export const Caution: Story = {
     variant: 'caution',
     children: 'This operation cannot be undone. Make sure you have a backup before proceeding.',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Callout variant="caution">
+  This operation cannot be undone. Make sure you have a backup before proceeding.
+</Callout>`,
+      },
+    },
+  },
 };
 
 /**
@@ -57,6 +66,15 @@ export const Important: Story = {
   args: {
     variant: 'important',
     children: 'All users must update their passwords by the end of the month to comply with the new security policy.',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Callout variant="important">
+  All users must update their passwords by the end of the month to comply with the new security policy.
+</Callout>`,
+      },
+    },
   },
 };
 
@@ -68,6 +86,15 @@ export const Tip: Story = {
     variant: 'tip',
     children: 'You can use keyboard shortcuts (Cmd+K or Ctrl+K) to quickly search the documentation.',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Callout variant="tip">
+  You can use keyboard shortcuts (Cmd+K or Ctrl+K) to quickly search the documentation.
+</Callout>`,
+      },
+    },
+  },
 };
 
 /**
@@ -77,6 +104,15 @@ export const Course: Story = {
   args: {
     variant: 'course',
     children: 'In this section, you will learn how to configure your development environment and install the necessary dependencies.',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Callout variant="course">
+  In this section, you will learn how to configure your development environment and install the necessary dependencies.
+</Callout>`,
+      },
+    },
   },
 };
 
@@ -89,6 +125,15 @@ export const CustomTitle: Story = {
     title: 'Security Notice',
     children: 'Two-factor authentication is now required for all administrator accounts.',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Callout variant="important" title="Security Notice">
+  Two-factor authentication is now required for all administrator accounts.
+</Callout>`,
+      },
+    },
+  },
 };
 
 /**
@@ -100,12 +145,41 @@ export const NoTitle: Story = {
     title: null,
     children: 'This callout has no title and displays only the content.',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Callout variant="tip" title={null}>
+  This callout has no title and displays only the content.
+</Callout>`,
+      },
+    },
+  },
 };
 
 /**
  * All callout variants displayed together for comparison.
  */
 export const AllVariants: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `<div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+  <Callout variant="caution">
+    Caution: Be careful when modifying system files.
+  </Callout>
+  <Callout variant="important">
+    Important: This feature requires administrator privileges.
+  </Callout>
+  <Callout variant="tip">
+    Tip: Use the search function to find topics quickly.
+  </Callout>
+  <Callout variant="course">
+    Course: This module covers the basics of component design.
+  </Callout>
+</div>`,
+      },
+    },
+  },
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <Callout variant="caution">

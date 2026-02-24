@@ -57,6 +57,13 @@ export const Level1: Story = {
     level: 1,
     children: 'Page Title (H1)',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Heading level={1}>Page Title (H1)</Heading>`,
+      },
+    },
+  },
 };
 
 /**
@@ -66,6 +73,13 @@ export const Level2: Story = {
   args: {
     level: 2,
     children: 'Section Title (H2)',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Heading level={2}>Section Title (H2)</Heading>`,
+      },
+    },
   },
 };
 
@@ -77,6 +91,13 @@ export const Level3: Story = {
     level: 3,
     children: 'Subsection Title (H3)',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Heading level={3}>Subsection Title (H3)</Heading>`,
+      },
+    },
+  },
 };
 
 /**
@@ -87,12 +108,38 @@ export const Level4: Story = {
     level: 4,
     children: 'Sub-subsection Title (H4)',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Heading level={4}>Sub-subsection Title (H4)</Heading>`,
+      },
+    },
+  },
 };
 
 /**
  * All heading levels displayed together to show the hierarchy.
  */
 export const AllLevels: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `<div>
+  <Heading level={1}>Level 1 - Main Page Title</Heading>
+  <p>Use h1 for the main page title. There should only be one h1 per page.</p>
+
+  <Heading level={2}>Level 2 - Major Section</Heading>
+  <p>Use h2 for major sections of your page.</p>
+
+  <Heading level={3}>Level 3 - Subsection</Heading>
+  <p>Use h3 for subsections within major sections.</p>
+
+  <Heading level={4}>Level 4 - Sub-subsection</Heading>
+  <p>Use h4 for sub-subsections. If you need deeper levels, reconsider your document structure.</p>
+</div>`,
+      },
+    },
+  },
   render: () => (
     <div>
       <Heading level={1}>Level 1 - Main Page Title</Heading>
@@ -122,6 +169,34 @@ export const AllLevels: Story = {
  * Example of a properly structured document hierarchy.
  */
 export const DocumentStructure: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `<div>
+  <Heading level={1}>Getting Started Guide</Heading>
+  <p>Introduction to the documentation system...</p>
+
+  <Heading level={2}>Installation</Heading>
+  <p>How to install the components...</p>
+
+  <Heading level={3}>Prerequisites</Heading>
+  <p>What you need before installing...</p>
+
+  <Heading level={3}>Installation Steps</Heading>
+  <p>Step-by-step installation instructions...</p>
+
+  <Heading level={2}>Configuration</Heading>
+  <p>How to configure the system...</p>
+
+  <Heading level={3}>Basic Configuration</Heading>
+  <p>Essential configuration options...</p>
+
+  <Heading level={4}>Environment Variables</Heading>
+  <p>Required environment variables...</p>
+</div>`,
+      },
+    },
+  },
   render: () => (
     <div>
       <Heading level={1}>Getting Started Guide</Heading>

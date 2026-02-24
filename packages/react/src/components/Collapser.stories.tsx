@@ -62,6 +62,18 @@ export const Basic: Story = {
       </p>
     ),
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Collapser title="Click to expand">
+  <p>
+    This content is hidden by default and can be revealed by clicking the title.
+    It includes smooth height animations for a better user experience.
+  </p>
+</Collapser>`,
+      },
+    },
+  },
 };
 
 /**
@@ -76,6 +88,15 @@ export const DefaultOpen: Story = {
         This collapser is open by default. Users can still click to collapse it.
       </p>
     ),
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Collapser title="This section starts open" defaultOpen>
+  <p>This collapser is open by default. Users can still click to collapse it.</p>
+</Collapser>`,
+      },
+    },
   },
 };
 
@@ -92,6 +113,18 @@ export const WithID: Story = {
         and accessibility purposes.
       </p>
     ),
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Collapser title="Section with ID" id="faq-question-1">
+  <p>
+    This collapser has an ID on its title, which is useful for anchor links
+    and accessibility purposes.
+  </p>
+</Collapser>`,
+      },
+    },
   },
 };
 
@@ -114,12 +147,59 @@ export const ComplexContent: Story = {
       </div>
     ),
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Collapser title="How do I install the components?">
+  <div>
+    <p>You can install the components using npm:</p>
+    <pre>npm install @docs-design-system/ui</pre>
+    <p>Then import them in your React application:</p>
+    <pre>import {'{ Button, Card }'} from '@docs-design-system/ui';</pre>
+  </div>
+</Collapser>`,
+      },
+    },
+  },
 };
 
 /**
  * Multiple collapsers in a FAQ-style layout using CollapserGroup.
  */
 export const FAQExample: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `<CollapserGroup>
+  <Collapser title="What is this documentation system?">
+    <p>
+      This is a comprehensive documentation design system that provides
+      reusable components and guidelines for creating effective technical
+      documentation.
+    </p>
+  </Collapser>
+  <Collapser title="How do I get started?">
+    <p>
+      Start by installing the component package, then explore the components
+      in Storybook to understand their usage and configuration options.
+    </p>
+  </Collapser>
+  <Collapser title="Can I customize the components?">
+    <p>
+      Yes! All components accept a className prop for custom styling, and you
+      can override the default styles using CSS.
+    </p>
+  </Collapser>
+  <Collapser title="Is this accessible?">
+    <p>
+      Accessibility is a core principle. All components follow WAI-ARIA best
+      practices and are keyboard navigable.
+    </p>
+  </Collapser>
+</CollapserGroup>`,
+      },
+    },
+  },
   render: () => (
     <CollapserGroup>
       <Collapser title="What is this documentation system?">

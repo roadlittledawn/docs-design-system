@@ -228,6 +228,7 @@ export const Sizes: Story = {
         display: "flex",
         gap: "2rem",
         alignItems: "center",
+        color: "var(--dds-tabs-panel-text)",
       }}
     >
       <Popover
@@ -291,6 +292,7 @@ export const Placement: Story = {
         gap: "2rem",
         justifyContent: "center",
         padding: "6rem 2rem",
+        color: "var(--dds-tabs-panel-text)",
       }}
     >
       {(
@@ -338,7 +340,7 @@ export const InlineParagraph: Story = {
     },
   },
   render: () => (
-    <p style={{ fontFamily: "sans-serif", fontSize: "1rem", maxWidth: "480px", lineHeight: 1.7, color: "var(--dds-tabs-panel-text)" }}>
+    <p style={{ fontFamily: "sans-serif", fontSize: "1rem", maxWidth: "480px", lineHeight: 1.7, color: "var(--dds-tabs-panel-text)", margin: 0 }}>
       <Popover
         glossary={{
           term: "apm",

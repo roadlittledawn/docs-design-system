@@ -27,6 +27,10 @@ AI can help bridge the gap between subject matter experts and your docs platform
 - Always review AI-generated content for technical accuracy
 - Consider setting up custom instructions or agents for common conversion tasks
 
+**Context strategy:**
+
+Use direct context loading (not RAG) for authoring assistance. Style guides are small enough to fit entirely in modern LLM context windows (100k+ tokens), ensuring the AI sees all guidelines consistently. Include 5-10 examples of well-written docs for different content types. RAG risks missing critical style rules or retrieving outdated patterns. Optional: use RAG to find existing docs on similar topics to avoid duplication, but keep the style guide itself in direct context.
+
 </Collapser>
 
 <Collapser title="Reviewing">
@@ -57,6 +61,12 @@ Help users find information faster through AI-augmented interfaces:
 - **RAG (Retrieval Augmented Generation)**: Index your docs in a vector database for context-aware answers
 - **Semantic search**: Help users find relevant content even when they don't know the exact terms
 
+**Choosing between RAG and direct context loading:**
+
+- **RAG**: Best for large doc sets that exceed context windows, open-ended questions across entire corpus, unpredictable user queries. Requires vector DB infrastructure and indexing pipeline. Can have retrieval quality issues.
+- **Direct context loading**: Works when docs fit in modern context windows (100k+ tokens). More accurate since full page structure is preserved. Simpler architecture - just serve markdown via API or MCP. Better for page-specific questions.
+- **Hybrid approach**: Load current page + related pages directly, use RAG for broader corpus search. Let users explicitly add pages to context.
+
 **Implementation considerations:**
 
 - Provide markdown exports or API endpoints for each docs page for indexing
@@ -74,7 +84,6 @@ Help users find information faster through AI-augmented interfaces:
 **Success metrics:**
 
 - Track defect ratio (were users able to complete their task?) rather than just satisfaction scores
-- Measure time to resolution
 - Monitor which questions AI can't answer well - these indicate content gaps
 
 </Collapser>

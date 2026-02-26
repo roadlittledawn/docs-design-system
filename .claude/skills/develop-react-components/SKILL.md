@@ -175,3 +175,11 @@ Storybook auto-discovers stories from `packages/react/src/**/*.stories.tsx` -- n
 - **Using pure black/white in dark mode** -- creates harsh contrast that looks bad on various dark backgrounds.
 - **Not adding new dependency to `package.json`** -- if the component uses a new npm dependency, add it to `packages/react/package.json` (runtime deps in `dependencies`, types in `devDependencies`).
 - **Missing `parameters.docs.source.code` on stories** -- in production builds, React minifies `component.name` to a single letter, so the auto-generated source panel shows `<c .../>` instead of `<ComponentName .../>`. Every story **must** have an explicit `parameters.docs.source.code` string. This applies to all story types: args-only, args+render, and render-only. See Tabs.stories.tsx as the reference implementation.
+- **Hardcoded text color in story `render` functions** -- Storybook defaults to dark mode (`initialGlobals: { theme: "dark" }`). Any wrapper element in a `render` function that contains readable text must use `color: "var(--dds-tabs-panel-text)"` (or another theme-aware token) rather than relying on the browser default (which is black and unreadable on dark backgrounds). Always set an explicit color on `<p>`, `<div>`, and other text-containing wrappers in story renders:
+  ```tsx
+  render: (args) => (
+    <p style={{ color: "var(--dds-tabs-panel-text)", fontFamily: "sans-serif" }}>
+      Inline text with <ComponentName {...args}>trigger</ComponentName> here.
+    </p>
+  ),
+  ```

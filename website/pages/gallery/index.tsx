@@ -5,6 +5,9 @@ import Link from "next/link";
 
 export default function GalleryPage() {
   const data = galleryData as GalleryData;
+  const sortedSites = [...data.sites].sort((a, b) =>
+    a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+  );
 
   return (
     <>
@@ -20,7 +23,7 @@ export default function GalleryPage() {
       </div>
 
       <div className="grid md:gap-x-6 md:gap-y-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-16">
-        {data.sites.map((site) => (
+        {sortedSites.map((site) => (
           <Link
             key={site.id}
             href={`/gallery/${site.id}`}

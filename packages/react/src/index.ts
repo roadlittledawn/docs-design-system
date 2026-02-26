@@ -7,6 +7,7 @@ export * from './components/Collapser';
 export * from './components/CollapserGroup';
 export * from './components/CodeBlock';
 export * from './components/Tabs';
+export * from './components/Popover';
 export * from './components/Typography';
 export * from './components/Heading';
 export * from './components/Link';

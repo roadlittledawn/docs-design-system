@@ -1,0 +1,247 @@
+/* ==========================================================================
+   Popover Component
+   Uses the native Popover API for top-layer rendering.
+   Positioning is handled via inline styles set by JS (getBoundingClientRect).
+   ========================================================================== */
+
+/* Trigger */
+.dds-popover-trigger {
+  display: inline;
+  cursor: default;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: currentColor;
+  text-underline-offset: 3px;
+  border-radius: 2px;
+  outline-offset: 2px;
+}
+
+.dds-popover-trigger:focus-visible {
+  outline: 2px solid var(--dds-link-color);
+}
+
+/* ==========================================================================
+   Popover panel — rendered in the top layer via Popover API
+   ========================================================================== */
+.dds-popover {
+  /* Reset browser popover defaults */
+  margin: 0;
+  padding: 0;
+  border: none;
+  overflow: visible;
+  inset: unset; /* we set top/left via JS */
+
+  /* Layout */
+  position: fixed;
+  width: var(--dds-popover-width-md);
+  max-width: calc(100vw - 16px);
+
+  /* Appearance */
+  background: var(--dds-popover-bg);
+  border: 1px solid var(--dds-popover-border);
+  border-radius: var(--dds-popover-radius);
+  box-shadow: var(--dds-popover-shadow);
+  color: var(--dds-popover-text);
+  font-size: var(--dds-popover-text-size);
+  line-height: var(--dds-line-height-relaxed);
+
+  /* Hidden by default (Popover API manages this, but we set it for fallback) */
+  display: none;
+}
+
+/* Popover API open state */
+.dds-popover:popover-open {
+  display: block;
+}
+
+/* ==========================================================================
+   Entry / exit animations
+   ========================================================================== */
+@keyframes dds-popover-in-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dds-popover-in-top {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dds-popover:popover-open {
+  animation: dds-popover-in-bottom 150ms ease forwards;
+}
+
+.dds-popover:popover-open[data-placement="top"] {
+  animation: dds-popover-in-top 150ms ease forwards;
+}
+
+/* @starting-style enables the entry animation when the element first enters the top layer */
+@starting-style {
+  .dds-popover:popover-open {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  .dds-popover:popover-open[data-placement="top"] {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+/* ==========================================================================
+   Size variants
+   ========================================================================== */
+.dds-popover-sm {
+  width: var(--dds-popover-width-sm);
+}
+
+.dds-popover-md {
+  width: var(--dds-popover-width-md);
+}
+
+.dds-popover-lg {
+  width: var(--dds-popover-width-lg);
+}
+
+/* ==========================================================================
+   Shared inner elements
+   ========================================================================== */
+.dds-popover-eyebrow {
+  display: block;
+  font-size: var(--dds-popover-eyebrow-size);
+  font-weight: var(--dds-font-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dds-popover-eyebrow-color);
+  margin-bottom: 0.25rem;
+}
+
+.dds-popover-title {
+  margin: 0 0 0.5rem;
+  font-size: var(--dds-popover-title-size);
+  font-weight: var(--dds-font-semibold);
+  color: var(--dds-popover-title-color);
+  line-height: var(--dds-line-height-tight);
+}
+
+.dds-popover-body {
+  color: var(--dds-popover-text);
+  font-size: var(--dds-popover-text-size);
+  line-height: var(--dds-line-height-relaxed);
+}
+
+.dds-popover-body p {
+  margin: 0;
+}
+
+.dds-popover-body a {
+  color: var(--dds-popover-link-color);
+}
+
+.dds-popover-body a:hover {
+  color: var(--dds-popover-link-color-hover);
+}
+
+/* ==========================================================================
+   Glossary template
+   ========================================================================== */
+.dds-popover-glossary {
+  padding: var(--dds-popover-padding);
+}
+
+/* ==========================================================================
+   Preview template
+   ========================================================================== */
+.dds-popover-preview {
+  /* no padding at top — image goes edge-to-edge */
+}
+
+.dds-popover-preview-image-wrap {
+  width: 100%;
+  height: var(--dds-popover-image-height);
+  overflow: hidden;
+  border-radius: var(--dds-popover-radius) var(--dds-popover-radius) 0 0;
+  background: var(--dds-popover-border);
+}
+
+.dds-popover-preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dds-popover-preview-body {
+  padding: var(--dds-popover-padding);
+}
+
+.dds-popover-preview-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: var(--dds-popover-text-size);
+  font-weight: var(--dds-font-medium);
+  color: var(--dds-popover-link-color);
+  text-decoration: none;
+}
+
+.dds-popover-preview-link:hover {
+  color: var(--dds-popover-link-color-hover);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Mobile — bottom sheet on small screens
+   At ≤ 640px the popover slides up from the bottom of the viewport
+   regardless of JS-computed position.
+   ========================================================================== */
+@media (max-width: 640px) {
+  .dds-popover:popover-open {
+    /* Override JS-set position — anchor to bottom of viewport */
+    top: auto !important;
+    left: 0 !important;
+    bottom: 0;
+    width: 100% !important;
+    max-width: 100%;
+    border-radius: var(--dds-popover-radius) var(--dds-popover-radius) 0 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    animation: dds-popover-sheet-in 200ms ease forwards;
+  }
+
+  .dds-popover-preview-image-wrap {
+    border-radius: var(--dds-popover-radius) var(--dds-popover-radius) 0 0;
+  }
+}
+
+@keyframes dds-popover-sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@starting-style {
+  @media (max-width: 640px) {
+    .dds-popover:popover-open {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+  }
+}

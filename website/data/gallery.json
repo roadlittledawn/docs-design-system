@@ -475,6 +475,73 @@
         "Simple clean UI",
         "Open source style guide"
       ]
+    },
+    {
+      "id": "aws-docs",
+      "name": "Amazon Web Services Documentation",
+      "url": "https://docs.aws.amazon.com",
+      "description": "AWS documentation represents a remarkable evolution in large-scale documentation engineering. Covering an enormous surface area of cloud services, it has transformed from a text-heavy, difficult-to-navigate site into a modern documentation platform built on Amazon's CloudScape design system. While historically challenging to find information across disparate AWS services, the current iteration demonstrates significant improvements in UX and discoverability.",
+      "category": "developer-tools",
+      "date": "2026-02-26",
+      "images": [
+        {
+          "url": "/aws-docs.png",
+          "caption": "Homepage screenshot"
+        }
+      ],
+      "links": [
+        {
+          "label": "Documentation",
+          "url": "https://docs.aws.amazon.com"
+        }
+      ],
+      "highlights": [
+        "CloudScape design system integration",
+        "Focus mode for distraction-free reading",
+        "Recommended tasks menu",
+        "Recently added changelog in right nav",
+        "Auth detection (logged-in users see 'Return to console')",
+        "Dismissible right navigation",
+        "Related resources feature",
+        "Light/dark mode with code themes",
+        "RSS feeds",
+        "Amazon Q AI chat integration",
+        "On this page TOC",
+        "User feedback form"
+      ]
+    },
+    {
+      "id": "microsoft-docs",
+      "name": "Microsoft Docs",
+      "url": "https://learn.microsoft.com/en-us/docs/",
+      "description": "Microsoft Docs showcases impressive documentation engineering at massive scale, stitching together open-source repositories across countless products and languages. While the homepage presents a challenging information architecture problem—essentially a giant index for an enormous surface area—the individual product documentation (particularly Azure) offers surprisingly helpful and navigable experiences. The scale of translation and open-source contribution infrastructure is genuinely impressive.",
+      "category": "developer-tools",
+      "date": "2026-02-26",
+      "images": [
+        {
+          "url": "/microsoft-docs.png",
+          "caption": "Homepage screenshot"
+        }
+      ],
+      "links": [
+        {
+          "label": "Documentation",
+          "url": "https://learn.microsoft.com/en-us/docs/"
+        }
+      ],
+      "highlights": [
+        "Massive scale with multi-language translation",
+        "Open source with community contributions",
+        "Ask AI with copy as markdown feature",
+        "Add to plan/collection personalization",
+        "Dual search: full search + left nav title filter",
+        "Focus mode",
+        "Last updated date",
+        "In this article TOC",
+        "Light/dark mode",
+        "User feedback",
+        "Edit button for contributions (in 3-dot menu)"
+      ]
     }
   ]
 }

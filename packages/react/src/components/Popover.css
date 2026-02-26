@@ -136,6 +136,10 @@
   line-height: var(--dds-line-height-tight);
 }
 
+.dds-popover-title dfn {
+  font-style: normal;
+}
+
 .dds-popover-body {
   color: var(--dds-popover-text);
   font-size: var(--dds-popover-text-size);

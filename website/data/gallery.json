@@ -25,9 +25,11 @@
       ],
       "highlights": [
         "Interactive code examples",
-        "Language-specific SDKs",
         "Great design look and feel",
-        "Excellent search & AI functionality"
+        "Excellent search & AI functionality",
+        "Link preview and glossary popovers",
+        "AI integration with 'Explain this code' in code blocks",
+        "Smooth tab panel animations"
       ]
     },
     {
@@ -57,7 +59,9 @@
         "Framework-specific guides",
         "Quick start templates",
         "Integrated search",
-        "Dark mode support"
+        "Dark mode support",
+        "AI integration with 'Ask AI about this page'",
+        "Copy page as markdown for LLM use"
       ]
     },
     {

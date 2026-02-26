@@ -4,6 +4,7 @@ import {
   useId,
   useCallback,
   useEffect,
+  useState,
 } from "react";
 
 export interface GlossaryData {
@@ -92,22 +93,27 @@ function GlossaryTemplate({ data }: { data: GlossaryData }) {
   return (
     <div className="dds-popover-glossary">
       <span className="dds-popover-eyebrow">Glossary</span>
-      <p className="dds-popover-title">{data.title}</p>
+      <p className="dds-popover-title">
+        <dfn title={data.term}>{data.title}</dfn>
+      </p>
       <div className="dds-popover-body">{data.definition}</div>
     </div>
   );
 }
 
 function PreviewTemplate({ data }: { data: PreviewData }) {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <div className="dds-popover-preview">
-      {data.imageUrl && (
+      {data.imageUrl && !imageError && (
         <div className="dds-popover-preview-image-wrap">
           <img
             className="dds-popover-preview-image"
             src={data.imageUrl}
             alt=""
             aria-hidden="true"
+            onError={() => setImageError(true)}
           />
         </div>
       )}
@@ -288,8 +294,13 @@ export function Popover({
     const handleReposition = () => {
       const popover = popoverRef.current;
       if (!popover) return;
-      // Only reposition if visible
-      if (popover.matches(":popover-open")) positionPopover();
+      // Only reposition if visible (Popover API or display fallback)
+      if (
+        popover.matches(":popover-open") ||
+        popover.style.display === "block"
+      ) {
+        positionPopover();
+      }
     };
     window.addEventListener("scroll", handleReposition, { passive: true });
     window.addEventListener("resize", handleReposition, { passive: true });
@@ -331,8 +342,9 @@ export function Popover({
         onMouseLeave={hidePopover}
         onFocus={showPopover}
         onBlur={hidePopover}
-        // Touch: toggle on tap
+        // Touch: toggle on tap (clear any pending hover timers first)
         onClick={() => {
+          clearTimers();
           const popover = popoverRef.current;
           if (!popover) return;
           try {
@@ -357,7 +369,6 @@ export function Popover({
         className={popoverClasses}
         onMouseEnter={clearTimers}
         onMouseLeave={hidePopover}
-        role="tooltip"
       >
         {popoverContent}
       </div>

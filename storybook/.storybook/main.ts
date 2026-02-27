@@ -1,5 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-vite";
-import { resolve, dirname } from "path";
+import { join } from "path";
 
 const config: StorybookConfig = {
   stories: [
@@ -19,9 +19,13 @@ const config: StorybookConfig = {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...config.resolve.alias,
-      "@roadlittledawn/docs-design-system-react": resolve(
-        __dirname,
-        "../../packages/react",
+      "@roadlittledawn/docs-design-system-react/dist/styles.css": join(
+        process.cwd(),
+        "../packages/react/dist/styles.css",
+      ),
+      "@roadlittledawn/docs-design-system-react": join(
+        process.cwd(),
+        "../packages/react/src",
       ),
     };
     return config;

@@ -1,0 +1,50 @@
+.dds-list {
+  list-style: none;
+  counter-reset: list-counter;
+  padding-left: 0;
+  margin: var(--dds-list-margin, 1.5rem 0);
+  color: var(--dds-list-text);
+}
+
+.dds-list-item {
+  counter-increment: list-counter;
+  position: relative;
+  padding-inline-start: calc(var(--dds-list-badge-size) + 1rem);
+  margin-bottom: var(--dds-list-item-margin-bottom, 1.5rem);
+  min-height: calc(var(--dds-list-badge-size) + var(--dds-list-margin));
+  line-height: var(--dds-list-badge-size);
+}
+
+.dds-list-item::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--dds-list-badge-size, 2.5rem) + 0.5rem);
+  bottom: calc(-1 * var(--dds-list-item-margin-bottom, 1.5rem) + 0.5rem);
+  left: calc((var(--dds-list-badge-size, 2.5rem) - 1px) / 2);
+  width: 1px;
+  background-color: var(--dds-list-connector-line);
+}
+
+.dds-list-item:last-child::after {
+  display: none;
+}
+
+.dds-list-item::before {
+  content: counter(list-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--dds-list-badge-size, 2.5rem);
+  height: var(--dds-list-badge-size, 2.5rem);
+  line-height: var(--dds-line-height-relaxed);
+  inset-inline-start: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--dds-font-bold, 700);
+  font-size: var(--dds-list-badge-font-size, 1.125rem);
+  color: var(--dds-list-badge-text);
+  background: var(--dds-list-badge-bg);
+  box-shadow: var(--dds-list-badge-shadow);
+  border-radius: 50%;
+}

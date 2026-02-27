@@ -26,7 +26,7 @@ if (sitesNeedingScreenshots.length === 0) {
 }
 
 const browser = await chromium.launch();
-const page = await browser.newPage();
+const page = await browser.newPage({ colorScheme: 'dark' });
 await page.setViewportSize({ width: 1280, height: 720 });
 
 for (const site of sitesNeedingScreenshots) {

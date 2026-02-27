@@ -7,12 +7,6 @@
       "description": "Stripe's documentation is renowned for its clarity, comprehensive API references, and interactive code examples. It seamlessly blends tutorials, guides, and references with an elegant design that makes complex payment integrations approachable.",
       "category": "api-documentation",
       "date": "2024-07-16",
-      "images": [
-        {
-          "url": "/stripe-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -31,6 +25,12 @@
         "AI integration with 'Explain this code' in code blocks",
         "Smooth tab panel animations",
         "Built-in console app at bottom of screen for running CLI commands"
+      ],
+      "images": [
+        {
+          "url": "/stripe-docs.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -40,12 +40,6 @@
       "description": "Vercel's documentation excels at guiding users from zero to deployed. It features a clean, modern design with excellent navigation, contextual examples, and seamless integration between conceptual content and practical guides.",
       "category": "developer-tools",
       "date": "2024-07-16",
-      "images": [
-        {
-          "url": "/vercel-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -63,6 +57,12 @@
         "Dark mode support",
         "AI integration with 'Ask AI about this page'",
         "Copy page as markdown for LLM use"
+      ],
+      "images": [
+        {
+          "url": "/vercel-docs.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -72,12 +72,6 @@
       "description": "Tailwind CSS documentation combines beautiful design with exceptional usability. Features instant search, interactive examples, and a unique approach to organizing utility classes that makes finding what you need effortless.",
       "category": "design-systems",
       "date": "2024-07-16",
-      "images": [
-        {
-          "url": "/tailwind-css.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -94,6 +88,12 @@
         "Visual examples for every utility",
         "Responsive design previews",
         "Copy-paste friendly code blocks"
+      ],
+      "images": [
+        {
+          "url": "/tailwind-css.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -103,12 +103,6 @@
       "description": "GitHub's documentation is a masterclass in organizing complex information. It provides multiple learning paths, version-specific content, and excellent navigation that helps users find answers quickly regardless of their expertise level.",
       "category": "developer-tools",
       "date": "2024-07-16",
-      "images": [
-        {
-          "url": "/github-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -121,6 +115,12 @@
         "Excellent search functionality",
         "Code examples in multiple languages",
         "Community-driven improvements"
+      ],
+      "images": [
+        {
+          "url": "/github-docs.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -130,12 +130,6 @@
       "description": "The new React documentation sets a gold standard for teaching complex concepts. With interactive sandboxes, challenges, and a thoughtful progression from basics to advanced topics, it transforms documentation into an engaging learning experience.",
       "category": "open-source",
       "date": "2024-07-16",
-      "images": [
-        {
-          "url": "/react-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -152,6 +146,12 @@
         "Built-in challenges",
         "Beautiful illustrations",
         "Mobile-responsive design"
+      ],
+      "images": [
+        {
+          "url": "/react-docs.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -161,12 +161,6 @@
       "description": "MDN Web Docs is the definitive resource for web developers. Its comprehensive coverage, browser compatibility tables, and community-maintained content make it an indispensable reference for web technologies.",
       "category": "technical-writing",
       "date": "2024-07-16",
-      "images": [
-        {
-          "url": "/mdn-web-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -183,6 +177,12 @@
         "Interactive examples",
         "Multiple language support",
         "Community contributions"
+      ],
+      "images": [
+        {
+          "url": "/mdn-web-docs.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -192,12 +192,6 @@
       "description": "Supabase documentation combines beautiful aesthetics with practical content. It features framework-specific quickstarts, comprehensive guides, and an excellent balance between high-level concepts and implementation details.",
       "category": "saas-products",
       "date": "2024-07-16",
-      "images": [
-        {
-          "url": "/supabase-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -214,6 +208,12 @@
         "Integrated API reference",
         "Video tutorials",
         "Real-world examples"
+      ],
+      "images": [
+        {
+          "url": "/supabase-docs.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -223,12 +223,6 @@
       "description": "Astro's documentation provides clear guidance for building content-focused websites. It features excellent organization, practical examples, and a progressive learning path that helps developers understand the framework's unique approach to web development.",
       "category": "open-source",
       "date": "2025-12-05",
-      "images": [
-        {
-          "url": "/astro-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -240,6 +234,12 @@
         "Framework integrations",
         "Component examples",
         "Deployment guides"
+      ],
+      "images": [
+        {
+          "url": "/astro-docs.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -249,12 +249,6 @@
       "description": "New Relic's documentation offers comprehensive coverage of observability and monitoring solutions. It provides detailed guides, API references, and practical examples that help users instrument and monitor their applications effectively.",
       "category": "saas-products",
       "date": "2025-12-05",
-      "images": [
-        {
-          "url": "/new-relic-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -267,6 +261,12 @@
         "API documentation",
         "Great design look and feel",
         "Robust content system that feeds in-app product features"
+      ],
+      "images": [
+        {
+          "url": "/new-relic-docs.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -276,12 +276,6 @@
       "description": "Apollo GraphQL's documentation excels with exceptional interactivity and visual design. It features comprehensive code examples, in-depth tutorials, and intuitive navigation that makes learning GraphQL and Apollo's tools engaging and accessible.",
       "category": "api-documentation",
       "date": "2025-12-09",
-      "images": [
-        {
-          "url": "/apollo-graphql-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -293,6 +287,12 @@
         "Excellent code examples",
         "In-depth tutorials",
         "Easy to navigate"
+      ],
+      "images": [
+        {
+          "url": "/apollo-graphql-docs.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -302,12 +302,6 @@
       "description": "Netlify's documentation combines excellent organization with practical, task-oriented guidance. It features clear deployment workflows, comprehensive framework guides, and an effective balance between getting-started tutorials and in-depth feature documentation.",
       "category": "developer-tools",
       "date": "2025-12-30",
-      "images": [
-        {
-          "url": "/netlify-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -324,6 +318,12 @@
         "Practical how-to guides",
         "Comprehensive feature documentation",
         "Well-organized serverless functions guide"
+      ],
+      "images": [
+        {
+          "url": "/netlify-docs.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -333,12 +333,6 @@
       "description": "Twilio's documentation stands out with its comprehensive API coverage, practical code examples in multiple languages, and excellent quickstart guides. It seamlessly guides developers from initial setup to production implementation across their communication platform.",
       "category": "api-documentation",
       "date": "2025-12-30",
-      "images": [
-        {
-          "url": "/twilio-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -355,6 +349,12 @@
         "Product-focused quickstarts",
         "Interactive tutorials",
         "Excellent search functionality"
+      ],
+      "images": [
+        {
+          "url": "/twilio-docs.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -364,12 +364,6 @@
       "description": "Next.js documentation provides a comprehensive guide to the React framework for production. It features excellent code examples, MDX-powered content, and AI-integrated help. The documentation covers multiple versions with a robust design and clear explanations.",
       "category": "open-source",
       "date": "2026-02-16",
-      "images": [
-        {
-          "url": "/next-js-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -387,6 +381,12 @@
         "Great look and feel",
         "Covers multiple versions of Next.js",
         "AI integrated (Ask AI, markdown pages at same URL paths)"
+      ],
+      "images": [
+        {
+          "url": "/next-js-docs.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -396,12 +396,6 @@
       "description": "Storybook's documentation excels at teaching component-driven development. It features comprehensive guides for building, testing, and documenting UI components with excellent examples and clear explanations of complex workflows.",
       "category": "developer-tools",
       "date": "2026-02-16",
-      "images": [
-        {
-          "url": "/storybook-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -418,6 +412,12 @@
         "MDX driven content",
         "Open source docs",
         "Interactive tutorials"
+      ],
+      "images": [
+        {
+          "url": "/storybook-docs.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -427,12 +427,6 @@
       "description": "State of JS showcases how technical content can be both informative and visually stunning. While not traditional documentation, it demonstrates exceptional data visualization and content design for communicating complex technical information to developer audiences.",
       "category": "technical-writing",
       "date": "2026-02-16",
-      "images": [
-        {
-          "url": "/state-of-js.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "State of JS",
@@ -445,6 +439,12 @@
         "Great content",
         "Content-driven application",
         "Technical information for technical audiences"
+      ],
+      "images": [
+        {
+          "url": "/state-of-js.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -454,12 +454,6 @@
       "description": "Divio's documentation features a clean, simple UI with excellent content organization. Their open-source documentation system guide demonstrates thoughtful information architecture with stylized ordered lists and integrated AI-powered search and answers.",
       "category": "developer-tools",
       "date": "2026-02-16",
-      "images": [
-        {
-          "url": "/divio-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -475,6 +469,12 @@
         "Gen AI answers/search",
         "Simple clean UI",
         "Open source style guide"
+      ],
+      "images": [
+        {
+          "url": "/divio-docs.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -484,12 +484,6 @@
       "description": "AWS documentation represents a remarkable evolution in large-scale documentation engineering. Covering an enormous surface area of cloud services, it has transformed from a text-heavy, difficult-to-navigate site into a modern documentation platform built on Amazon's CloudScape design system. While historically challenging to find information across disparate AWS services, the current iteration demonstrates significant improvements in UX and discoverability.",
       "category": "developer-tools",
       "date": "2026-02-26",
-      "images": [
-        {
-          "url": "/aws-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -509,6 +503,12 @@
         "Amazon Q AI chat integration",
         "On this page TOC",
         "User feedback form"
+      ],
+      "images": [
+        {
+          "url": "/aws-docs.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -518,12 +518,6 @@
       "description": "Microsoft Docs showcases impressive documentation engineering at massive scale, stitching together open-source repositories across countless products and languages. While the homepage presents a challenging information architecture problem—essentially a giant index for an enormous surface area—the individual product documentation (particularly Azure) offers surprisingly helpful and navigable experiences. The scale of translation and open-source contribution infrastructure is genuinely impressive.",
       "category": "developer-tools",
       "date": "2026-02-26",
-      "images": [
-        {
-          "url": "/microsoft-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -542,6 +536,12 @@
         "Light/dark mode",
         "User feedback",
         "Edit button for contributions (in 3-dot menu)"
+      ],
+      "images": [
+        {
+          "url": "/microsoft-docs.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     },
     {
@@ -551,12 +551,6 @@
       "description": "Shopify Dev Docs rivals Stripe in visual polish and developer experience. The distinctive 16-bit aesthetic creates a memorable brand identity while maintaining professional functionality. Built with MDX, it features beautiful code blocks, thoughtfully designed tutorials, and modern AI integration that enhances rather than overwhelms the documentation experience.",
       "category": "api-documentation",
       "date": "2026-02-27",
-      "images": [
-        {
-          "url": "/shopify-dev-docs.png",
-          "caption": "Homepage screenshot"
-        }
-      ],
       "links": [
         {
           "label": "Documentation",
@@ -575,6 +569,12 @@
         "MDX-powered content",
         "Developer-focused design and UX",
         "Visual polish on par with Stripe docs"
+      ],
+      "images": [
+        {
+          "url": "/shopify-dev-docs.png",
+          "caption": "Homepage screenshot"
+        }
       ]
     }
   ]

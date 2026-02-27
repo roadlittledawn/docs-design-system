@@ -29,7 +29,8 @@
         "Excellent search & AI functionality",
         "Link preview and glossary popovers",
         "AI integration with 'Explain this code' in code blocks",
-        "Smooth tab panel animations"
+        "Smooth tab panel animations",
+        "Built-in console app at bottom of screen for running CLI commands"
       ]
     },
     {
@@ -541,6 +542,39 @@
         "Light/dark mode",
         "User feedback",
         "Edit button for contributions (in 3-dot menu)"
+      ]
+    },
+    {
+      "id": "shopify-dev-docs",
+      "name": "Shopify Dev Docs",
+      "url": "https://shopify.dev/docs",
+      "description": "Shopify Dev Docs rivals Stripe in visual polish and developer experience. The distinctive 16-bit aesthetic creates a memorable brand identity while maintaining professional functionality. Built with MDX, it features beautiful code blocks, thoughtfully designed tutorials, and modern AI integration that enhances rather than overwhelms the documentation experience.",
+      "category": "api-documentation",
+      "date": "2026-02-27",
+      "images": [
+        {
+          "url": "/shopify-dev-docs.png",
+          "caption": "Homepage screenshot"
+        }
+      ],
+      "links": [
+        {
+          "label": "Documentation",
+          "url": "https://shopify.dev/docs"
+        },
+        {
+          "label": "API Reference",
+          "url": "https://shopify.dev/docs/api"
+        }
+      ],
+      "highlights": [
+        "Distinctive 16-bit aesthetic and theme",
+        "Beautiful code blocks with excellent syntax highlighting",
+        "AI integration (view/copy as markdown, Ask AI chat panel)",
+        "Thoughtfully designed tutorial layouts",
+        "MDX-powered content",
+        "Developer-focused design and UX",
+        "Visual polish on par with Stripe docs"
       ]
     }
   ]

@@ -1,8 +1,9 @@
 # @roadlittledawn/docs-design-system-react
 
-React components for building documentation interfaces.
+[![npm version](https://img.shields.io/npm/v/@roadlittledawn/docs-design-system-react.svg)](https://www.npmjs.com/package/@roadlittledawn/docs-design-system-react)
+[![GitHub](https://img.shields.io/badge/github-repo-blue.svg)](https://github.com/roadlittledawn/docs-design-system)
 
-See [package on NPM](https://www.npmjs.com/package/@roadlittledawn/docs-design-system-react).
+React components for documentation content and MDX-driven sites.
 
 ## Installation
 
@@ -30,91 +31,9 @@ import "@roadlittledawn/docs-design-system-react/styles.css";
 
 ## Components
 
-### Callout
+Full component documentation with live examples, usage guidelines, and API documentation is available in Storybook:
 
-Highlight important information, warnings, tips, or notes.
-
-```tsx
-<Callout variant="tip">This is a helpful tip!</Callout>
-```
-
-### CodeBlock
-
-Syntax-highlighted code with copy functionality.
-
-```tsx
-<CodeBlock language="javascript">
-  {`const greeting = "Hello, world!";`}
-</CodeBlock>
-```
-
-### Collapser
-
-Expandable/collapsible sections for optional or detailed content.
-
-```tsx
-<Collapser title="More details">Hidden content revealed on expand.</Collapser>
-```
-
-### Card
-
-Clickable card for navigation or content grouping.
-
-```tsx
-<Card title="Getting Started" href="/docs/intro">
-  Learn the basics.
-</Card>
-```
-
-### CardGrid
-
-Grid layout for organizing multiple cards.
-
-```tsx
-<CardGrid columns={3}>
-  <Card title="Guide 1" href="/guide-1">
-    Description
-  </Card>
-  <Card title="Guide 2" href="/guide-2">
-    Description
-  </Card>
-</CardGrid>
-```
-
-### Typography
-
-Text component with semantic variants.
-
-```tsx
-<Typography variant="body">Paragraph text</Typography>
-```
-
-### Heading
-
-Semantic heading levels.
-
-```tsx
-<Heading level={2}>Section Title</Heading>
-```
-
-### Link
-
-Styled anchor with external link detection.
-
-```tsx
-<Link href="/docs">Internal link</Link>
-<Link href="https://example.com">External link</Link>
-```
-
-### Button
-
-Action button with variants.
-
-```tsx
-<Button variant="primary" onClick={handleClick}>
-  Click me
-</Button>
-```
+**[View Component Documentation →](https://docs-design-system-storybook.netlify.app/?path=/docs/components-button--docs)**
 
 ## Dark Mode
 
@@ -175,11 +94,7 @@ Listen for keyboard events.
 const isPressed = useKeyPress("Escape");
 ```
 
-## Documentation
-
-Full component documentation with live examples is available in our Storybook.
-
-**Storybook URL:** _Coming soon_
+Full hook documentation is available in [Storybook](https://docs-design-system-storybook.netlify.app).
 
 ## Development
 

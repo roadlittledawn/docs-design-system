@@ -11,6 +11,7 @@ export * from './components/Popover';
 export * from './components/Typography';
 export * from './components/Heading';
 export * from './components/Link';
+export * from './components/List';
 
 // Export hooks
 export * from './hooks/useKeyPress';

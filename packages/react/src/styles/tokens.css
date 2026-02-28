@@ -244,6 +244,17 @@
   --dds-popover-title-size: 0.9375rem; /* ~15px */
   --dds-popover-text-size: 0.875rem; /* text-sm */
   --dds-popover-eyebrow-size: 0.6875rem; /* ~11px */
+
+  /* List */
+  --dds-list-margin: 1.5rem 0;
+  --dds-list-item-margin-bottom: 1.5rem;
+  --dds-list-badge-size: calc(var(--dds-line-height-relaxed) * 1rem);
+  --dds-list-badge-font-size: 0.8125rem;
+  --dds-list-badge-text: #171a1c; /* gray-900 */
+  --dds-list-badge-bg: #eceef2;
+  --dds-list-badge-shadow: inset 0 0 0 1px #bfc2c7;
+  --dds-list-connector-line: #eceef2; /* gray-200 */
+  --dds-list-text: #374151; /* gray-700 */
 }
 
 /* ==========================================================================
@@ -399,6 +410,13 @@
   --dds-popover-eyebrow-color: #9ca3af; /* gray-400 */
   --dds-popover-link-color: #60a5fa; /* blue-400 */
   --dds-popover-link-color-hover: #93c5fd; /* blue-300 */
+
+  /* List */
+  --dds-list-badge-text: #ffffff;
+  --dds-list-badge-bg: #232831;
+  --dds-list-badge-shadow: inset 0 0 0 1px #353a42;
+  --dds-list-connector-line: #353a42; /* gray-600 */
+  --dds-list-text: #e5e7eb; /* gray-200 */
 }
 
 /* Auto dark mode — follows OS preference, opt-out with .dds-light */
@@ -548,6 +566,13 @@
     --dds-popover-eyebrow-color: #9ca3af;
     --dds-popover-link-color: #60a5fa;
     --dds-popover-link-color-hover: #93c5fd;
+
+    /* List */
+    --dds-list-badge-text: #ffffff;
+    --dds-list-badge-bg: #232831;
+    --dds-list-badge-shadow: inset 0 0 0 1px #353a42;
+    --dds-list-connector-line: #353a42; /* gray-600 */
+    --dds-list-text: #e5e7eb; /* gray-200 */
   }
 }
 

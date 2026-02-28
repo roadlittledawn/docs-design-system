@@ -10,24 +10,24 @@ const meta = {
     layout: "padded",
     docs: {
       description: {
-        component: `A visually enhanced ordered list with numbered badges and connector lines, designed for complex, multi-step content that deserves more visual prominence.
+        component: `A visually enhanced list component with numbered badges (ordered) or custom bullets (unordered) and connector lines, designed for complex content that deserves more visual prominence.
 
 ## When to Use
 - Tutorial or getting started guides with substantial steps
 - Multi-step workflows where each step contains rich content (paragraphs, code blocks, callouts)
 - Marketing or landing pages that need more visual polish
 - Complex instructions where each step is its own section of content
+- Feature lists or benefits that need custom emoji/icon bullets
 - When you want to nest other components (CodeBlock, Callout, etc.) within list items
 
 ## When Not to Use
 - Simple, short lists with brief text items (use standard \`<ol>\` or \`<ul>\` instead)
-- Unordered information (use a standard bullet list)
 - Very long lists with many items (consider breaking into sections with Tabs or Collapsers)
 - When visual simplicity is preferred over aesthetic enhancement
 
 ## Accessibility
-- Uses semantic \`<ol>\` element for proper screen reader support
-- CSS counters provide visual numbering without affecting content
+- Uses semantic \`<ol>\` or \`<ul>\` elements for proper screen reader support
+- CSS counters and custom bullets provide visual styling without affecting content
 - Maintains proper reading order and list semantics
         `,
       },
@@ -40,7 +40,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /** Default list with multi-line content and code examples */
-export const Default: Story = {
+export const OrderedList: Story = {
   args: {
     children: null,
   },
@@ -95,7 +95,7 @@ export const Default: Story = {
 };
 
 /** List with nested components like CodeBlock and Callout */
-export const WithNestedContent: Story = {
+export const OrderedListWithNestedComponents: Story = {
   args: {
     children: null,
   },
@@ -147,6 +147,100 @@ export const WithNestedContent: Story = {
     <p>Launch the dev server and begin building:</p>
     <CodeBlock language="bash" code="npm run dev" />
   </List.Item>
+</List>`,
+      },
+    },
+  },
+};
+
+/** Unordered list with default bullet */
+export const Unordered: Story = {
+  args: {
+    children: null,
+  },
+  render: () => (
+    <List ordered={false}>
+      <List.Item>Key feature of the product</List.Item>
+      <List.Item>Another important capability</List.Item>
+      <List.Item>Additional benefit to highlight</List.Item>
+    </List>
+  ),
+  parameters: {
+    docs: {
+      source: {
+        code: `<List ordered={false}>
+  <List.Item>Key feature of the product</List.Item>
+  <List.Item>Another important capability</List.Item>
+  <List.Item>Additional benefit to highlight</List.Item>
+</List>`,
+      },
+    },
+  },
+};
+
+/** Unordered list with custom emoji bullet */
+export const UnorderedWithEmoji: Story = {
+  args: {
+    children: null,
+  },
+  render: () => (
+    <List ordered={false} bullet="✅">
+      <List.Item>Beautifully designed components</List.Item>
+      <List.Item>Accessible by default</List.Item>
+      <List.Item>Fully customizable styling</List.Item>
+    </List>
+  ),
+  parameters: {
+    docs: {
+      source: {
+        code: `<List ordered={false} bullet="✨">
+  <List.Item>Beautifully designed components</List.Item>
+  <List.Item>Accessible by default</List.Item>
+  <List.Item>Fully customizable styling</List.Item>
+</List>`,
+      },
+    },
+  },
+};
+
+/** Unordered list with custom icon bullet */
+export const UnorderedWithIcon: Story = {
+  args: {
+    children: null,
+  },
+  render: () => (
+    <List
+      ordered={false}
+      bulletIcon={
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      }
+    >
+      <List.Item>Navigate to the settings page</List.Item>
+      <List.Item>Select your preferences</List.Item>
+      <List.Item>Save your changes</List.Item>
+    </List>
+  ),
+  parameters: {
+    docs: {
+      source: {
+        code: `<List
+  ordered={false}
+  bulletIcon={
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M5 12h14M12 5l7 7-7 7" />
+    </svg>
+  }
+>
+  <List.Item>Navigate to the settings page</List.Item>
+  <List.Item>Select your preferences</List.Item>
+  <List.Item>Save your changes</List.Item>
 </List>`,
       },
     },

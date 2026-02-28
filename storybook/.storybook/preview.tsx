@@ -1,6 +1,6 @@
 import React from "react";
 import type { Preview } from "@storybook/react";
-import "@roadlittledawn/docs-design-system-react/dist/styles.css";
+import "@roadlittledawn/docs-design-system-react/styles.css";
 import "./global.css";
 
 const preview: Preview = {

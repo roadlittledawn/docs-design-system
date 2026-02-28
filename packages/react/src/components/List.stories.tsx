@@ -193,7 +193,7 @@ export const UnorderedWithEmoji: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<List ordered={false} bullet="✨">
+        code: `<List ordered={false} bullet="✅">
   <List.Item>Beautifully designed components</List.Item>
   <List.Item>Accessible by default</List.Item>
   <List.Item>Fully customizable styling</List.Item>

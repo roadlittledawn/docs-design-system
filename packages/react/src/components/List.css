@@ -15,8 +15,7 @@
   position: relative;
   padding-inline-start: calc(var(--dds-list-badge-size) + 1rem);
   margin-bottom: var(--dds-list-item-margin-bottom, 1.5rem);
-  min-height: calc(var(--dds-list-badge-size) + var(--dds-list-margin));
-  line-height: var(--dds-list-badge-size);
+  min-height: var(--dds-list-badge-size);
 }
 
 .dds-list[data-ordered="false"] .dds-list-item {

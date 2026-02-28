@@ -1,6 +1,6 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, FC } from "react";
 
-interface ListProps {
+export interface ListProps {
   /** List items */
   children: ReactNode;
 
@@ -23,9 +23,12 @@ interface ListItemProps {
 
   /** Additional CSS classes */
   className?: string;
+
+  /** Internal: bullet icon injected by List parent for unordered lists */
+  bulletIcon?: ReactNode;
 }
 
-export function List({ children, className = "", ordered = true, bullet, bulletIcon }: ListProps) {
+function ListImpl({ children, className = "", ordered = true, bullet, bulletIcon }: ListProps) {
   const listClasses = ["dds-list", className].filter(Boolean).join(" ");
   const Element = ordered ? "ol" : "ul";
 
@@ -33,15 +36,18 @@ export function List({ children, className = "", ordered = true, bullet, bulletI
     <Element
       className={listClasses}
       data-ordered={ordered}
-      data-has-icon={!!bulletIcon}
-      style={bullet && !bulletIcon ? ({ "--dds-list-bullet": `"${bullet}"` } as React.CSSProperties) : undefined}
+      data-has-icon={!!bulletIcon && !ordered}
+      style={
+        bullet && !bulletIcon
+          ? ({ "--dds-list-bullet": JSON.stringify(bullet) } as React.CSSProperties)
+          : undefined
+      }
     >
       {bulletIcon && !ordered
         ? React.Children.map(children, (child) => {
             if (React.isValidElement(child) && child.type === ListItem) {
               return React.cloneElement(child as React.ReactElement<ListItemProps>, {
                 ...child.props,
-                // @ts-ignore - passing internal prop
                 bulletIcon,
               });
             }
@@ -52,16 +58,21 @@ export function List({ children, className = "", ordered = true, bullet, bulletI
   );
 }
 
-export function ListItem({ children, className = "", ...props }: ListItemProps & { bulletIcon?: ReactNode }) {
+export function ListItem({ children, className = "", bulletIcon }: ListItemProps) {
   const itemClasses = ["dds-list-item", className].filter(Boolean).join(" ");
-  const { bulletIcon } = props;
 
   return (
     <li className={itemClasses}>
-      {bulletIcon && <span className="dds-list-item-icon">{bulletIcon}</span>}
+      {bulletIcon && (
+        <span className="dds-list-item-icon" aria-hidden="true">
+          {bulletIcon}
+        </span>
+      )}
       {children}
     </li>
   );
 }
 
-List.Item = ListItem;
+export const List: FC<ListProps> & { Item: typeof ListItem } = Object.assign(ListImpl, {
+  Item: ListItem,
+});

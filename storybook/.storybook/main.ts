@@ -1,5 +1,6 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 import { join } from "path";
+import { fileURLToPath } from "url";
 
 const config: StorybookConfig = {
   stories: [
@@ -16,16 +17,17 @@ const config: StorybookConfig = {
     options: {},
   },
   viteFinal: async (config) => {
+    const dir = fileURLToPath(new URL(".", import.meta.url));
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...config.resolve.alias,
-      "@roadlittledawn/docs-design-system-react/dist/styles.css": join(
-        process.cwd(),
-        "../packages/react/dist/styles.css",
+      "@roadlittledawn/docs-design-system-react/styles.css": join(
+        dir,
+        "../../packages/react/dist/styles.css",
       ),
       "@roadlittledawn/docs-design-system-react": join(
-        process.cwd(),
-        "../packages/react/src",
+        dir,
+        "../../packages/react/src",
       ),
     };
     return config;

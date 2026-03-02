@@ -1,6 +1,5 @@
 import {
   Heading,
-  CardGrid,
   Button,
   Card,
 } from "@roadlittledawn/docs-design-system/react";
@@ -11,9 +10,34 @@ const STORYBOOK_URL = "https://docs-design-system-storybook.netlify.app";
 export default function ComponentsPage() {
   return (
     <div className="prose prose-lg max-w-none">
-      <Heading level={1} className="mb-6">
+      <Heading level={1} className="mb-4">
         Components
       </Heading>
+
+      <div className="flex gap-2 mb-6">
+        <Link
+          href="https://www.npmjs.com/package/@roadlittledawn/docs-design-system"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://img.shields.io/npm/v/@roadlittledawn/docs-design-system"
+            alt="npm version"
+          />
+        </Link>
+        <Link
+          href="https://github.com/roadlittledawn/docs-design-system"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://img.shields.io/github/stars/roadlittledawn/docs-design-system?style=social"
+            alt="GitHub stars"
+          />
+        </Link>
+      </div>
 
       <p className="mb-8 text-xl">
         A library of reusable UI components for building documentation
@@ -91,91 +115,6 @@ export default function ComponentsPage() {
           </Button>
         </Link>
       </Card>
-
-      <Heading level={2} className="mb-6">
-        Available Components
-      </Heading>
-
-      <CardGrid columns={2}>
-        <Card href={`${STORYBOOK_URL}/?path=/docs/components-button--docs`}>
-          <Heading level={4} className="mb-2 text-blue-600">
-            Button
-          </Heading>
-          <p>
-            Interactive buttons for user actions and navigation with multiple
-            variants and sizes.
-          </p>
-        </Card>
-
-        <Card href={`${STORYBOOK_URL}/?path=/docs/components-callout--docs`}>
-          <Heading level={4} className="mb-2 text-blue-600">
-            Callout
-          </Heading>
-          <p>
-            Highlight important information, warnings, tips, and course-specific
-            content.
-          </p>
-        </Card>
-
-        <Card href={`${STORYBOOK_URL}/?path=/docs/components-card--docs`}>
-          <Heading level={4} className="mb-2 text-blue-600">
-            Card
-          </Heading>
-          <p>
-            Flexible container for displaying content with optional title and
-            background colors.
-          </p>
-        </Card>
-
-        <Card href={`${STORYBOOK_URL}/?path=/docs/components-cardgrid--docs`}>
-          <Heading level={4} className="mb-2 text-blue-600">
-            CardGrid
-          </Heading>
-          <p>
-            Responsive grid layout for organizing multiple cards in 2, 3, or 4
-            columns.
-          </p>
-        </Card>
-
-        <Card href={`${STORYBOOK_URL}/?path=/docs/components-collapser--docs`}>
-          <Heading level={4} className="mb-2 text-blue-600">
-            Collapser
-          </Heading>
-          <p>
-            Expandable/collapsible content sections with smooth animations and
-            keyboard shortcuts.
-          </p>
-        </Card>
-
-        <Card href={`${STORYBOOK_URL}/?path=/docs/components-heading--docs`}>
-          <Heading level={4} className="mb-2 text-blue-600">
-            Heading
-          </Heading>
-          <p>
-            Semantic HTML headings (h1-h4) with consistent styling for proper
-            document structure.
-          </p>
-        </Card>
-
-        <Card href={`${STORYBOOK_URL}/?path=/docs/components-link--docs`}>
-          <Heading level={4} className="mb-2 text-blue-600">
-            Link
-          </Heading>
-          <p>
-            Styled hyperlinks with automatic external link handling and visual
-            indicators.
-          </p>
-        </Card>
-
-        <Card href={`${STORYBOOK_URL}/?path=/docs/components-typography--docs`}>
-          <Heading level={4} className="mb-2 text-blue-600">
-            Typography
-          </Heading>
-          <p>
-            Consistent text styling for headings, paragraphs, and captions.
-          </p>
-        </Card>
-      </CardGrid>
     </div>
   );
 }

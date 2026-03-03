@@ -16,13 +16,13 @@ export default function ComponentsPage() {
 
       <div className="flex gap-2 mb-6">
         <Link
-          href="https://www.npmjs.com/package/@roadlittledawn/docs-design-system"
+          href="https://www.npmjs.com/package/@roadlittledawn/docs-design-system-react"
           target="_blank"
           rel="noopener noreferrer"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://img.shields.io/npm/v/@roadlittledawn/docs-design-system"
+            src="https://img.shields.io/npm/v/@roadlittledawn/docs-design-system-react.svg"
             alt="npm version"
           />
         </Link>
@@ -33,8 +33,8 @@ export default function ComponentsPage() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://img.shields.io/github/stars/roadlittledawn/docs-design-system?style=social"
-            alt="GitHub stars"
+            src="https://img.shields.io/badge/github-repo-blue.svg"
+            alt="GitHub shield"
           />
         </Link>
       </div>

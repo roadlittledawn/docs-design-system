@@ -2,6 +2,8 @@ import {
   Heading,
   Button,
   Card,
+  Callout,
+  Link as DocsLink,
 } from "@roadlittledawn/docs-design-system/react";
 import Link from "next/link";
 
@@ -13,7 +15,13 @@ export default function ComponentsPage() {
       <Heading level={1} className="mb-4">
         Components
       </Heading>
-
+      <p className="mb-8 text-xl">
+        Content component libraries I built for docs sites. Only React supported
+        currently.
+      </p>
+      <Heading level={2} className="mb-3">
+        React components
+      </Heading>
       <div className="flex gap-2 mb-6">
         <Link
           href="https://www.npmjs.com/package/@roadlittledawn/docs-design-system-react"
@@ -38,54 +46,14 @@ export default function ComponentsPage() {
           />
         </Link>
       </div>
-
-      <p className="mb-8 text-xl">
-        A library of reusable UI components for building documentation
-        interfaces. Each component will be published to NPM for easy
-        integration.
+      <p>
+        Use in your React / <DocsLink href="https://mdxjs.com">MDX</DocsLink>{" "}
+        based docs site.
       </p>
-
-      <Heading level={2} className="mb-4">
-        Component Documentation Structure
-      </Heading>
-
-      <p className="mb-6">Each component page includes:</p>
-
-      <ul className="space-y-3 mb-8">
-        <li className="flex items-start">
-          <span className="text-blue-500 mr-2">•</span>
-          <p>
-            <strong>Overview:</strong> What the component is and its purpose
-          </p>
-        </li>
-        <li className="flex items-start">
-          <span className="text-blue-500 mr-2">•</span>
-          <p>
-            <strong>When to Use:</strong> Appropriate use cases and scenarios
-          </p>
-        </li>
-        <li className="flex items-start">
-          <span className="text-blue-500 mr-2">•</span>
-          <p>
-            <strong>Usage Examples:</strong> Code snippets and implementation
-            patterns
-          </p>
-        </li>
-        <li className="flex items-start">
-          <span className="text-blue-500 mr-2">•</span>
-          <p>
-            <strong>Live Examples:</strong> Interactive demonstrations of the
-            component
-          </p>
-        </li>
-        <li className="flex items-start">
-          <span className="text-blue-500 mr-2">•</span>
-          <p>
-            <strong>API Reference:</strong> Props, variants, and configuration
-            options
-          </p>
-        </li>
-      </ul>
+      <Callout variant="important">
+        If using Next.js, may need to create client wrapper for some components
+        that require React hooks.
+      </Callout>
 
       <Card backgroundColor="blue" className="mb-8">
         <Heading level={3} className="mb-3">

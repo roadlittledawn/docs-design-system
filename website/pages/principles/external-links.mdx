@@ -15,10 +15,12 @@ Many users have developed the habit of Cmd/Ctrl+clicking links to open them in n
 W3C guidelines recommend warning users when a link opens in a new window/tab. The external link icon serves this purpose and is widely recognized across documentation sites.
 
 **When to use the icon:**
+
 - Standard inline external links
 - Links within body text or procedures
 
 **When to skip the icon:**
+
 - Cards or large clickable areas that function as links
 - Lists of external resources where it's obvious all items are external
 - Cases where repetitive icons create visual noise
@@ -27,18 +29,4 @@ Provide manual overrides in your link component to handle these exceptions while
 
 ## Example
 
-The `Link` component from `@roadlittledawn/docs-design-system-react` automatically detects external links and adds the icon:
-
-```jsx
-import { Link } from '@roadlittledawn/docs-design-system-react';
-
-// External link - opens in new tab with icon
-<Link href="https://www.w3.org/WAI/WCAG22/Techniques/general/G200">
-  W3C guidance on opening new windows
-</Link>
-
-// Internal link - no icon, same tab
-<Link href="/principles/personalization">
-  Personalization principles
-</Link>
-```
+Here's an example of an external link to <DDSLink href="https://www.w3.org/WAI/WCAG22/Techniques/general/G200"> W3C guidance on opening new windows</DDSLink>.

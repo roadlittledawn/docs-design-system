@@ -8,6 +8,8 @@ import {
   Collapser,
   Callout,
   CodeBlock,
+  List,
+  Link as DDSLink,
 } from "@roadlittledawn/docs-design-system/react";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
@@ -50,7 +52,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       const codeChild = React.Children.toArray(children).find(
         (child: any) =>
           child?.type === "code" ||
-          child?.props?.className?.includes("language-")
+          child?.props?.className?.includes("language-"),
       ) as any;
 
       if (codeChild) {
@@ -66,7 +68,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         } else if (Array.isArray(codeProps.children)) {
           code = codeProps.children
             .map((c: any) =>
-              typeof c === "string" ? c : c?.props?.children || ""
+              typeof c === "string" ? c : c?.props?.children || "",
             )
             .join("");
         } else if (codeProps.children) {
@@ -98,6 +100,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Collapser,
     Callout,
     CodeBlock,
+    List,
+    DDSLink,
     ...components,
   };
 }

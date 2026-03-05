@@ -33,11 +33,6 @@ export const navigationConfig: NavigationConfig = {
           label: "Quality",
           href: "/principles/quality-metrics",
         },
-        {
-          type: "link",
-          label: "External Linking Behavior",
-          href: "/principles/external-links",
-        },
       ],
     },
     {
@@ -54,6 +49,11 @@ export const navigationConfig: NavigationConfig = {
           type: "link",
           label: "Images & Screenshots",
           href: "/style-guide/images-screenshots",
+        },
+        {
+          type: "link",
+          label: "Links",
+          href: "/style-guide/links",
         },
       ],
     },

@@ -62,3 +62,7 @@ ol {
 li {
   margin-bottom: 0.5rem;
 }
+sup {
+  font-size: 0.65rem;
+  top: -1rem;
+}

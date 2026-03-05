@@ -15,12 +15,29 @@ export default function ComponentsPage() {
       <Heading level={1} className="mb-4">
         Components
       </Heading>
-      <p className="mb-8 text-xl">
-        Content component libraries I built for docs sites. Only React supported
-        currently.
+      <p>
+        Components I built for my own docs projects, open sourced for anyone to
+        use.
       </p>
+
+      <p>
+        This isn&apos;t <em>the</em> way to present docs content. It&apos;s a
+        distillation of patterns drawn from years of writing and supporting
+        writing teams as an engineer. Take what&apos;s useful, skip what
+        isn&apos;t. Think something&apos;s missing? PRs welcome.
+      </p>
+
+      <p>
+        React only, for now. It&apos;s still{" "}
+        <DocsLink href="https://2024.stateofjs.com/en-US/libraries/">
+          one of the most-used and most-loved front-end libraries
+        </DocsLink>
+        , most modern docs frameworks build on it, and MDX is increasingly
+        popular in that ecosystem, which is my go-to for content driven sites.
+      </p>
+
       <Heading level={2} className="mb-3">
-        React components
+        React
       </Heading>
       <div className="flex gap-2 mb-6">
         <Link
@@ -35,7 +52,7 @@ export default function ComponentsPage() {
           />
         </Link>
         <Link
-          href="https://github.com/roadlittledawn/docs-design-system"
+          href="https://github.com/roadlittledawn/docs-design-system/tree/develop/packages/react"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -48,7 +65,7 @@ export default function ComponentsPage() {
       </div>
       <p>
         Use in your React / <DocsLink href="https://mdxjs.com">MDX</DocsLink>{" "}
-        based docs site.
+        based site.
       </p>
       <Callout variant="important">
         If using Next.js, may need to create client wrapper for some components

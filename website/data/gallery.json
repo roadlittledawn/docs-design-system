@@ -19,7 +19,7 @@
       ],
       "highlights": [
         "Interactive code examples",
-        "Great design look and feel",
+        "Feels and looks like a web app",
         "Excellent search & AI functionality",
         "Link preview and glossary popovers",
         "AI integration with 'Explain this code' in code blocks",
@@ -142,10 +142,11 @@
       ],
       "highlights": [
         "Interactive code sandboxes",
+        "Beautiful design",
+        "Excellent code block design",
         "Progressive learning path",
         "Built-in challenges",
-        "Beautiful illustrations",
-        "Mobile-responsive design"
+        "Beautiful illustrations"
       ],
       "images": [
         {
@@ -230,10 +231,10 @@
         }
       ],
       "highlights": [
+        "MDX-powered content",
+        "Open source docs",
         "Clear getting started guide",
-        "Framework integrations",
-        "Component examples",
-        "Deployment guides"
+        "Beautiful design"
       ],
       "images": [
         {
@@ -258,7 +259,8 @@
       "highlights": [
         "Comprehensive monitoring guides",
         "Detailed open sourced style guide",
-        "API documentation",
+        "Open source docs",
+        "MDX-powered content",
         "Great design look and feel",
         "Robust content system that feeds in-app product features"
       ],
@@ -286,7 +288,8 @@
         "Great interactivity and frontend design",
         "Excellent code examples",
         "In-depth tutorials",
-        "Easy to navigate"
+        "Navigation controls",
+        "Glossary popovers"
       ],
       "images": [
         {

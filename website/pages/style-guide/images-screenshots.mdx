@@ -1,24 +1,79 @@
+---
+title: Images & Screenshots
+---
 
-Standards for creating, formatting, and using visual content effectively.
+# Images & Screenshots
 
-## Text in Images
+Images earn their place when they orient users in a UI, illustrate a concept that prose can't carry cleanly, or confirm that a user is in the right place. Use them intentionally, not decoratively.
 
-Avoid placing critical information in images. Text embedded in images is not searchable, indexable, or accessible to screen readers. Users cannot copy, translate, or search for this content.
+## Text in images
 
-## Alternatives to Images
+Avoid placing critical information in images. Text embedded in images is not readibly searchable, indexable, or accessible to screen readers. Users cannot copy, translate, or search for this content.
 
-### Mermaid.js
+## Screenshots
 
-[Mermaid.js](https://mermaid.js.org/) is a JavaScript-based diagramming tool that renders text-based definitions into diagrams. Popular for its simplicity and version control compatibility, it supports flowcharts, sequence diagrams, Gantt charts, and more.
+Prefer full screenshots over cropped ones. Cropped screenshots can be useful when the surrounding UI is genuinely distracting, but full screenshots help users orient themselves in the product. Either way:
 
-**Common patterns:**
+- Crop out non-UI clutter: cursor, browser chrome, taskbar, notification badges.
+- Mask or blur any sensitive or private information before publishing.
+- Use annotations sparingly. When you do annotate, follow a consistent style.
+- If your product supports a dark mode, prefer it for visual consistency across your docs.
 
-- Flowcharts and decision trees
-- Sequence diagrams
-- Architecture diagrams
-- State diagrams
-- Entity relationship diagrams
+## Icons
 
-<Card backgroundColor="gray">
-  Additional content coming soon.
-</Card>
+For generic icons, use an established icon library rather than rolling your own. [Feather](https://feathericons.com/), [Google Material Design Icons](https://fonts.google.com/icons), [Bootstrap Icons](https://icons.getbootstrap.com/), and [Devicons](https://devicon.dev/) are all solid choices with good coverage and accessibility. For product-specific UI elements that icon libraries don't cover well, use inline images captured from the UI itself.
+
+## Diagrams
+
+Diagrams earn their keep for architecture, data flow, and decision logic. Keep them honest:
+
+- **Right level of abstraction.** Include what aids understanding; cut what adds noise.
+- **Label everything.** Every object and every connector (line, arrow) should be labeled so readers don't have to guess at relationships.
+- **Be consistent with color and shape.** If two things don't represent two different concepts, don't differentiate them visually. Inconsistent use of color or shape implies meaning that isn't there.
+- **Use sentence case for labels.** Capitalize only the first word, proper nouns, acronyms, and abbreviations.
+- **Include a caption** summarizing what the diagram communicates overall.
+
+### Code-based diagrams
+
+For diagrams you can express structurally, prefer code over image files. They're version-controllable, accessible, and maintainable. [Mermaid.js](https://mermaid.js.org/) is a good option — it renders flowcharts, sequence diagrams, Gantt charts, state diagrams, ER diagrams, and more from plain text definitions.
+
+## Alt text
+
+Always write alt text for images that contain meaningful content. Screen readers depend on it.
+
+- Describe the image concisely. Complete sentences aren't required.
+- Don't restate the surrounding text verbatim — screen readers will already read that.
+- Identify the image type to set context: `"Screenshot showing the Alerts dashboard"` or `"Diagram showing data flow from agent to collector."`
+- Decorative-only images can use empty alt text (`alt=""`), but this should be rare in docs.
+
+## Captions
+
+Captions appear below an image and give readers context they can't get from the image alone.
+
+- Keep them short. Captions aren't a second paragraph.
+- Add information that complements the image, not a restatement of surrounding prose.
+- Don't put required information only in a caption — if it matters, put it in the body text too.
+- Captions aren't needed for straightforward procedure screenshots where the steps make the image self-explanatory.
+
+Use `<figure>` and `<figcaption>` for semantic HTML. It explicitly associates the caption with the image, which screen readers understand correctly — unlike a plain `<p>` tag below an `<img>` that has no programmatic relationship to it.
+
+```html
+<figure>
+  <img
+    src="diagram.png"
+    alt="Diagram showing data flow from agent to collector."
+  />
+  <figcaption>
+    Data flows from the agent through the collector before reaching the
+    dashboard.
+  </figcaption>
+</figure>
+```
+
+## Supporting text
+
+If you're not using a caption, add a sentence before or after the image to give readers context. Don't make them reverse-engineer what they're looking at. Keep the surrounding text tight so the image and the text work together efficiently.
+
+## Related resources
+
+- [New Relic Docs style guide: Screenshots and images](https://docs.newrelic.com/docs/style-guide/images/screenshots-images/)

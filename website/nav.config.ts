@@ -30,7 +30,7 @@ export const navigationConfig: NavigationConfig = {
         },
         {
           type: "link",
-          label: "Quality Metrics",
+          label: "Quality",
           href: "/principles/quality-metrics",
         },
         {
@@ -51,45 +51,9 @@ export const navigationConfig: NavigationConfig = {
           href: "/style-guide",
         },
         {
-          type: "group",
-          label: "Writing",
-          items: [
-            {
-              label: "Voice & Tone",
-              href: "/style-guide/voice-tone",
-            },
-            {
-              label: "Titles & Headings",
-              href: "/style-guide/titles-headings",
-            },
-          ],
-        },
-        {
-          type: "group",
-          label: "Content Types",
-          items: [
-            {
-              label: "Lists",
-              href: "/style-guide/lists",
-            },
-            {
-              label: "Content Components",
-              href: "/style-guide/content-components",
-            },
-            {
-              label: "Code Blocks",
-              href: "/style-guide/code-blocks",
-            },
-            {
-              label: "Images & Screenshots",
-              href: "/style-guide/images-screenshots",
-            },
-          ],
-        },
-        {
           type: "link",
-          label: "Organization",
-          href: "/style-guide/organization",
+          label: "Images & Screenshots",
+          href: "/style-guide/images-screenshots",
         },
       ],
     },

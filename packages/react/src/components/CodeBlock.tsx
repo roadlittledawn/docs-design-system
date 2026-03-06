@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useMemo } from "react";
 // @ts-ignore - prismjs doesn't have perfect TypeScript support
 import Prism from "prismjs";

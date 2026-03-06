@@ -2,7 +2,6 @@ import {
   Heading,
   Button,
   Card,
-  Callout,
   Link as DocsLink,
 } from "@roadlittledawn/docs-design-system/react";
 import Link from "next/link";
@@ -64,13 +63,10 @@ export default function ComponentsPage() {
         </Link>
       </div>
       <p>
-        Use in your React / <DocsLink href="https://mdxjs.com">MDX</DocsLink>{" "}
-        based site.
+        Use in any React / <DocsLink href="https://mdxjs.com">MDX</DocsLink>-based
+        site. Compatible with Next.js App Router — interactive components are
+        pre-marked as Client Components so no extra setup is needed.
       </p>
-      <Callout variant="important">
-        If using Next.js, may need to create client wrapper for some components
-        that require React hooks.
-      </Callout>
 
       <Card backgroundColor="blue" className="mb-8">
         <Heading level={3} className="mb-3">

@@ -35,6 +35,10 @@ Full component documentation with live examples, usage guidelines, and API docum
 
 **[View Component Documentation →](https://docs-design-system-storybook.netlify.app/?path=/docs/components-button--docs)**
 
+## Next.js / React Server Components
+
+Interactive components (`Collapser`, `CollapserGroup`, `CodeBlock`, `Tabs`, `Popover`) are pre-marked with `'use client'`, so they work in Next.js App Router without any extra setup. Stateless components (`Button`, `Callout`, `Card`, `CardGrid`, `Heading`, `Link`, `List`, `Typography`) have no directive and are fully usable as Server Components.
+
 ## Dark Mode
 
 The package includes built-in dark mode support. All components use transparent backgrounds (unless background color specified via props) in dark mode so they don't clash with your site's own dark theme.

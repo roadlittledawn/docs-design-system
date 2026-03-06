@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef, useMemo } from 'react';
 
 type ModifierKey = 'cmd' | 'ctrl' | 'shift' | 'alt' | null;

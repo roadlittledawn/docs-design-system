@@ -13,6 +13,7 @@ export * from './components/Heading';
 export * from './components/Link';
 export * from './components/List';
 export * from './components/Table';
+export * from './components/Grid';
 
 // Export hooks
 export * from './hooks/useKeyPress';

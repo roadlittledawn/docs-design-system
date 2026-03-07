@@ -276,6 +276,13 @@
   --dds-table-header-active-text: #1d4ed8; /* blue-700 */
   --dds-table-cell-padding: 0.75rem 1rem;
   --dds-table-focus-ring: #3b82f6; /* blue-500 */
+
+  /* Grid */
+  --dds-grid-gap-sm: 1rem; /* gap-4 */
+  --dds-grid-gap-md: 1.5rem; /* gap-6 */
+  --dds-grid-gap-lg: 2.5rem; /* gap-10 */
+  --dds-grid-divider-color: #e5e7eb; /* gray-200 */
+  --dds-grid-sticky-top: 1rem;
 }
 
 /* ==========================================================================
@@ -453,6 +460,9 @@
   --dds-table-header-hover-text: #f9fafb; /* gray-50 */
   --dds-table-header-active-text: #93c5fd; /* blue-300 */
   --dds-table-focus-ring: #60a5fa; /* blue-400 */
+
+  /* Grid */
+  --dds-grid-divider-color: #4b5563; /* gray-600 */
 }
 
 /* Auto dark mode — follows OS preference, opt-out with .dds-light */
@@ -624,6 +634,9 @@
     --dds-table-header-hover-text: #f9fafb;
     --dds-table-header-active-text: #93c5fd;
     --dds-table-focus-ring: #60a5fa;
+
+    /* Grid */
+    --dds-grid-divider-color: #4b5563; /* gray-600 */
   }
 }
 

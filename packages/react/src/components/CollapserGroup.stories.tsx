@@ -2,6 +2,30 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CollapserGroup } from './CollapserGroup';
 import { Collapser } from './Collapser';
 
+// Spoofed icons for the NumberedGroup story (replace with your Icon component when available)
+const IconBolt = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+  </svg>
+);
+const IconBook = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+  </svg>
+);
+const IconStar = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+  </svg>
+);
+const IconSettings = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="3" />
+    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+  </svg>
+);
+
 /**
  * CollapserGroup manages multiple Collapser components with consistent spacing
  * and optional accordion behavior.
@@ -37,6 +61,11 @@ const meta: Meta<typeof CollapserGroup> = {
       control: 'text',
       description: 'Additional CSS classes.',
       table: { defaultValue: { summary: '""' } },
+    },
+    numbered: {
+      control: 'boolean',
+      description: 'Automatically prefix each collapser header with a sequential step number (1, 2, 3…). Pairs well with `icon` and `align="right"` on child collapsers.',
+      table: { defaultValue: { summary: 'false' } },
     },
   },
   parameters: {
@@ -288,6 +317,63 @@ export const MultipleDefaultOpen: Story = {
       </Collapser>
       <Collapser title="Quick Start">
         <p>This section is also open by default.</p>
+      </Collapser>
+    </CollapserGroup>
+  ),
+};
+
+/**
+ * Setting `numbered` on CollapserGroup automatically prefixes each collapser header
+ * with a sequential step number (1., 2., …), closely matching the reference screenshot
+ * with number + icon on the left and right-aligned title text.
+ * Customise the number colour with `--dds-collapser-step-number-color`.
+ */
+export const NumberedGroup: Story = {
+  args: {
+    numbered: true,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CollapserGroup numbered>
+  <Collapser title="Decrease pain" align="right" icon={<IconBolt />}>
+    <p>Step numbers are injected automatically — no extra props needed on each item.</p>
+  </Collapser>
+  <Collapser title="Align your workflow" align="right" icon={<IconBook />}>
+    <p>Combine numbered with icons and right-aligned titles.</p>
+  </Collapser>
+  <Collapser title="Learn to move" align="right" icon={<IconStar />}>
+    <p>Each entry gets a sequential step number on the far left.</p>
+  </Collapser>
+  <Collapser title="Build strength" align="right" icon={<IconSettings />}>
+    <p>Customise the number colour with --dds-collapser-step-number-color.</p>
+  </Collapser>
+</CollapserGroup>`,
+      },
+    },
+  },
+  render: (args) => (
+    <CollapserGroup {...args}>
+      <Collapser title="Decrease pain" align="right" icon={<IconBolt />}>
+        <p style={{ color: 'var(--dds-collapser-text)' }}>
+          Step numbers are injected automatically — no extra props needed on each item.
+        </p>
+      </Collapser>
+      <Collapser title="Align your workflow" align="right" icon={<IconBook />}>
+        <p style={{ color: 'var(--dds-collapser-text)' }}>
+          Combine <code>numbered</code> with icons and right-aligned titles for a
+          clean annotated-list layout.
+        </p>
+      </Collapser>
+      <Collapser title="Learn to move" align="right" icon={<IconStar />}>
+        <p style={{ color: 'var(--dds-collapser-text)' }}>
+          Each entry gets a sequential step number on the far left.
+        </p>
+      </Collapser>
+      <Collapser title="Build strength" align="right" icon={<IconSettings />}>
+        <p style={{ color: 'var(--dds-collapser-text)' }}>
+          Customise the number colour with <code>--dds-collapser-step-number-color</code>.
+        </p>
       </Collapser>
     </CollapserGroup>
   ),

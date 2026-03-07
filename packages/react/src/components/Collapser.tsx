@@ -3,7 +3,7 @@
 import { ReactNode, useState, useRef, useEffect } from "react";
 import { useKeyPress } from "../hooks/useKeyPress";
 
-interface CollapserProps {
+export interface CollapserProps {
   /** Title text or element displayed in the collapsible header */
   title: string | ReactNode;
 
@@ -31,6 +31,27 @@ interface CollapserProps {
 
   /** Additional CSS classes */
   className?: string;
+
+  /**
+   * Alignment of the title within the header.
+   * Use 'right' for right-aligned titles, typically paired with an icon on the left.
+   * @default 'left'
+   */
+  align?: 'left' | 'right';
+
+  /**
+   * Optional icon or React element rendered on the left side of the header,
+   * before the title text. Useful for visual identification of each section.
+   */
+  icon?: ReactNode;
+
+  /**
+   * Numeric step label shown on the far left of the header.
+   * Automatically injected by `CollapserGroup` when `numbered` is true;
+   * can also be set manually on individual collapsers.
+   * Use `--dds-collapser-step-number-color` to customise its colour.
+   */
+  stepNumber?: number;
 }
 
 export function Collapser({
@@ -41,6 +62,9 @@ export function Collapser({
   onToggle,
   children,
   className = "",
+  align = 'left',
+  icon,
+  stepNumber,
 }: CollapserProps) {
   const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen);
   const isControlled = controlledOpen !== undefined;
@@ -69,7 +93,11 @@ export function Collapser({
     }
   };
 
-  const collapserClasses = ["dds-collapser", className]
+  const collapserClasses = [
+    "dds-collapser",
+    align === 'right' ? "dds-collapser--align-right" : "",
+    className,
+  ]
     .filter(Boolean)
     .join(" ");
 
@@ -81,6 +109,14 @@ export function Collapser({
         className="dds-collapser-button"
         aria-expanded={isOpen}
       >
+        {stepNumber !== undefined && (
+          <span className="dds-collapser-step-number">{stepNumber}.</span>
+        )}
+        {icon && (
+          <span className="dds-collapser-header-icon" aria-hidden="true">
+            {icon}
+          </span>
+        )}
         <h5 id={id} className="dds-collapser-title">
           {title}
         </h5>

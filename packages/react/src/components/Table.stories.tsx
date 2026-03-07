@@ -317,8 +317,9 @@ export const Sortable: Story = {
 // -----------------------------------------------------------------------
 
 /**
- * Sticky header — the thead stays fixed at the top of the viewport as the
- * user scrolls through a long table.
+ * Sticky header — the thead stays fixed at the top of the scroll container as
+ * the user scrolls through a long table. Use `style={{ maxHeight: '...' }}` to
+ * constrain the table height so the header can stick.
  */
 export const StickyHeader: Story = {
   args: {
@@ -327,12 +328,13 @@ export const StickyHeader: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<Table stickyHeader>
+        code: `<Table stickyHeader style={{ maxHeight: '300px' }}>
   <TableHead>
     <TableRow>
       <TableHeaderCell>#</TableHeaderCell>
       <TableHeaderCell>Name</TableHeaderCell>
       <TableHeaderCell>Role</TableHeaderCell>
+      <TableHeaderCell>Department</TableHeaderCell>
     </TableRow>
   </TableHead>
   <TableBody>
@@ -349,28 +351,26 @@ export const StickyHeader: Story = {
     }));
 
     return (
-      <div style={{ maxHeight: "300px", overflow: "auto", border: "1px solid #e5e7eb", borderRadius: "0.5rem" }}>
-        <Table {...args}>
-          <TableHead>
-            <TableRow>
-              <TableHeaderCell>#</TableHeaderCell>
-              <TableHeaderCell>Name</TableHeaderCell>
-              <TableHeaderCell>Role</TableHeaderCell>
-              <TableHeaderCell>Department</TableHeaderCell>
+      <Table {...args} style={{ maxHeight: "300px" }}>
+        <TableHead>
+          <TableRow>
+            <TableHeaderCell>#</TableHeaderCell>
+            <TableHeaderCell>Name</TableHeaderCell>
+            <TableHeaderCell>Role</TableHeaderCell>
+            <TableHeaderCell>Department</TableHeaderCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {manyRows.map((e, i) => (
+            <TableRow key={i}>
+              <TableCell>{i + 1}</TableCell>
+              <TableCell>{e.name}</TableCell>
+              <TableCell>{e.role}</TableCell>
+              <TableCell>{e.department}</TableCell>
             </TableRow>
-          </TableHead>
-          <TableBody>
-            {manyRows.map((e, i) => (
-              <TableRow key={i}>
-                <TableCell>{i + 1}</TableCell>
-                <TableCell>{e.name}</TableCell>
-                <TableCell>{e.role}</TableCell>
-                <TableCell>{e.department}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
+          ))}
+        </TableBody>
+      </Table>
     );
   },
 };

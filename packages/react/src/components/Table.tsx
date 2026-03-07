@@ -35,7 +35,11 @@ export interface TableProps {
    * `"default"` renders all borders; `"borderless"` shows only row top/bottom borders.
    */
   variant?: 'default' | 'borderless';
-  /** When true the thead sticks to the top of the viewport while scrolling */
+  /**
+   * When true the thead sticks to the top of the scroll container while scrolling.
+   * Pair with the `style` prop (e.g. `style={{ maxHeight: '400px' }}`) to constrain
+   * the table height so that the header can stick.
+   */
   stickyHeader?: boolean;
   /**
    * Background color applied to the header row.
@@ -50,6 +54,11 @@ export interface TableProps {
   onSort?: (key: string, direction: SortDirection) => void;
   /** Additional CSS classes applied to the outer wrapper */
   className?: string;
+  /**
+   * Inline styles applied to the outer wrapper.
+   * Use `maxHeight` here to constrain the table height when `stickyHeader` is true.
+   */
+  style?: React.CSSProperties;
 }
 
 export function Table({
@@ -59,6 +68,7 @@ export function Table({
   headerBg,
   onSort,
   className = '',
+  style,
 }: TableProps) {
   const [sortKey, setSortKey] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<SortDirection>(null);
@@ -77,6 +87,7 @@ export function Table({
 
   const wrapperClasses = [
     'dds-table-wrapper',
+    stickyHeader ? 'dds-table-scrollable' : '',
     variant === 'borderless' ? 'dds-table-borderless' : '',
     className,
   ]
@@ -87,7 +98,7 @@ export function Table({
     <TableContext.Provider
       value={{ sortKey, sortDirection, onSort: handleSort, stickyHeader, variant, headerBg }}
     >
-      <div className={wrapperClasses}>
+      <div className={wrapperClasses} style={style}>
         <table className="dds-table">{children}</table>
       </div>
     </TableContext.Provider>

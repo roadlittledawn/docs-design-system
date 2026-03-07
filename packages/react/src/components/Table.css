@@ -8,6 +8,12 @@
   margin: var(--dds-table-margin);
 }
 
+/* When stickyHeader is true the wrapper also scrolls vertically so that
+   position:sticky on th elements activates within the same scroll container. */
+.dds-table-scrollable {
+  overflow-y: auto;
+}
+
 /* Remove outer border for borderless variant — only row borders remain */
 .dds-table-borderless {
   border: none;

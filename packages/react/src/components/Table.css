@@ -39,8 +39,8 @@
 .dds-table-head-sticky th {
   position: sticky;
   top: 0;
-  z-index: 1;
-  background-color: var(--dds-table-header-bg);
+  z-index: 2;
+  background-color: var(--dds-table-sticky-bg, var(--dds-table-header-bg));
 }
 
 /* When headerBg is set via inline style, the sticky cells must inherit it */

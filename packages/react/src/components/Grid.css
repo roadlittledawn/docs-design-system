@@ -60,6 +60,7 @@
     padding-left: 0;
     border-top: var(--dds-grid-column-divider-thickness, 1px) solid
       var(--dds-grid-column-divider-color, var(--dds-grid-divider-color));
+    padding-top: var(--dds-grid-gap, var(--dds-grid-gap-md));
   }
 
   /* Sticky no-ops when stacked */
@@ -79,6 +80,7 @@
     padding-left: 0;
     border-top: var(--dds-grid-column-divider-thickness, 1px) solid
       var(--dds-grid-column-divider-color, var(--dds-grid-divider-color));
+    padding-top: var(--dds-grid-gap, var(--dds-grid-gap-md));
   }
 
   .dds-grid-stack-md .dds-grid-column-sticky {
@@ -97,6 +99,7 @@
     padding-left: 0;
     border-top: var(--dds-grid-column-divider-thickness, 1px) solid
       var(--dds-grid-column-divider-color, var(--dds-grid-divider-color));
+    padding-top: var(--dds-grid-gap, var(--dds-grid-gap-md));
   }
 
   .dds-grid-stack-lg .dds-grid-column-sticky {

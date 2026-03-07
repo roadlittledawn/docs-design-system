@@ -1,0 +1,144 @@
+/* Table wrapper — enables responsive horizontal scroll */
+.dds-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--dds-table-border);
+  border-radius: var(--dds-table-radius);
+  margin: var(--dds-table-margin);
+}
+
+/* When stickyHeader is true the wrapper also scrolls vertically so that
+   position:sticky on th elements activates within the same scroll container. */
+.dds-table-scrollable {
+  overflow-y: auto;
+}
+
+/* Remove outer border for borderless variant — only row borders remain */
+.dds-table-borderless {
+  border: none;
+  border-radius: 0;
+}
+
+.dds-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--dds-table-font-size);
+  color: var(--dds-table-text);
+  background-color: var(--dds-table-bg);
+}
+
+/* -----------------------------------------------------------------------
+   Header
+   ----------------------------------------------------------------------- */
+
+.dds-table-head {
+  background-color: var(--dds-table-header-bg);
+}
+
+.dds-table-head-sticky th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: var(--dds-table-sticky-bg, var(--dds-table-header-bg));
+}
+
+/* When headerBg is set via inline style, the sticky cells must inherit it */
+.dds-table-head-sticky[style] th {
+  background-color: inherit;
+}
+
+/* Sticky sortable header hover: keep background opaque to avoid bleed-through
+   when the global .dds-table-th-sortable:hover uses a semi-transparent color. */
+.dds-table-head-sticky th.dds-table-th-sortable:hover {
+  background-color: var(
+    --dds-table-sticky-hover-bg,
+    var(--dds-table-sticky-bg, var(--dds-table-header-bg))
+  );
+}
+
+/* -----------------------------------------------------------------------
+   Cells — shared
+   ----------------------------------------------------------------------- */
+
+.dds-table-th,
+.dds-table-td {
+  padding: var(--dds-table-cell-padding);
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Alignment helpers */
+.dds-table-align-left  { text-align: left; }
+.dds-table-align-center { text-align: center; }
+.dds-table-align-right { text-align: right; }
+
+/* -----------------------------------------------------------------------
+   Header cell
+   ----------------------------------------------------------------------- */
+
+.dds-table-th {
+  font-weight: var(--dds-font-semibold);
+  font-size: var(--dds-table-header-font-size);
+  color: var(--dds-table-header-text);
+  border-bottom: 2px solid var(--dds-table-header-border);
+  white-space: nowrap;
+}
+
+/* Default variant: left/right column borders */
+.dds-table-wrapper:not(.dds-table-borderless) .dds-table-th + .dds-table-th,
+.dds-table-wrapper:not(.dds-table-borderless) .dds-table-td + .dds-table-td {
+  border-left: 1px solid var(--dds-table-border);
+}
+
+/* -----------------------------------------------------------------------
+   Sortable column header
+   ----------------------------------------------------------------------- */
+
+.dds-table-th-sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.dds-table-th-sortable:hover {
+  background-color: var(--dds-table-header-hover-bg);
+  color: var(--dds-table-header-hover-text);
+}
+
+.dds-table-th-sortable:focus-visible {
+  outline: 2px solid var(--dds-table-focus-ring);
+  outline-offset: -2px;
+}
+
+.dds-table-th-active {
+  color: var(--dds-table-header-active-text);
+}
+
+.dds-table-th-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.dds-table-sort-icon {
+  font-size: 0.75em;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.dds-table-th-active .dds-table-sort-icon {
+  opacity: 1;
+}
+
+/* -----------------------------------------------------------------------
+   Body rows
+   ----------------------------------------------------------------------- */
+
+.dds-table-body .dds-table-row {
+  border-top: 1px solid var(--dds-table-row-border);
+  transition: background-color 150ms ease-in-out;
+}
+
+.dds-table-body .dds-table-row:hover {
+  background-color: var(--dds-table-row-hover-bg);
+}

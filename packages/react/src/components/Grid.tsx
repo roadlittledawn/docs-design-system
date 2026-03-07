@@ -29,10 +29,12 @@ export interface GridProps {
   columns?: number | number[];
 
   /**
-   * Space between columns. Named sizes map to design tokens; a number is treated as pixels.
+   * Space between columns. Use `'sm'`, `'md'`, or `'lg'` for design-token sizes,
+   * a plain number for pixel values (e.g. `16`), or any valid CSS length string
+   * (e.g. `'1.5rem'`, `'2em'`).
    * @default 'md'
    */
-  gap?: GapSize | number;
+  gap?: string | number;
 
   /**
    * Viewport breakpoint at which columns collapse to a single vertical stack.
@@ -58,6 +60,9 @@ export interface GridProps {
    */
   align?: AlignItems;
 
+  /** Background color applied to the grid container. */
+  backgroundColor?: string;
+
   /** Additional CSS classes applied to the grid wrapper. */
   className?: string;
 
@@ -72,12 +77,15 @@ export interface ColumnProps {
   span?: number;
 
   /**
-   * Makes this column sticky (`position: sticky; top: …`) while adjacent columns scroll.
+   * Makes the column content sticky (`position: sticky; top: …`) while adjacent columns scroll.
    * Useful for tutorial-style layouts with a persistent code panel.
-   * Automatically disabled (reset to `static`) when the grid stacks on mobile.
+   * Automatically disabled when the grid stacks on mobile.
    * @default false
    */
   sticky?: boolean;
+
+  /** Background color applied to the column. */
+  backgroundColor?: string;
 
   /** Additional CSS classes applied to the column wrapper. */
   className?: string;
@@ -85,7 +93,7 @@ export interface ColumnProps {
   children: ReactNode;
 }
 
-const GAP_MAP: Record<GapSize, string> = {
+const GAP_TOKEN_MAP: Record<GapSize, string> = {
   sm: 'var(--dds-grid-gap-sm)',
   md: 'var(--dds-grid-gap-md)',
   lg: 'var(--dds-grid-gap-lg)',
@@ -98,10 +106,16 @@ const ALIGN_MAP: Record<AlignItems, string> = {
   stretch: 'stretch',
 };
 
+function resolveGap(gap: string | number): string {
+  if (typeof gap === 'number') return `${gap}px`;
+  if (gap in GAP_TOKEN_MAP) return GAP_TOKEN_MAP[gap as GapSize];
+  return gap; // custom CSS length string, e.g. '1.5rem', '2em'
+}
+
 /**
  * Multi-column layout container for documentation pages.
  * Supports equal and fractional column splits, configurable responsive stacking,
- * optional column dividers, and top/bottom borders.
+ * optional column dividers, top/bottom borders, and background colours.
  *
  * Pair with `<Column>` children to control individual column behaviour.
  */
@@ -113,6 +127,7 @@ export function Grid({
   topBorder,
   bottomBorder,
   align = 'stretch',
+  backgroundColor,
   className = '',
   children,
 }: GridProps) {
@@ -120,12 +135,11 @@ export function Grid({
     ? columns.map((n) => `${n}fr`).join(' ')
     : `repeat(${columns}, 1fr)`;
 
-  const gapValue = typeof gap === 'number' ? `${gap}px` : GAP_MAP[gap];
-
   const style = {
     '--dds-grid-template-columns': columnTemplate,
-    '--dds-grid-gap': gapValue,
+    '--dds-grid-gap': resolveGap(gap),
     '--dds-grid-align': ALIGN_MAP[align],
+    ...(backgroundColor ? { backgroundColor } : {}),
     ...(topBorder
       ? {
           '--dds-grid-top-border-thickness': `${topBorder.thickness ?? 1}px`,
@@ -171,17 +185,23 @@ export function Grid({
  * An individual column within a `<Grid>`.
  *
  * Use the `span` prop to make a column occupy more than one grid track, and
- * `sticky` to keep the column pinned while adjacent content scrolls.
+ * `sticky` to keep the column content pinned while adjacent content scrolls.
+ * The column element itself always stretches to the full row height so that
+ * column dividers cover the entire row regardless of which column is taller.
  */
 export function Column({
   span,
   sticky = false,
+  backgroundColor,
   className = '',
   children,
 }: ColumnProps) {
   const style: CSSProperties = {};
   if (span && span > 1) {
     style.gridColumn = `span ${span}`;
+  }
+  if (backgroundColor) {
+    style.backgroundColor = backgroundColor;
   }
 
   const classNames = [
@@ -194,7 +214,11 @@ export function Column({
 
   return (
     <div className={classNames} style={style}>
-      {children}
+      {sticky ? (
+        <div className="dds-grid-column-sticky-inner">{children}</div>
+      ) : (
+        children
+      )}
     </div>
   );
 }

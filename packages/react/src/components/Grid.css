@@ -37,11 +37,17 @@
   min-width: 0;
 }
 
-/* Sticky column — stays in view while adjacent column scrolls */
+/* Sticky column — column div stretches to full row height so that border-left
+   covers the entire row. The CONTENT inside is what scrolls sticky, via the
+   inner wrapper. */
 .dds-grid-column-sticky {
+  /* No align-self override — stretches naturally to row height */
+}
+
+/* Inner wrapper that provides the actual sticky scroll behaviour */
+.dds-grid-column-sticky-inner {
   position: sticky;
   top: var(--dds-grid-sticky-top, 1rem);
-  align-self: start;
 }
 
 /* =============================================================================
@@ -63,8 +69,8 @@
     padding-top: var(--dds-grid-gap, var(--dds-grid-gap-md));
   }
 
-  /* Sticky no-ops when stacked */
-  .dds-grid-stack-sm .dds-grid-column-sticky {
+  /* Sticky inner wrapper no-ops when stacked */
+  .dds-grid-stack-sm .dds-grid-column-sticky-inner {
     position: static;
   }
 }
@@ -83,7 +89,7 @@
     padding-top: var(--dds-grid-gap, var(--dds-grid-gap-md));
   }
 
-  .dds-grid-stack-md .dds-grid-column-sticky {
+  .dds-grid-stack-md .dds-grid-column-sticky-inner {
     position: static;
   }
 }
@@ -102,7 +108,7 @@
     padding-top: var(--dds-grid-gap, var(--dds-grid-gap-md));
   }
 
-  .dds-grid-stack-lg .dds-grid-column-sticky {
+  .dds-grid-stack-lg .dds-grid-column-sticky-inner {
     position: static;
   }
 }

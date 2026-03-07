@@ -14,15 +14,15 @@ const meta: Meta<typeof Grid> = {
   tags: ['autodocs'],
   argTypes: {
     columns: {
-      control: false,
+      control: { type: 'number', min: 1, max: 6 },
       description:
-        'Number of equal columns, or a fractional-width array (e.g. `[1, 2]` for 1/3 + 2/3).',
+        'Number of equal columns. Pass an array like `[1, 2]` in code for asymmetric fractional splits (not supported via the controls panel).',
       table: { defaultValue: { summary: '2' } },
     },
     gap: {
-      control: { type: 'select' },
-      options: ['sm', 'md', 'lg'],
-      description: 'Space between columns. Named sizes map to design tokens.',
+      control: 'text',
+      description:
+        "Space between columns. Use `'sm'`, `'md'`, or `'lg'` for design-token sizes, a number for pixels (e.g. `16`), or any CSS length string (e.g. `'1.5rem'`).",
       table: { defaultValue: { summary: "'md'" } },
     },
     stackAt: {
@@ -38,17 +38,23 @@ const meta: Meta<typeof Grid> = {
       table: { defaultValue: { summary: "'stretch'" } },
     },
     columnDivider: {
-      control: false,
+      control: { type: 'object' },
       description:
-        'Vertical line between columns (`{ thickness?, color? }`). Converts to a horizontal rule when stacked.',
+        'Vertical line between columns (`{ thickness?: number; color?: string }`). Converts to a horizontal rule when stacked.',
     },
     topBorder: {
-      control: false,
-      description: 'Horizontal rule above the grid (`{ thickness?, color? }`).',
+      control: { type: 'object' },
+      description:
+        'Horizontal rule above the grid (`{ thickness?: number; color?: string }`).',
     },
     bottomBorder: {
-      control: false,
-      description: 'Horizontal rule below the grid (`{ thickness?, color? }`).',
+      control: { type: 'object' },
+      description:
+        'Horizontal rule below the grid (`{ thickness?: number; color?: string }`).',
+    },
+    backgroundColor: {
+      control: 'color',
+      description: 'Background color for the entire grid container.',
     },
     className: {
       control: 'text',
@@ -131,6 +137,40 @@ function Placeholder({
 /* -------------------------------------------------------------------------- */
 /* Stories                                                                     */
 /* -------------------------------------------------------------------------- */
+
+/**
+ * Fully interactive default story — all controls in the prop table affect this
+ * live preview. Adjust `columns`, `gap`, `stackAt`, `align`, `columnDivider`,
+ * `topBorder`, `bottomBorder`, and `backgroundColor` via the Controls panel.
+ */
+export const Default: Story = {
+  args: {
+    columns: 2,
+    gap: 'md',
+    stackAt: 'md',
+    align: 'stretch',
+  },
+  render: (args) => (
+    <Grid {...args}>
+      <Column>
+        <Placeholder label="Column 1" />
+      </Column>
+      <Column>
+        <Placeholder label="Column 2" />
+      </Column>
+    </Grid>
+  ),
+  parameters: {
+    docs: {
+      source: {
+        code: `<Grid columns={2} gap="md">
+  <Column>Column 1 content</Column>
+  <Column>Column 2 content</Column>
+</Grid>`,
+      },
+    },
+  },
+};
 
 /**
  * Two equal columns — the default layout. Columns stack vertically at the `md`
@@ -267,7 +307,8 @@ export const ImageAndText: Story = {
 /**
  * Tutorial layout — prose instructions on the left, sticky code panel on the
  * right. The code panel stays in view while the user scrolls through the steps.
- * The `sticky` prop is automatically disabled when the layout stacks on mobile.
+ * The column divider runs the full height of the row regardless of which column
+ * is taller. The `sticky` prop is automatically disabled when the grid stacks.
  */
 export const TutorialWithStickyCode: Story = {
   render: () => (
@@ -374,6 +415,48 @@ export const WithColumnDivider: Story = {
 };
 
 /**
+ * Background colors — apply a background to the entire grid and / or to
+ * individual columns using the `backgroundColor` prop.
+ */
+export const BackgroundColors: Story = {
+  render: () => (
+    <Grid
+      columns={2}
+      gap="lg"
+      backgroundColor="rgba(99,102,241,0.04)"
+    >
+      <Column backgroundColor="rgba(16,185,129,0.08)">
+        <p style={subtle}><strong>Column with background</strong></p>
+        <p style={subtle}>Each column can have its own background color.</p>
+      </Column>
+      <Column backgroundColor="rgba(234,179,8,0.08)">
+        <p style={subtle}><strong>Another column background</strong></p>
+        <p style={subtle}>
+          The grid container also has a light background applied via{' '}
+          <code>backgroundColor</code> on the <code>Grid</code>.
+        </p>
+      </Column>
+    </Grid>
+  ),
+  parameters: {
+    docs: {
+      source: {
+        code: `<Grid columns={2} gap="lg" backgroundColor="rgba(99,102,241,0.04)">
+  <Column backgroundColor="rgba(16,185,129,0.08)">
+    <strong>Column with background</strong>
+    <p>Each column can have its own background color.</p>
+  </Column>
+  <Column backgroundColor="rgba(234,179,8,0.08)">
+    <strong>Another column background</strong>
+    <p>Set on both the Grid container and individual Columns.</p>
+  </Column>
+</Grid>`,
+      },
+    },
+  },
+};
+
+/**
  * Large gap between columns — useful when columns contain rich content
  * that needs extra breathing room.
  */
@@ -392,6 +475,33 @@ export const LargeGap: Story = {
     docs: {
       source: {
         code: `<Grid columns={2} gap="lg">
+  <Column>Column 1 content</Column>
+  <Column>Column 2 content</Column>
+</Grid>`,
+      },
+    },
+  },
+};
+
+/**
+ * Custom gap — pass any CSS length string such as `'1.5rem'` or `'40px'`
+ * for fine-grained control beyond the named size tokens.
+ */
+export const CustomGap: Story = {
+  render: () => (
+    <Grid columns={2} gap="3rem">
+      <Column>
+        <Placeholder label="Column 1" height={140} />
+      </Column>
+      <Column>
+        <Placeholder label="Column 2" height={140} />
+      </Column>
+    </Grid>
+  ),
+  parameters: {
+    docs: {
+      source: {
+        code: `<Grid columns={2} gap="3rem">
   <Column>Column 1 content</Column>
   <Column>Column 2 content</Column>
 </Grid>`,
@@ -435,3 +545,4 @@ export const ColumnSpan: Story = {
     },
   },
 };
+

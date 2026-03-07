@@ -208,6 +208,7 @@
   --dds-collapser-icon-color: #6b7280; /* gray-500 */
   --dds-collapser-text: #374151; /* gray-700 */
   --dds-collapser-content-padding: 1rem; /* p-4 */
+  --dds-collapser-header-gap: 0.5rem;
 
   /* Tabs */
   --dds-tabs-margin: 1rem 0;

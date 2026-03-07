@@ -12,6 +12,7 @@
   padding: var(--dds-collapser-button-padding);
   display: flex;
   align-items: center;
+  gap: var(--dds-collapser-header-gap);
   transition: var(--dds-transition-colors);
   border: none;
   background: transparent;
@@ -25,6 +26,13 @@
   outline: none;
 }
 
+.dds-collapser-header-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--dds-collapser-icon-color);
+}
+
 .dds-collapser-title {
   display: flex;
   align-items: center;
@@ -33,13 +41,20 @@
   margin: 0;
   font-weight: bold;
   color: var(--dds-heading-color);
+  word-break: break-word;
+  min-width: 0;
+}
+
+.dds-collapser--align-right .dds-collapser-title {
+  justify-content: flex-end;
+  text-align: right;
 }
 
 .dds-collapser-icon {
   margin-left: auto;
+  flex-shrink: 0;
   transition: transform 0.3s ease;
   color: var(--dds-collapser-icon-color);
-  flex-shrink: 0;
 }
 
 .dds-collapser-icon-open {

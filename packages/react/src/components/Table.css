@@ -39,13 +39,22 @@
 .dds-table-head-sticky th {
   position: sticky;
   top: 0;
-  z-index: 1;
-  background-color: var(--dds-table-header-bg);
+  z-index: 2;
+  background-color: var(--dds-table-sticky-bg, var(--dds-table-header-bg));
 }
 
 /* When headerBg is set via inline style, the sticky cells must inherit it */
 .dds-table-head-sticky[style] th {
   background-color: inherit;
+}
+
+/* Sticky sortable header hover: keep background opaque to avoid bleed-through
+   when the global .dds-table-th-sortable:hover uses a semi-transparent color. */
+.dds-table-head-sticky th.dds-table-th-sortable:hover {
+  background-color: var(
+    --dds-table-sticky-hover-bg,
+    var(--dds-table-sticky-bg, var(--dds-table-header-bg))
+  );
 }
 
 /* -----------------------------------------------------------------------

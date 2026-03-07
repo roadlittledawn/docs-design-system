@@ -268,6 +268,8 @@
   --dds-table-row-border: #e5e7eb; /* gray-200 */
   --dds-table-row-hover-bg: #f9fafb; /* gray-50 */
   --dds-table-header-bg: #f3f4f6; /* gray-100 */
+  --dds-table-sticky-bg: var(--dds-table-header-bg); /* used as sticky header background; should be opaque */
+  --dds-table-sticky-hover-bg: var(--dds-table-header-hover-bg); /* used as sticky sortable header hover; should be opaque */
   --dds-table-header-text: #111827; /* gray-900 */
   --dds-table-header-font-size: 0.8125rem; /* ~13px */
   --dds-table-header-border: #d1d5db; /* gray-300 */
@@ -454,6 +456,8 @@
   --dds-table-row-border: #374151; /* gray-700 */
   --dds-table-row-hover-bg: rgba(255, 255, 255, 0.04);
   --dds-table-header-bg: rgba(255, 255, 255, 0.06);
+  --dds-table-sticky-bg: #1f2937; /* gray-800 — opaque fallback for sticky header */
+  --dds-table-sticky-hover-bg: #263347; /* slightly lighter opaque hover for sticky header */
   --dds-table-header-text: #f9fafb; /* gray-50 */
   --dds-table-header-border: #4b5563; /* gray-600 */
   --dds-table-header-hover-bg: rgba(255, 255, 255, 0.1);
@@ -628,6 +632,8 @@
     --dds-table-row-border: #374151;
     --dds-table-row-hover-bg: rgba(255, 255, 255, 0.04);
     --dds-table-header-bg: rgba(255, 255, 255, 0.06);
+    --dds-table-sticky-bg: #1f2937;
+    --dds-table-sticky-hover-bg: #263347;
     --dds-table-header-text: #f9fafb;
     --dds-table-header-border: #4b5563;
     --dds-table-header-hover-bg: rgba(255, 255, 255, 0.1);
@@ -784,6 +790,8 @@
   --dds-table-row-border: #374151;
   --dds-table-row-hover-bg: rgba(255, 255, 255, 0.04);
   --dds-table-header-bg: rgba(255, 255, 255, 0.06);
+  --dds-table-sticky-bg: #1f2937;
+  --dds-table-sticky-hover-bg: #263347;
   --dds-table-header-text: #f9fafb;
   --dds-table-header-border: #4b5563;
   --dds-table-header-hover-bg: rgba(255, 255, 255, 0.1);

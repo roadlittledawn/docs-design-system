@@ -8,6 +8,37 @@ const meta: Meta<typeof Card> = {
   title: 'Components/Card',
   component: Card,
   tags: ['autodocs'],
+  argTypes: {
+    title: {
+      control: 'text',
+      description: 'Optional title displayed at the top of the card.',
+    },
+    titleColor: {
+      control: { type: 'select' },
+      options: ['blue', 'green', 'purple', 'red', 'yellow', 'gray'],
+      description: 'Color of the title text.',
+      table: { defaultValue: { summary: "'gray'" } },
+    },
+    backgroundColor: {
+      control: { type: 'select' },
+      options: ['blue', 'green', 'purple', 'red', 'yellow', 'gray', 'white'],
+      description: 'Background color of the card.',
+      table: { defaultValue: { summary: "'white'" } },
+    },
+    href: {
+      control: 'text',
+      description: 'Optional link URL. When provided, the entire card becomes clickable.',
+    },
+    children: {
+      control: 'text',
+      description: 'Card content.',
+    },
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes.',
+      table: { defaultValue: { summary: '""' } },
+    },
+  },
   parameters: {
     docs: {
       description: {

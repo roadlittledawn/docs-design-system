@@ -8,6 +8,23 @@ const meta: Meta<typeof Typography> = {
   title: 'Components/Typography',
   component: Typography,
   tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      control: { type: 'select' },
+      options: ['h1', 'h2', 'h3', 'h4', 'p', 'caption'],
+      description: 'Typography style variant. `h1`–`h4` render as heading elements; `p` and `caption` render as `<p>`.',
+      table: { defaultValue: { summary: "'p'" } },
+    },
+    children: {
+      control: 'text',
+      description: 'Text content.',
+    },
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes.',
+      table: { defaultValue: { summary: '""' } },
+    },
+  },
   parameters: {
     docs: {
       description: {

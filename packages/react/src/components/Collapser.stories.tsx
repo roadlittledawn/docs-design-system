@@ -9,6 +9,30 @@ const meta: Meta<typeof Collapser> = {
   title: 'Components/Collapser',
   component: Collapser,
   tags: ['autodocs'],
+  argTypes: {
+    title: {
+      control: 'text',
+      description: 'Title text displayed in the collapsible header.',
+    },
+    id: {
+      control: 'text',
+      description: 'Optional ID for the title element, useful for anchor links.',
+    },
+    defaultOpen: {
+      control: 'boolean',
+      description: 'Whether the collapser should be open by default (uncontrolled mode).',
+      table: { defaultValue: { summary: 'false' } },
+    },
+    children: {
+      control: false,
+      description: 'Content to show/hide when toggling.',
+    },
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes.',
+      table: { defaultValue: { summary: '""' } },
+    },
+  },
   parameters: {
     docs: {
       description: {

@@ -6,6 +6,30 @@ import { Callout } from "./Callout";
 const meta = {
   title: "Components/List",
   component: List,
+  argTypes: {
+    ordered: {
+      control: 'boolean',
+      description: 'When true renders an ordered (numbered) list. When false renders an unordered (bullet) list.',
+      table: { defaultValue: { summary: 'true' } },
+    },
+    bullet: {
+      control: 'text',
+      description: 'Custom bullet character for unordered lists (e.g. an emoji like `"✅"`). Only applies when `ordered` is false. Ignored when `bulletIcon` is provided.',
+    },
+    bulletIcon: {
+      control: false,
+      description: 'Custom bullet icon as a React node (e.g. an SVG). Takes precedence over `bullet`. Only applies when `ordered` is false.',
+    },
+    children: {
+      control: false,
+      description: '`List.Item` components to render.',
+    },
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes.',
+      table: { defaultValue: { summary: '""' } },
+    },
+  },
   parameters: {
     layout: "padded",
     docs: {

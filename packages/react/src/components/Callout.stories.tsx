@@ -8,6 +8,27 @@ const meta: Meta<typeof Callout> = {
   title: 'Components/Callout',
   component: Callout,
   tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      control: { type: 'select' },
+      options: ['caution', 'important', 'tip', 'course'],
+      description: 'Visual style variant that sets the color and icon.',
+    },
+    title: {
+      control: 'text',
+      description: 'Optional title. Defaults to the variant name. Pass `null` to hide entirely.',
+      table: { defaultValue: { summary: 'Variant name ("Caution", "Tip", etc.)' } },
+    },
+    children: {
+      control: 'text',
+      description: 'Callout content.',
+    },
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes.',
+      table: { defaultValue: { summary: '""' } },
+    },
+  },
   parameters: {
     docs: {
       description: {

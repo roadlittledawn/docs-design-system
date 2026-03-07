@@ -10,6 +10,35 @@ const meta: Meta<typeof CollapserGroup> = {
   title: 'Components/CollapserGroup',
   component: CollapserGroup,
   tags: ['autodocs'],
+  argTypes: {
+    spacing: {
+      control: 'text',
+      description: 'CSS gap value between collapser items.',
+      table: { defaultValue: { summary: "'0.5rem'" } },
+    },
+    allowMultiple: {
+      control: 'boolean',
+      description: 'When true, multiple collapsers can be open simultaneously. When false, opening one closes the others (accordion mode).',
+      table: { defaultValue: { summary: 'true' } },
+    },
+    defaultOpen: {
+      control: 'text',
+      description: 'Index or array of indexes of collapsers that should be open by default. E.g. `0` or `[0, 2]`.',
+    },
+    onChange: {
+      control: false,
+      description: 'Callback fired when the open state changes. Receives an array of currently open indexes.',
+    },
+    children: {
+      control: false,
+      description: 'Collapser components to render inside the group.',
+    },
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes.',
+      table: { defaultValue: { summary: '""' } },
+    },
+  },
   parameters: {
     docs: {
       description: {

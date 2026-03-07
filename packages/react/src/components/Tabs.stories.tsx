@@ -11,6 +11,29 @@ const meta: Meta<typeof Tabs> = {
   title: "Components/Tabs",
   component: Tabs,
   tags: ["autodocs"],
+  argTypes: {
+    defaultActiveTab: {
+      control: 'text',
+      description: 'ID of the tab that is active by default (uncontrolled mode).',
+    },
+    activeTab: {
+      control: 'text',
+      description: 'Controlled active tab ID. Use together with `onTabChange` to manage state externally.',
+    },
+    onTabChange: {
+      control: false,
+      description: 'Callback fired when the active tab changes. Receives the new tab ID.',
+    },
+    children: {
+      control: false,
+      description: 'Tab content — typically `TabList` and `TabPanel` components.',
+    },
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes applied to the outer container.',
+      table: { defaultValue: { summary: '""' } },
+    },
+  },
   parameters: {
     docs: {
       description: {

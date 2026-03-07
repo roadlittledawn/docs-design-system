@@ -14,15 +14,16 @@ const meta: Meta<typeof Grid> = {
   tags: ['autodocs'],
   argTypes: {
     columns: {
-      control: { type: 'number', min: 1, max: 6 },
+      control: { type: 'object' },
       description:
-        'Number of equal columns. Pass an array like `[1, 2]` in code for asymmetric fractional splits (not supported via the controls panel).',
+        'Number of equal columns, or an array of fractional weights for asymmetric splits (e.g. `[1, 2]` → 1/3 + 2/3). Enter a number or a JSON array in the control.',
       table: { defaultValue: { summary: '2' } },
     },
     gap: {
-      control: 'text',
+      control: { type: 'select' },
+      options: ['sm', 'md', 'lg', '0.5rem', '1rem', '1.5rem', '2rem', '3rem', '8px', '16px', '24px', '32px'],
       description:
-        "Space between columns. Use `'sm'`, `'md'`, or `'lg'` for design-token sizes, a number for pixels (e.g. `16`), or any CSS length string (e.g. `'1.5rem'`).",
+        "Space between columns. Use `'sm'`, `'md'`, or `'lg'` for design-token sizes, or any CSS length string (e.g. `'16px'`, `'1.5rem'`).",
       table: { defaultValue: { summary: "'md'" } },
     },
     stackAt: {

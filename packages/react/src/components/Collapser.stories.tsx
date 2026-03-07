@@ -61,6 +61,10 @@ const meta: Meta<typeof Collapser> = {
       control: false,
       description: 'Optional icon or React element rendered on the left side of the header, before the title text.',
     },
+    stepNumber: {
+      control: 'number',
+      description: 'Numeric step label shown on the far left. Auto-injected by `CollapserGroup` when `numbered` is true. Colour controlled via `--dds-collapser-step-number-color`.',
+    },
     children: {
       control: false,
       description: 'Content to show/hide when toggling.',
@@ -103,6 +107,16 @@ The Collapser component allows users to show and hide content sections to reduce
 - **s** or **f**: Show/expand the content
 - **h**: Hide/collapse the content
 - **Enter** or **Space**: Toggle expand/collapse
+
+## Customising Step Numbers
+
+Override the CSS custom property to change the step number colour:
+
+\`\`\`css
+.my-steps {
+  --dds-collapser-step-number-color: #7c3aed;
+}
+\`\`\`
         `,
       },
     },
@@ -462,7 +476,7 @@ export const IconGroupExample: Story = {
     <p>See what makes this system stand out.</p>
   </Collapser>
   <Collapser title="Configuration" align="right" icon={<IconSettings />}>
-    <p>Customize the system to fit your workflow.</p>
+    <p>Customise the system to fit your workflow.</p>
   </Collapser>
 </CollapserGroup>`,
       },
@@ -487,7 +501,62 @@ export const IconGroupExample: Story = {
       </Collapser>
       <Collapser title="Configuration" align="right" icon={<IconSettings />}>
         <p style={{ color: 'var(--dds-collapser-text)' }}>
-          Customize the system to fit your workflow.
+          Customise the system to fit your workflow.
+        </p>
+      </Collapser>
+    </CollapserGroup>
+  ),
+};
+
+/**
+ * CollapserGroup with `numbered` auto-numbers each entry.
+ * Matches the reference screenshot pattern: step number + icon on the left,
+ * title right-aligned, chevron on the far right.
+ */
+export const NumberedGroup: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `{/* numbered=true on CollapserGroup auto-injects stepNumber into each child */}
+<CollapserGroup numbered>
+  <Collapser title="Decrease pain" align="right" icon={<IconBolt />}>
+    <p>Step numbers are injected automatically by CollapserGroup.</p>
+  </Collapser>
+  <Collapser title="Align your workflow" align="right" icon={<IconBook />}>
+    <p>Combine numbered with icons and right-aligned titles.</p>
+  </Collapser>
+  <Collapser title="Learn to move" align="right" icon={<IconStar />}>
+    <p>Each entry gets a sequential step number on the far left.</p>
+  </Collapser>
+  <Collapser title="Configuration" align="right" icon={<IconSettings />}>
+    <p>Customise the system to fit your workflow.</p>
+  </Collapser>
+</CollapserGroup>`,
+      },
+    },
+  },
+  render: () => (
+    <CollapserGroup numbered>
+      <Collapser title="Decrease pain" align="right" icon={<IconBolt />}>
+        <p style={{ color: 'var(--dds-collapser-text)' }}>
+          Step numbers are injected automatically by CollapserGroup when{' '}
+          <code>numbered</code> is true.
+        </p>
+      </Collapser>
+      <Collapser title="Align your workflow" align="right" icon={<IconBook />}>
+        <p style={{ color: 'var(--dds-collapser-text)' }}>
+          Combine <code>numbered</code> with icons and right-aligned titles for a
+          clean annotated-list layout.
+        </p>
+      </Collapser>
+      <Collapser title="Learn to move" align="right" icon={<IconStar />}>
+        <p style={{ color: 'var(--dds-collapser-text)' }}>
+          Each entry gets a sequential step number on the far left.
+        </p>
+      </Collapser>
+      <Collapser title="Configuration" align="right" icon={<IconSettings />}>
+        <p style={{ color: 'var(--dds-collapser-text)' }}>
+          Customise the system to fit your workflow.
         </p>
       </Collapser>
     </CollapserGroup>

@@ -206,6 +206,7 @@
   --dds-collapser-button-padding: 0.75rem; /* p-3 */
   --dds-collapser-button-hover-bg: #f9fafb; /* gray-50 */
   --dds-collapser-icon-color: #6b7280; /* gray-500 */
+  --dds-collapser-step-number-color: #6b7280; /* gray-500 — override to customise step numbers */
   --dds-collapser-text: #374151; /* gray-700 */
   --dds-collapser-content-padding: 1rem; /* p-4 */
   --dds-collapser-header-gap: 0.5rem;
@@ -344,6 +345,7 @@
   --dds-collapser-border: #4b5563; /* gray-600 */
   --dds-collapser-button-hover-bg: rgba(255, 255, 255, 0.05);
   --dds-collapser-icon-color: #9ca3af; /* gray-400 */
+  --dds-collapser-step-number-color: #9ca3af;
   --dds-collapser-text: #e5e7eb; /* gray-200 */
 
   /* Tabs */
@@ -500,6 +502,7 @@
     --dds-collapser-border: #4b5563;
     --dds-collapser-button-hover-bg: rgba(255, 255, 255, 0.05);
     --dds-collapser-icon-color: #9ca3af;
+    --dds-collapser-step-number-color: #9ca3af;
     --dds-collapser-text: #e5e7eb;
 
     /* Tabs */
@@ -656,6 +659,7 @@
   --dds-collapser-border: #4b5563;
   --dds-collapser-button-hover-bg: rgba(255, 255, 255, 0.05);
   --dds-collapser-icon-color: #9ca3af;
+  --dds-collapser-step-number-color: #9ca3af;
   --dds-collapser-text: #e5e7eb;
 
   /* CodeBlock */

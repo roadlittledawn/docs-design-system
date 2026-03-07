@@ -44,6 +44,14 @@ export interface CollapserProps {
    * before the title text. Useful for visual identification of each section.
    */
   icon?: ReactNode;
+
+  /**
+   * Numeric step label shown on the far left of the header.
+   * Automatically injected by `CollapserGroup` when `numbered` is true;
+   * can also be set manually on individual collapsers.
+   * Use `--dds-collapser-step-number-color` to customise its colour.
+   */
+  stepNumber?: number;
 }
 
 export function Collapser({
@@ -56,6 +64,7 @@ export function Collapser({
   className = "",
   align = 'left',
   icon,
+  stepNumber,
 }: CollapserProps) {
   const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen);
   const isControlled = controlledOpen !== undefined;
@@ -100,6 +109,9 @@ export function Collapser({
         className="dds-collapser-button"
         aria-expanded={isOpen}
       >
+        {stepNumber !== undefined && (
+          <span className="dds-collapser-step-number">{stepNumber}.</span>
+        )}
         {icon && (
           <span className="dds-collapser-header-icon" aria-hidden="true">
             {icon}

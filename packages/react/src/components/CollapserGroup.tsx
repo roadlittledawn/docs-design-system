@@ -15,6 +15,12 @@ export interface CollapserGroupProps {
   onChange?: (openIndexes: number[]) => void;
   /** Additional CSS classes */
   className?: string;
+  /**
+   * Automatically prefix each collapser header with a sequential step number (1, 2, 3…).
+   * The number is injected via the `stepNumber` prop on each `Collapser` child.
+   * @default false
+   */
+  numbered?: boolean;
 }
 
 export const CollapserGroup: React.FC<CollapserGroupProps> = ({
@@ -24,6 +30,7 @@ export const CollapserGroup: React.FC<CollapserGroupProps> = ({
   defaultOpen,
   onChange,
   className = '',
+  numbered = false,
 }) => {
   const [openIndexes, setOpenIndexes] = useState<number[]>(() => {
     if (defaultOpen === undefined) return [];
@@ -58,6 +65,7 @@ export const CollapserGroup: React.FC<CollapserGroupProps> = ({
             ...child.props,
             open: openIndexes.includes(index),
             onToggle: () => handleToggle(index),
+            ...(numbered ? { stepNumber: index + 1 } : {}),
           } as any);
         }
         

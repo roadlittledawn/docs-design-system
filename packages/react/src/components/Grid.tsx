@@ -30,11 +30,10 @@ export interface GridProps {
 
   /**
    * Space between columns. Use `'sm'`, `'md'`, or `'lg'` for design-token sizes,
-   * a plain number for pixel values (e.g. `16`), or any valid CSS length string
-   * (e.g. `'1.5rem'`, `'2em'`).
+   * or any valid CSS length string (e.g. `'16px'`, `'1.5rem'`, `'2em'`).
    * @default 'md'
    */
-  gap?: string | number;
+  gap?: string;
 
   /**
    * Viewport breakpoint at which columns collapse to a single vertical stack.
@@ -106,10 +105,9 @@ const ALIGN_MAP: Record<AlignItems, string> = {
   stretch: 'stretch',
 };
 
-function resolveGap(gap: string | number): string {
-  if (typeof gap === 'number') return `${gap}px`;
+function resolveGap(gap: string): string {
   if (gap in GAP_TOKEN_MAP) return GAP_TOKEN_MAP[gap as GapSize];
-  return gap; // custom CSS length string, e.g. '1.5rem', '2em'
+  return gap; // custom CSS length string, e.g. '16px', '1.5rem', '2em'
 }
 
 /**

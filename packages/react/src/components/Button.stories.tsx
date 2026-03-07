@@ -9,6 +9,34 @@ const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
   tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      control: { type: 'select' },
+      options: ['primary', 'secondary', 'outline'],
+      description: 'Visual style variant of the button.',
+      table: { defaultValue: { summary: "'primary'" } },
+    },
+    size: {
+      control: { type: 'select' },
+      options: ['sm', 'md', 'lg'],
+      description: 'Size of the button.',
+      table: { defaultValue: { summary: "'md'" } },
+    },
+    children: {
+      control: 'text',
+      description: 'Button content.',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Whether the button is disabled.',
+      table: { defaultValue: { summary: 'false' } },
+    },
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes.',
+      table: { defaultValue: { summary: '""' } },
+    },
+  },
   parameters: {
     docs: {
       description: {

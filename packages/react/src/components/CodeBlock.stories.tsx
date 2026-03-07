@@ -1,13 +1,50 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { CodeBlock } from './CodeBlock';
+import type { Meta, StoryObj } from "@storybook/react";
+import { CodeBlock } from "./CodeBlock";
 
 /**
  * The CodeBlock component displays code snippets with syntax highlighting, copy functionality, and support for multiple tabs and languages.
  */
 const meta: Meta<typeof CodeBlock> = {
-  title: 'Components/CodeBlock',
+  title: "Components/CodeBlock",
   component: CodeBlock,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
+  argTypes: {
+    code: {
+      control: "text",
+      description:
+        "Single code snippet string. Use `snippets` for multi-tab or multi-language layouts.",
+    },
+    language: {
+      control: "text",
+      description:
+        'Language identifier for syntax highlighting (e.g. `"typescript"`, `"bash"`, `"python"`).',
+    },
+    filename: {
+      control: "text",
+      description:
+        "Optional filename label shown in the header when there is only one snippet.",
+    },
+    highlightLines: {
+      control: "object",
+      description:
+        "Array of 1-indexed line numbers to highlight (e.g. `[2, 3, 4]`).",
+    },
+    snippets: {
+      control: false,
+      description:
+        "Array of code snippets for multi-tab or multi-language display. Takes precedence over `code`.",
+    },
+    path: {
+      control: "text",
+      description:
+        "URL or path to a markdown file containing fenced code blocks to load as snippets.",
+    },
+    className: {
+      control: "text",
+      description: "Additional CSS classes applied to the outer container.",
+      table: { defaultValue: { summary: '""' } },
+    },
+  },
   parameters: {
     docs: {
       description: {
@@ -79,7 +116,7 @@ export const Basic: Story = {
 }
 
 console.log(greet("World"));`,
-    language: 'typescript',
+    language: "typescript",
   },
   parameters: {
     docs: {
@@ -109,8 +146,8 @@ export const WithFilename: Story = {
     </button>
   );
 };`,
-    language: 'jsx',
-    filename: 'Button.jsx',
+    language: "jsx",
+    filename: "Button.jsx",
   },
   parameters: {
     docs: {
@@ -143,7 +180,7 @@ export const WithHighlightedLines: Story = {
   }
   return total;
 }`,
-    language: 'javascript',
+    language: "javascript",
     highlightLines: [2, 3, 4],
   },
   parameters: {
@@ -175,9 +212,9 @@ export const WithTabs: Story = {
         code: `export const Button = ({ children }) => {
   return <button>{children}</button>;
 };`,
-        language: 'jsx',
-        filename: 'Button.jsx',
-        tabTitle: 'Button.jsx',
+        language: "jsx",
+        filename: "Button.jsx",
+        tabTitle: "Button.jsx",
       },
       {
         code: `.button {
@@ -185,9 +222,9 @@ export const WithTabs: Story = {
   background-color: blue;
   color: white;
 }`,
-        language: 'css',
-        filename: 'Button.css',
-        tabTitle: 'Button.css',
+        language: "css",
+        filename: "Button.css",
+        tabTitle: "Button.css",
       },
       {
         code: `import { Button } from './Button';
@@ -195,9 +232,9 @@ export const WithTabs: Story = {
 export default {
   component: Button,
 };`,
-        language: 'typescript',
-        filename: 'Button.stories.ts',
-        tabTitle: 'Button.stories.ts',
+        language: "typescript",
+        filename: "Button.stories.ts",
+        tabTitle: "Button.stories.ts",
       },
     ],
   },
@@ -251,28 +288,28 @@ export const WithLanguageDropdown: Story = {
         code: `function greet(name: string): string {
   return \`Hello, \${name}!\`;
 }`,
-        language: 'typescript',
-        filename: 'greet.ts',
+        language: "typescript",
+        filename: "greet.ts",
       },
       {
         code: `function greet(name) {
   return \`Hello, \${name}!\`;
 }`,
-        language: 'javascript',
-        filename: 'greet.js',
+        language: "javascript",
+        filename: "greet.js",
       },
       {
         code: `def greet(name):
     return f"Hello, {name}!"`,
-        language: 'python',
-        filename: 'greet.py',
+        language: "python",
+        filename: "greet.py",
       },
       {
         code: `def greet(name)
   "Hello, #{name}!"
 end`,
-        language: 'ruby',
-        filename: 'greet.rb',
+        language: "ruby",
+        filename: "greet.rb",
       },
     ],
   },
@@ -315,9 +352,9 @@ export function Button({ children, onClick }) {
     </button>
   );
 }`,
-        language: 'jsx',
-        filename: 'Button.jsx',
-        tabTitle: 'Button.jsx',
+        language: "jsx",
+        filename: "Button.jsx",
+        tabTitle: "Button.jsx",
         highlightLines: [3, 4, 5],
       },
       {
@@ -327,9 +364,9 @@ export function Button({ children, onClick }) {
   color: white;
   border-radius: 0.375rem;
 }`,
-        language: 'css',
-        filename: 'Button.css',
-        tabTitle: 'Button.css',
+        language: "css",
+        filename: "Button.css",
+        tabTitle: "Button.css",
         highlightLines: [2, 3],
       },
     ],
@@ -379,7 +416,7 @@ export function Button({ children, onClick }) {
  */
 export const WithPath: Story = {
   args: {
-    path: 'https://raw.githubusercontent.com/storybookjs/storybook/47e331ffbaa61a476ddb873bdb12bf46a93a5131/docs/_snippets/before-each-in-meta-mock-date.md',
+    path: "https://raw.githubusercontent.com/storybookjs/storybook/47e331ffbaa61a476ddb873bdb12bf46a93a5131/docs/_snippets/before-each-in-meta-mock-date.md",
   },
   parameters: {
     docs: {
@@ -402,8 +439,8 @@ export const JSONExample: Story = {
     "react": "^18.0.0"
   }
 }`,
-    language: 'json',
-    filename: 'package.json',
+    language: "json",
+    filename: "package.json",
   },
   parameters: {
     docs: {
@@ -439,8 +476,8 @@ npm run build
 
 # Run tests
 npm test`,
-    language: 'bash',
-    filename: 'setup.sh',
+    language: "bash",
+    filename: "setup.sh",
   },
   parameters: {
     docs: {
@@ -481,9 +518,9 @@ export function Example() {
     />
   );
 }`,
-        language: 'tsx',
-        filename: 'Example.tsx',
-        tabTitle: 'Example.tsx',
+        language: "tsx",
+        filename: "Example.tsx",
+        tabTitle: "Example.tsx",
       },
       {
         code: `import { CodeBlock } from '@docs-design-system/ui';
@@ -498,9 +535,9 @@ export function Advanced() {
     />
   );
 }`,
-        language: 'tsx',
-        filename: 'Advanced.tsx',
-        tabTitle: 'Advanced.tsx',
+        language: "tsx",
+        filename: "Advanced.tsx",
+        tabTitle: "Advanced.tsx",
       },
     ],
   },
@@ -556,8 +593,8 @@ export const SingleFilename: Story = {
     code: `export default function Home() {
   return <h1>Welcome</h1>;
 }`,
-    language: 'tsx',
-    filename: 'page.tsx',
+    language: "tsx",
+    filename: "page.tsx",
   },
   parameters: {
     docs: {
@@ -599,8 +636,8 @@ class UserController extends Controller
         return response()->json($user);
     }
 }`,
-    language: 'php',
-    filename: 'UserController.php',
+    language: "php",
+    filename: "UserController.php",
   },
   parameters: {
     docs: {
@@ -642,33 +679,33 @@ export const ManyTabs: Story = {
     snippets: [
       {
         code: `export const App = () => <div>App</div>;`,
-        language: 'tsx',
-        tabTitle: 'App.tsx',
+        language: "tsx",
+        tabTitle: "App.tsx",
       },
       {
         code: `export const Header = () => <header>Header</header>;`,
-        language: 'tsx',
-        tabTitle: 'Header.tsx',
+        language: "tsx",
+        tabTitle: "Header.tsx",
       },
       {
         code: `export const Footer = () => <footer>Footer</footer>;`,
-        language: 'tsx',
-        tabTitle: 'Footer.tsx',
+        language: "tsx",
+        tabTitle: "Footer.tsx",
       },
       {
         code: `export const Sidebar = () => <aside>Sidebar</aside>;`,
-        language: 'tsx',
-        tabTitle: 'Sidebar.tsx',
+        language: "tsx",
+        tabTitle: "Sidebar.tsx",
       },
       {
         code: `export const Nav = () => <nav>Nav</nav>;`,
-        language: 'tsx',
-        tabTitle: 'Navigation.tsx',
+        language: "tsx",
+        tabTitle: "Navigation.tsx",
       },
       {
         code: `export const Content = () => <main>Content</main>;`,
-        language: 'tsx',
-        tabTitle: 'ContentArea.tsx',
+        language: "tsx",
+        tabTitle: "ContentArea.tsx",
       },
     ],
   },

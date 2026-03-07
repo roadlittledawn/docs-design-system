@@ -5,6 +5,51 @@ const meta: Meta<typeof Popover> = {
   title: "Components/Popover",
   component: Popover,
   tags: ["autodocs"],
+  argTypes: {
+    content: {
+      control: false,
+      description: 'Arbitrary React content rendered inside the popover. Use when the built-in `glossary` or `preview` templates do not fit your use case.',
+    },
+    glossary: {
+      control: false,
+      description: 'Renders a styled glossary definition popover. Accepts `{ term, title, definition }` where `definition` is a `ReactNode`.',
+    },
+    preview: {
+      control: false,
+      description: 'Renders a Wikipedia-style content preview. Accepts `{ title, excerpt?, imageUrl?, href?, linkText? }`.',
+    },
+    placement: {
+      control: { type: 'select' },
+      options: ['auto', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end'],
+      description: 'Preferred placement relative to the trigger. `"auto"` detects available viewport space.',
+      table: { defaultValue: { summary: "'auto'" } },
+    },
+    size: {
+      control: { type: 'select' },
+      options: ['sm', 'md', 'lg'],
+      description: 'Popover width. `sm` = 240px, `md` = 320px, `lg` = 480px.',
+      table: { defaultValue: { summary: "'md'" } },
+    },
+    showDelay: {
+      control: 'number',
+      description: 'Milliseconds to wait before showing the popover on hover.',
+      table: { defaultValue: { summary: '200' } },
+    },
+    hideDelay: {
+      control: 'number',
+      description: 'Milliseconds to wait before hiding the popover on hover-out.',
+      table: { defaultValue: { summary: '150' } },
+    },
+    children: {
+      control: 'text',
+      description: 'The trigger element — the text or content that reveals the popover on hover or tap.',
+    },
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes on the trigger wrapper.',
+      table: { defaultValue: { summary: '""' } },
+    },
+  },
   parameters: {
     layout: "centered",
     docs: {

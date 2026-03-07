@@ -9,6 +9,28 @@ const meta: Meta<typeof CardGrid> = {
   title: 'Components/CardGrid',
   component: CardGrid,
   tags: ['autodocs'],
+  argTypes: {
+    columns: {
+      control: { type: 'select' },
+      options: [2, 3, 4],
+      description: 'Number of columns in the grid.',
+      table: { defaultValue: { summary: '3' } },
+    },
+    equalHeight: {
+      control: 'boolean',
+      description: 'When true, all cards in each row expand to the height of the tallest card. Useful when cards have varying content lengths.',
+      table: { defaultValue: { summary: 'true' } },
+    },
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes to apply to the grid container.',
+      table: { defaultValue: { summary: '""' } },
+    },
+    children: {
+      control: false,
+      description: 'Grid content — typically Card components.',
+    },
+  },
   parameters: {
     docs: {
       description: {
@@ -141,6 +163,36 @@ export const FourColumns: Story = {
 };
 
 /**
+ * Cards with varying content lengths stretched to the same height per row.
+ * Use `equalHeight` when cards sit side-by-side and uneven content would
+ * make the grid look ragged.
+ */
+export const EqualHeight: Story = {
+  args: {
+    columns: 3,
+    equalHeight: true,
+    children: (
+      <>
+        <Card title="Short">Brief content.</Card>
+        <Card title="Medium">This card has a bit more content than the first one, so it would normally be taller.</Card>
+        <Card title="Long">This card has significantly more content than the others. It goes into much more detail and spans several sentences to demonstrate how equal height keeps the grid looking even and professional.</Card>
+      </>
+    ),
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CardGrid columns={3} equalHeight>
+  <Card title="Short">Brief content.</Card>
+  <Card title="Medium">This card has a bit more content than the first one.</Card>
+  <Card title="Long">This card has significantly more content than the others...</Card>
+</CardGrid>`,
+      },
+    },
+  },
+};
+
+/**
  * Grid with clickable cards.
  */
 export const ClickableCards: Story = {
@@ -161,6 +213,35 @@ export const ClickableCards: Story = {
   <Card title="Documentation" href="/docs">Complete documentation guide</Card>
   <Card title="API Reference" href="/api">Detailed API reference</Card>
   <Card title="Examples" href="/examples">Code examples and patterns</Card>
+</CardGrid>`,
+      },
+    },
+  },
+};
+
+/**
+ * Clickable cards with varying content lengths stretched to the same height.
+ * The equal height behaviour applies even when cards are wrapped in anchor tags.
+ */
+export const EqualHeightClickableCards: Story = {
+  args: {
+    columns: 3,
+    equalHeight: true,
+    children: (
+      <>
+        <Card title="Documentation" href="/docs">Complete documentation guide.</Card>
+        <Card title="API Reference" href="/api">Detailed API reference with all available endpoints, parameters, and response schemas.</Card>
+        <Card title="Examples" href="/examples">Practical code examples and patterns showing real-world usage across a variety of common documentation scenarios.</Card>
+      </>
+    ),
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CardGrid columns={3} equalHeight>
+  <Card title="Documentation" href="/docs">Complete documentation guide.</Card>
+  <Card title="API Reference" href="/api">Detailed API reference with all available endpoints, parameters, and response schemas.</Card>
+  <Card title="Examples" href="/examples">Practical code examples and patterns showing real-world usage.</Card>
 </CardGrid>`,
       },
     },

@@ -8,6 +8,26 @@ const meta: Meta<typeof Heading> = {
   title: 'Components/Heading',
   component: Heading,
   tags: ['autodocs'],
+  argTypes: {
+    level: {
+      control: { type: 'select' },
+      options: [1, 2, 3, 4],
+      description: 'Heading level — renders as `<h1>` through `<h4>`.',
+    },
+    id: {
+      control: 'text',
+      description: 'Override the auto-generated `id` attribute. By default the `id` is derived from the heading text.',
+    },
+    children: {
+      control: 'text',
+      description: 'Heading content.',
+    },
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes.',
+      table: { defaultValue: { summary: '""' } },
+    },
+  },
   parameters: {
     docs: {
       description: {

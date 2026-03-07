@@ -1,0 +1,114 @@
+/* =============================================================================
+   Grid — multi-column layout component
+   ============================================================================= */
+
+/* Base grid container */
+.dds-grid {
+  display: grid;
+  grid-template-columns: var(--dds-grid-template-columns, repeat(2, 1fr));
+  gap: var(--dds-grid-gap, var(--dds-grid-gap-md));
+  align-items: var(--dds-grid-align, stretch);
+}
+
+/* Optional top border */
+.dds-grid-has-top-border {
+  border-top: var(--dds-grid-top-border-thickness, 1px) solid
+    var(--dds-grid-top-border-color, var(--dds-grid-divider-color));
+  padding-top: var(--dds-grid-gap, var(--dds-grid-gap-md));
+}
+
+/* Optional bottom border */
+.dds-grid-has-bottom-border {
+  border-bottom: var(--dds-grid-bottom-border-thickness, 1px) solid
+    var(--dds-grid-bottom-border-color, var(--dds-grid-divider-color));
+  padding-bottom: var(--dds-grid-gap, var(--dds-grid-gap-md));
+}
+
+/* Column divider — vertical line between columns */
+.dds-grid-has-column-divider .dds-grid-column + .dds-grid-column {
+  border-left: var(--dds-grid-column-divider-thickness, 1px) solid
+    var(--dds-grid-column-divider-color, var(--dds-grid-divider-color));
+  padding-left: var(--dds-grid-gap, var(--dds-grid-gap-md));
+}
+
+/* Individual column */
+.dds-grid-column {
+  /* Prevent grid cells from overflowing (e.g. wide code blocks) */
+  min-width: 0;
+}
+
+/* Sticky column — column div stretches to full row height so that border-left
+   covers the entire row. The CONTENT inside is what scrolls sticky, via the
+   inner wrapper. */
+.dds-grid-column-sticky {
+  /* No align-self override — stretches naturally to row height */
+}
+
+/* Inner wrapper that provides the actual sticky scroll behaviour */
+.dds-grid-column-sticky-inner {
+  position: sticky;
+  top: var(--dds-grid-sticky-top, 1rem);
+}
+
+/* =============================================================================
+   Responsive stacking — columns collapse to a single vertical track
+   ============================================================================= */
+
+/* Stack at sm breakpoint (≤ 640 px) */
+@media (max-width: 640px) {
+  .dds-grid-stack-sm {
+    grid-template-columns: 1fr;
+  }
+
+  /* Column divider becomes a horizontal rule when stacked */
+  .dds-grid-stack-sm.dds-grid-has-column-divider .dds-grid-column + .dds-grid-column {
+    border-left: none;
+    padding-left: 0;
+    border-top: var(--dds-grid-column-divider-thickness, 1px) solid
+      var(--dds-grid-column-divider-color, var(--dds-grid-divider-color));
+    padding-top: var(--dds-grid-gap, var(--dds-grid-gap-md));
+  }
+
+  /* Sticky inner wrapper no-ops when stacked */
+  .dds-grid-stack-sm .dds-grid-column-sticky-inner {
+    position: static;
+  }
+}
+
+/* Stack at md breakpoint (≤ 768 px) */
+@media (max-width: 768px) {
+  .dds-grid-stack-md {
+    grid-template-columns: 1fr;
+  }
+
+  .dds-grid-stack-md.dds-grid-has-column-divider .dds-grid-column + .dds-grid-column {
+    border-left: none;
+    padding-left: 0;
+    border-top: var(--dds-grid-column-divider-thickness, 1px) solid
+      var(--dds-grid-column-divider-color, var(--dds-grid-divider-color));
+    padding-top: var(--dds-grid-gap, var(--dds-grid-gap-md));
+  }
+
+  .dds-grid-stack-md .dds-grid-column-sticky-inner {
+    position: static;
+  }
+}
+
+/* Stack at lg breakpoint (≤ 1024 px) */
+@media (max-width: 1024px) {
+  .dds-grid-stack-lg {
+    grid-template-columns: 1fr;
+  }
+
+  .dds-grid-stack-lg.dds-grid-has-column-divider .dds-grid-column + .dds-grid-column {
+    border-left: none;
+    padding-left: 0;
+    border-top: var(--dds-grid-column-divider-thickness, 1px) solid
+      var(--dds-grid-column-divider-color, var(--dds-grid-divider-color));
+    padding-top: var(--dds-grid-gap, var(--dds-grid-gap-md));
+  }
+
+  .dds-grid-stack-lg .dds-grid-column-sticky-inner {
+    position: static;
+  }
+}

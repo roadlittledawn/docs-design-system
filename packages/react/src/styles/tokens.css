@@ -257,6 +257,13 @@
   --dds-list-badge-shadow: inset 0 0 0 1px #bfc2c7;
   --dds-list-connector-line: #eceef2; /* gray-200 */
   --dds-list-text: #374151; /* gray-700 */
+
+  /* Grid */
+  --dds-grid-gap-sm: 1rem; /* gap-4 */
+  --dds-grid-gap-md: 1.5rem; /* gap-6 */
+  --dds-grid-gap-lg: 2.5rem; /* gap-10 */
+  --dds-grid-divider-color: #e5e7eb; /* gray-200 */
+  --dds-grid-sticky-top: 1rem;
 }
 
 /* ==========================================================================
@@ -420,6 +427,9 @@
   --dds-list-badge-shadow: inset 0 0 0 1px #353a42;
   --dds-list-connector-line: #353a42; /* gray-600 */
   --dds-list-text: #e5e7eb; /* gray-200 */
+
+  /* Grid */
+  --dds-grid-divider-color: #4b5563; /* gray-600 */
 }
 
 /* Auto dark mode — follows OS preference, opt-out with .dds-light */
@@ -577,6 +587,9 @@
     --dds-list-badge-shadow: inset 0 0 0 1px #353a42;
     --dds-list-connector-line: #353a42; /* gray-600 */
     --dds-list-text: #e5e7eb; /* gray-200 */
+
+    /* Grid */
+    --dds-grid-divider-color: #4b5563; /* gray-600 */
   }
 }
 

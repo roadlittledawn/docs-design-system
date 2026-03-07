@@ -8,6 +8,21 @@ const meta: Meta<typeof Link> = {
   title: 'Components/Link',
   component: Link,
   tags: ['autodocs'],
+  argTypes: {
+    href: {
+      control: 'text',
+      description: 'Link destination. URLs starting with `http://` or `https://` are treated as external and open in a new tab.',
+    },
+    children: {
+      control: 'text',
+      description: 'Link content.',
+    },
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes.',
+      table: { defaultValue: { summary: '""' } },
+    },
+  },
   parameters: {
     docs: {
       description: {

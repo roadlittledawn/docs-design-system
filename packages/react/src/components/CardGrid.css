@@ -45,3 +45,13 @@
   }
 }
 
+/* Equal height: stretch all cards to the tallest in each row */
+.dds-card-grid-equal-height > * {
+  height: 100%;
+}
+
+.dds-card-grid-equal-height .dds-card {
+  height: 100%;
+  box-sizing: border-box;
+}
+

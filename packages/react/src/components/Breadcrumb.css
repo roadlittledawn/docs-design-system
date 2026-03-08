@@ -23,16 +23,18 @@
   gap: var(--dds-breadcrumb-gap);
 }
 
-/* Scroll mode: single row with horizontal scroll */
-.dds-breadcrumb--scroll .dds-breadcrumb-list {
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
-}
+/* Scroll mode: single row with horizontal scroll (mobile only) */
+@media (max-width: 640px) {
+  .dds-breadcrumb--scroll .dds-breadcrumb-list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
 
-.dds-breadcrumb--scroll .dds-breadcrumb-list::-webkit-scrollbar {
-  display: none;
+  .dds-breadcrumb--scroll .dds-breadcrumb-list::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* Individual segment items */

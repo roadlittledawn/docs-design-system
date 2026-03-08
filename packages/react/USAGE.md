@@ -848,8 +848,9 @@ Collapser supports four header layouts, controlled by `align` and `icon`:
 ### Keyboard shortcuts
 
 - **Enter** or **Space**: toggle expand/collapse
-- **s** or **f**: show/expand
-- **h**: hide/collapse
+- For **uncontrolled** `Collapser` instances (no `open` prop; not managed by `CollapserGroup`), additional shortcuts are available:
+  - **s** or **f**: show/expand
+  - **h**: hide/collapse
 
 ### Import
 

@@ -1,0 +1,13 @@
+#!/bin/sh
+COMPONENT_CHANGED=$(git diff --cached --name-only | grep "^packages/react/src/components/.*\.tsx$" | head -1)
+USAGE_CHANGED=$(git diff --cached --name-only | grep "^packages/react/USAGE.md$" | head -1)
+LLMS_CHANGED=$(git diff --cached --name-only | grep "^website/public/llms.txt$" | head -1)
+
+if [ -n "$COMPONENT_CHANGED" ] && [ -z "$USAGE_CHANGED" ] && [ -z "$LLMS_CHANGED" ]; then
+  echo ""
+  echo "ERROR: Component files changed without updating AI docs."
+  echo "  Changed: $COMPONENT_CHANGED"
+  echo "  Please update packages/react/USAGE.md and website/public/llms.txt."
+  echo ""
+  exit 1
+fi

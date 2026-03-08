@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 export type CalloutVariant = "caution" | "important" | "tip" | "course";
 
-interface CalloutProps {
+export interface CalloutProps {
   /** Visual style variant of the callout (caution, important, tip, or course) */
   variant: CalloutVariant;
 

@@ -579,6 +579,43 @@
           "caption": "Homepage screenshot"
         }
       ]
+    },
+    {
+      "id": "mdx-docs",
+      "name": "MDX",
+      "url": "https://mdxjs.com/",
+      "description": "The MDX website is a beautifully designed reference and guide for writing JSX in Markdown. It features an interactive playground that compiles MDX in real time, making it easy to explore the format's power and flexibility. The site itself is a showcase of what MDX enables—rich, component-driven documentation with a clean, polished interface.",
+      "category": "open-source",
+      "date": "2026-03-08",
+      "links": [
+        {
+          "label": "Documentation",
+          "url": "https://mdxjs.com/docs/"
+        },
+        {
+          "label": "Interactive Playground",
+          "url": "https://mdxjs.com/playground/"
+        },
+        {
+          "label": "Guides",
+          "url": "https://mdxjs.com/guides/"
+        }
+      ],
+      "highlights": [
+        "Interactive playground that compiles MDX in real time",
+        "Beautiful, visually polished design and layout",
+        "Clear, well-structured guides and reference documentation",
+        "Demonstrates MDX's strengths through its own content",
+        "Excellent use of syntax highlighting and code examples",
+        "Thoughtful navigation and information architecture",
+        "Showcases JSX-in-Markdown for rich documentation workflows"
+      ],
+      "images": [
+        {
+          "url": "/mdx-docs.png",
+          "caption": "Homepage screenshot"
+        }
+      ]
     }
   ]
 }

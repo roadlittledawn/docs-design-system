@@ -1,6 +1,6 @@
 {
   "name": "@roadlittledawn/docs-design-system-react",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "license": "MIT",
   "description": "React components for documentation design system",
   "repository": {
@@ -11,7 +11,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "USAGE.md"
   ],
   "scripts": {
     "build": "tsc && npm run build:css",

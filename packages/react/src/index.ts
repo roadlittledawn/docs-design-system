@@ -14,6 +14,7 @@ export * from './components/Link';
 export * from './components/List';
 export * from './components/Table';
 export * from './components/Grid';
+export * from './components/Icon';
 
 // Export hooks
 export * from './hooks/useKeyPress';

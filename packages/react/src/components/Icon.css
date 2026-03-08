@@ -1,0 +1,12 @@
+.dds-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Ensure an SVG injected via a raw string fills the container */
+.dds-icon svg {
+  width: 100%;
+  height: 100%;
+}

@@ -31,7 +31,7 @@ If not already provided, ask for:
 
 ### 3. Create the gallery item
 
-Add a new entry to `/Users/clango/Projects/docs-design-system/website/data/gallery.json`:
+Add a new entry to `website/data/gallery.json`:
 
 ```json
 {
@@ -71,13 +71,13 @@ Add a new entry to `/Users/clango/Projects/docs-design-system/website/data/galle
 Run the screenshot script:
 
 ```bash
-npx tsx /Users/clango/Projects/docs-design-system/website/scripts/take-gallery-screenshots.ts
+npx tsx website/scripts/take-gallery-screenshots.ts
 ```
 
 This script will:
 - Read all gallery items
 - Take screenshots of any items with empty `images` arrays
-- Save screenshots to `/Users/clango/Projects/docs-design-system/website/public/`
+- Save screenshots to `website/public/`
 - Output the filename (e.g., `site-slug.png`)
 
 ### 5. Update gallery.json with screenshot

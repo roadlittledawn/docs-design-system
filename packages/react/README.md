@@ -1,7 +1,6 @@
 # @roadlittledawn/docs-design-system-react
 
-[![npm version](https://img.shields.io/npm/v/@roadlittledawn/docs-design-system-react.svg)](https://www.npmjs.com/package/@roadlittledawn/docs-design-system-react)
-[![GitHub](https://img.shields.io/badge/github-repo-blue.svg)](https://github.com/roadlittledawn/docs-design-system)
+[![npm version](https://img.shields.io/npm/v/@roadlittledawn/docs-design-system-react.svg)](https://www.npmjs.com/package/@roadlittledawn/docs-design-system-react) [![GitHub](https://img.shields.io/badge/github-repo-blue.svg)](https://github.com/roadlittledawn/docs-design-system)
 
 React components for documentation content and MDX-driven sites.
 
@@ -37,7 +36,7 @@ Full component documentation with live examples, usage guidelines, and API docum
 
 ## Next.js / React Server Components
 
-Interactive components (`Collapser`, `CollapserGroup`, `CodeBlock`, `Tabs`, `Popover`) are pre-marked with `'use client'`, so they work in Next.js App Router without any extra setup. Stateless components (`Button`, `Callout`, `Card`, `CardGrid`, `Heading`, `Link`, `List`, `Typography`) have no directive and are fully usable as Server Components.
+Interactive components (e.g., `Collapser`, `CollapserGroup`, `CodeBlock`, `Tabs`, `Popover`, etc) are pre-marked with `'use client'`, so they work in Next.js App Router without any extra setup. Stateless components (e.g., `Button`, `Callout`, `Card`, `CardGrid`, `Heading`, `Link`, `List`, etc) have no directive and are fully usable as Server Components.
 
 ## Dark Mode
 

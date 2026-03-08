@@ -1180,22 +1180,20 @@ import { Grid, Column } from "@roadlittledawn/docs-design-system-react";
   </Column>
 </Grid>;
 
-{
-  /* Feature highlight panel — collapsers + product screenshot */
-}
+{/* Feature highlight panel — collapsers + product screenshot */}
 <Grid columns={[1, 2]} gap="lg" align="start">
   <Column>
     <CollapserGroup>
-      <Collapser title="Real-time alerts" align="right" icon={<YourBellIcon />}>
+      <Collapser title="Real-time alerts" align="right" icon={<YourIcon />}>
         Get notified the moment a threshold is crossed, with no polling delay.
       </Collapser>
-      <Collapser title="Custom dashboards" align="right" icon={<YourChartIcon />}>
+      <Collapser title="Custom dashboards" align="right" icon={<YourIcon />}>
         Drag-and-drop widgets let you arrange metrics exactly as you need them.
       </Collapser>
-      <Collapser title="Role-based access" align="right" icon={<YourLockIcon />}>
+      <Collapser title="Role-based access" align="right" icon={<YourIcon />}>
         Grant view-only, editor, or admin rights per team without extra tooling.
       </Collapser>
-      <Collapser title="One-click integrations" align="right" icon={<YourPlugIcon />}>
+      <Collapser title="One-click integrations" align="right" icon={<YourIcon />}>
         Connect to Slack, PagerDuty, and 40+ other tools from the settings panel.
       </Collapser>
     </CollapserGroup>

@@ -927,3 +927,144 @@ import {
   </TableBody>
 </Table>
 ```
+
+---
+
+## Breadcrumb
+
+Breadcrumb navigation component. Renders a `<nav aria-label="Breadcrumb">` with an ordered list of segments. The last item receives `aria-current="page"`. Delimiters are marked `aria-hidden` so screen readers skip them.
+
+### Import
+
+```tsx
+import { Breadcrumb } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Types
+
+```ts
+interface BreadcrumbItem {
+  label: string;   // Display text for the segment
+  href?: string;   // Optional URL; omit for the current (last) page
+}
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `items` | `BreadcrumbItem[]` | — | Ordered list of path segments, root first |
+| `delimiter` | `ReactNode` | `"/"` | Separator between segments. Accepts a string or any ReactNode |
+| `size` | `"sm" \| "md"` | `"md"` | Size variant controlling font size |
+| `collapseOnMobile` | `boolean` | `false` | Collapse middle segments behind an expandable ellipsis on narrow viewports |
+| `scrollOnMobile` | `boolean` | `false` | Let the full trail scroll horizontally instead of wrapping on narrow viewports |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Examples
+
+#### Basic
+
+```tsx
+<Breadcrumb
+  items={[
+    { label: 'Home', href: '/' },
+    { label: 'Docs', href: '/docs' },
+    { label: 'Getting Started' },
+  ]}
+/>
+```
+
+#### Small size with custom delimiter
+
+```tsx
+<Breadcrumb
+  size="sm"
+  delimiter="›"
+  items={[
+    { label: 'Home', href: '/' },
+    { label: 'Reference', href: '/reference' },
+    { label: 'API' },
+  ]}
+/>
+```
+
+#### Collapse middle items on mobile
+
+```tsx
+<Breadcrumb
+  collapseOnMobile
+  items={[
+    { label: 'Home', href: '/' },
+    { label: 'Products', href: '/products' },
+    { label: 'Widgets', href: '/products/widgets' },
+    { label: 'Details' },
+  ]}
+/>
+```
+
+---
+
+## Icon
+
+Renders an SVG icon without bundling any specific icon library. Accepts a React SVG component (e.g. imported with SVGR or defined inline) or a raw SVG string, making it easy to use your own icon library.
+
+### Import
+
+```tsx
+import { Icon } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `svg` | `React.ComponentType<React.SVGProps<SVGSVGElement>> \| string` | — | SVG to render — accepts a React SVG component or a raw SVG string |
+| `size` | `number` | `16` | Width and height in pixels |
+| `className` | `string` | `""` | Additional CSS class names |
+| `aria-label` | `string` | — | Accessible label. When provided the icon gets `role="img"` and is announced by screen readers. When omitted the icon is decorative (`aria-hidden="true"`) |
+
+### Examples
+
+#### React SVG component (SVGR)
+
+```tsx
+import { ReactComponent as ChevronIcon } from './chevron.svg';
+
+<Icon svg={ChevronIcon} size={20} aria-label="Expand" />
+```
+
+#### Inline SVG function (define props to forward size/className/aria-*)
+
+```tsx
+const StarIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+  </svg>
+);
+
+<Icon svg={StarIcon} size={24} />
+```
+
+#### Raw SVG string
+
+```tsx
+const closeIconSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+
+<Icon svg={closeIconSvg} size={24} aria-label="Close" />
+```
+
+#### Decorative vs meaningful icons
+
+```tsx
+{/* Decorative — hidden from screen readers */}
+<Icon svg={StarIcon} size={16} />
+
+{/* Meaningful — announced as "Favorite" */}
+<Icon svg={StarIcon} size={16} aria-label="Favorite" />
+```
+
+### Accessibility notes
+
+- Do **not** include `aria-hidden`, `role`, or `aria-label` attributes inside your SVG component. The `Icon` component manages all accessibility attributes.
+- When passing a raw SVG string, do **not** include accessibility attributes in the string itself.
+- Do **not** pass untrusted or user-supplied SVG strings — the raw string path uses `dangerouslySetInnerHTML` without sanitization.

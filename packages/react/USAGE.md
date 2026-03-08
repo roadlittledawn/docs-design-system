@@ -1181,18 +1181,7 @@ import { Grid, Column } from "@roadlittledawn/docs-design-system-react";
 </Grid>;
 
 {
-  /*
-   * Feature highlight panel — 1/3 left + 2/3 right
-   *
-   * Left column: CollapserGroup with icon-left / title-right layout
-   * (align="right" on each Collapser). 3–6 items; each item expands
-   * to reveal a short description or supporting detail.
-   *
-   * Right column: product screenshot or hero image.
-   *
-   * Use this on product overview or landing pages where you want
-   * scannable feature bullets alongside visual proof.
-   */
+  /* Feature highlight panel — collapsers + product screenshot */
 }
 <Grid columns={[1, 2]} gap="lg" align="start">
   <Column>

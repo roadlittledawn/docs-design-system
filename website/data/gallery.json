@@ -610,7 +610,12 @@
         "Thoughtful navigation and information architecture",
         "Showcases JSX-in-Markdown for rich documentation workflows"
       ],
-      "images": []
+      "images": [
+        {
+          "url": "/mdx-docs.png",
+          "caption": "Homepage screenshot"
+        }
+      ]
     }
   ]
 }

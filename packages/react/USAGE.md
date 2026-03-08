@@ -1096,6 +1096,7 @@ Layout primitive for multi-column documentation content. Use `Grid` when content
 - **Tutorial with live code** — prose instructions on the left, sticky code panel on the right
 - **Side-by-side comparison** — before/after, two approaches, option A vs option B
 - **Asymmetric splits** — narrow sidebar label alongside wide content
+- **Feature highlight panel** — narrow left column lists 3–6 top features as collapsers (icon + title); wide right column shows a product screenshot. Good for product overview pages where you want to pair visual proof with scannable feature details
 
 ### When Not to Use
 
@@ -1176,6 +1177,46 @@ import { Grid, Column } from "@roadlittledawn/docs-design-system-react";
   </Column>
   <Column sticky>
     <CodeBlock language="bash" code="npm install" />
+  </Column>
+</Grid>;
+
+{
+  /*
+   * Feature highlight panel — 1/3 left + 2/3 right
+   *
+   * Left column: CollapserGroup with icon-left / title-right layout
+   * (align="right" on each Collapser). 3–6 items; each item expands
+   * to reveal a short description or supporting detail.
+   *
+   * Right column: product screenshot or hero image.
+   *
+   * Use this on product overview or landing pages where you want
+   * scannable feature bullets alongside visual proof.
+   */
+}
+<Grid columns={[1, 2]} gap="lg" align="start">
+  <Column>
+    <CollapserGroup>
+      <Collapser title="Real-time alerts" align="right" icon={<BellIcon />}>
+        Get notified the moment a threshold is crossed, with no polling delay.
+      </Collapser>
+      <Collapser title="Custom dashboards" align="right" icon={<ChartIcon />}>
+        Drag-and-drop widgets let you arrange metrics exactly as you need them.
+      </Collapser>
+      <Collapser title="Role-based access" align="right" icon={<LockIcon />}>
+        Grant view-only, editor, or admin rights per team without extra tooling.
+      </Collapser>
+      <Collapser title="One-click integrations" align="right" icon={<PlugIcon />}>
+        Connect to Slack, PagerDuty, and 40+ other tools from the settings panel.
+      </Collapser>
+    </CollapserGroup>
+  </Column>
+  <Column>
+    <img
+      src="/images/product-screenshot.png"
+      alt="Product dashboard showing real-time alert panel"
+      style={{ width: "100%", borderRadius: "8px" }}
+    />
   </Column>
 </Grid>;
 

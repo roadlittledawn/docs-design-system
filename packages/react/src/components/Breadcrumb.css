@@ -1,0 +1,118 @@
+/* ============================================================
+   Breadcrumb component
+   ============================================================ */
+
+.dds-breadcrumb {
+  font-size: var(--dds-breadcrumb-font-size-md);
+  line-height: var(--dds-line-height-tight);
+}
+
+/* Size variants */
+.dds-breadcrumb--sm {
+  font-size: var(--dds-breadcrumb-font-size-sm);
+}
+
+/* The ordered list */
+.dds-breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--dds-breadcrumb-gap);
+}
+
+/* Scroll mode: single row with horizontal scroll (mobile only) */
+@media (max-width: 640px) {
+  .dds-breadcrumb--scroll .dds-breadcrumb-list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .dds-breadcrumb--scroll .dds-breadcrumb-list::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Individual segment items */
+.dds-breadcrumb-item {
+  display: flex;
+  align-items: center;
+  gap: var(--dds-breadcrumb-gap);
+  white-space: nowrap;
+}
+
+/* Linked segments */
+.dds-breadcrumb-link {
+  color: var(--dds-breadcrumb-link-color);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+a.dds-breadcrumb-link:hover {
+  color: var(--dds-breadcrumb-link-color-hover);
+  text-decoration: underline;
+}
+
+/* Current page segment */
+.dds-breadcrumb-current {
+  color: var(--dds-breadcrumb-current-color);
+  font-weight: var(--dds-breadcrumb-current-weight);
+}
+
+/* Delimiter characters — aria-hidden in markup */
+.dds-breadcrumb-delimiter {
+  color: var(--dds-breadcrumb-delimiter-color);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+/* Ellipsis expand button */
+.dds-breadcrumb-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--dds-breadcrumb-link-color);
+  font-size: inherit;
+  padding: 0.1em 0.3em;
+  line-height: 1;
+  border-radius: var(--dds-breadcrumb-ellipsis-radius);
+  transition: color 150ms ease, background-color 150ms ease;
+}
+
+.dds-breadcrumb-ellipsis:hover {
+  color: var(--dds-breadcrumb-link-color-hover);
+  background-color: var(--dds-breadcrumb-ellipsis-hover-bg);
+}
+
+.dds-breadcrumb-ellipsis:focus-visible {
+  outline: 2px solid var(--dds-breadcrumb-link-color-hover);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   Collapsible behaviour
+   ============================================================ */
+
+/* On desktop the ellipsis is always hidden — show all items */
+.dds-breadcrumb--collapsible .dds-breadcrumb-item--ellipsis {
+  display: none;
+}
+
+/* On narrow viewports: hide middle items and show ellipsis when not expanded */
+@media (max-width: 640px) {
+  .dds-breadcrumb--collapsible:not([data-expanded="true"])
+    .dds-breadcrumb-item--middle {
+    display: none;
+  }
+
+  .dds-breadcrumb--collapsible:not([data-expanded="true"])
+    .dds-breadcrumb-item--ellipsis {
+    display: flex;
+  }
+}

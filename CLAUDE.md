@@ -35,6 +35,7 @@ npm run type-check   # Run TypeScript checking
 - Import components in the website using `@docs-design-system/ui`
 - TypeScript path alias is configured in `website/tsconfig.json`
 - Components in `packages/ui/` are built for NPM distribution to be used in other projects
+- AI-context docs: `packages/react/USAGE.md` has full component API reference. Keep it in sync when adding/modifying components (also update `website/public/llms.txt`).
 
 ### Testing
 - Always run `npm run build` and `npm run type-check` before committing

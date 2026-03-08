@@ -99,6 +99,29 @@ const isPressed = useKeyPress("Escape");
 
 Full hook documentation is available in [Storybook](https://docs-design-system-storybook.netlify.app).
 
+## AI / LLM Integration
+
+This package ships with AI-friendly docs so coding assistants can understand the component API without browser access.
+
+### `USAGE.md` (included in npm package)
+
+A complete component reference with props tables and usage examples. Point your AI tool at it with one line:
+
+```
+# CLAUDE.md or equivalent
+Component API docs: node_modules/@roadlittledawn/docs-design-system-react/USAGE.md
+```
+
+Or reference the raw file on GitHub in any AI context file.
+
+### `/llms.txt` (website)
+
+The design system website serves a machine-readable component reference at `/llms.txt` per the [llmstxt.org](https://llmstxt.org/) convention. Agents can fetch the full API reference from a single URL.
+
+### TypeScript types with JSDoc
+
+All prop interfaces are exported and annotated with JSDoc so AI tools reading `.d.ts` files from `node_modules` get full prop descriptions and types.
+
 ## Development
 
 ```bash

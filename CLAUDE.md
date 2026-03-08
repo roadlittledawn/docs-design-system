@@ -7,7 +7,7 @@ This file contains important context and instructions for Claude Code when worki
 This is a documentation design system monorepo with two primary purposes:
 
 1. **Design System Website** (`website/`) - A Next.js site that documents best practices, principles, and guidelines for creating effective documentation
-2. **Component Package** (`packages/ui/`) - An NPM package (`@docs-design-system/ui`) containing reusable content components that can be distributed and used in other documentation projects
+2. **Component Package** (`packages/react/`) - An NPM package (`@roadlittledawn/docs-design-system-react`) containing reusable content components that can be distributed and used in other documentation projects
 
 The monorepo provides:
 - Guidelines and principles for technical writers and developers
@@ -27,14 +27,15 @@ npm run type-check   # Run TypeScript checking
 
 ### Package Structure
 - `website/` - Next.js documentation site (the design system website itself)
-- `packages/ui/` - NPM package with reusable content components for distribution
-- `shared/` - Shared utilities and design tokens
+- `packages/react/` - NPM package (`@roadlittledawn/docs-design-system-react`) with reusable content components for distribution
+- `storybook/` - Storybook site for interactive component documentation
 
 ### Component Development
-- UI components are in `packages/ui/src/components/`
-- Import components in the website using `@docs-design-system/ui`
+- React components are in `packages/react/src/components/`
+- Import components in the website using `@roadlittledawn/docs-design-system/react`
 - TypeScript path alias is configured in `website/tsconfig.json`
-- Components in `packages/ui/` are built for NPM distribution to be used in other projects
+- Components in `packages/react/` are built for NPM distribution to be used in other projects
+- AI-context docs: `packages/react/USAGE.md` has full component API reference. Keep it in sync when adding/modifying components (also update `storybook/public/llms.txt`).
 
 ### Testing
 - Always run `npm run build` and `npm run type-check` before committing

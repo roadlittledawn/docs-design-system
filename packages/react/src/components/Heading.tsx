@@ -1,7 +1,7 @@
 import React from "react";
 import slugify from "../utils/slugify";
 
-interface HeadingProps {
+export interface HeadingProps {
   /** Optionally override auto-generation of `id` attribute */
   id?: string;
 

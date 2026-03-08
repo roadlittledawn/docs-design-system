@@ -4,6 +4,7 @@ import React, { useState, Children, cloneElement, isValidElement } from 'react';
 import { Collapser } from './Collapser';
 
 export interface CollapserGroupProps {
+  /** Collapser components to render inside the group */
   children: React.ReactNode;
   /** Spacing between collapsers (CSS gap value) */
   spacing?: string;

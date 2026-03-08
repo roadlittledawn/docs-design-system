@@ -9,7 +9,7 @@ interface TabsContextValue {
 
 const TabsContext = createContext<TabsContextValue | null>(null);
 
-interface TabsProps {
+export interface TabsProps {
   /** ID of the initially active tab */
   defaultActiveTab?: string;
   /** Controlled active tab ID */
@@ -50,7 +50,7 @@ export function Tabs({
   );
 }
 
-interface TabListProps {
+export interface TabListProps {
   /** Tab buttons */
   children: React.ReactNode;
   /** Additional CSS classes */
@@ -65,7 +65,7 @@ export function TabList({ children, className = "" }: TabListProps) {
   );
 }
 
-interface TabProps {
+export interface TabProps {
   /** Unique identifier for this tab */
   id: string;
   /** Tab label */
@@ -98,7 +98,7 @@ export function Tab({ id, children, className = "" }: TabProps) {
   );
 }
 
-interface TabPanelProps {
+export interface TabPanelProps {
   /** ID matching the corresponding Tab */
   id: string;
   /** Panel content */

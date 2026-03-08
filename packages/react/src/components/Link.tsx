@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface LinkProps {
+export interface LinkProps {
   /** URL to link to. External links (starting with http:// or https://) open in new tab */
   href: string;
 

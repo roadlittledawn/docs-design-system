@@ -7,6 +7,9 @@ import {
 import Link from "next/link";
 
 const STORYBOOK_URL = "https://docs-design-system-storybook.netlify.app";
+const LLMS_TXT_URL = `${STORYBOOK_URL}/llms.txt`;
+const USAGE_MD_URL =
+  "https://raw.githubusercontent.com/roadlittledawn/docs-design-system/develop/packages/react/USAGE.md";
 
 export default function ComponentsPage() {
   return (
@@ -68,7 +71,7 @@ export default function ComponentsPage() {
         pre-marked as Client Components so no extra setup is needed.
       </p>
 
-      <Card backgroundColor="blue" className="mb-8">
+      <Card backgroundColor="blue" className="mb-4">
         <Heading level={3} className="mb-3">
           Interactive Documentation in Storybook
         </Heading>
@@ -95,6 +98,36 @@ export default function ComponentsPage() {
             </svg>
           </Button>
         </Link>
+      </Card>
+
+      <Card backgroundColor="gray" className="mb-8">
+        <Heading level={3} className="mb-3">
+          Using with AI Coding Tools
+        </Heading>
+        <p className="mb-3">
+          The component API is available in machine-readable formats so AI
+          assistants (Claude, Copilot, Cursor, etc.) can understand and generate
+          correct component usage without browsing Storybook.
+        </p>
+        <ul className="mb-0 space-y-1 text-sm">
+          <li>
+            <DocsLink href={LLMS_TXT_URL}>
+              /llms.txt
+            </DocsLink>
+            {" "}— full component reference served from the Storybook site,
+            per the{" "}
+            <DocsLink href="https://llmstxt.org">llmstxt.org</DocsLink>{" "}
+            convention. Fetch it by URL in any AI context file.
+          </li>
+          <li>
+            <DocsLink href={USAGE_MD_URL}>
+              USAGE.md
+            </DocsLink>
+            {" "}— same reference packaged inside the npm bundle. Point your
+            AI tool at{" "}
+            <code>node_modules/@roadlittledawn/docs-design-system-react/USAGE.md</code>.
+          </li>
+        </ul>
       </Card>
     </div>
   );

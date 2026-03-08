@@ -17,7 +17,7 @@ export interface ListProps {
   bulletIcon?: ReactNode;
 }
 
-interface ListItemProps {
+export interface ListItemProps {
   /** List item content */
   children: ReactNode;
 

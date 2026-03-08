@@ -5,7 +5,7 @@
 ## Resources
 
 - [npm package](https://www.npmjs.com/package/@roadlittledawn/docs-design-system-react)
-- [GitHub](https://github.com/roadlittledawn/docs-design-system/tree/develop/packages/react)
+- [GitHub](https://github.com/roadlittledawn/docs-design-system/tree/HEAD/packages/react)
 - [Storybook](https://docs-design-system-storybook.netlify.app)
 
 ## Component Reference

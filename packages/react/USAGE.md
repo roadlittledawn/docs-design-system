@@ -845,7 +845,7 @@ import {
 |------|------|---------|-------------|
 | `children` | `React.ReactNode` | — | Typically `TableHead` and `TableBody` |
 | `variant` | `"default" \| "borderless"` | `"default"` | `"default"` renders all borders; `"borderless"` shows only row top/bottom borders |
-| `stickyHeader` | `boolean` | `false` | When true the thead sticks to the top of the scroll container while scrolling. Pair with `style={{ maxHeight: '...' }}` |
+| `stickyHeader` | `boolean` | `false` | When true, the header row sticks to the top of the scroll container while scrolling. Pair with `style={{ maxHeight: '...' }}` |
 | `headerBg` | `string` | — | Background color applied to the header row. Accepts any valid CSS color value |
 | `onSort` | `(key: string, direction: "asc" \| "desc" \| null) => void` | — | Callback fired when a sortable column header is clicked. Useful for server-side sorting |
 | `className` | `string` | `""` | Additional CSS classes |

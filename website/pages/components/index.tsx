@@ -9,7 +9,7 @@ import Link from "next/link";
 const STORYBOOK_URL = "https://docs-design-system-storybook.netlify.app";
 const LLMS_TXT_URL = `${STORYBOOK_URL}/llms.txt`;
 const USAGE_MD_URL =
-  "https://raw.githubusercontent.com/roadlittledawn/docs-design-system/main/packages/react/USAGE.md";
+  "https://raw.githubusercontent.com/roadlittledawn/docs-design-system/develop/packages/react/USAGE.md";
 
 export default function ComponentsPage() {
   return (

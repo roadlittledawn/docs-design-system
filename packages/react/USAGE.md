@@ -1096,7 +1096,7 @@ Layout primitive for multi-column documentation content. Use `Grid` when content
 - **Tutorial with live code** — prose instructions on the left, sticky code panel on the right
 - **Side-by-side comparison** — before/after, two approaches, option A vs option B
 - **Asymmetric splits** — narrow sidebar label alongside wide content
-- **Feature highlight panel** — narrow left column lists 3–6 top features as collapsers (icon + title); wide right column shows a product screenshot. Good for product overview pages where you want to pair visual proof with scannable feature details
+- **Feature highlight panel** — scannable feature collapsers on one side, product screenshot on the other
 
 ### When Not to Use
 

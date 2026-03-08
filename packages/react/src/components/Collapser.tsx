@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useState, useRef, useEffect } from "react";
+import { ReactNode, useState } from "react";
 import { useKeyPress } from "../hooks/useKeyPress";
 
 export interface CollapserProps {
@@ -69,8 +69,6 @@ export function Collapser({
   const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen);
   const isControlled = controlledOpen !== undefined;
   const isOpen = isControlled ? controlledOpen : uncontrolledOpen;
-  const [height, setHeight] = useState<number | undefined>(undefined);
-  const contentRef = useRef<HTMLDivElement>(null);
 
   // Keyboard shortcuts: 's' or 'f' to show, 'h' to hide
   useKeyPress(['s', 'f', 'h'], (e) => {
@@ -78,12 +76,6 @@ export function Collapser({
       setUncontrolledOpen(e.key !== 'h');
     }
   });
-
-  useEffect(() => {
-    if (contentRef.current) {
-      setHeight(contentRef.current.scrollHeight);
-    }
-  }, [children]);
 
   const toggleOpen = () => {
     if (onToggle) {
@@ -136,12 +128,9 @@ export function Collapser({
       </button>
 
       <div
-        className="dds-collapser-content-wrapper"
-        style={{
-          height: isOpen ? height : 0,
-        }}
+        className={`dds-collapser-content-wrapper${isOpen ? " dds-collapser-content-wrapper--open" : ""}`}
       >
-        <div ref={contentRef} className="dds-collapser-content">
+        <div className="dds-collapser-content">
           {children}
         </div>
       </div>

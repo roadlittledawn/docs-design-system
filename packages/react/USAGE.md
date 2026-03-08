@@ -821,7 +821,7 @@ import {
 
 ## Collapser
 
-An expandable/collapsible content section with smooth animation. Use a single `Collapser` for standalone sections; use `CollapserGroup` when you have multiple.
+An expandable/collapsible content section with smooth animation. Content height adjusts automatically to fit all children, including images and other media that load asynchronously. Use a single `Collapser` for standalone sections; use `CollapserGroup` when you have multiple.
 
 ### When to Use
 

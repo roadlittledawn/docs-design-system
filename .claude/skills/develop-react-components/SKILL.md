@@ -158,7 +158,7 @@ Storybook auto-discovers stories from `packages/react/src/**/*.stories.tsx` -- n
 When adding a new component or modifying an existing component's props:
 
 - Add (or update) the component section in **`packages/react/USAGE.md`** — props table and usage examples
-- Add (or update) the same component section in **`website/public/llms.txt`** — keep both files in sync
+- Add (or update) the same component section in **`storybook/public/llms.txt`** — keep both files in sync
 
 A pre-commit hook blocks commits that change component files without also updating these docs. Both files follow the same format: import, props table, and basic example.
 
@@ -166,7 +166,7 @@ If you forget, the hook will show:
 ```
 ERROR: Component files changed without updating AI docs.
   Changed: packages/react/src/components/YourComponent.tsx
-  Please update packages/react/USAGE.md and website/public/llms.txt.
+  Please update packages/react/USAGE.md and storybook/public/llms.txt.
 ```
 
 ## Key files reference
@@ -181,7 +181,7 @@ ERROR: Component files changed without updating AI docs.
 | `packages/react/tsconfig.json` | TypeScript config (outputs to `dist/`) |
 | `packages/react/postcss.config.js` | PostCSS config (uses `postcss-import`) |
 | `packages/react/USAGE.md` | AI-context component API reference (travels with npm package) |
-| `website/public/llms.txt` | llmstxt.org file served at `/llms.txt` with full component reference |
+| `storybook/public/llms.txt` | llmstxt.org file served at `storybook-url/llms.txt` with full component reference |
 | `storybook/.storybook/main.ts` | Storybook config (story discovery, aliases) |
 | `storybook/.storybook/preview.ts` | Storybook preview (imports `dist/styles.css`) |
 

@@ -1096,6 +1096,7 @@ Layout primitive for multi-column documentation content. Use `Grid` when content
 - **Tutorial with live code** — prose instructions on the left, sticky code panel on the right
 - **Side-by-side comparison** — before/after, two approaches, option A vs option B
 - **Asymmetric splits** — narrow sidebar label alongside wide content
+- **Feature highlight panel** — scannable feature collapsers on one side, product screenshot on the other
 
 ### When Not to Use
 
@@ -1176,6 +1177,33 @@ import { Grid, Column } from "@roadlittledawn/docs-design-system-react";
   </Column>
   <Column sticky>
     <CodeBlock language="bash" code="npm install" />
+  </Column>
+</Grid>;
+
+{/* Feature highlight panel — collapsers + product screenshot */}
+<Grid columns={[1, 2]} gap="lg" align="start">
+  <Column>
+    <CollapserGroup>
+      <Collapser title="Real-time alerts" align="right" icon={<YourIcon />}>
+        Get notified the moment a threshold is crossed, with no polling delay.
+      </Collapser>
+      <Collapser title="Custom dashboards" align="right" icon={<YourIcon />}>
+        Drag-and-drop widgets let you arrange metrics exactly as you need them.
+      </Collapser>
+      <Collapser title="Role-based access" align="right" icon={<YourIcon />}>
+        Grant view-only, editor, or admin rights per team without extra tooling.
+      </Collapser>
+      <Collapser title="One-click integrations" align="right" icon={<YourIcon />}>
+        Connect to Slack, PagerDuty, and 40+ other tools from the settings panel.
+      </Collapser>
+    </CollapserGroup>
+  </Column>
+  <Column>
+    <img
+      src="/images/product-screenshot.png"
+      alt="Product dashboard showing real-time alert panel"
+      style={{ width: "100%", borderRadius: "8px" }}
+    />
   </Column>
 </Grid>;
 

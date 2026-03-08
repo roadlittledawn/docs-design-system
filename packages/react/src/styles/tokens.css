@@ -285,6 +285,18 @@
   --dds-grid-gap-lg: 2.5rem; /* gap-10 */
   --dds-grid-divider-color: #e5e7eb; /* gray-200 */
   --dds-grid-sticky-top: 1rem;
+
+  /* Breadcrumb */
+  --dds-breadcrumb-font-size-sm: 0.75rem; /* text-xs */
+  --dds-breadcrumb-font-size-md: 0.875rem; /* text-sm */
+  --dds-breadcrumb-gap: 0.375rem;
+  --dds-breadcrumb-link-color: #6b7280; /* gray-500 */
+  --dds-breadcrumb-link-color-hover: #111827; /* gray-900 */
+  --dds-breadcrumb-current-color: #111827; /* gray-900 */
+  --dds-breadcrumb-current-weight: 500;
+  --dds-breadcrumb-delimiter-color: #9ca3af; /* gray-400 */
+  --dds-breadcrumb-ellipsis-radius: 0.25rem; /* rounded */
+  --dds-breadcrumb-ellipsis-hover-bg: #f3f4f6; /* gray-100 */
 }
 
 /* ==========================================================================
@@ -467,6 +479,13 @@
 
   /* Grid */
   --dds-grid-divider-color: #4b5563; /* gray-600 */
+
+  /* Breadcrumb */
+  --dds-breadcrumb-link-color: #9ca3af; /* gray-400 */
+  --dds-breadcrumb-link-color-hover: #f9fafb; /* gray-50 */
+  --dds-breadcrumb-current-color: #e5e7eb; /* gray-200 */
+  --dds-breadcrumb-delimiter-color: #6b7280; /* gray-500 */
+  --dds-breadcrumb-ellipsis-hover-bg: rgba(255, 255, 255, 0.08);
 }
 
 /* Auto dark mode — follows OS preference, opt-out with .dds-light */
@@ -643,6 +662,13 @@
 
     /* Grid */
     --dds-grid-divider-color: #4b5563; /* gray-600 */
+
+    /* Breadcrumb */
+    --dds-breadcrumb-link-color: #9ca3af; /* gray-400 */
+    --dds-breadcrumb-link-color-hover: #f9fafb; /* gray-50 */
+    --dds-breadcrumb-current-color: #e5e7eb; /* gray-200 */
+    --dds-breadcrumb-delimiter-color: #6b7280; /* gray-500 */
+    --dds-breadcrumb-ellipsis-hover-bg: rgba(255, 255, 255, 0.08);
   }
 }
 
@@ -798,4 +824,11 @@
   --dds-table-header-hover-text: #f9fafb;
   --dds-table-header-active-text: #93c5fd;
   --dds-table-focus-ring: #60a5fa;
+
+  /* Breadcrumb */
+  --dds-breadcrumb-link-color: #9ca3af; /* gray-400 */
+  --dds-breadcrumb-link-color-hover: #f9fafb; /* gray-50 */
+  --dds-breadcrumb-current-color: #e5e7eb; /* gray-200 */
+  --dds-breadcrumb-delimiter-color: #6b7280; /* gray-500 */
+  --dds-breadcrumb-ellipsis-hover-bg: rgba(255, 255, 255, 0.08);
 }

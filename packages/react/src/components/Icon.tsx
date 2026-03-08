@@ -45,7 +45,9 @@ export interface IconProps {
  *
  * @example
  * // Inline SVG function
- * const StarIcon = () => <svg viewBox="0 0 24 24">...</svg>;
+ * const StarIcon = (props: React.SVGProps<SVGSVGElement>) => (
+ *   <svg viewBox="0 0 24 24" {...props}>...</svg>
+ * );
  * <Icon svg={StarIcon} size={16} />
  *
  * @example

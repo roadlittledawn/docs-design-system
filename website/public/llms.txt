@@ -1,0 +1,7 @@
+# docs-design-system
+
+> A documentation design system providing guidelines and reusable React components for building high-quality technical documentation sites.
+
+## Packages
+
+- [React components](https://docs-design-system-storybook.netlify.app/llms.txt): `@roadlittledawn/docs-design-system-react` — full component API reference

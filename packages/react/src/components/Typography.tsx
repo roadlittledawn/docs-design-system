@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface TypographyProps {
+export interface TypographyProps {
   /**
    * Typography style variant
    * @default 'p'

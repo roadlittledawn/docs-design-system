@@ -8,7 +8,7 @@ import { Icon } from './Icon';
 // (aria-hidden, role, aria-label). The Icon component applies them based on
 // whether an aria-label prop is provided.
 
-const StarIcon = () => (
+const StarIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
@@ -16,12 +16,13 @@ const StarIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
+    {...props}
   >
     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
   </svg>
 );
 
-const ChevronIcon = () => (
+const ChevronIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
@@ -29,12 +30,13 @@ const ChevronIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
+    {...props}
   >
     <polyline points="6 9 12 15 18 9" />
   </svg>
 );
 
-const ExternalLinkIcon = () => (
+const ExternalLinkIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
@@ -42,6 +44,7 @@ const ExternalLinkIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
+    {...props}
   >
     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
     <polyline points="15 3 21 3 21 9" />
@@ -50,7 +53,7 @@ const ExternalLinkIcon = () => (
 );
 
 // Raw SVG string example
-const closeIconSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+const closeIconSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
 
 // ─── Meta ─────────────────────────────────────────────────────────────────────
 
@@ -58,6 +61,13 @@ const meta: Meta<typeof Icon> = {
   title: 'Components/Icon',
   component: Icon,
   tags: ['autodocs'],
+  decorators: [
+    (Story) => (
+      <div style={{ color: 'var(--dds-tabs-panel-text)' }}>
+        <Story />
+      </div>
+    ),
+  ],
   argTypes: {
     svg: {
       description:
@@ -129,8 +139,8 @@ export const WithReactComponent: Story = {
   parameters: {
     docs: {
       source: {
-        code: `const StarIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        code: `const StarIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
   </svg>
 );

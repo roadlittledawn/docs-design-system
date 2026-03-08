@@ -34,7 +34,7 @@ export interface CodeSnippet {
   highlightLines?: number[];
 }
 
-interface CodeBlockProps {
+export interface CodeBlockProps {
   /** Single code snippet (for simple usage) */
   code?: string;
   /** Language for syntax highlighting */

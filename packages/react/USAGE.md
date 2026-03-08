@@ -919,7 +919,7 @@ Container for multiple `Collapser` components with consistent spacing and option
 
 ### `numbered` prop
 
-When `numbered={true}`, `CollapserGroup` automatically injects sequential step numbers into each child `Collapser`. Combine with `align="right"` and `icon` on each `Collapser` for a polished step-by-step layout. Override the step number color with `--dds-collapser-step-number-color`.
+When `numbered={true}`, `CollapserGroup` automatically injects sequential step numbers into each child `Collapser`. This works in MDX and component-map contexts. Combine with `align="right"` and `icon` on each `Collapser` for a polished step-by-step layout. Override the step number color with `--dds-collapser-step-number-color`.
 
 ### Import
 

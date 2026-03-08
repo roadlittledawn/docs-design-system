@@ -137,3 +137,5 @@ export function Collapser({
     </div>
   );
 }
+
+Collapser.displayName = 'Collapser';

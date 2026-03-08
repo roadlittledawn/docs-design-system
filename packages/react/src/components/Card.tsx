@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-interface CardProps {
+export interface CardProps {
   /** Optional title displayed at the top of the card */
   title?: string;
 

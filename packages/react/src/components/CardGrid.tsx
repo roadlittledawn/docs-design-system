@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-interface CardGridProps {
+export interface CardGridProps {
   /**
    * Number of columns in the grid
    * @default 3

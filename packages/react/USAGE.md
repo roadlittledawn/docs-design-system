@@ -1,0 +1,929 @@
+# @roadlittledawn/docs-design-system-react — Component API Reference
+
+Hand-maintained reference for all components. Point your AI tool at this file to get full prop coverage without running Storybook.
+
+```
+// CLAUDE.md or equivalent:
+// Component API docs: packages/react/USAGE.md (or https://raw.githubusercontent.com/roadlittledawn/docs-design-system/main/packages/react/USAGE.md)
+```
+
+---
+
+## Button
+
+The Button component provides a consistent way to trigger actions across your documentation.
+
+### Import
+
+```tsx
+import { Button } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Props
+
+Extends `React.ButtonHTMLAttributes<HTMLButtonElement>`.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"primary" \| "secondary" \| "outline"` | `"primary"` | Visual style variant of the button |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size of the button |
+| `children` | `React.ReactNode` | — | Button content |
+| `disabled` | `boolean` | `false` | Whether the button is disabled (inherited from `ButtonHTMLAttributes`) |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Examples
+
+#### Basic
+
+```tsx
+<Button variant="primary">Primary Button</Button>
+<Button variant="secondary">Secondary Button</Button>
+<Button variant="outline">Outline Button</Button>
+```
+
+#### Sizes
+
+```tsx
+<Button variant="primary" size="sm">Small</Button>
+<Button variant="primary" size="md">Medium</Button>
+<Button variant="primary" size="lg">Large</Button>
+```
+
+---
+
+## Card
+
+The Card component provides a flexible container for displaying content with visual hierarchy.
+
+### Import
+
+```tsx
+import { Card } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `title` | `string` | — | Optional title displayed at the top of the card |
+| `titleColor` | `"blue" \| "green" \| "purple" \| "red" \| "yellow" \| "gray"` | `"gray"` | Color of the title text |
+| `backgroundColor` | `"blue" \| "green" \| "purple" \| "red" \| "yellow" \| "gray" \| "white"` | `"white"` | Background color of the card |
+| `href` | `string` | — | Optional link URL. When provided, the entire card becomes clickable |
+| `children` | `ReactNode` | — | Card content |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Examples
+
+#### Basic
+
+```tsx
+<Card title="Getting Started">
+  Learn the basics of using this documentation system.
+</Card>
+```
+
+#### Clickable card
+
+```tsx
+<Card title="API Reference" href="/docs/api">
+  Complete reference for all available components.
+</Card>
+```
+
+#### Colored background
+
+```tsx
+<Card title="New Feature" titleColor="blue" backgroundColor="blue">
+  Check out our latest component additions.
+</Card>
+```
+
+---
+
+## CardGrid
+
+The CardGrid component provides a responsive grid layout for displaying multiple cards.
+
+### Import
+
+```tsx
+import { CardGrid } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `columns` | `2 \| 3 \| 4` | `3` | Number of columns in the grid |
+| `equalHeight` | `boolean` | `true` | When true, all cards in each row expand to the height of the tallest card |
+| `children` | `ReactNode` | — | Grid content (typically Card components) |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Examples
+
+#### Basic
+
+```tsx
+<CardGrid columns={3}>
+  <Card title="Tutorials">Step-by-step learning guides.</Card>
+  <Card title="How-To Guides">Task-oriented instructions.</Card>
+  <Card title="Reference">Technical reference documentation.</Card>
+</CardGrid>
+```
+
+#### With clickable cards
+
+```tsx
+<CardGrid columns={3}>
+  <Card title="Documentation" href="/docs">Complete documentation guide</Card>
+  <Card title="API Reference" href="/api">Detailed API reference</Card>
+  <Card title="Examples" href="/examples">Code examples and patterns</Card>
+</CardGrid>
+```
+
+---
+
+## Callout
+
+The Callout component draws attention to important information within documentation pages.
+
+### Import
+
+```tsx
+import { Callout } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"caution" \| "important" \| "tip" \| "course"` | — | Visual style variant that sets the color and icon |
+| `title` | `string \| null` | Variant name | Optional title. Pass `null` to hide entirely |
+| `children` | `ReactNode` | — | Callout content |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Examples
+
+#### Caution
+
+```tsx
+<Callout variant="caution">
+  This operation cannot be undone. Make sure you have a backup before proceeding.
+</Callout>
+```
+
+#### Important
+
+```tsx
+<Callout variant="important">
+  All users must update their passwords by the end of the month.
+</Callout>
+```
+
+#### Tip
+
+```tsx
+<Callout variant="tip">
+  You can use keyboard shortcuts (Cmd+K or Ctrl+K) to quickly search the documentation.
+</Callout>
+```
+
+#### Custom title
+
+```tsx
+<Callout variant="important" title="Security Notice">
+  Two-factor authentication is now required for all administrator accounts.
+</Callout>
+```
+
+#### No title
+
+```tsx
+<Callout variant="tip" title={null}>
+  This callout has no title and displays only the content.
+</Callout>
+```
+
+---
+
+## Heading
+
+The Heading component provides semantic HTML headings (h1–h4) with consistent styling and auto-generated IDs.
+
+### Import
+
+```tsx
+import { Heading } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `level` | `1 \| 2 \| 3 \| 4` | — | Heading level — renders as `<h1>` through `<h4>` |
+| `id` | `string` | auto-generated from text | Override the auto-generated `id` attribute |
+| `children` | `React.ReactNode` | — | Heading content |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Examples
+
+#### Basic
+
+```tsx
+<Heading level={1}>Page Title</Heading>
+<Heading level={2}>Section Title</Heading>
+<Heading level={3}>Subsection Title</Heading>
+<Heading level={4}>Sub-subsection Title</Heading>
+```
+
+---
+
+## Typography
+
+The Typography component renders text with predefined styles for consistency.
+
+### Import
+
+```tsx
+import { Typography } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"h1" \| "h2" \| "h3" \| "h4" \| "p" \| "caption"` | `"p"` | Typography style variant. `h1`–`h4` render as heading elements; `p` and `caption` render as `<p>` |
+| `children` | `React.ReactNode` | — | Text content |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Examples
+
+#### Basic
+
+```tsx
+<Typography variant="h1">Heading 1 Style</Typography>
+<Typography variant="p">
+  This is a paragraph with the default typography style.
+</Typography>
+<Typography variant="caption">
+  This is caption text, typically used for figure captions.
+</Typography>
+```
+
+---
+
+## Link
+
+The Link component provides consistent link styling and automatically handles external links.
+
+### Import
+
+```tsx
+import { Link } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `href` | `string` | — | URL to link to. External links (starting with `http://` or `https://`) open in a new tab with an external link icon |
+| `children` | `React.ReactNode` | — | Link content |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Examples
+
+#### Internal link
+
+```tsx
+<Link href="/docs/components">View Components Documentation</Link>
+```
+
+#### External link (opens in new tab)
+
+```tsx
+<Link href="https://github.com/roadlittledawn/docs-design-system">View on GitHub</Link>
+```
+
+---
+
+## List
+
+A visually enhanced list component with numbered badges (ordered) or custom bullets (unordered) and connector lines.
+
+### Import
+
+```tsx
+import { List } from '@roadlittledawn/docs-design-system-react';
+```
+
+### List Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | — | `List.Item` components to render |
+| `className` | `string` | `""` | Additional CSS classes |
+| `ordered` | `boolean` | `true` | Whether the list is ordered (numbered) or unordered (bullets) |
+| `bullet` | `string` | — | Custom bullet character for unordered lists (e.g. `"✅"`). Only applies when `ordered` is false |
+| `bulletIcon` | `ReactNode` | — | Custom bullet icon (React node). Takes precedence over `bullet`. Only applies when `ordered` is false |
+
+### List.Item Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | — | List item content |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Examples
+
+#### Ordered list
+
+```tsx
+<List>
+  <List.Item>Run the following command: <code>npm install</code></List.Item>
+  <List.Item>Configure your project settings.</List.Item>
+  <List.Item>Start the development server.</List.Item>
+</List>
+```
+
+#### Unordered list with emoji bullet
+
+```tsx
+<List ordered={false} bullet="✅">
+  <List.Item>Beautifully designed components</List.Item>
+  <List.Item>Accessible by default</List.Item>
+  <List.Item>Fully customizable styling</List.Item>
+</List>
+```
+
+#### Unordered list with custom icon
+
+```tsx
+<List
+  ordered={false}
+  bulletIcon={
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M5 12h14M12 5l7 7-7 7" />
+    </svg>
+  }
+>
+  <List.Item>Navigate to the settings page</List.Item>
+  <List.Item>Select your preferences</List.Item>
+  <List.Item>Save your changes</List.Item>
+</List>
+```
+
+---
+
+## CodeBlock
+
+The CodeBlock component provides syntax highlighting, copy functionality, and support for multiple tabs and languages.
+
+### Import
+
+```tsx
+import { CodeBlock } from '@roadlittledawn/docs-design-system-react';
+```
+
+### CodeBlock Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `code` | `string` | — | Single code snippet string. Use `snippets` for multi-tab or multi-language layouts |
+| `language` | `string` | — | Language for syntax highlighting (e.g. `"typescript"`, `"bash"`, `"python"`) |
+| `filename` | `string` | — | Optional filename label shown in the header when there is only one snippet |
+| `highlightLines` | `number[]` | — | Array of 1-indexed line numbers to highlight |
+| `snippets` | `CodeSnippet[]` | — | Array of code snippets for multi-tab or multi-language display. Takes precedence over `code` |
+| `path` | `string` | — | URL or path to a markdown file containing fenced code blocks to load as snippets |
+| `className` | `string` | `""` | Additional CSS classes applied to the outer container |
+
+### CodeSnippet Type
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `code` | `string` | — | The code content |
+| `language` | `string` | — | Language for syntax highlighting |
+| `filename` | `string` | — | Optional filename to display |
+| `tabTitle` | `string` | — | Optional tab title (defaults to filename if not provided) |
+| `highlightLines` | `number[]` | — | Optional line numbers to highlight (1-indexed) |
+
+### Supported languages (bundled)
+
+JavaScript, TypeScript, JSX, TSX, CSS, Markdown, JSON, Bash, Ruby, Python, Java, SQL, YAML, PHP.
+
+For additional languages, use `registerLanguages`:
+
+```ts
+import { registerLanguages } from '@roadlittledawn/docs-design-system-react';
+
+await registerLanguages(async () => {
+  await import('prismjs/components/prism-go');
+  await import('prismjs/components/prism-rust');
+});
+```
+
+### Examples
+
+#### Basic
+
+```tsx
+<CodeBlock
+  language="typescript"
+  code={`function greet(name: string) {
+  return \`Hello, \${name}!\`;
+}`}
+/>
+```
+
+#### With filename
+
+```tsx
+<CodeBlock
+  language="bash"
+  filename="setup.sh"
+  code={`npm install\nnpm run build`}
+/>
+```
+
+#### With highlighted lines
+
+```tsx
+<CodeBlock
+  language="javascript"
+  highlightLines={[2, 3, 4]}
+  code={`function calculateTotal(items) {
+  let total = 0;
+  for (const item of items) {
+    total += item.price * item.quantity;
+  }
+  return total;
+}`}
+/>
+```
+
+#### Multiple tabs
+
+```tsx
+<CodeBlock
+  snippets={[
+    { code: `export const Button = () => <button>Click</button>;`, language: 'jsx', tabTitle: 'Button.jsx' },
+    { code: `.button { padding: 0.5rem 1rem; }`, language: 'css', tabTitle: 'Button.css' },
+  ]}
+/>
+```
+
+---
+
+## Tabs
+
+Tabs organize and segment related content, reducing cognitive load by allowing users to toggle between views.
+
+### Import
+
+```tsx
+import { Tabs, TabList, Tab, TabPanel } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Tabs Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `defaultActiveTab` | `string` | — | ID of the tab that is active by default (uncontrolled mode) |
+| `activeTab` | `string` | — | Controlled active tab ID. Use with `onTabChange` to manage state externally |
+| `onTabChange` | `(id: string) => void` | — | Callback fired when the active tab changes |
+| `children` | `React.ReactNode` | — | Tab content — typically `TabList` and `TabPanel` components |
+| `className` | `string` | `""` | Additional CSS classes applied to the outer container |
+
+### Tab Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `id` | `string` | — | Unique identifier for this tab |
+| `children` | `React.ReactNode` | — | Tab label |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### TabPanel Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `id` | `string` | — | ID matching the corresponding Tab |
+| `children` | `React.ReactNode` | — | Panel content |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Examples
+
+#### Basic
+
+```tsx
+<Tabs defaultActiveTab="overview">
+  <TabList>
+    <Tab id="overview">Overview</Tab>
+    <Tab id="usage">Usage</Tab>
+    <Tab id="api">API Reference</Tab>
+  </TabList>
+  <TabPanel id="overview">
+    <p>This is the overview section.</p>
+  </TabPanel>
+  <TabPanel id="usage">
+    <p>This is the usage section.</p>
+  </TabPanel>
+  <TabPanel id="api">
+    <p>This is the API reference section.</p>
+  </TabPanel>
+</Tabs>
+```
+
+#### Code examples in different languages
+
+```tsx
+<Tabs defaultActiveTab="javascript">
+  <TabList>
+    <Tab id="javascript">JavaScript</Tab>
+    <Tab id="python">Python</Tab>
+  </TabList>
+  <TabPanel id="javascript">
+    <CodeBlock language="javascript" code={`const greeting = "Hello, world!";\nconsole.log(greeting);`} />
+  </TabPanel>
+  <TabPanel id="python">
+    <CodeBlock language="python" code={`greeting = "Hello, world!"\nprint(greeting)`} />
+  </TabPanel>
+</Tabs>
+```
+
+---
+
+## Collapser
+
+The Collapser component allows users to show and hide content sections to reduce visual clutter.
+
+### Import
+
+```tsx
+import { Collapser } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `title` | `string \| ReactNode` | — | Title text or element displayed in the collapsible header |
+| `id` | `string` | — | Optional ID for the title element (useful for anchor links) |
+| `defaultOpen` | `boolean` | `false` | Whether the collapser should be open by default (uncontrolled) |
+| `open` | `boolean` | — | Controlled open state (used by CollapserGroup) |
+| `onToggle` | `() => void` | — | Callback when toggle is clicked (used by CollapserGroup) |
+| `children` | `ReactNode` | — | Content to show/hide when toggling |
+| `className` | `string` | `""` | Additional CSS classes |
+| `align` | `"left" \| "right"` | `"left"` | Alignment of the title within the header |
+| `icon` | `ReactNode` | — | Optional icon rendered on the left side of the header, before the title |
+| `stepNumber` | `number` | — | Numeric step label shown on the far left. Auto-injected by `CollapserGroup` when `numbered` is true |
+
+### Examples
+
+#### Basic
+
+```tsx
+<Collapser title="Click to expand">
+  <p>This content is hidden by default.</p>
+</Collapser>
+```
+
+#### Open by default
+
+```tsx
+<Collapser title="This section starts open" defaultOpen>
+  <p>This collapser is open by default.</p>
+</Collapser>
+```
+
+#### With icon and right-aligned title
+
+```tsx
+<Collapser title="Quick start guide" align="right" icon={<YourIcon />}>
+  <p>Content here.</p>
+</Collapser>
+```
+
+---
+
+## CollapserGroup
+
+CollapserGroup provides a container for multiple Collapser components with built-in spacing and optional accordion behavior.
+
+### Import
+
+```tsx
+import { CollapserGroup, Collapser } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | — | Collapser components to render inside the group |
+| `spacing` | `string` | `"0.5rem"` | CSS gap value between collapser items |
+| `allowMultiple` | `boolean` | `true` | Allow multiple collapsers to be open simultaneously. When false, opening one closes the others (accordion mode) |
+| `defaultOpen` | `number \| number[]` | — | Index or array of indexes of collapsers that should be open by default |
+| `onChange` | `(openIndexes: number[]) => void` | — | Callback fired when the open state changes |
+| `className` | `string` | `""` | Additional CSS classes |
+| `numbered` | `boolean` | `false` | Automatically prefix each collapser header with a sequential step number (1, 2, 3…) |
+
+### Examples
+
+#### FAQ (accordion mode)
+
+```tsx
+<CollapserGroup allowMultiple={false}>
+  <Collapser title="What is this documentation system?">
+    <p>A comprehensive design system for documentation sites.</p>
+  </Collapser>
+  <Collapser title="How do I get started?">
+    <p>Install the package and explore the components.</p>
+  </Collapser>
+</CollapserGroup>
+```
+
+#### Numbered steps with icons
+
+```tsx
+<CollapserGroup numbered>
+  <Collapser title="Install dependencies" align="right" icon={<YourIcon />}>
+    <p>Run <code>npm install</code>.</p>
+  </Collapser>
+  <Collapser title="Configure your project" align="right" icon={<YourIcon />}>
+    <p>Update configuration files.</p>
+  </Collapser>
+</CollapserGroup>
+```
+
+---
+
+## Popover
+
+A hover/tap-activated popover for enriching inline content in documentation. Built on the native Popover API for reliable top-layer rendering.
+
+### Import
+
+```tsx
+import { Popover } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Popover Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `content` | `ReactNode` | — | Arbitrary React content inside the popover. Use when built-in templates don't fit |
+| `glossary` | `GlossaryData` | — | Renders a styled glossary definition popover |
+| `preview` | `PreviewData` | — | Renders a Wikipedia-style content preview |
+| `placement` | `"auto" \| "top" \| "top-start" \| "top-end" \| "bottom" \| "bottom-start" \| "bottom-end"` | `"auto"` | Preferred placement relative to the trigger |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Popover width — `sm`=240px, `md`=320px, `lg`=480px |
+| `showDelay` | `number` | `200` | Milliseconds to wait before showing the popover on hover |
+| `hideDelay` | `number` | `150` | Milliseconds to wait before hiding the popover on hover-out |
+| `children` | `ReactNode` | — | The trigger element — the text or content that reveals the popover on hover/tap |
+| `className` | `string` | `""` | Additional CSS classes on the trigger wrapper |
+
+### GlossaryData Type
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `term` | `string` | The canonical term (used for semantic markup) |
+| `title` | `string` | Display title shown in the popover header |
+| `definition` | `ReactNode` | Definition content. Accepts ReactNode so you can pre-render markdown |
+
+### PreviewData Type
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `title` | `string` | — | Page or article title |
+| `excerpt` | `ReactNode` | — | Short excerpt or summary |
+| `imageUrl` | `string` | — | Optional featured image URL |
+| `href` | `string` | — | Optional URL to the full content |
+| `linkText` | `string` | `"Read more"` | Link text |
+
+### Examples
+
+#### Glossary definition
+
+```tsx
+<p>
+  Modern software relies on{' '}
+  <Popover
+    glossary={{
+      term: "observability",
+      title: "Observability",
+      definition: "The ability to understand the internal state of a system by examining its external outputs.",
+    }}
+  >
+    observability
+  </Popover>
+  {' '}to diagnose issues quickly.
+</p>
+```
+
+#### Content preview
+
+```tsx
+<Popover
+  size="lg"
+  preview={{
+    title: "New Relic",
+    excerpt: "New Relic is an observability platform.",
+    href: "https://newrelic.com",
+    linkText: "Read more",
+  }}
+>
+  New Relic
+</Popover>
+```
+
+#### Custom content
+
+```tsx
+<Popover content={<div style={{ padding: '1rem' }}>Custom content here</div>}>
+  hover me
+</Popover>
+```
+
+---
+
+## Grid and Column
+
+Layout primitive for multi-column documentation content. Supports equal and fractional column splits, configurable responsive stacking, optional column dividers, borders, and background colors.
+
+### Import
+
+```tsx
+import { Grid, Column } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Grid Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `columns` | `number \| number[]` | `2` | Number of equal columns, or an array of fractional widths (e.g. `[1, 2]` for 1/3 + 2/3) |
+| `gap` | `string` | `"md"` | Space between columns. Use `"sm"`, `"md"`, or `"lg"` for design tokens, or any CSS length (e.g. `"16px"`) |
+| `stackAt` | `"sm" \| "md" \| "lg" \| "never"` | `"md"` | Breakpoint at which columns collapse to a single vertical stack |
+| `columnDivider` | `BorderConfig` | — | Vertical dividing line between columns |
+| `topBorder` | `BorderConfig` | — | Horizontal rule rendered above the grid |
+| `bottomBorder` | `BorderConfig` | — | Horizontal rule rendered below the grid |
+| `align` | `"start" \| "center" \| "end" \| "stretch"` | `"stretch"` | Vertical alignment of content within each column |
+| `backgroundColor` | `string` | — | Background color applied to the grid container |
+| `className` | `string` | `""` | Additional CSS classes |
+| `children` | `ReactNode` | — | Grid content — typically `Column` components |
+
+### Column Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `span` | `number` | `1` | How many grid columns this item should span |
+| `sticky` | `boolean` | `false` | Makes the column sticky while adjacent columns scroll. Useful for tutorial-style layouts with a persistent code panel |
+| `backgroundColor` | `string` | — | Background color applied to the column |
+| `className` | `string` | `""` | Additional CSS classes |
+| `children` | `ReactNode` | — | Column content |
+
+### BorderConfig Type
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `thickness` | `number` | `1` | Line thickness in pixels |
+| `color` | `string` | — | Line color (defaults to the `--dds-grid-divider-color` token) |
+
+### Examples
+
+#### Two equal columns
+
+```tsx
+<Grid columns={2}>
+  <Column>Column 1 content</Column>
+  <Column>Column 2 content</Column>
+</Grid>
+```
+
+#### Asymmetric 1/3 + 2/3 split
+
+```tsx
+<Grid columns={[1, 2]}>
+  <Column>Narrow (1/3)</Column>
+  <Column>Wide (2/3)</Column>
+</Grid>
+```
+
+#### Tutorial with sticky code panel
+
+```tsx
+<Grid columns={2} stackAt="lg" gap="lg" columnDivider={{ thickness: 2 }}>
+  <Column>
+    <p><strong>Step 1 — Install dependencies</strong></p>
+    <p>Run the installer and follow the prompts.</p>
+  </Column>
+  <Column sticky>
+    <CodeBlock language="bash" code="npm install" />
+  </Column>
+</Grid>
+```
+
+---
+
+## Table
+
+Table displays structured, relational data in rows and columns. Supports sortable columns, sticky header, borderless variant, and responsive horizontal scrolling.
+
+### Import
+
+```tsx
+import {
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableHeaderCell,
+  TableCell,
+} from '@roadlittledawn/docs-design-system-react';
+```
+
+### Table Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | — | Typically `TableHead` and `TableBody` |
+| `variant` | `"default" \| "borderless"` | `"default"` | `"default"` renders all borders; `"borderless"` shows only row top/bottom borders |
+| `stickyHeader` | `boolean` | `false` | When true the thead sticks to the top of the scroll container while scrolling. Pair with `style={{ maxHeight: '...' }}` |
+| `headerBg` | `string` | — | Background color applied to the header row. Accepts any valid CSS color value |
+| `onSort` | `(key: string, direction: "asc" \| "desc" \| null) => void` | — | Callback fired when a sortable column header is clicked. Useful for server-side sorting |
+| `className` | `string` | `""` | Additional CSS classes |
+| `style` | `React.CSSProperties` | — | Inline styles. Use `maxHeight` here with `stickyHeader` |
+
+### TableHeaderCell Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | — | Cell content / column label |
+| `sortKey` | `string` | — | Unique key for this column. When provided the column becomes sortable |
+| `align` | `"left" \| "center" \| "right"` | `"left"` | Text alignment |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### TableCell Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | — | Cell content |
+| `align` | `"left" \| "center" \| "right"` | `"left"` | Text alignment |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Examples
+
+#### Basic table
+
+```tsx
+<Table>
+  <TableHead>
+    <TableRow>
+      <TableHeaderCell>Name</TableHeaderCell>
+      <TableHeaderCell>Role</TableHeaderCell>
+      <TableHeaderCell>Status</TableHeaderCell>
+    </TableRow>
+  </TableHead>
+  <TableBody>
+    <TableRow>
+      <TableCell>Alice Johnson</TableCell>
+      <TableCell>Engineer</TableCell>
+      <TableCell>Active</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+#### Borderless with sorting
+
+```tsx
+<Table variant="borderless" onSort={(key, direction) => { /* sort your data */ }}>
+  <TableHead>
+    <TableRow>
+      <TableHeaderCell sortKey="name">Name</TableHeaderCell>
+      <TableHeaderCell sortKey="role">Role</TableHeaderCell>
+    </TableRow>
+  </TableHead>
+  <TableBody>
+    {rows.map((row) => (
+      <TableRow key={row.name}>
+        <TableCell>{row.name}</TableCell>
+        <TableCell>{row.role}</TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+</Table>
+```
+
+#### Sticky header
+
+```tsx
+<Table stickyHeader style={{ maxHeight: '300px' }}>
+  <TableHead>
+    <TableRow>
+      <TableHeaderCell>Name</TableHeaderCell>
+      <TableHeaderCell>Department</TableHeaderCell>
+    </TableRow>
+  </TableHead>
+  <TableBody>
+    {/* many rows */}
+  </TableBody>
+</Table>
+```

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "prepare": "git config core.hooksPath .githooks",
+    "prepare": "git rev-parse --is-inside-work-tree 2>/dev/null && git config core.hooksPath .githooks || true",
     "dev": "npm run dev --workspace=packages/react & npm run dev --workspace=website & npm run storybook",
     "build": "npm run build --workspace=packages/react && npm run build --workspace=website && npm run build-storybook",
     "lint": "npm run lint --workspaces --if-present",

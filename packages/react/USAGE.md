@@ -287,7 +287,7 @@ import { Link } from '@roadlittledawn/docs-design-system-react';
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `href` | `string` | — | URL to link to. External links (starting with `http://` or `https://`) open in a new tab with an external link icon |
-| `children` | `React.ReactNode` | — | Link content |
+| `children` | `React.ReactNode` | — | Link content (optional in types, but required for accessible usage) |
 | `className` | `string` | `""` | Additional CSS classes |
 
 ### Examples

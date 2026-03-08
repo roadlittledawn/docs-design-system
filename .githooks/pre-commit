@@ -3,7 +3,7 @@ COMPONENT_CHANGED=$(git diff --cached --name-only | grep "^packages/react/src/co
 USAGE_CHANGED=$(git diff --cached --name-only | grep "^packages/react/USAGE.md$" | head -1)
 LLMS_CHANGED=$(git diff --cached --name-only | grep "^storybook/public/llms.txt$" | head -1)
 
-if [ -n "$COMPONENT_CHANGED" ] && [ -z "$USAGE_CHANGED" ] && [ -z "$LLMS_CHANGED" ]; then
+if [ -n "$COMPONENT_CHANGED" ] && { [ -z "$USAGE_CHANGED" ] || [ -z "$LLMS_CHANGED" ]; }; then
   echo ""
   echo "ERROR: Component files changed without updating AI docs."
   echo "  Changed: $COMPONENT_CHANGED"

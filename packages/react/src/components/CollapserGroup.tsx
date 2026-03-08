@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, Children, cloneElement, isValidElement } from 'react';
-import { Collapser } from './Collapser';
 
 export interface CollapserGroupProps {
   /** Collapser components to render inside the group */

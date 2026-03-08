@@ -114,9 +114,9 @@ Component API docs: node_modules/@roadlittledawn/docs-design-system-react/USAGE.
 
 Or reference the raw file on GitHub in any AI context file.
 
-### `/llms.txt` (website)
+### `/llms.txt` (Storybook site)
 
-The design system website serves a machine-readable component reference at `/llms.txt` per the [llmstxt.org](https://llmstxt.org/) convention. Agents can fetch the full API reference from a single URL.
+The Storybook site serves a machine-readable component reference at [`/llms.txt`](https://docs-design-system-storybook.netlify.app/llms.txt) per the [llmstxt.org](https://llmstxt.org/) convention. Agents can fetch the full API reference from a single URL.
 
 ### TypeScript types with JSDoc
 

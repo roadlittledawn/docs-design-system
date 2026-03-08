@@ -821,7 +821,7 @@ import {
 
 ## Collapser
 
-An expandable/collapsible content section with smooth animation. Use a single `Collapser` for standalone sections; use `CollapserGroup` when you have multiple.
+An expandable/collapsible content section with smooth animation. Content height adjusts automatically to fit all children, including images and other media that load asynchronously. Use a single `Collapser` for standalone sections; use `CollapserGroup` when you have multiple.
 
 ### When to Use
 
@@ -919,7 +919,7 @@ Container for multiple `Collapser` components with consistent spacing and option
 
 ### `numbered` prop
 
-When `numbered={true}`, `CollapserGroup` automatically injects sequential step numbers into each child `Collapser`. Combine with `align="right"` and `icon` on each `Collapser` for a polished step-by-step layout. Override the step number color with `--dds-collapser-step-number-color`.
+When `numbered={true}`, `CollapserGroup` automatically injects sequential step numbers into each child `Collapser`. This works in MDX and component-map contexts. Combine with `align="right"` and `icon` on each `Collapser` for a polished step-by-step layout. Override the step number color with `--dds-collapser-step-number-color`.
 
 ### Import
 

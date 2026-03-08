@@ -40,7 +40,7 @@ Before diving into individual components, here's guidance on common decision poi
 ### Headings and text
 
 - **`Heading`** — for semantic HTML headings that contribute to the document outline (SEO, accessibility, screen reader navigation)
-- **`Typography`** — for applying heading-style visuals without adding to the document outline (e.g., a callout title, a sidebar widget header)
+- **`Typography`** — for styled text, including headings when you still want semantic `<h1>`–`<h4>` elements; for heading-like visuals that should *not* be semantic headings, use `variant="p"` (or similar) plus styling instead of an `h1`–`h4` variant (e.g., a callout title, a sidebar widget header)
 
 ---
 
@@ -349,17 +349,17 @@ import { Heading } from "@roadlittledawn/docs-design-system-react";
 
 ## Typography
 
-Applies predefined text styles for visual consistency. Does not add semantic heading structure.
+Applies predefined text styles for visual consistency. Can render semantic headings when using `variant="h1" | "h2" | "h3" | "h4"`, but unlike `Heading` it does not auto-generate IDs or anchor links.
 
 ### When to Use
 
 - Body text and paragraphs
 - Captions and small supplementary text
-- Heading-style visuals where the element is not a document section heading (e.g., labels inside cards, widget titles, decorative callout headers)
+- Heading-style visuals where you don't need auto-generated IDs or in-page anchor links (e.g., labels inside cards, widget titles, decorative callout headers)
 
 ### When Not to Use
 
-- **Semantic document headings** — use `Heading` so the content appears in the document outline for screen readers and SEO
+- **Section headings that need auto-generated IDs / anchor links / outline integration** — prefer `Heading` so the content appears in navigation, tables of contents, and deep links
 - **Buttons** — use `Button`
 - **Links** — use `Link`
 
@@ -578,7 +578,7 @@ Use `CodeBlock` with `snippets` when all tabs contain code only and the user is 
 
 ### Multi-snippet behavior
 
-When `snippets` contains items sharing the same base filename (e.g., `greet.ts`, `greet.js`, `greet.py`), the component renders a **language dropdown**. When filenames differ (e.g., `Button.jsx`, `Button.css`), it renders **file tabs**.
+`CodeBlock` groups `snippets` by their `language` value. If there is more than one distinct `language` across the provided snippets, the component renders a **language dropdown** to switch between language groups. Within the active language group, if there are multiple snippets, it renders **tabs** to switch between those snippets.
 
 ### Import
 
@@ -679,7 +679,7 @@ await registerLanguages(async () => {
 />;
 
 {
-  /* Multi-language dropdown (same base filename triggers dropdown instead of tabs) */
+  /* Multi-language dropdown (driven by multiple language values; filenames only affect labels) */
 }
 <CodeBlock
   snippets={[

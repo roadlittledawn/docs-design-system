@@ -69,11 +69,17 @@
 }
 
 .dds-collapser-content-wrapper {
-  overflow: hidden;
-  transition: height 0.3s ease;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.dds-collapser-content-wrapper--open {
+  grid-template-rows: 1fr;
 }
 
 .dds-collapser-content {
+  overflow: hidden;
   border-top: 1px solid var(--dds-collapser-border);
   padding: var(--dds-collapser-content-padding);
   color: var(--dds-collapser-text);

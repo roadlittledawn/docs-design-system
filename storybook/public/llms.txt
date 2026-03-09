@@ -100,12 +100,12 @@ import { Card } from '@roadlittledawn/docs-design-system-react';
 
 ```tsx
 {/* Icon left — vertically centered beside content */}
-<Card title="Documentation" icon={<BookIcon />} iconPlacement="left">
+<Card title="Documentation" icon={<YourIcon />} iconPlacement="left">
   Read guides, tutorials, and API references.
 </Card>
 
 {/* Icon top-center — centered above title and content */}
-<Card title="Documentation" icon={<BookIcon />} iconPlacement="top-center">
+<Card title="Documentation" icon={<YourIcon />} iconPlacement="top-center">
   Read guides, tutorials, and API references.
 </Card>
 ```

@@ -152,12 +152,12 @@ import { Card } from "@roadlittledawn/docs-design-system-react";
 </Card>
 
 {/* Card with icon left (vertically centered beside content) */}
-<Card title="Documentation" icon={<BookIcon />} iconPlacement="left">
+<Card title="Documentation" icon={<YourIcon />} iconPlacement="left">
   Read guides, tutorials, and API references.
 </Card>
 
 {/* Card with icon top-center */}
-<Card title="Documentation" icon={<BookIcon />} iconPlacement="top-center">
+<Card title="Documentation" icon={<YourIcon />} iconPlacement="top-center">
   Read guides, tutorials, and API references.
 </Card>
 
@@ -173,11 +173,11 @@ In MDX files the `icon` prop is typically a string name (`icon="book"`). The con
 
 ```tsx
 // In your MDX components config:
-import { BookIcon, RocketIcon } from 'your-icon-library';
+import { YourBookIcon, YourRocketIcon } from 'your-icon-library';
 
 const iconMap: Record<string, React.ComponentType> = {
-  book: BookIcon,
-  rocket: RocketIcon,
+  book: YourBookIcon,
+  rocket: YourRocketIcon,
 };
 
 // Wrap Card in your MDX components map:

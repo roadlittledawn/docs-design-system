@@ -181,7 +181,7 @@ export const WithIconLeft: Story = {
     docs: {
       source: {
         code: `// In MDX the consuming site resolves the icon string to a component:
-<Card title="Documentation" icon={<BookIcon />} iconPlacement="left">
+<Card title="Documentation" icon={<DemoIcon />} iconPlacement="left">
   Read guides, tutorials, and API references.
 </Card>`,
       },
@@ -202,7 +202,7 @@ export const WithIconTopLeft: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<Card title="Documentation" icon={<BookIcon />} iconPlacement="top-left">
+        code: `<Card title="Documentation" icon={<DemoIcon />} iconPlacement="top-left">
   Read guides, tutorials, and API references.
 </Card>`,
       },
@@ -223,7 +223,7 @@ export const WithIconTopCenter: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<Card title="Documentation" icon={<BookIcon />} iconPlacement="top-center">
+        code: `<Card title="Documentation" icon={<DemoIcon />} iconPlacement="top-center">
   Read guides, tutorials, and API references.
 </Card>`,
       },
@@ -246,7 +246,7 @@ export const WithIconAndArrow: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<Card title="Get Started" href="/docs/quickstart" icon={<BookIcon />} iconPlacement="left" showArrow>
+        code: `<Card title="Get Started" href="/docs/quickstart" icon={<DemoIcon />} iconPlacement="left" showArrow>
   Follow the quickstart guide to set up in minutes.
 </Card>`,
       },
@@ -299,13 +299,13 @@ export const IconPlacements: Story = {
     docs: {
       source: {
         code: `<div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-  <Card title="Icon Left" icon={<BookIcon />} iconPlacement="left">
+  <Card title="Icon Left" icon={<DemoIcon />} iconPlacement="left">
     Icon is centered vertically beside the content.
   </Card>
-  <Card title="Icon Top Left" icon={<BookIcon />} iconPlacement="top-left">
+  <Card title="Icon Top Left" icon={<DemoIcon />} iconPlacement="top-left">
     Icon sits above the title, flush left.
   </Card>
-  <Card title="Icon Top Center" icon={<BookIcon />} iconPlacement="top-center">
+  <Card title="Icon Top Center" icon={<DemoIcon />} iconPlacement="top-center">
     Icon sits above the title, horizontally centered.
   </Card>
 </div>`,

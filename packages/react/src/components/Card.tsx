@@ -27,7 +27,7 @@ export interface CardProps {
   href?: string;
 
   /**
-   * Optional icon to display. Pass a rendered icon component (e.g. `<BookIcon />`).
+   * Optional icon to display. Pass a rendered icon component (e.g. `<YourIcon />`).
    * In MDX, the consuming site's component map resolves icon name strings to rendered
    * components before passing them here.
    */

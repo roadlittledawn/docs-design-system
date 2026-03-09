@@ -29,6 +29,21 @@ const meta: Meta<typeof Card> = {
       control: 'text',
       description: 'Optional link URL. When provided, the entire card becomes clickable.',
     },
+    icon: {
+      control: false,
+      description: 'Optional icon to display. Pass a rendered icon component.',
+    },
+    iconPlacement: {
+      control: { type: 'select' },
+      options: ['left', 'top-left', 'top-center'],
+      description: 'Placement of the icon within the card.',
+      table: { defaultValue: { summary: "'top-left'" } },
+    },
+    showArrow: {
+      control: 'boolean',
+      description: 'Show an animated arrow in the lower-right corner to signal the card is navigable.',
+      table: { defaultValue: { summary: 'false' } },
+    },
     children: {
       control: 'text',
       description: 'Card content.',
@@ -48,8 +63,8 @@ The Card component provides a flexible container for displaying content with vis
 ## When to Use
 
 - To group related content together
-- To create clickable navigation elements
-- To display feature highlights or key information
+- To create clickable navigation elements (use \`href\` + \`showArrow\`)
+- To display feature highlights with icons
 - To organize content in grid layouts
 
 ## When Not to Use
@@ -58,9 +73,23 @@ The Card component provides a flexible container for displaying content with vis
 - For alerts or notifications (use Callout)
 - For extensive content (consider using sections or pages)
 
+## Icon Usage in MDX
+
+In MDX files, \`icon\` is typically a string name (e.g. \`icon="book"\`). The consuming site's
+MDX component map resolves the string to a rendered icon before passing it to Card:
+
+\`\`\`tsx
+// In your MDX components config:
+Card: ({ icon, ...props }) => {
+  const IconComp = typeof icon === 'string' ? iconMap[icon] : null;
+  return <DdsCard icon={IconComp ? <IconComp /> : icon} {...props} />;
+}
+\`\`\`
+
 ## Accessibility
 
 - Clickable cards use proper link semantics
+- The arrow and icon are decorative (\`aria-hidden\`) and do not affect screen reader output
 - Color is not the only means of conveying information
         `,
       },
@@ -70,6 +99,13 @@ The Card component provides a flexible container for displaying content with vis
 
 export default meta;
 type Story = StoryObj<typeof Card>;
+
+/** A simple inline SVG used in stories to simulate a real icon component. */
+const DemoIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+  </svg>
+);
 
 /**
  * Basic card with title and content.
@@ -111,6 +147,114 @@ export const Clickable: Story = {
 };
 
 /**
+ * Clickable card with an animated arrow in the lower-right corner. Hover to see the animation.
+ */
+export const WithArrow: Story = {
+  args: {
+    title: 'Get Started',
+    href: '/docs/quickstart',
+    showArrow: true,
+    children: 'Follow the quickstart guide to set up in minutes.',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Card title="Get Started" href="/docs/quickstart" showArrow>
+  Follow the quickstart guide to set up in minutes.
+</Card>`,
+      },
+    },
+  },
+};
+
+/**
+ * Card with an icon placed to the left, vertically centered next to the title and content.
+ */
+export const WithIconLeft: Story = {
+  args: {
+    title: 'Documentation',
+    icon: <DemoIcon />,
+    iconPlacement: 'left',
+    children: 'Read guides, tutorials, and API references.',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `// In MDX the consuming site resolves the icon string to a component:
+<Card title="Documentation" icon={<BookIcon />} iconPlacement="left">
+  Read guides, tutorials, and API references.
+</Card>`,
+      },
+    },
+  },
+};
+
+/**
+ * Card with an icon placed above the title, flush left (the default top placement).
+ */
+export const WithIconTopLeft: Story = {
+  args: {
+    title: 'Documentation',
+    icon: <DemoIcon />,
+    iconPlacement: 'top-left',
+    children: 'Read guides, tutorials, and API references.',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Card title="Documentation" icon={<BookIcon />} iconPlacement="top-left">
+  Read guides, tutorials, and API references.
+</Card>`,
+      },
+    },
+  },
+};
+
+/**
+ * Card with an icon centered horizontally above the title and content.
+ */
+export const WithIconTopCenter: Story = {
+  args: {
+    title: 'Documentation',
+    icon: <DemoIcon />,
+    iconPlacement: 'top-center',
+    children: 'Read guides, tutorials, and API references.',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Card title="Documentation" icon={<BookIcon />} iconPlacement="top-center">
+  Read guides, tutorials, and API references.
+</Card>`,
+      },
+    },
+  },
+};
+
+/**
+ * Clickable card combining a left icon and the animated arrow. Hover to see the arrow animate.
+ */
+export const WithIconAndArrow: Story = {
+  args: {
+    title: 'Get Started',
+    href: '/docs/quickstart',
+    icon: <DemoIcon />,
+    iconPlacement: 'left',
+    showArrow: true,
+    children: 'Follow the quickstart guide to set up in minutes.',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Card title="Get Started" href="/docs/quickstart" icon={<BookIcon />} iconPlacement="left" showArrow>
+  Follow the quickstart guide to set up in minutes.
+</Card>`,
+      },
+    },
+  },
+};
+
+/**
  * Card with colored background.
  */
 export const ColoredBackground: Story = {
@@ -145,6 +289,42 @@ export const NoTitle: Story = {
       },
     },
   },
+};
+
+/**
+ * All icon placement variants side by side.
+ */
+export const IconPlacements: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `<div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+  <Card title="Icon Left" icon={<BookIcon />} iconPlacement="left">
+    Icon is centered vertically beside the content.
+  </Card>
+  <Card title="Icon Top Left" icon={<BookIcon />} iconPlacement="top-left">
+    Icon sits above the title, flush left.
+  </Card>
+  <Card title="Icon Top Center" icon={<BookIcon />} iconPlacement="top-center">
+    Icon sits above the title, horizontally centered.
+  </Card>
+</div>`,
+      },
+    },
+  },
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <Card title="Icon Left" icon={<DemoIcon />} iconPlacement="left">
+        <span style={{ color: 'var(--dds-card-text-gray)' }}>Icon is centered vertically beside the content.</span>
+      </Card>
+      <Card title="Icon Top Left" icon={<DemoIcon />} iconPlacement="top-left">
+        <span style={{ color: 'var(--dds-card-text-gray)' }}>Icon sits above the title, flush left.</span>
+      </Card>
+      <Card title="Icon Top Center" icon={<DemoIcon />} iconPlacement="top-center">
+        <span style={{ color: 'var(--dds-card-text-gray)' }}>Icon sits above the title, horizontally centered.</span>
+      </Card>
+    </div>
+  ),
 };
 
 /**

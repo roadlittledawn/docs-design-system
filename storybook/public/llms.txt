@@ -72,6 +72,9 @@ import { Card } from '@roadlittledawn/docs-design-system-react';
 | `titleColor` | `"blue" \| "green" \| "purple" \| "red" \| "yellow" \| "gray"` | `"gray"` | Color of the title text |
 | `backgroundColor` | `"blue" \| "green" \| "purple" \| "red" \| "yellow" \| "gray" \| "white"` | `"white"` | Background color of the card |
 | `href` | `string` | — | Optional link URL. When provided, the entire card becomes clickable |
+| `icon` | `ReactNode` | — | Optional icon to display. Pass a rendered icon component. In MDX, the consuming site's component map resolves string names to rendered components before passing here. |
+| `iconPlacement` | `"left" \| "top-left" \| "top-center"` | `"top-left"` | Where to place the icon: vertically centered on the left, above content flush left, or above content centered |
+| `showArrow` | `boolean` | `false` | Show an animated arrow in the lower-right corner to signal the card is navigable. Best used with `href`. |
 | `children` | `ReactNode` | — | Card content |
 | `className` | `string` | `""` | Additional CSS classes |
 
@@ -85,11 +88,25 @@ import { Card } from '@roadlittledawn/docs-design-system-react';
 </Card>
 ```
 
-#### Clickable card
+#### Clickable card with animated arrow
 
 ```tsx
-<Card title="API Reference" href="/docs/api">
-  Complete reference for all available components.
+<Card title="Get Started" href="/docs/quickstart" showArrow>
+  Follow the quickstart guide to set up in minutes.
+</Card>
+```
+
+#### Card with icon
+
+```tsx
+{/* Icon left — vertically centered beside content */}
+<Card title="Documentation" icon={<BookIcon />} iconPlacement="left">
+  Read guides, tutorials, and API references.
+</Card>
+
+{/* Icon top-center — centered above title and content */}
+<Card title="Documentation" icon={<BookIcon />} iconPlacement="top-center">
+  Read guides, tutorials, and API references.
 </Card>
 ```
 
@@ -99,6 +116,17 @@ import { Card } from '@roadlittledawn/docs-design-system-react';
 <Card title="New Feature" titleColor="blue" backgroundColor="blue">
   Check out our latest component additions.
 </Card>
+```
+
+#### Icon usage in MDX
+
+In MDX files the `icon` prop is typically a string name (`icon="book"`). The consuming site's MDX component map resolves strings to rendered icon components:
+
+```tsx
+Card: ({ icon, ...props }) => {
+  const IconComp = typeof icon === 'string' ? iconMap[icon] : null;
+  return <DdsCard icon={IconComp ? <IconComp /> : icon} {...props} />;
+}
 ```
 
 ---

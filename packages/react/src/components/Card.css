@@ -6,6 +6,7 @@ a.no-text-decoration {
   padding: var(--dds-card-padding);
   border-radius: var(--dds-card-radius);
   border: 1px solid var(--dds-card-border);
+  position: relative;
 }
 
 .dds-card-clickable {
@@ -119,12 +120,13 @@ a.no-text-decoration {
 }
 
 /* Arrow */
-.dds-card {
-  position: relative;
-}
-
 .dds-card-has-arrow {
   padding-right: calc(var(--dds-card-padding) + 1.25rem);
+}
+
+[dir="rtl"] .dds-card-has-arrow {
+  padding-right: var(--dds-card-padding);
+  padding-left: calc(var(--dds-card-padding) + 1.25rem);
 }
 
 .dds-card-arrow {

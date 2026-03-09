@@ -72,6 +72,7 @@
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.3s ease;
+  overflow: hidden;
 }
 
 .dds-collapser-content-wrapper--open {

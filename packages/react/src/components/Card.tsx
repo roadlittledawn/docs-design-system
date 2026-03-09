@@ -26,6 +26,29 @@ export interface CardProps {
   /** Optional link URL. When provided, the entire card becomes clickable */
   href?: string;
 
+  /**
+   * Optional icon to display. Pass a rendered icon component (e.g. `<YourIcon />`).
+   * In MDX, the consuming site's component map resolves icon name strings to rendered
+   * components before passing them here.
+   */
+  icon?: ReactNode;
+
+  /**
+   * Placement of the icon within the card.
+   * - `"left"` — icon centered vertically on the left, title + content on the right
+   * - `"top-left"` — icon above title and content, flush left
+   * - `"top-center"` — icon above title and content, horizontally centered
+   * @default 'top-left'
+   */
+  iconPlacement?: "left" | "top-left" | "top-center";
+
+  /**
+   * Show an animated arrow in the lower-right corner to signal the card is navigable.
+   * Best used together with `href`. The arrow animates with a springy motion on hover.
+   * @default false
+   */
+  showArrow?: boolean;
+
   /** Card content */
   children: ReactNode;
 
@@ -38,6 +61,9 @@ export function Card({
   titleColor = "gray",
   backgroundColor = "white",
   href,
+  icon,
+  iconPlacement = "top-left",
+  showArrow = false,
   children,
   className = "",
 }: CardProps) {
@@ -45,6 +71,7 @@ export function Card({
     "dds-card",
     `dds-card-bg-${backgroundColor}`,
     href ? "dds-card-clickable" : "",
+    showArrow ? "dds-card-has-arrow" : "",
     className,
   ]
     .filter(Boolean)
@@ -59,10 +86,61 @@ export function Card({
       ? `dds-card-text-${backgroundColor}`
       : "dds-card-text-gray";
 
+  const iconEl = icon ? (
+    <span
+      className={[
+        "dds-card-icon",
+        iconPlacement === "top-center" ? "dds-card-icon-top-center" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+      aria-hidden="true"
+    >
+      {icon}
+    </span>
+  ) : null;
+
+  const arrowEl = showArrow ? (
+    <span className="dds-card-arrow" aria-hidden="true">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M2 8H14M10 4L14 8L10 12"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </span>
+  ) : null;
+
+  const bodyContent =
+    icon && iconPlacement === "left" ? (
+      <div className="dds-card-icon-row">
+        {iconEl}
+        <div className="dds-card-icon-content">
+          {title && <h3 className={titleClasses}>{title}</h3>}
+          <div className={textClasses}>{children}</div>
+        </div>
+      </div>
+    ) : (
+      <>
+        {iconEl}
+        {title && <h3 className={titleClasses}>{title}</h3>}
+        <div className={textClasses}>{children}</div>
+      </>
+    );
+
   const content = (
     <div className={cardClasses}>
-      {title && <h3 className={titleClasses}>{title}</h3>}
-      <div className={textClasses}>{children}</div>
+      {bodyContent}
+      {arrowEl}
     </div>
   );
 

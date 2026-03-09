@@ -44,6 +44,13 @@
   --dds-card-text-yellow: #854d0e; /* yellow-800 */
   --dds-card-text-gray: #374151; /* gray-700 */
 
+  --dds-card-icon-size: 1.5rem; /* 24px */
+  --dds-card-icon-color: #6b7280; /* gray-500 */
+  --dds-card-icon-margin-bottom: 0.75rem;
+  --dds-card-icon-gap: 1rem;
+  --dds-card-arrow-color: #9ca3af; /* gray-400 */
+  --dds-card-arrow-inset: 0.75rem;
+
   /* Typography - Font Sizes */
   --dds-heading-1-size: 2.25rem; /* text-4xl */
   --dds-heading-2-size: 1.875rem; /* text-3xl */
@@ -360,6 +367,9 @@
   --dds-card-text-yellow: #fef08a; /* yellow-200 */
   --dds-card-text-gray: #d1d5db; /* gray-300 */
 
+  --dds-card-icon-color: #9ca3af; /* gray-400 */
+  --dds-card-arrow-color: #6b7280; /* gray-500 */
+
   /* Link */
   --dds-link-color: #60a5fa; /* blue-400 */
   --dds-link-color-hover: #93c5fd; /* blue-300 */
@@ -543,6 +553,9 @@
     --dds-card-text-yellow: #fef08a;
     --dds-card-text-gray: #d1d5db;
 
+    --dds-card-icon-color: #9ca3af; /* gray-400 */
+    --dds-card-arrow-color: #6b7280; /* gray-500 */
+
     /* Link */
     --dds-link-color: #60a5fa;
     --dds-link-color-hover: #93c5fd;
@@ -725,6 +738,9 @@
   --dds-card-text-red: #fecaca;
   --dds-card-text-yellow: #fef08a;
   --dds-card-text-gray: #d1d5db;
+
+  --dds-card-icon-color: #9ca3af; /* gray-400 */
+  --dds-card-arrow-color: #6b7280; /* gray-500 */
 
   /* Link */
   --dds-link-color: #60a5fa;

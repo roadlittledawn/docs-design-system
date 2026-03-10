@@ -43,6 +43,18 @@ export interface CardProps {
   iconPlacement?: "left" | "top-left" | "top-center";
 
   /**
+   * Override the icon container width. Accepts any valid CSS length value (e.g. `"2rem"`, `"48px"`).
+   * Defaults to the `--dds-card-icon-size` token (`1.5rem`).
+   */
+  iconWidth?: string;
+
+  /**
+   * Override the icon container height. Accepts any valid CSS length value (e.g. `"2rem"`, `"48px"`).
+   * Defaults to the `--dds-card-icon-size` token (`1.5rem`).
+   */
+  iconHeight?: string;
+
+  /**
    * Show an animated arrow in the lower-right corner to signal the card is navigable.
    * Best used together with `href`. The arrow animates with a springy motion on hover.
    * @default false
@@ -63,6 +75,8 @@ export function Card({
   href,
   icon,
   iconPlacement = "top-left",
+  iconWidth,
+  iconHeight,
   showArrow = false,
   children,
   className = "",
@@ -94,6 +108,10 @@ export function Card({
       ]
         .filter(Boolean)
         .join(" ")}
+      style={{
+        ...(iconWidth && { width: iconWidth }),
+        ...(iconHeight && { height: iconHeight }),
+      }}
       aria-hidden="true"
     >
       {icon}

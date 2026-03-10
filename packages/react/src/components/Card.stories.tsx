@@ -39,6 +39,14 @@ const meta: Meta<typeof Card> = {
       description: 'Placement of the icon within the card.',
       table: { defaultValue: { summary: "'top-left'" } },
     },
+    iconWidth: {
+      control: 'text',
+      description: 'Override the icon container width (e.g. "2rem", "48px"). Defaults to the --dds-card-icon-size token (1.5rem).',
+    },
+    iconHeight: {
+      control: 'text',
+      description: 'Override the icon container height (e.g. "2rem", "48px"). Defaults to the --dds-card-icon-size token (1.5rem).',
+    },
     showArrow: {
       control: 'boolean',
       description: 'Show an animated arrow in the lower-right corner to signal the card is navigable.',
@@ -322,6 +330,38 @@ export const IconPlacements: Story = {
       </Card>
       <Card title="Icon Top Center" icon={<DemoIcon />} iconPlacement="top-center">
         <span style={{ color: 'var(--dds-card-text-gray)' }}>Icon sits above the title, horizontally centered.</span>
+      </Card>
+    </div>
+  ),
+};
+
+/**
+ * Cards with a custom icon size using the `iconWidth` and `iconHeight` props.
+ * Use any valid CSS length value (e.g. `"2rem"`, `"48px"`).
+ */
+export const WithCustomIconSize: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `{/* 48px icon container */}
+<Card title="Large Icon" icon={<YourIcon />} iconPlacement="top-left" iconWidth="3rem" iconHeight="3rem">
+  Icon container is 48px × 48px (3rem).
+</Card>
+
+{/* 16px icon container */}
+<Card title="Small Icon" icon={<YourIcon />} iconPlacement="left" iconWidth="1rem" iconHeight="1rem">
+  Icon container is 16px × 16px (1rem).
+</Card>`,
+      },
+    },
+  },
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <Card title="Large Icon" icon={<DemoIcon />} iconPlacement="top-left" iconWidth="3rem" iconHeight="3rem">
+        <span style={{ color: 'var(--dds-card-text-gray)' }}>Icon container is 48px × 48px (3rem).</span>
+      </Card>
+      <Card title="Small Icon" icon={<DemoIcon />} iconPlacement="left" iconWidth="1rem" iconHeight="1rem">
+        <span style={{ color: 'var(--dds-card-text-gray)' }}>Icon container is 16px × 16px (1rem).</span>
       </Card>
     </div>
   ),

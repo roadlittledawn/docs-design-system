@@ -529,10 +529,20 @@ import { List } from "@roadlittledawn/docs-design-system-react";
 
 ### List.Item Props
 
-| Prop        | Type        | Default | Description            |
-| ----------- | ----------- | ------- | ---------------------- |
-| `children`  | `ReactNode` | —       | List item content      |
-| `className` | `string`    | `""`    | Additional CSS classes |
+| Prop         | Type        | Default | Description                                                                 |
+| ------------ | ----------- | ------- | --------------------------------------------------------------------------- |
+| `children`   | `ReactNode` | —       | List item content                                                           |
+| `className`  | `string`    | `""`    | Additional CSS classes                                                      |
+| `bulletIcon` | `ReactNode` | —       | Custom bullet icon for this item. Overrides the parent `List`'s `bulletIcon` |
+
+### CSS classes
+
+| Class | Element | Notes |
+| ----- | ------- | ----- |
+| `dds-list` | `<ol>` / `<ul>` | Root list element |
+| `dds-list-item` | `<li>` | Each list item |
+| `dds-list-item-content` | `<div>` | Wraps item children; target for content-level overrides |
+| `dds-list-item-icon` | `<span>` | Wrapper for custom `bulletIcon` SVG/node |
 
 ### Examples
 

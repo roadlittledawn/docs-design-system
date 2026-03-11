@@ -69,7 +69,7 @@ export function ListItem({ children, className = "", bulletIcon }: ListItemProps
           {bulletIcon}
         </span>
       )}
-      <span className="dds-list-item-content">{children}</span>
+      <div className="dds-list-item-content">{children}</div>
     </li>
   );
 }

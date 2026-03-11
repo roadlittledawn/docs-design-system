@@ -24,7 +24,7 @@ export interface ListItemProps {
   /** Additional CSS classes */
   className?: string;
 
-  /** Internal: bullet icon injected by List parent for unordered lists */
+  /** Custom bullet icon (React node, e.g., SVG) for this item. Overrides the parent List's bulletIcon */
   bulletIcon?: ReactNode;
 }
 
@@ -36,7 +36,6 @@ function ListImpl({ children, className = "", ordered = true, bullet, bulletIcon
     <Element
       className={listClasses}
       data-ordered={ordered}
-      data-has-icon={!!bulletIcon && !ordered}
       style={
         bullet && !bulletIcon
           ? ({ "--dds-list-bullet": JSON.stringify(bullet) } as React.CSSProperties)
@@ -46,9 +45,11 @@ function ListImpl({ children, className = "", ordered = true, bullet, bulletIcon
       {bulletIcon && !ordered
         ? React.Children.map(children, (child) => {
             if (React.isValidElement(child) && child.type === ListItem) {
+              const childProps = child.props as ListItemProps;
               return React.cloneElement(child as React.ReactElement<ListItemProps>, {
-                ...child.props,
-                bulletIcon,
+                ...childProps,
+                // Child's own bulletIcon takes precedence over the parent's
+                bulletIcon: childProps.bulletIcon ?? bulletIcon,
               });
             }
             return child;
@@ -62,13 +63,13 @@ export function ListItem({ children, className = "", bulletIcon }: ListItemProps
   const itemClasses = ["dds-list-item", className].filter(Boolean).join(" ");
 
   return (
-    <li className={itemClasses}>
+    <li className={itemClasses} data-has-icon={bulletIcon ? "true" : undefined}>
       {bulletIcon && (
         <span className="dds-list-item-icon" aria-hidden="true">
           {bulletIcon}
         </span>
       )}
-      {children}
+      <span className="dds-list-item-content">{children}</span>
     </li>
   );
 }

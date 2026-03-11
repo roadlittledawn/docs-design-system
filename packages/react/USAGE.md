@@ -529,10 +529,11 @@ import { List } from "@roadlittledawn/docs-design-system-react";
 
 ### List.Item Props
 
-| Prop        | Type        | Default | Description            |
-| ----------- | ----------- | ------- | ---------------------- |
-| `children`  | `ReactNode` | —       | List item content      |
-| `className` | `string`    | `""`    | Additional CSS classes |
+| Prop         | Type        | Default | Description                                                                 |
+| ------------ | ----------- | ------- | --------------------------------------------------------------------------- |
+| `children`   | `ReactNode` | —       | List item content                                                           |
+| `className`  | `string`    | `""`    | Additional CSS classes                                                      |
+| `bulletIcon` | `ReactNode` | —       | Custom bullet icon for this item. Overrides the parent `List`'s `bulletIcon` |
 
 ### Examples
 

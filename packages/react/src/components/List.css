@@ -13,7 +13,9 @@
 .dds-list-item {
   counter-increment: list-counter;
   position: relative;
-  padding-inline-start: calc(var(--dds-list-badge-size) + 1rem);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
   margin-bottom: var(--dds-list-item-margin-bottom, 1.5rem);
   min-height: var(--dds-list-badge-size);
 }
@@ -39,13 +41,10 @@
 /* Ordered list badges */
 .dds-list[data-ordered="true"] .dds-list-item::before {
   content: counter(list-counter);
-  position: absolute;
-  left: 0;
-  top: 0;
+  flex-shrink: 0;
   width: var(--dds-list-badge-size, 2.5rem);
   height: var(--dds-list-badge-size, 2.5rem);
   line-height: var(--dds-line-height-relaxed);
-  inset-inline-start: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,29 +59,26 @@
 /* Unordered list bullets */
 .dds-list[data-ordered="false"] .dds-list-item::before {
   content: var(--dds-list-bullet, "•");
-  position: absolute;
-  left: 0;
-  top: 0;
+  flex-shrink: 0;
   width: var(--dds-list-badge-size, 2.5rem);
   height: var(--dds-list-badge-size, 2.5rem);
-  inset-inline-start: 0;
   display: flex;
+  transform: translateY(var(--dds-list-bullet-offset, -0.1em));
   align-items: center;
   justify-content: center;
-  font-size: var(--dds-list-bullet-size, 1.5rem);
+  font-size: var(--dds-list-bullet-size, 1.25rem);
   color: var(--dds-list-badge-text);
 }
 
-/* Hide ::before when using custom icon */
-.dds-list[data-has-icon="true"] .dds-list-item::before {
+/* Hide ::before when item has a custom icon.
+   Specificity matches the show rules above (0-3-1) and comes after, so it wins. */
+.dds-list .dds-list-item[data-has-icon="true"]::before {
   display: none;
 }
 
 /* Custom icon bullet */
 .dds-list-item-icon {
-  position: absolute;
-  left: 0;
-  top: 0;
+  flex-shrink: 0;
   width: var(--dds-list-badge-size, 2.5rem);
   height: var(--dds-list-badge-size, 2.5rem);
   display: flex;
@@ -96,3 +92,27 @@
   height: 1.25rem;
 }
 
+/* Content wrapper — flex child that fills remaining space */
+.dds-list-item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Neutralize consuming-site typography margins that would misalign the badge.
+   The list item's own margin/padding controls spacing — not the children's. */
+.dds-list-item-content > :first-child {
+  margin-top: 0;
+}
+
+.dds-list-item-content > :last-child {
+  margin-bottom: 0;
+}
+
+/* For unordered lists, vertically center the content within the li so the first
+   text line's center aligns with the bullet/icon center.
+   margin-block: auto distributes remaining space evenly above and below the
+   content span, so its midpoint always lands at badge-size/2 — the same as the
+   bullet center — regardless of font-size or line-height. */
+.dds-list[data-ordered="false"] .dds-list-item-content {
+  margin-block: auto;
+}

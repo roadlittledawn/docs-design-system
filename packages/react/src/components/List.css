@@ -63,9 +63,10 @@
   width: var(--dds-list-badge-size, 2.5rem);
   height: var(--dds-list-badge-size, 2.5rem);
   display: flex;
+  transform: translateY(var(--dds-list-bullet-offset, -0.1em));
   align-items: center;
   justify-content: center;
-  font-size: var(--dds-list-bullet-size, 1.5rem);
+  font-size: var(--dds-list-bullet-size, 1.25rem);
   color: var(--dds-list-badge-text);
 }
 

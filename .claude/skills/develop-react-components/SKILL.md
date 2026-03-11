@@ -1,9 +1,9 @@
 ---
-name: develop-react-components
-description: Guide for adding or modifying components in packages/react. Use when creating new components, updating existing ones, adding styles/tokens, or writing Storybook stories for the react component library.
+name: develop-distributed-package-components
+description: Guide for adding or modifying components in packages/ that are distributed as npm packages. Use when creating new components, updating existing ones, adding styles/tokens, or writing Storybook stories for the react component library in packages/react.
 ---
 
-# Developing packages/react components
+# Developing distributed package components (packages/react)
 
 ## File structure
 
@@ -134,7 +134,19 @@ export const Default: Story = {
 };
 ```
 
-### 7. Build and verify
+### 7. Bump the package version (`packages/react/package.json`)
+
+When adding or modifying any component, bump the version in `packages/react/package.json` following semver:
+
+- **Patch** (`0.x.Y → 0.x.Y+1`) — bug fixes, doc-only changes, non-breaking tweaks
+- **Minor** (`0.X.0 → 0.X+1.0`) — new props, new components, new features (backward-compatible)
+- **Major** (`X.0.0 → X+1.0.0`) — breaking changes (removed props, renamed components)
+
+```json
+"version": "0.12.1"
+```
+
+### 9. Build and verify
 
 Run from the repo root:
 

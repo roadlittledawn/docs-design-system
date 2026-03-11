@@ -74,8 +74,7 @@ import { Card } from '@roadlittledawn/docs-design-system-react';
 | `href` | `string` | — | Optional link URL. When provided, the entire card becomes clickable |
 | `icon` | `ReactNode` | — | Optional icon to display. Pass a rendered icon component. In MDX, the consuming site's component map resolves string names to rendered components before passing here. |
 | `iconPlacement` | `"left" \| "top-left" \| "top-center"` | `"top-left"` | Where to place the icon: vertically centered on the left, above content flush left, or above content centered |
-| `iconWidth` | `string` | — | Override the icon container width. Accepts any valid CSS length (e.g. `"2rem"`, `"48px"`). Defaults to `--dds-card-icon-size` (`1.5rem`). |
-| `iconHeight` | `string` | — | Override the icon container height. Accepts any valid CSS length (e.g. `"2rem"`, `"48px"`). Defaults to `--dds-card-icon-size` (`1.5rem`). |
+| `iconSize` | `string` | — | Override the icon container size (width and height). Accepts any valid CSS length (e.g. `"2rem"`, `"48px"`). Defaults to `--dds-card-icon-size` (`1.5rem`). |
 | `showArrow` | `boolean` | `false` | Show an animated arrow in the lower-right corner to signal the card is navigable. Best used with `href`. |
 | `children` | `ReactNode` | — | Card content |
 | `className` | `string` | `""` | Additional CSS classes |
@@ -112,7 +111,7 @@ import { Card } from '@roadlittledawn/docs-design-system-react';
 </Card>
 
 {/* Custom icon size — 48px container */}
-<Card title="Documentation" icon={<YourIcon />} iconPlacement="top-left" iconWidth="3rem" iconHeight="3rem">
+<Card title="Documentation" icon={<YourIcon />} iconPlacement="top-left" iconSize="3rem">
   Icon container overridden to 48px × 48px.
 </Card>
 ```

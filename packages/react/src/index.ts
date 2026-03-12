@@ -16,6 +16,7 @@ export * from './components/Table';
 export * from './components/Grid';
 export * from './components/Breadcrumb';
 export * from './components/Icon';
+export * from './components/MermaidDiagram';
 
 // Export hooks
 export * from './hooks/useKeyPress';

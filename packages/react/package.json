@@ -1,6 +1,6 @@
 {
   "name": "@roadlittledawn/docs-design-system-react",
-  "version": "0.12.2",
+  "version": "0.13.0",
   "license": "MIT",
   "description": "React components for documentation design system",
   "repository": {
@@ -24,6 +24,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "mermaid": "^11.0.0",
     "prismjs": "^1.29.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

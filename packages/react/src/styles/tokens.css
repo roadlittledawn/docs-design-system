@@ -304,6 +304,16 @@
   --dds-breadcrumb-delimiter-color: #9ca3af; /* gray-400 */
   --dds-breadcrumb-ellipsis-radius: 0.25rem; /* rounded */
   --dds-breadcrumb-ellipsis-hover-bg: #f3f4f6; /* gray-100 */
+
+  /* MermaidDiagram */
+  --dds-mermaid-border: #e5e7eb; /* gray-200 */
+  --dds-mermaid-bg: #ffffff;
+  --dds-mermaid-radius: 0.5rem; /* rounded-lg */
+  --dds-mermaid-padding: 1.25rem;
+  --dds-mermaid-margin: 1rem 0;
+  --dds-mermaid-error-border: #fca5a5; /* red-300 */
+  --dds-mermaid-error-bg: #fef2f2; /* red-50 */
+  --dds-mermaid-error-text: #dc2626; /* red-600 */
 }
 
 /* ==========================================================================
@@ -496,6 +506,13 @@
   --dds-breadcrumb-current-color: #e5e7eb; /* gray-200 */
   --dds-breadcrumb-delimiter-color: #6b7280; /* gray-500 */
   --dds-breadcrumb-ellipsis-hover-bg: rgba(255, 255, 255, 0.08);
+
+  /* MermaidDiagram */
+  --dds-mermaid-border: #4b5563; /* gray-600 */
+  --dds-mermaid-bg: transparent;
+  --dds-mermaid-error-border: #991b1b; /* red-800 */
+  --dds-mermaid-error-bg: rgba(239, 68, 68, 0.08);
+  --dds-mermaid-error-text: #f87171; /* red-400 */
 }
 
 /* Auto dark mode — follows OS preference, opt-out with .dds-light */
@@ -682,6 +699,13 @@
     --dds-breadcrumb-current-color: #e5e7eb; /* gray-200 */
     --dds-breadcrumb-delimiter-color: #6b7280; /* gray-500 */
     --dds-breadcrumb-ellipsis-hover-bg: rgba(255, 255, 255, 0.08);
+
+    /* MermaidDiagram */
+    --dds-mermaid-border: #4b5563;
+    --dds-mermaid-bg: transparent;
+    --dds-mermaid-error-border: #991b1b;
+    --dds-mermaid-error-bg: rgba(239, 68, 68, 0.08);
+    --dds-mermaid-error-text: #f87171;
   }
 }
 
@@ -847,4 +871,11 @@
   --dds-breadcrumb-current-color: #e5e7eb; /* gray-200 */
   --dds-breadcrumb-delimiter-color: #6b7280; /* gray-500 */
   --dds-breadcrumb-ellipsis-hover-bg: rgba(255, 255, 255, 0.08);
+
+  /* MermaidDiagram */
+  --dds-mermaid-border: #4b5563;
+  --dds-mermaid-bg: transparent;
+  --dds-mermaid-error-border: #991b1b;
+  --dds-mermaid-error-bg: rgba(239, 68, 68, 0.08);
+  --dds-mermaid-error-text: #f87171;
 }

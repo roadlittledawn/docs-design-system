@@ -563,7 +563,7 @@ import { CollapserGroup, Collapser } from '@roadlittledawn/docs-design-system-re
 
 ## Popover
 
-A hover/tap-activated popover for enriching inline content in documentation. Built on the native Popover API.
+A hover/tap-activated popover for enriching inline content in documentation. Built on the native Popover API. Includes a close button (×) in the upper-right corner of the panel; can also be dismissed by clicking/tapping outside or pressing Escape.
 
 ### Import
 

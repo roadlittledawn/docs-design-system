@@ -2,6 +2,7 @@ import type { AppProps } from "next/app";
 import { Geist, Geist_Mono } from "next/font/google";
 import { DocsLayout } from "../layout/DocsLayout";
 import { navigationConfig } from "../nav.config";
+import { ThemeProvider } from "../context/ThemeContext";
 import "../globals.css";
 import "../../packages/react/dist/styles.css";
 
@@ -17,10 +18,12 @@ const geistMono = Geist_Mono({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      <DocsLayout navigationConfig={navigationConfig}>
-        <Component {...pageProps} />
-      </DocsLayout>
-    </div>
+    <ThemeProvider>
+      <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <DocsLayout navigationConfig={navigationConfig}>
+          <Component {...pageProps} />
+        </DocsLayout>
+      </div>
+    </ThemeProvider>
   );
 }

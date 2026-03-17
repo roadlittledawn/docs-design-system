@@ -1035,7 +1035,15 @@ A hover/tap-activated floating panel for enriching inline documentation content.
 
 ### Mobile behavior
 
-On screens ≤ 640px, the popover renders as a **bottom sheet** instead of a floating panel. Hover doesn't apply on touch devices; the popover toggles on tap.
+On screens ≤ 640px, the popover renders as a **bottom sheet** instead of a floating panel. Hover doesn't apply on touch devices; the popover opens on tap.
+
+### Closing the popover
+
+The popover can be closed in three ways:
+
+- **Close button** — the × button in the upper-right corner of the panel
+- **Click / tap outside** — native light-dismiss provided by `popover="auto"`
+- **Escape key** — handled automatically by the Popover API
 
 ### Content modes (choose one)
 

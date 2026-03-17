@@ -83,7 +83,14 @@ The \`Popover\` supports three mutually exclusive content modes, checked in this
 ## Mobile behavior
 
 On screens ≤ 640 px the popover renders as a bottom sheet instead of a floating panel.
-Hover events don't apply; the popover toggles on tap.
+Hover events don't apply; the popover opens on tap.
+
+## Closing the popover
+
+The popover can be closed in three ways:
+- **Close button** — the × button in the upper-right corner of the panel
+- **Click / tap outside** — native light-dismiss provided by \`popover="auto"\`
+- **Escape key** — handled automatically by the Popover API
 
 ## Accessibility
 

@@ -7,7 +7,7 @@
 /* Trigger */
 .dds-popover-trigger {
   display: inline;
-  cursor: default;
+  cursor: help;
   text-decoration-line: underline;
   text-decoration-style: dotted;
   text-decoration-color: currentColor;
@@ -116,6 +116,41 @@
 }
 
 /* ==========================================================================
+   Close button — sits in the upper-right corner of the popover panel
+   ========================================================================== */
+.dds-popover-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  color: var(--dds-popover-eyebrow-color);
+  font-size: 1.125rem;
+  line-height: 1;
+  transition:
+    background 120ms,
+    color 120ms;
+}
+
+.dds-popover-close:hover {
+  background: var(--dds-popover-border);
+  color: var(--dds-popover-text);
+}
+
+.dds-popover-close:focus-visible {
+  outline: 2px solid var(--dds-link-color);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
    Shared inner elements
    ========================================================================== */
 .dds-popover-eyebrow {
@@ -126,6 +161,7 @@
   text-transform: uppercase;
   color: var(--dds-popover-eyebrow-color);
   margin-bottom: 0.25rem;
+  padding-right: 1.75rem; /* leave room for the close button */
 }
 
 .dds-popover-title {
@@ -134,6 +170,7 @@
   font-weight: var(--dds-font-semibold);
   color: var(--dds-popover-title-color);
   line-height: var(--dds-line-height-tight);
+  padding-right: 1.75rem; /* leave room for the close button */
 }
 
 .dds-popover-title dfn {

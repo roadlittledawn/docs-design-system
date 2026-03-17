@@ -2,6 +2,7 @@
 
 import {
   ReactNode,
+  MouseEvent,
   useRef,
   useId,
   useCallback,
@@ -222,6 +223,14 @@ export function Popover({
   const popoverRef = useRef<HTMLDivElement>(null);
   const showTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Tracks when the popover was last shown automatically (hover/focus).
+  // Used to prevent the click handler from immediately closing a popover that
+  // was just opened by the hover timer (fixes the first-tap flicker on touch).
+  // On touch devices the synthetic `click` arrives ~300 ms after touch-start;
+  // the guard window must exceed showDelay (200 ms default) + that browser
+  // delay, so 400 ms is a safe minimum.
+  const FLICKER_GUARD_MS = 400;
+  const lastAutoShowTimeRef = useRef<number>(0);
 
   const clearTimers = useCallback(() => {
     if (showTimerRef.current) clearTimeout(showTimerRef.current);
@@ -275,6 +284,8 @@ export function Popover({
       }
       positionPopover();
       popover.style.visibility = "";
+      // Record the time so the click handler knows the popover was auto-shown
+      lastAutoShowTimeRef.current = Date.now();
     }, showDelay);
   }, [clearTimers, showDelay, positionPopover]);
 
@@ -349,6 +360,16 @@ export function Popover({
           clearTimers();
           const popover = popoverRef.current;
           if (!popover) return;
+          const isOpen =
+            popover.matches(":popover-open") ||
+            popover.style.display === "block";
+          // Flicker guard: if the popover was just shown automatically by the
+          // hover/focus timer within the last 400 ms, a tap's synthetic click
+          // would arrive and toggle it closed. Instead, keep it open so the
+          // first tap reliably shows the popover.
+          if (isOpen && Date.now() - lastAutoShowTimeRef.current < FLICKER_GUARD_MS) {
+            return;
+          }
           try {
             popover.togglePopover();
             if (popover.matches(":popover-open")) positionPopover();
@@ -372,6 +393,23 @@ export function Popover({
         onMouseEnter={clearTimers}
         onMouseLeave={hidePopover}
       >
+        <button
+          className="dds-popover-close"
+          aria-label="Close"
+          onClick={(e: MouseEvent) => {
+            e.stopPropagation();
+            clearTimers();
+            const popover = popoverRef.current;
+            if (!popover) return;
+            try {
+              popover.hidePopover();
+            } catch {
+              popover.style.display = "none";
+            }
+          }}
+        >
+          ×
+        </button>
         {popoverContent}
       </div>
     </>

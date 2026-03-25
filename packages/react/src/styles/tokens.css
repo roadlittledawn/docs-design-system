@@ -286,6 +286,27 @@
   --dds-table-cell-padding: 0.75rem 1rem;
   --dds-table-focus-ring: #3b82f6; /* blue-500 */
 
+  /* Tile */
+  --dds-tile-padding: 0.875rem;
+  --dds-tile-radius: 0.375rem;
+  --dds-tile-border: #e5e7eb; /* gray-200 */
+  --dds-tile-border-hover: #d1d5db; /* gray-300 */
+  --dds-tile-bg: #ffffff;
+  --dds-tile-shadow-hover:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --dds-tile-icon-size: 1.25rem; /* 20px */
+  --dds-tile-icon-color: #6b7280; /* gray-500 */
+  --dds-tile-icon-gap: 0.75rem;
+  --dds-tile-title-size: 0.9375rem; /* 15px */
+  --dds-tile-title-color: #111827; /* gray-900 */
+  --dds-tile-desc-size: 0.8125rem; /* 13px */
+  --dds-tile-desc-color: #6b7280; /* gray-500 */
+  --dds-tile-arrow-color: #9ca3af; /* gray-400 */
+  --dds-tile-arrow-inset: 0.625rem;
+
+  /* TileGrid */
+  --dds-tile-grid-gap: 0.75rem;
+
   /* Grid */
   --dds-grid-gap-sm: 1rem; /* gap-4 */
   --dds-grid-gap-md: 1.5rem; /* gap-6 */
@@ -487,6 +508,16 @@
   --dds-table-header-active-text: #93c5fd; /* blue-300 */
   --dds-table-focus-ring: #60a5fa; /* blue-400 */
 
+  /* Tile */
+  --dds-tile-border: #4b5563; /* gray-600 */
+  --dds-tile-border-hover: #9ca3af; /* gray-400 */
+  --dds-tile-bg: transparent;
+  --dds-tile-shadow-hover: none;
+  --dds-tile-icon-color: #9ca3af; /* gray-400 */
+  --dds-tile-title-color: #e5e7eb; /* gray-200 */
+  --dds-tile-desc-color: #9ca3af; /* gray-400 */
+  --dds-tile-arrow-color: #6b7280; /* gray-500 */
+
   /* Grid */
   --dds-grid-divider-color: #4b5563; /* gray-600 */
 
@@ -673,6 +704,16 @@
     --dds-table-header-active-text: #93c5fd;
     --dds-table-focus-ring: #60a5fa;
 
+    /* Tile */
+    --dds-tile-border: #4b5563; /* gray-600 */
+    --dds-tile-border-hover: #9ca3af; /* gray-400 */
+    --dds-tile-bg: transparent;
+    --dds-tile-shadow-hover: none;
+    --dds-tile-icon-color: #9ca3af; /* gray-400 */
+    --dds-tile-title-color: #e5e7eb; /* gray-200 */
+    --dds-tile-desc-color: #9ca3af; /* gray-400 */
+    --dds-tile-arrow-color: #6b7280; /* gray-500 */
+
     /* Grid */
     --dds-grid-divider-color: #4b5563; /* gray-600 */
 
@@ -840,6 +881,16 @@
   --dds-table-header-hover-text: #f9fafb;
   --dds-table-header-active-text: #93c5fd;
   --dds-table-focus-ring: #60a5fa;
+
+  /* Tile */
+  --dds-tile-border: #4b5563; /* gray-600 */
+  --dds-tile-border-hover: #9ca3af; /* gray-400 */
+  --dds-tile-bg: transparent;
+  --dds-tile-shadow-hover: none;
+  --dds-tile-icon-color: #9ca3af; /* gray-400 */
+  --dds-tile-title-color: #e5e7eb; /* gray-200 */
+  --dds-tile-desc-color: #9ca3af; /* gray-400 */
+  --dds-tile-arrow-color: #6b7280; /* gray-500 */
 
   /* Breadcrumb */
   --dds-breadcrumb-link-color: #9ca3af; /* gray-400 */

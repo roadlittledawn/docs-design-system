@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 
 export interface CardProps {
   /** Optional title displayed at the top of the card */
@@ -55,6 +55,19 @@ export interface CardProps {
    */
   showArrow?: boolean;
 
+  /**
+   * Constrain the card's maximum width. Accepts any valid CSS length value (e.g. `"400px"`, `"32rem"`).
+   * Useful when a card fills a wide column but its content looks better at a smaller size.
+   */
+  maxWidth?: string;
+
+  /**
+   * When true, horizontally centers the card within its container.
+   * Most useful in combination with `maxWidth`.
+   * @default false
+   */
+  centered?: boolean;
+
   /** Card content */
   children: ReactNode;
 
@@ -71,6 +84,8 @@ export function Card({
   iconPlacement = "top-left",
   iconSize,
   showArrow = false,
+  maxWidth,
+  centered = false,
   children,
   className = "",
 }: CardProps) {
@@ -147,8 +162,13 @@ export function Card({
       </>
     );
 
+  const outerStyle: CSSProperties = {
+    ...(maxWidth && { maxWidth }),
+    ...(centered && { marginLeft: "auto", marginRight: "auto" }),
+  };
+
   const content = (
-    <div className={cardClasses}>
+    <div className={cardClasses} style={!href ? outerStyle : undefined}>
       {bodyContent}
       {arrowEl}
     </div>
@@ -156,7 +176,11 @@ export function Card({
 
   if (href) {
     return (
-      <a href={href} className="no-text-decoration">
+      <a
+        href={href}
+        className="no-text-decoration"
+        style={Object.keys(outerStyle).length > 0 ? outerStyle : undefined}
+      >
         {content}
       </a>
     );

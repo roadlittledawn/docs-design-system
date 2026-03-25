@@ -1,4 +1,5 @@
 a.no-text-decoration {
+  display: block;
   text-decoration: none;
 }
 

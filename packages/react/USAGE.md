@@ -36,6 +36,7 @@ Before diving into individual components, here's guidance on common decision poi
 
 - **`Grid`/`Column`** — for asymmetric or varied multi-column layouts (tutorial + code panel, image + annotation, side-by-side comparison)
 - **`CardGrid`** — specifically for grids of uniform `Card` items; simpler API than `Grid`
+- **`TileGrid`** — for dense grids of `Tile` items (integrations, frameworks, skills); supports 3–6 columns
 
 ### Headings and text
 
@@ -114,6 +115,10 @@ A contained, elevated box for grouping related content. Becomes a fully-clickabl
 - **Alerts, warnings, or notices** — use `Callout`
 - **Very long content** — cards are best for summaries; long content belongs in page sections
 
+### When to Use `Card` vs `Tile`
+
+Use `Card` for a small number of items (2–12) with substantial content (descriptions, icons, links). Use `Tile` for large lists of compact items (integrations, frameworks, skills) where 10–100+ items fit on a page.
+
 ### When to Use `Card` vs `Callout`
 
 Use `Card` for content that is part of the normal page structure (navigation, feature highlights). Use `Callout` when you need to interrupt the reading flow to highlight something important, warn users, or provide tips.
@@ -136,6 +141,8 @@ import { Card } from "@roadlittledawn/docs-design-system-react";
 | `iconPlacement` | `"left" \| "top-left" \| "top-center"` | `"top-left"` | Where to place the icon: vertically centered on the left, above content flush left, or above content centered |
 | `iconSize` | `string` | — | Override the icon container size (width and height). Accepts any valid CSS length (e.g. `"2rem"`, `"48px"`). Defaults to `--dds-card-icon-size` (`1.5rem`). |
 | `showArrow` | `boolean` | `false` | Show an animated arrow in the lower-right corner to signal the card is navigable. Best used with `href`. |
+| `maxWidth` | `string` | — | Constrain the card's maximum width (e.g. `"400px"`, `"32rem"`). Useful when a card fills a wide column but looks better smaller. |
+| `centered` | `boolean` | `false` | Horizontally center the card within its container. Most useful combined with `maxWidth`. |
 | `children` | `ReactNode` | — | Card content |
 | `className` | `string` | `""` | Additional CSS classes |
 
@@ -170,6 +177,11 @@ import { Card } from "@roadlittledawn/docs-design-system-react";
 {/* Colored background */}
 <Card title="New Feature" titleColor="blue" backgroundColor="blue">
   Check out our latest component additions.
+</Card>
+
+{/* Custom width, centered in column */}
+<Card title="Centered Card" maxWidth="400px" centered>
+  This card is constrained to 400px and centered.
 </Card>
 ```
 
@@ -254,6 +266,134 @@ import { CardGrid } from "@roadlittledawn/docs-design-system-react";
     Code examples and patterns
   </Card>
 </CardGrid>;
+```
+
+---
+
+## Tile
+
+A compact, clickable item designed for dense listing patterns — integrations, frameworks, plugins, skills, etc. Unlike `Card`, Tile has a fixed layout (icon left, title right) and a simpler, more opinionated API.
+
+### When to Use
+
+- Large lists of similar items (10–100+): integrations, frameworks, plugins, skills
+- Navigation to many destinations where individual items are brief
+- When `Card` would feel too spacious for the number of items
+
+### When Not to Use
+
+- **Fewer than ~6 items with significant content** — use `Card` instead
+- **Items that need rich content** (paragraphs, code, images) — use `Card`
+- **Feature highlights** — use `Card` with colored backgrounds
+
+### `Tile` vs `Card`
+
+| | Tile | Card |
+|---|---|---|
+| Layout | Fixed (icon-left) | Flexible (icon top/left/center) |
+| Title | Required | Optional |
+| Description | String prop | `children` (ReactNode) |
+| Use case | Dense lists (10–100+ items) | Content groups (2–12 items) |
+| Padding | Compact (0.875rem) | Spacious (1.5rem) |
+
+### Import
+
+```tsx
+import { Tile } from "@roadlittledawn/docs-design-system-react";
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `title` | `string` | — | **Required.** Tile heading text |
+| `icon` | `ReactNode` | — | Optional icon displayed on the left. Pass a rendered icon component. |
+| `description` | `string` | — | Optional short description below the title |
+| `href` | `string` | — | Optional link URL. Makes the entire tile clickable. |
+| `showArrow` | `boolean` | `false` | Show an animated arrow in the lower-right corner. Best used with `href`. |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Examples
+
+```tsx
+{/* Basic tile */}
+<Tile title="React" icon={<ReactIcon />} href="/integrations/react" />
+
+{/* With description */}
+<Tile title="React" icon={<ReactIcon />} description="Build UIs with components" href="/integrations/react" />
+
+{/* With arrow indicator */}
+<Tile title="TypeScript" icon={<TsIcon />} description="Typed JavaScript" href="/skills/typescript" showArrow />
+```
+
+### Icon usage in MDX
+
+Same pattern as `Card` — the consuming site resolves icon name strings to rendered components in the MDX component map:
+
+```tsx
+Tile: ({ icon, ...props }) => {
+  const IconComp = typeof icon === 'string' ? iconMap[icon] : null;
+  return <DdsTile icon={IconComp ? <IconComp /> : icon} {...props} />;
+}
+```
+
+---
+
+## TileGrid
+
+A responsive CSS grid container designed for `Tile` components. Supports 3–6 columns and automatically adjusts to fewer columns on smaller screens.
+
+### When to Use
+
+- Laying out 6 or more `Tile` components in a grid
+- Displaying integrations, plugins, or skills lists
+
+### When Not to Use
+
+- **Mixed content types** — use `Grid`
+- **Fewer than 6 tiles** — `CardGrid` may be more appropriate
+- **Tiles that need equal height** — TileGrid tiles size to their content; for equal-height use `CardGrid` with Card
+
+### Responsive behavior
+
+| columns | Mobile (< 640px) | Tablet (≥ 640px) | Desktop (≥ 1024px) |
+|---------|-----------------|-----------------|-------------------|
+| 3       | 1 col           | 2 col           | 3 col             |
+| 4       | 2 col           | 2 col           | 4 col             |
+| 5       | 2 col           | 3 col           | 5 col             |
+| 6       | 2 col           | 3 col           | 6 col             |
+
+### Import
+
+```tsx
+import { TileGrid } from "@roadlittledawn/docs-design-system-react";
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `columns` | `3 \| 4 \| 5 \| 6` | `4` | Number of columns at full width |
+| `children` | `ReactNode` | — | Grid content (typically Tile components) |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Examples
+
+```tsx
+{/* Integration list */}
+<TileGrid columns={4}>
+  <Tile title="React" icon={<ReactIcon />} href="/integrations/react" />
+  <Tile title="Vue" icon={<VueIcon />} href="/integrations/vue" />
+  <Tile title="Angular" icon={<AngularIcon />} href="/integrations/angular" />
+  {/* …more tiles */}
+</TileGrid>
+
+{/* Skills with descriptions */}
+<TileGrid columns={3}>
+  <Tile title="TypeScript" icon={<TsIcon />} description="Typed JavaScript" href="/skills/typescript" showArrow />
+  <Tile title="GraphQL" icon={<GqlIcon />} description="Query language for APIs" href="/skills/graphql" showArrow />
+  {/* …more tiles */}
+</TileGrid>
 ```
 
 ---
@@ -1035,7 +1175,15 @@ A hover/tap-activated floating panel for enriching inline documentation content.
 
 ### Mobile behavior
 
-On screens ≤ 640px, the popover renders as a **bottom sheet** instead of a floating panel. Hover doesn't apply on touch devices; the popover toggles on tap.
+On screens ≤ 640px, the popover renders as a **bottom sheet** instead of a floating panel. Hover doesn't apply on touch devices; the popover opens on tap.
+
+### Closing the popover
+
+The popover can be closed in three ways:
+
+- **Close button** — the × button in the upper-right corner of the panel
+- **Click / tap outside** — native light-dismiss provided by `popover="auto"`
+- **Escape key** — handled automatically by the Popover API
 
 ### Content modes (choose one)
 

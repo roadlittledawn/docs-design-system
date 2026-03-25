@@ -76,6 +76,8 @@ import { Card } from '@roadlittledawn/docs-design-system-react';
 | `iconPlacement` | `"left" \| "top-left" \| "top-center"` | `"top-left"` | Where to place the icon: vertically centered on the left, above content flush left, or above content centered |
 | `iconSize` | `string` | — | Override the icon container size (width and height). Accepts any valid CSS length (e.g. `"2rem"`, `"48px"`). Defaults to `--dds-card-icon-size` (`1.5rem`). |
 | `showArrow` | `boolean` | `false` | Show an animated arrow in the lower-right corner to signal the card is navigable. Best used with `href`. |
+| `maxWidth` | `string` | — | Constrain the card's maximum width (e.g. `"400px"`, `"32rem"`). |
+| `centered` | `boolean` | `false` | Horizontally center the card in its container. Most useful with `maxWidth`. |
 | `children` | `ReactNode` | — | Card content |
 | `className` | `string` | `""` | Additional CSS classes |
 
@@ -166,6 +168,98 @@ import { CardGrid } from '@roadlittledawn/docs-design-system-react';
   <Card title="How-To Guides">Task-oriented instructions.</Card>
   <Card title="Reference">Technical reference documentation.</Card>
 </CardGrid>
+```
+
+---
+
+## Tile
+
+A compact, clickable item for dense listing patterns — integrations, frameworks, plugins, skills. Fixed icon-left layout with a simpler API than Card.
+
+### Import
+
+```tsx
+import { Tile } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `title` | `string` | — | **Required.** Tile heading text |
+| `icon` | `ReactNode` | — | Optional icon on the left. Pass a rendered icon component. |
+| `description` | `string` | — | Optional short description below the title |
+| `href` | `string` | — | Optional link URL. Makes the entire tile clickable. |
+| `showArrow` | `boolean` | `false` | Show an animated arrow in the lower-right corner. Best used with `href`. |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Examples
+
+#### Basic
+
+```tsx
+<Tile title="React" icon={<ReactIcon />} href="/integrations/react" />
+```
+
+#### With description and arrow
+
+```tsx
+<Tile
+  title="TypeScript"
+  icon={<TsIcon />}
+  description="Typed JavaScript at scale"
+  href="/skills/typescript"
+  showArrow
+/>
+```
+
+#### In a grid
+
+```tsx
+<TileGrid columns={4}>
+  <Tile title="React" icon={<ReactIcon />} href="/integrations/react" />
+  <Tile title="Vue" icon={<VueIcon />} href="/integrations/vue" />
+  {/* …more tiles */}
+</TileGrid>
+```
+
+---
+
+## TileGrid
+
+A responsive CSS grid container for Tile components. Supports 3–6 columns.
+
+### Import
+
+```tsx
+import { TileGrid } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `columns` | `3 \| 4 \| 5 \| 6` | `4` | Number of columns at full width |
+| `children` | `ReactNode` | — | Grid content (typically Tile components) |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Responsive behavior
+
+| columns | Mobile (< 640px) | Tablet (≥ 640px) | Desktop (≥ 1024px) |
+|---------|-----------------|-----------------|-------------------|
+| 3 | 1 col | 2 col | 3 col |
+| 4 | 2 col | 2 col | 4 col |
+| 5 | 2 col | 3 col | 5 col |
+| 6 | 2 col | 3 col | 6 col |
+
+### Examples
+
+```tsx
+<TileGrid columns={4}>
+  {integrations.map((name) => (
+    <Tile key={name} title={name} icon={<Icon />} href={`/integrations/${name}`} />
+  ))}
+</TileGrid>
 ```
 
 ---
@@ -563,7 +657,7 @@ import { CollapserGroup, Collapser } from '@roadlittledawn/docs-design-system-re
 
 ## Popover
 
-A hover/tap-activated popover for enriching inline content in documentation. Built on the native Popover API.
+A hover/tap-activated popover for enriching inline content in documentation. Built on the native Popover API. Includes a close button (×) in the upper-right corner of the panel; can also be dismissed by clicking/tapping outside or pressing Escape.
 
 ### Import
 

@@ -52,6 +52,15 @@ const meta: Meta<typeof Card> = {
       control: 'text',
       description: 'Card content.',
     },
+    maxWidth: {
+      control: 'text',
+      description: 'Constrain the card\'s maximum width (e.g. "400px", "32rem").',
+    },
+    centered: {
+      control: 'boolean',
+      description: 'Horizontally center the card within its container. Most useful with maxWidth.',
+      table: { defaultValue: { summary: 'false' } },
+    },
     className: {
       control: 'text',
       description: 'Additional CSS classes.',
@@ -391,6 +400,28 @@ export const TitleColors: Story = {
       <Card title="Gray Title" titleColor="gray">Content with gray title</Card>
     </div>
   ),
+};
+
+/**
+ * Card constrained to a custom width and centered. Useful when a card fills a wide column but
+ * looks better at a smaller size.
+ */
+export const CustomWidth: Story = {
+  args: {
+    title: 'Custom Width',
+    maxWidth: '400px',
+    centered: true,
+    children: 'This card is constrained to 400px and centered in its container.',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Card title="Custom Width" maxWidth="400px" centered>
+  This card is constrained to 400px and centered in its container.
+</Card>`,
+      },
+    },
+  },
 };
 
 /**

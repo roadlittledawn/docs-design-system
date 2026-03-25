@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useId, useRef, useState, useCallback } from "react";
 import mermaid from "mermaid";
 
 export interface MermaidDiagramProps {
@@ -13,6 +13,18 @@ export interface MermaidDiagramProps {
 function isDarkMode(el?: Element | null): boolean {
   const doc = document.documentElement;
   const body = document.body;
+
+  // Explicit light-mode opt-out takes priority over everything, including OS preference
+  if (
+    doc.classList.contains("dds-light") ||
+    doc.dataset.ddsTheme === "light" ||
+    body.classList.contains("dds-light") ||
+    body.dataset.ddsTheme === "light" ||
+    !!(el && el.closest(".dds-light, [data-dds-theme='light']"))
+  ) {
+    return false;
+  }
+
   return (
     doc.classList.contains("dds-dark") ||
     doc.dataset.ddsTheme === "dark" ||
@@ -27,34 +39,57 @@ export function MermaidDiagram({ chart, className = "" }: MermaidDiagramProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [svg, setSvg] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const idCounter = useRef(0);
+
+  // Stable unique prefix per instance — prevents duplicate IDs across multiple MermaidDiagram components
+  const instanceId = useId();
+  // Monotonically-increasing generation counter — stale async resolutions are discarded
+  const renderGen = useRef(0);
+  // Last known dark-mode state — prevents re-renders when attributes change but theme didn't flip
+  const lastDark = useRef<boolean | null>(null);
 
   const renderDiagram = useCallback(async () => {
     const dark = isDarkMode(containerRef.current);
+    lastDark.current = dark;
+
+    const generation = ++renderGen.current;
+
     mermaid.initialize({
       startOnLoad: false,
       theme: dark ? "dark" : "default",
       securityLevel: "strict",
     });
 
-    const id = `dds-mermaid-${idCounter.current++}`;
+    // Sanitize useId output (e.g. ":r0:") into a valid DOM ID segment
+    const safePrefix = instanceId.replace(/[^a-zA-Z0-9]/g, "");
+    const id = `dds-mermaid-${safePrefix}-${generation}`;
+
     try {
       const result = await mermaid.render(id, chart);
+      // Discard result if a newer render has since been requested
+      if (generation !== renderGen.current) return;
       setSvg(result.svg);
       setError(null);
     } catch (err: unknown) {
+      if (generation !== renderGen.current) return;
       setError(err instanceof Error ? err.message : "Failed to render diagram");
     } finally {
       document.getElementById(id)?.remove();
     }
-  }, [chart]);
+  }, [chart, instanceId]);
 
   useEffect(() => {
     renderDiagram();
   }, [renderDiagram]);
 
   useEffect(() => {
-    const observer = new MutationObserver(() => renderDiagram());
+    // Only re-render when the effective dark/light state actually flips
+    const reRenderIfThemeChanged = () => {
+      const dark = isDarkMode(containerRef.current);
+      if (dark === lastDark.current) return;
+      renderDiagram();
+    };
+
+    const observer = new MutationObserver(reRenderIfThemeChanged);
     observer.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ["class", "data-dds-theme"],
@@ -65,12 +100,11 @@ export function MermaidDiagram({ chart, className = "" }: MermaidDiagramProps) {
     });
 
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    const mqHandler = () => renderDiagram();
-    mq.addEventListener("change", mqHandler);
+    mq.addEventListener("change", reRenderIfThemeChanged);
 
     return () => {
       observer.disconnect();
-      mq.removeEventListener("change", mqHandler);
+      mq.removeEventListener("change", reRenderIfThemeChanged);
     };
   }, [renderDiagram]);
 

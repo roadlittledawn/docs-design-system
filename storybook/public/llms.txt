@@ -602,7 +602,7 @@ import { Collapser } from '@roadlittledawn/docs-design-system-react';
 | `className` | `string` | `""` | Additional CSS classes |
 | `align` | `"left" \| "right"` | `"left"` | Alignment of the title within the header |
 | `icon` | `ReactNode` | — | Optional icon rendered on the left side of the header |
-| `stepNumber` | `number` | — | Numeric step label shown on the far left. Auto-injected by `CollapserGroup` when `numbered` is true |
+| `stepNumber` | `number` | — | Numeric step label shown as a circular badge on the far left. Auto-injected by `CollapserGroup` when `numbered` is true. Override via `--dds-collapser-step-number-color`, `--dds-collapser-step-number-bg`, and `--dds-collapser-step-number-shadow` |
 
 ### Examples
 
@@ -636,7 +636,7 @@ import { CollapserGroup, Collapser } from '@roadlittledawn/docs-design-system-re
 | `defaultOpen` | `number \| number[]` | — | Index or array of indexes of collapsers that should be open by default |
 | `onChange` | `(openIndexes: number[]) => void` | — | Callback fired when the open state changes |
 | `className` | `string` | `""` | Additional CSS classes |
-| `numbered` | `boolean` | `false` | Automatically prefix each collapser header with a sequential step number (1, 2, 3…). Works in MDX and component-map contexts. |
+| `numbered` | `boolean` | `false` | Automatically prefix each collapser header with a sequential step number (1, 2, 3…) displayed as a circular badge matching the ordered list badge style (light/dark mode supported). Works in MDX and component-map contexts. Customise via `--dds-collapser-step-number-color`, `--dds-collapser-step-number-bg`, `--dds-collapser-step-number-shadow`. |
 
 ### Examples
 

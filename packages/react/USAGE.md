@@ -1054,7 +1054,7 @@ import { Collapser } from "@roadlittledawn/docs-design-system-react";
 | `className` | `string` | `""` | Additional CSS classes |
 | `align` | `"left" \| "right"` | `"left"` | Alignment of the title within the header |
 | `icon` | `ReactNode` | — | Optional icon rendered on the left side of the header, before the title |
-| `stepNumber` | `number` | — | Numeric step label shown on the far left. Auto-injected by `CollapserGroup` when `numbered` is true |
+| `stepNumber` | `number` | — | Numeric step label shown as a circular badge on the far left. Auto-injected by `CollapserGroup` when `numbered` is true. Override its appearance via `--dds-collapser-step-number-color`, `--dds-collapser-step-number-bg`, and `--dds-collapser-step-number-shadow` |
 
 ### Examples
 
@@ -1102,7 +1102,7 @@ Container for multiple `Collapser` components with consistent spacing and option
 
 ### `numbered` prop
 
-When `numbered={true}`, `CollapserGroup` automatically injects sequential step numbers into each child `Collapser`. This works in MDX and component-map contexts. Combine with `align="right"` and `icon` on each `Collapser` for a polished step-by-step layout. Override the step number color with `--dds-collapser-step-number-color`.
+When `numbered={true}`, `CollapserGroup` automatically injects sequential step numbers into each child `Collapser`. Each number is displayed in a circular badge styled to match the ordered list bullet style (light/dark mode both supported). This works in MDX and component-map contexts. Combine with `align="right"` and `icon` on each `Collapser` for a polished step-by-step layout. Customise the badge with `--dds-collapser-step-number-color`, `--dds-collapser-step-number-bg`, and `--dds-collapser-step-number-shadow`.
 
 ### Import
 

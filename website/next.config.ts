@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: ['remark-frontmatter', 'remark-mdx-frontmatter'],
+    remarkPlugins: ['remark-frontmatter', new URL('./plugins/remark-heading-from-frontmatter.mjs', import.meta.url).pathname, 'remark-mdx-frontmatter'],
     rehypePlugins: [],
   },
 })

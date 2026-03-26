@@ -213,7 +213,11 @@
   --dds-collapser-button-padding: 0.75rem; /* p-3 */
   --dds-collapser-button-hover-bg: #f9fafb; /* gray-50 */
   --dds-collapser-icon-color: #6b7280; /* gray-500 */
-  --dds-collapser-step-number-color: #6b7280; /* gray-500 — override to customise step numbers */
+  --dds-collapser-step-number-size: 1.625rem; /* ~26px circular badge diameter — matches list badge */
+  --dds-collapser-step-number-font-size: 0.8125rem; /* ~13px badge text — matches list badge */
+  --dds-collapser-step-number-color: #171a1c; /* matches --dds-list-badge-text */
+  --dds-collapser-step-number-bg: #eceef2; /* matches --dds-list-badge-bg */
+  --dds-collapser-step-number-shadow: inset 0 0 0 1px #bfc2c7; /* matches --dds-list-badge-shadow */
   --dds-collapser-text: #374151; /* gray-700 */
   --dds-collapser-content-padding: 1rem; /* p-4 */
   --dds-collapser-header-gap: 0.5rem;
@@ -416,7 +420,9 @@
   --dds-collapser-border: #4b5563; /* gray-600 */
   --dds-collapser-button-hover-bg: rgba(255, 255, 255, 0.05);
   --dds-collapser-icon-color: #9ca3af; /* gray-400 */
-  --dds-collapser-step-number-color: #9ca3af;
+  --dds-collapser-step-number-color: #ffffff; /* matches --dds-list-badge-text dark */
+  --dds-collapser-step-number-bg: #232831; /* matches --dds-list-badge-bg dark */
+  --dds-collapser-step-number-shadow: inset 0 0 0 1px #353a42; /* matches --dds-list-badge-shadow dark */
   --dds-collapser-text: #e5e7eb; /* gray-200 */
 
   /* Tabs */
@@ -612,7 +618,9 @@
     --dds-collapser-border: #4b5563;
     --dds-collapser-button-hover-bg: rgba(255, 255, 255, 0.05);
     --dds-collapser-icon-color: #9ca3af;
-    --dds-collapser-step-number-color: #9ca3af;
+    --dds-collapser-step-number-color: #ffffff;
+    --dds-collapser-step-number-bg: #232831;
+    --dds-collapser-step-number-shadow: inset 0 0 0 1px #353a42;
     --dds-collapser-text: #e5e7eb;
 
     /* Tabs */
@@ -808,7 +816,9 @@
   --dds-collapser-border: #4b5563;
   --dds-collapser-button-hover-bg: rgba(255, 255, 255, 0.05);
   --dds-collapser-icon-color: #9ca3af;
-  --dds-collapser-step-number-color: #9ca3af;
+  --dds-collapser-step-number-color: #ffffff;
+  --dds-collapser-step-number-bg: #232831;
+  --dds-collapser-step-number-shadow: inset 0 0 0 1px #353a42;
   --dds-collapser-text: #e5e7eb;
 
   /* CodeBlock */

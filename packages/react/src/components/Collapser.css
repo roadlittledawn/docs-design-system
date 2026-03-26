@@ -28,9 +28,18 @@
 
 .dds-collapser-step-number {
   flex-shrink: 0;
-  min-width: 1.5em;
+  width: var(--dds-collapser-step-number-size);
+  height: var(--dds-collapser-step-number-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--dds-font-bold, 700);
+  font-size: var(--dds-collapser-step-number-font-size);
   font-variant-numeric: tabular-nums;
   color: var(--dds-collapser-step-number-color);
+  background: var(--dds-collapser-step-number-bg);
+  box-shadow: var(--dds-collapser-step-number-shadow);
+  border-radius: 50%;
 }
 
 .dds-collapser-header-icon {

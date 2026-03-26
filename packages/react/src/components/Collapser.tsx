@@ -102,7 +102,7 @@ export function Collapser({
         aria-expanded={isOpen}
       >
         {stepNumber !== undefined && (
-          <span className="dds-collapser-step-number">{stepNumber}.</span>
+          <span className="dds-collapser-step-number">{stepNumber}</span>
         )}
         {icon && (
           <span className="dds-collapser-header-icon" aria-hidden="true">

@@ -1,0 +1,116 @@
+/* ============================================================
+   Image component
+   ============================================================ */
+
+.dds-image {
+  /* Scoped radius token: overridden by rounded-* modifier classes */
+  --_image-radius: 0px;
+  display: block;
+  margin: 0;
+}
+
+/* ---- Rounded corner modifiers ---- */
+
+.dds-image-rounded-sm { --_image-radius: var(--dds-image-border-radius-sm, 0.25rem); }
+.dds-image-rounded-md { --_image-radius: var(--dds-image-border-radius-md, 0.5rem); }
+.dds-image-rounded-lg { --_image-radius: var(--dds-image-border-radius-lg, 0.75rem); }
+
+/* ---- Image wrapper: clips image to border-radius and hosts skeleton ---- */
+
+.dds-image-wrapper {
+  position: relative;
+  display: block;
+  /* Minimum height keeps the skeleton visible before the image loads */
+  min-height: 3rem;
+  border-radius: var(--_image-radius);
+  overflow: hidden;
+  /* Remove gap that appears below inline images */
+  line-height: 0;
+}
+
+/* ---- Skeleton shimmer placeholder ---- */
+
+.dds-image-skeleton {
+  position: absolute;
+  inset: 0;
+  background-color: var(--dds-image-skeleton-bg, #e5e7eb);
+  background-image: linear-gradient(
+    90deg,
+    var(--dds-image-skeleton-bg, #e5e7eb) 0%,
+    var(--dds-image-skeleton-shimmer, #f3f4f6) 50%,
+    var(--dds-image-skeleton-bg, #e5e7eb) 100%
+  );
+  background-size: 200% 100%;
+  animation: dds-image-shimmer 1.5s ease-in-out infinite;
+  transition: opacity 0.25s ease;
+}
+
+@keyframes dds-image-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Hide skeleton once image has loaded */
+.dds-image-loaded .dds-image-skeleton {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---- Image element ---- */
+
+.dds-image-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Start invisible so the shimmer shows underneath */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Reveal image when loaded */
+.dds-image-loaded .dds-image-img {
+  opacity: 1;
+}
+
+/* ---- Framed / matted style ---- */
+
+.dds-image-framed {
+  border: 1px solid var(--dds-image-frame-border-color, #e5e7eb);
+  background-color: var(--dds-image-frame-bg, #f9fafb);
+  padding: var(--dds-image-frame-padding, 1rem);
+  /* Slightly larger radius on the outer frame to complement the inner wrapper */
+  border-radius: calc(var(--_image-radius) + 2px);
+}
+
+/* ---- Link wrapper ---- */
+
+.dds-image-link {
+  display: block;
+  line-height: 0;
+  border-radius: var(--_image-radius);
+}
+
+/* ---- Dark-mode dimming ---- */
+
+/* Explicit dark mode via class or attribute */
+.dds-dark .dds-image-loaded.dds-image-dim-dark .dds-image-img,
+[data-dds-theme="dark"] .dds-image-loaded.dds-image-dim-dark .dds-image-img {
+  opacity: var(--dds-image-dark-opacity, 0.85);
+}
+
+/* Auto dark mode (OS preference) */
+@media (prefers-color-scheme: dark) {
+  .dds-image-loaded.dds-image-dim-dark .dds-image-img {
+    opacity: var(--dds-image-dark-opacity, 0.85);
+  }
+}
+
+/* ---- Caption ---- */
+
+.dds-image-caption {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--dds-image-caption-color, #6b7280);
+  font-size: var(--dds-image-caption-font-size, 0.875rem);
+  line-height: 1.5;
+}

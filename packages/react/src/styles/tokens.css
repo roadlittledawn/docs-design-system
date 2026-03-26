@@ -325,6 +325,22 @@
   --dds-breadcrumb-delimiter-color: #9ca3af; /* gray-400 */
   --dds-breadcrumb-ellipsis-radius: 0.25rem; /* rounded */
   --dds-breadcrumb-ellipsis-hover-bg: #f3f4f6; /* gray-100 */
+
+  /* Image */
+  --dds-image-border-radius-sm: 0.25rem;
+  --dds-image-border-radius-md: 0.5rem;
+  --dds-image-border-radius-lg: 0.75rem;
+  --dds-image-frame-border-color: #e5e7eb; /* gray-200 */
+  --dds-image-frame-bg: #f9fafb; /* gray-50 */
+  --dds-image-frame-padding: 1rem;
+  --dds-image-dark-opacity: 0.85;
+  --dds-image-caption-color: #6b7280; /* gray-500 */
+  --dds-image-caption-font-size: 0.875rem;
+  --dds-image-skeleton-bg: #e5e7eb; /* gray-200 */
+  --dds-image-skeleton-shimmer: #f3f4f6; /* gray-100 */
+
+  /* ThumbnailGrid */
+  --dds-thumbnail-grid-gap: 1rem;
 }
 
 /* ==========================================================================
@@ -527,6 +543,13 @@
   --dds-breadcrumb-current-color: #e5e7eb; /* gray-200 */
   --dds-breadcrumb-delimiter-color: #6b7280; /* gray-500 */
   --dds-breadcrumb-ellipsis-hover-bg: rgba(255, 255, 255, 0.08);
+
+  /* Image */
+  --dds-image-frame-border-color: #4b5563; /* gray-600 */
+  --dds-image-frame-bg: transparent;
+  --dds-image-caption-color: #9ca3af; /* gray-400 */
+  --dds-image-skeleton-bg: #374151; /* gray-700 */
+  --dds-image-skeleton-shimmer: #4b5563; /* gray-600 */
 }
 
 /* Auto dark mode — follows OS preference, opt-out with .dds-light */
@@ -723,6 +746,13 @@
     --dds-breadcrumb-current-color: #e5e7eb; /* gray-200 */
     --dds-breadcrumb-delimiter-color: #6b7280; /* gray-500 */
     --dds-breadcrumb-ellipsis-hover-bg: rgba(255, 255, 255, 0.08);
+
+    /* Image */
+    --dds-image-frame-border-color: #4b5563; /* gray-600 */
+    --dds-image-frame-bg: transparent;
+    --dds-image-caption-color: #9ca3af; /* gray-400 */
+    --dds-image-skeleton-bg: #374151; /* gray-700 */
+    --dds-image-skeleton-shimmer: #4b5563; /* gray-600 */
   }
 }
 
@@ -898,4 +928,11 @@
   --dds-breadcrumb-current-color: #e5e7eb; /* gray-200 */
   --dds-breadcrumb-delimiter-color: #6b7280; /* gray-500 */
   --dds-breadcrumb-ellipsis-hover-bg: rgba(255, 255, 255, 0.08);
+
+  /* Image */
+  --dds-image-frame-border-color: #4b5563; /* gray-600 */
+  --dds-image-frame-bg: transparent;
+  --dds-image-caption-color: #9ca3af; /* gray-400 */
+  --dds-image-skeleton-bg: #374151; /* gray-700 */
+  --dds-image-skeleton-shimmer: #4b5563; /* gray-600 */
 }

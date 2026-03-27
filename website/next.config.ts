@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import createMDX from '@next/mdx'
+import { fileURLToPath } from 'url'
 
 const nextConfig: NextConfig = {
   output: 'export',
@@ -9,7 +10,7 @@ const nextConfig: NextConfig = {
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: ['remark-frontmatter', 'remark-mdx-frontmatter'],
+    remarkPlugins: ['remark-frontmatter', fileURLToPath(new URL('./plugins/remark-heading-from-frontmatter.mjs', import.meta.url)), 'remark-mdx-frontmatter'],
     rehypePlugins: [],
   },
 })

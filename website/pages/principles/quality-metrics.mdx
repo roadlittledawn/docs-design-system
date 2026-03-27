@@ -2,95 +2,70 @@
 title: Content Quality & Success Metrics
 ---
 
-# Content Quality & Success Metrics
+## What is content quality?
 
-Great documentation can be evaluated against six core quality attributes. These aren't a checklist to apply mechanically — they're lenses for identifying where content falls short and how to improve it.
+Evaluate documentation against six core quality attributes. Think of these not as a checklist but as a rubric: a set of dimensions you can weight and adjust based on your content's maturity and audience.
 
-## The Six Quality Attributes
+## The six quality traits
 
 <CardGrid columns={3}>
   <Card title="Accurate">
-    Information is factually correct, up-to-date, and technically precise. Code examples work as written, and statements can be verified.
+    Information is factually correct, up-to-date, and technically precise. Code
+    examples work as written, and statements can be verified.
   </Card>
   <Card title="Relevant">
-    Content directly addresses user needs and goals. Information is appropriate for the audience and context, without tangential details.
+    Content directly addresses user needs and goals. Information is appropriate
+    for the audience and context, without tangential details.
   </Card>
   <Card title="Complete">
-    Content contains all necessary information for users to understand and accomplish their goals. All required components are present with sufficient context and examples.
+    Content contains all necessary information for users to understand and
+    accomplish their goals. All required components are present with sufficient
+    context and examples.
   </Card>
   <Card title="Concise">
-    Information is expressed efficiently without unnecessary words or redundancy. Every sentence serves a purpose and respects the reader's time.
+    Information is expressed efficiently without unnecessary words or
+    redundancy. Every sentence serves a purpose and respects the reader's time.
   </Card>
   <Card title="Consistent">
-    Terminology, formatting, tone, and style remain uniform throughout. Patterns are predictable, making content easier to navigate and understand.
+    Terminology, formatting, tone, and style remain uniform throughout. Patterns
+    are predictable, making content easier to navigate and understand.
   </Card>
   <Card title="Discoverable">
-    Content is easy to find through search, navigation, clear titles, and proper organization. Users can locate what they need quickly.
+    Content is easy to find through search, navigation, clear titles, and proper
+    organization. Users can locate what they need quickly.
   </Card>
 </CardGrid>
 
-## Measuring Quality Is Hard
+## Measuring quality is hard
 
-Measuring content quality is notoriously difficult, especially at scale. These attributes are intuitive to describe but hard to quantify — "clear" to one reader may be opaque to another, and "concise" depends on how much prior knowledge the audience brings. Rather than relying on a single metric, effective measurement uses a combination of signals:
+Measuring content quality is hard, especially at scale. The gold standard (hand a doc to someone and see if they can complete the task) doesn't scale. Rather than relying on a single metric, develop a combination of proxy metrics that map to the six quality traits:
 
 - **Feedback & helpfulness** - ratings and especially actionable comments from users
 - **Usage data** - traditional web analytics like unique users, page views
 - **Freshness & authoring** - last edited dates, last verified timestamps, review cycles
 
-With the advent of AI, there's a new channel of interaction to measure: citations in AI answers, helpfulness ratings from AI chat applications, and feedback specific to AI-generated responses using your documentation. However, AI-era measurement introduces a critical challenge: it's extremely difficult to differentiate **retrieval problems** (where AI mistakenly attempts to use documentation when the answer shouldn't be in docs at all) from **content quality issues** that lead to inaccurate or unhelpful answers.
+AI adds new signals to track: citations in AI answers, helpfulness ratings from AI chat apps, and feedback on AI-generated responses that use your docs. Be aware of a key challenge: distinguish **retrieval problems** (AI tries to use docs when the answer shouldn't come from docs at all) from **content quality issues** (docs exist but produce inaccurate or unhelpful answers).
 
-## Rethinking CSAT & Helpfulness Scores
+## Rethinking CSAT & helpfulness scores
 
-CSAT and helpfulness ratings are valuable as content freshness signals and drivers, but problematic as primary success metrics:
+CSAT and helpfulness ratings work well as content freshness signals, but treat them cautiously as primary success metrics:
 
-- **Low sample sizes** create unreliable data
-- **Negativity bias** - dissatisfied users disproportionately respond
-- **Context matters** - poor ratings may reflect external factors (product issues, user expectations) rather than content quality
+- **Low sample sizes** produce unreliable data
+- **Negativity bias** skews results; dissatisfied users disproportionately respond
+- **External factors** like product issues or user expectations can drive poor ratings independent of content quality
 
-**Better approach:** Use CSAT as a trigger for content review and updates, not as a standalone quality measure.
+Use CSAT as a trigger for content review and updates, not as a standalone quality measure.
 
-## AI-Era Quality Signals
+## AI-era quality signals
 
-### Defect Ratios in AI Applications
+### Defect ratios in AI applications
 
-When docs power AI-driven support or code generation:
+When docs power AI-driven support or code generation, track these signals:
 
-- Track **hallucination rates** and incorrect answers traced to documentation gaps
-- Monitor **clarification requests** that indicate incomplete or ambiguous content
-- Measure **correction frequency** when AI responses require human intervention
+- **Hallucination rates** traced to documentation gaps
+- **Clarification requests** indicating incomplete or ambiguous content
+- **Correction frequency** when AI responses require human intervention
 
-### Completeness Takes New Importance
+### Completeness takes new importance
 
-In the AI context, documenting obvious details matters:
-
-- AI systems need explicit, comprehensive information - they can't infer from context like humans
-- Edge cases and basic information both contribute to AI knowledge graphs
-- Gaps that humans navigate easily become blind spots for AI
-
-## Metadata & Multi-Signal Approaches
-
-AI systems need richer signals beyond content alone:
-
-- **Freshness indicators** - last updated, last verified
-- **Engagement metrics** - usage patterns, bounce rates
-- **Sentiment signals** - aggregated feedback across multiple touchpoints
-- **Authority weighting** - source credibility, expertise markers, review status
-
-### Example: Knowledge Base Filtering
-
-Organizations applying simple filtering on large content repositories (e.g., 15M+ wiki pages) achieve measurable improvements:
-
-- Filter by authoritativeness and recency
-- Bias AI systems toward vetted, maintained content first
-- Similar to page ranking in search algorithms - quality signals compound
-
-## Measuring What Matters
-
-Focus metrics on outcomes:
-
-- **Task completion rates** - can users accomplish their goals?
-- **Time to resolution** - how quickly do they find answers?
-- **AI-assisted accuracy** - when AI uses your docs, what's the success rate?
-- **Content utilization** - which docs actually get used (by humans and AI)?
-
-Quality measurement is shifting from satisfaction scores to effectiveness signals across both human and AI consumption patterns.
+In AI contexts, document the obvious. AI systems need explicit, comprehensive information and can't infer from context like humans. Edge cases and basic details both feed AI knowledge graphs. Gaps that humans navigate easily become blind spots for AI.

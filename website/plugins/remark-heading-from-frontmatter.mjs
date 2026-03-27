@@ -12,11 +12,23 @@ export default function remarkHeadingFromFrontmatter() {
     })
 
     if (title) {
-      tree.children.unshift({
+      const headingNode = {
         type: 'heading',
         depth: 1,
         children: [{ type: 'text', value: title }],
-      })
+      }
+
+      // Insert the heading after any leading YAML frontmatter nodes
+      let insertIndex = 0
+      while (
+        insertIndex < tree.children.length &&
+        tree.children[insertIndex] &&
+        tree.children[insertIndex].type === 'yaml'
+      ) {
+        insertIndex++
+      }
+
+      tree.children.splice(insertIndex, 0, headingNode)
     }
   }
 }

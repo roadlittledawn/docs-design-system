@@ -1712,3 +1712,49 @@ const closeIconSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
 <Icon svg={StarIcon} size={16} />                   {/* hidden from screen readers */}
 <Icon svg={StarIcon} size={16} aria-label="Favorite" /> {/* announced as "Favorite" */}
 ```
+
+---
+
+## MermaidDiagram
+
+Renders Mermaid diagram syntax as SVG. Automatically switches between light and dark Mermaid themes based on the design system's dark mode state (`.dds-dark`, `data-dds-theme`, or `prefers-color-scheme`).
+
+### Import
+
+```tsx
+import { MermaidDiagram } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `chart` | `string` | — | Mermaid diagram definition string |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Examples
+
+#### Flowchart
+
+```tsx
+<MermaidDiagram chart={`graph TD
+    A[Start] --> B{Decision}
+    B -->|Yes| C[Do something]
+    B -->|No| D[Do something else]
+    C --> E[End]
+    D --> E`} />
+```
+
+#### Gantt Chart
+
+```tsx
+<MermaidDiagram chart={`gantt
+    title Project Schedule
+    dateFormat  YYYY-MM-DD
+    section Planning
+    Requirements :a1, 2024-01-01, 14d
+    Design       :a2, after a1, 10d
+    section Development
+    Implementation :b1, after a2, 21d
+    Testing        :b2, after b1, 14d`} />
+```

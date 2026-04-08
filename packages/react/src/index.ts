@@ -18,6 +18,8 @@ export * from './components/Breadcrumb';
 export * from './components/Icon';
 export * from './components/Tile';
 export * from './components/TileGrid';
+export * from './components/Image';
+export * from './components/ThumbnailGrid';
 
 // Export hooks
 export * from './hooks/useKeyPress';

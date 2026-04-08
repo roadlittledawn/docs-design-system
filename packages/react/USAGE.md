@@ -1712,3 +1712,143 @@ const closeIconSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
 <Icon svg={StarIcon} size={16} />                   {/* hidden from screen readers */}
 <Icon svg={StarIcon} size={16} aria-label="Favorite" /> {/* announced as "Favorite" */}
 ```
+
+---
+
+## Image
+
+The Image component wraps a native `<img>` in semantic `<figure>` / `<figcaption>` markup and adds documentation-friendly features: a loading skeleton with shimmer animation, rounded corners, a matted frame, dark-mode dimming, a clickable lightbox link, a caption, and optional max-width capping.
+
+### When to Use
+
+- Embedding screenshots, diagrams, or illustrations in documentation pages
+- Displaying images that benefit from a visual frame to separate them from surrounding text
+- Showing a grid of step-by-step screenshots using `ThumbnailGrid`
+- Any image that should open full-size when clicked
+
+### When Not to Use
+
+- **Hero or decorative images** — use a standard `<img>` or CSS background
+- **Avatar / user profile images** — use a dedicated avatar component
+- **Icons or inline SVG** — use the `Icon` component
+
+### Import
+
+```tsx
+import { Image } from "@roadlittledawn/docs-design-system-react";
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `src` | `string` | — | Image URL (required) |
+| `alt` | `string` | — | Alt text for accessibility (required) |
+| `caption` | `ReactNode` | — | Caption rendered below the image in a `<figcaption>` |
+| `href` | `string` | — | When provided, wraps the image in an `<a>` that opens the full-size image in a new tab |
+| `linkTarget` | `string` | — | Override the link destination URL (navigates to a related page instead of the raw image) |
+| `rounded` | `boolean \| 'sm' \| 'md' \| 'lg'` | — | Apply rounded corners; `true` or `'md'` for medium, `'sm'` for small, `'lg'` for large |
+| `framed` | `boolean` | `false` | Add a border and padding around the image ("matted" appearance) |
+| `dimInDarkMode` | `boolean` | `false` | Reduce image opacity in dark mode |
+| `maxWidth` | `string \| number` | — | Constrain the image to a maximum width; accepts any CSS `max-width` value or a number (pixels) |
+| `className` | `string` | `""` | Additional CSS classes applied to the `<figure>` element |
+
+### Examples
+
+```tsx
+{/* Basic usage */}
+<Image src="/screenshots/dashboard.png" alt="Dashboard overview" />
+
+{/* With caption */}
+<Image
+  src="/screenshots/dashboard.png"
+  alt="Dashboard overview"
+  caption="Figure 1: Latency overview in the New Relic platform"
+/>
+
+{/* Framed, rounded, clickable, and dimmed in dark mode */}
+<Image
+  src="/screenshots/dashboard.png"
+  alt="Dashboard overview — click to view full size"
+  href="/screenshots/dashboard.png"
+  framed
+  rounded="md"
+  dimInDarkMode
+  caption="Figure 1: Sample screenshot"
+/>
+
+{/* Constrain width for small images */}
+<Image
+  src="/screenshots/icon.png"
+  alt="Icon screenshot"
+  maxWidth={320}
+  caption="Constrained to 320 px wide"
+/>
+```
+
+---
+
+## ThumbnailGrid
+
+The ThumbnailGrid component arranges `Image` components (or other content) in a responsive CSS Grid. It is ideal for step-by-step screenshot walkthroughs and photo galleries in documentation pages.
+
+### When to Use
+
+- Step-by-step screenshot walkthroughs
+- Photo or diagram galleries with 2–12 images
+- Any uniform grid of images that should collapse gracefully on mobile
+
+### When Not to Use
+
+- **Single images** — use `Image` directly
+- **Mixed-width layouts** — use `Grid` for asymmetric column widths
+- **Non-image content** — use `CardGrid` for card-style items
+
+### Import
+
+```tsx
+import { ThumbnailGrid } from "@roadlittledawn/docs-design-system-react";
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `columns` | `1 \| 2 \| 3 \| 4` | `3` | Number of columns at full width |
+| `gap` | `string` | — | Override gap between thumbnails (any CSS `gap` value) |
+| `children` | `ReactNode` | — | Grid content (typically `Image` components) |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Responsive behavior
+
+| columns | Mobile (< 480px) | Tablet (≥ 480px) | Desktop (≥ 768px) |
+| --- | --- | --- | --- |
+| 1 | 1 col | 1 col | 1 col |
+| 2 | 1 col | 2 col | 2 col |
+| 3 | 1 col | 2 col | 3 col |
+| 4 | 2 col | 2 col | 4 col |
+
+### Examples
+
+```tsx
+{/* 3-column grid of clickable thumbnails */}
+<ThumbnailGrid columns={3}>
+  <Image src="/img/step-1.png" alt="Step 1" href="/img/step-1.png" rounded="sm" />
+  <Image src="/img/step-2.png" alt="Step 2" href="/img/step-2.png" rounded="sm" />
+  <Image src="/img/step-3.png" alt="Step 3" href="/img/step-3.png" rounded="sm" />
+</ThumbnailGrid>
+
+{/* Before/after comparison */}
+<ThumbnailGrid columns={2}>
+  <Image src="/img/before.png" alt="Before" caption="Before" />
+  <Image src="/img/after.png" alt="After" caption="After" />
+</ThumbnailGrid>
+
+{/* Custom gap */}
+<ThumbnailGrid columns={4} gap="0.5rem">
+  <Image src="/img/img-1.png" alt="Image 1" rounded="sm" />
+  <Image src="/img/img-2.png" alt="Image 2" rounded="sm" />
+  <Image src="/img/img-3.png" alt="Image 3" rounded="sm" />
+  <Image src="/img/img-4.png" alt="Image 4" rounded="sm" />
+</ThumbnailGrid>
+```

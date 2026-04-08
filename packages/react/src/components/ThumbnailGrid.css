@@ -1,0 +1,52 @@
+/* ============================================================
+   ThumbnailGrid component
+   ============================================================ */
+
+.dds-thumbnail-grid {
+  display: grid;
+  gap: var(--dds-thumbnail-grid-gap, 1rem);
+}
+
+/* ---- 1-column (always single column) ---- */
+.dds-thumbnail-grid-1 {
+  grid-template-columns: 1fr;
+}
+
+/* ---- 2-column ---- */
+.dds-thumbnail-grid-2 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 480px) {
+  .dds-thumbnail-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---- 3-column (default) ---- */
+.dds-thumbnail-grid-3 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 480px) {
+  .dds-thumbnail-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .dds-thumbnail-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---- 4-column ---- */
+.dds-thumbnail-grid-4 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 768px) {
+  .dds-thumbnail-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

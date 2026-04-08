@@ -62,11 +62,10 @@ export const CollapserGroup: React.FC<CollapserGroupProps> = ({
         // Only inject props if child is a Collapser component
         if ((child.type as any)?.displayName === 'Collapser') {
           return cloneElement(child, {
-            ...child.props,
             open: openIndexes.includes(index),
             onToggle: () => handleToggle(index),
             ...(numbered ? { stepNumber: index + 1 } : {}),
-          } as any);
+          } as Record<string, unknown>);
         }
         
         return child;

@@ -16,16 +16,18 @@ const config: StorybookConfig = {
     options: {},
   },
   viteFinal: async (config) => {
+    // process.cwd() is the storybook directory when storybook runs
+    const storybookDir = process.cwd();
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...config.resolve.alias,
       "@roadlittledawn/docs-design-system-react/styles.css": join(
-        __dirname,
-        "../../packages/react/dist/styles.css",
+        storybookDir,
+        "../packages/react/dist/styles.css",
       ),
       "@roadlittledawn/docs-design-system-react": join(
-        __dirname,
-        "../../packages/react/src",
+        storybookDir,
+        "../packages/react/src",
       ),
     };
     return config;

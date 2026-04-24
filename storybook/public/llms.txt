@@ -2,6 +2,8 @@
 
 > React components for documentation content and MDX-driven sites.
 
+**Requires React 19** (`react` and `react-dom` ≥ 19.0.0).
+
 ## Resources
 
 - [npm package](https://www.npmjs.com/package/@roadlittledawn/docs-design-system-react)

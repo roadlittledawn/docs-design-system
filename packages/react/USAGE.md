@@ -2,6 +2,8 @@
 
 Hand-maintained reference for AI tools and human contributors. Covers when to use each component, when not to, how to choose between similar components, and full prop coverage.
 
+> **Requires React 19** (`react` and `react-dom` ≥ 19.0.0).
+
 ```
 // CLAUDE.md or equivalent:
 // Component usage guide: packages/react/USAGE.md (or https://raw.githubusercontent.com/roadlittledawn/docs-design-system/main/packages/react/USAGE.md)

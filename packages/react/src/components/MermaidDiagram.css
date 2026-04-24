@@ -1,0 +1,26 @@
+.dds-mermaid {
+  border: 1px solid var(--dds-mermaid-border);
+  border-radius: var(--dds-mermaid-radius);
+  background-color: var(--dds-mermaid-bg);
+  padding: var(--dds-mermaid-padding);
+  margin: var(--dds-mermaid-margin);
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.dds-mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.dds-mermaid-error {
+  border-color: var(--dds-mermaid-error-border);
+  background-color: var(--dds-mermaid-error-bg);
+}
+
+.dds-mermaid-error-text {
+  color: var(--dds-mermaid-error-text);
+  font-size: 0.875rem;
+  margin: 0;
+}

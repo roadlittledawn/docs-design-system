@@ -10,22 +10,36 @@ mermaid.initialize({
 });
 
 // Rendering queue to serialize mermaid operations and prevent global config conflicts
-let renderQueue = Promise.resolve();
+let renderQueue: Promise<void> = Promise.resolve();
 
-async function renderMermaidWithTheme(id: string, chart: string, dark: boolean) {
-  return renderQueue = renderQueue.then(async () => {
-    // Configure theme for this specific render
-    mermaid.initialize({
-      startOnLoad: false,
-      theme: dark ? "dark" : "default",
-      securityLevel: "strict",
-    });
-    
-    return await mermaid.render(id, chart);
-  }).catch(err => {
-    // Re-throw the error but don't break the queue
-    throw err;
+async function renderMermaidWithTheme(id: string, chart: string, dark: boolean): Promise<{svg: string}> {
+  let resolveResult: (value: {svg: string}) => void;
+  let rejectResult: (error: any) => void;
+  
+  const resultPromise = new Promise<{svg: string}>((resolve, reject) => {
+    resolveResult = resolve;
+    rejectResult = reject;
   });
+  
+  renderQueue = renderQueue.then(async () => {
+    try {
+      // Configure theme for this specific render
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: dark ? "dark" : "default",
+        securityLevel: "strict",
+      });
+      
+      const result = await mermaid.render(id, chart);
+      resolveResult(result);
+    } catch (error) {
+      rejectResult(error);
+    }
+  }).catch(() => {
+    // Don't break the queue on error, but continue processing
+  });
+  
+  return resultPromise;
 }
 
 export interface MermaidDiagramProps {

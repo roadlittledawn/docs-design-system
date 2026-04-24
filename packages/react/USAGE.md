@@ -1717,7 +1717,7 @@ const closeIconSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
 
 ## MermaidDiagram
 
-Renders Mermaid diagram syntax as SVG. Automatically switches between light and dark Mermaid themes based on the design system's dark mode state (`.dds-dark`, `data-dds-theme`, or `prefers-color-scheme`).
+Renders Mermaid diagram syntax as SVG. Automatically switches between light and dark Mermaid themes based on the design system's dark mode state (`.dds-dark`, `data-dds-theme`, or `prefers-color-scheme`). Multiple instances are safely handled with serialized rendering.
 
 > **Security note:** Mermaid diagrams are rendered to SVG and injected into the DOM via `dangerouslySetInnerHTML`. Only pass trusted, non–user-controlled `chart` strings (similar to the raw SVG guidance in `Icon`); do not render untrusted or arbitrary user input.
 

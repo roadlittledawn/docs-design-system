@@ -967,6 +967,8 @@ const closeIconSvg = `<svg viewBox="0 0 24 24" ...>...</svg>`;
 
 Renders Mermaid diagram syntax as SVG. Automatically switches between light and dark Mermaid themes based on the design system's dark mode state.
 
+**Security note:** Only pass trusted, non–user-controlled `chart` strings — rendered SVG content is injected via `dangerouslySetInnerHTML`.
+
 ### Import
 
 ```tsx

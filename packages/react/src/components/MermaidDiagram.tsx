@@ -3,6 +3,31 @@
 import { useEffect, useId, useRef, useState, useCallback } from "react";
 import mermaid from "mermaid";
 
+// Initialize mermaid once at module scope with base configuration
+mermaid.initialize({
+  startOnLoad: false,
+  securityLevel: "strict",
+});
+
+// Rendering queue to serialize mermaid operations and prevent global config conflicts
+let renderQueue = Promise.resolve();
+
+async function renderMermaidWithTheme(id: string, chart: string, dark: boolean) {
+  return renderQueue = renderQueue.then(async () => {
+    // Configure theme for this specific render
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: dark ? "dark" : "default",
+      securityLevel: "strict",
+    });
+    
+    return await mermaid.render(id, chart);
+  }).catch(err => {
+    // Re-throw the error but don't break the queue
+    throw err;
+  });
+}
+
 export interface MermaidDiagramProps {
   /** Mermaid diagram definition string */
   chart: string;
@@ -53,18 +78,12 @@ export function MermaidDiagram({ chart, className = "" }: MermaidDiagramProps) {
 
     const generation = ++renderGen.current;
 
-    mermaid.initialize({
-      startOnLoad: false,
-      theme: dark ? "dark" : "default",
-      securityLevel: "strict",
-    });
-
     // Sanitize useId output (e.g. ":r0:") into a valid DOM ID segment
     const safePrefix = instanceId.replace(/[^a-zA-Z0-9]/g, "");
     const id = `dds-mermaid-${safePrefix}-${generation}`;
 
     try {
-      const result = await mermaid.render(id, chart);
+      const result = await renderMermaidWithTheme(id, chart, dark);
       // Discard result if a newer render has since been requested
       if (generation !== renderGen.current) return;
       setSvg(result.svg);

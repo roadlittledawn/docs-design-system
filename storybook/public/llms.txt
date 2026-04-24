@@ -960,3 +960,35 @@ const closeIconSvg = `<svg viewBox="0 0 24 24" ...>...</svg>`;
 
 - Do **not** include accessibility attributes (`aria-hidden`, `role`, `aria-label`) inside the SVG component or raw string — `Icon` owns all accessibility attributes.
 - Raw SVG strings use `dangerouslySetInnerHTML` — only pass trusted content.
+
+---
+
+## MermaidDiagram
+
+Renders Mermaid diagram syntax as SVG. Automatically switches between light and dark Mermaid themes based on the design system's dark mode state. Multiple instances are safely handled with serialized rendering.
+
+**Security note:** Only pass trusted, non–user-controlled `chart` strings — rendered SVG content is injected via `dangerouslySetInnerHTML`.
+
+### Import
+
+```tsx
+import { MermaidDiagram } from '@roadlittledawn/docs-design-system-react';
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `chart` | `string` | — | Mermaid diagram definition string |
+| `className` | `string` | `""` | Additional CSS classes |
+
+### Examples
+
+```tsx
+<MermaidDiagram chart={`graph TD
+    A[Start] --> B{Decision}
+    B -->|Yes| C[Do something]
+    B -->|No| D[Do something else]
+    C --> E[End]
+    D --> E`} />
+```

@@ -274,7 +274,7 @@ import { CardGrid } from "@roadlittledawn/docs-design-system-react";
 
 ## Tile
 
-A compact, clickable item designed for dense listing patterns — integrations, frameworks, plugins, skills, etc. Unlike `Card`, Tile has a fixed layout (icon left, title right) and a simpler, more opinionated API.
+A compact, clickable item designed for dense listing patterns — integrations, frameworks, plugins, skills, etc. Unlike `Card`, Tile has a fixed layout (icon left, title right) and a simpler, more opinionated API. Styles are provided via the package's global `styles.css` — no per-component CSS import is needed.
 
 ### When to Use
 

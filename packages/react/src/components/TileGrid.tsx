@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import "./TileGrid.css";
 
 export interface TileGridProps {
   /**

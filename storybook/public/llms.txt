@@ -176,7 +176,7 @@ import { CardGrid } from '@roadlittledawn/docs-design-system-react';
 
 ## Tile
 
-A compact, clickable item for dense listing patterns — integrations, frameworks, plugins, skills. Fixed icon-left layout with a simpler API than Card. Styles are provided via the package's global `styles.css` — no per-component CSS import is needed.
+A compact, clickable item for dense listing patterns — integrations, frameworks, plugins, skills. Fixed icon-left layout with a simpler API than Card. Styles are provided via `@roadlittledawn/docs-design-system-react/styles.css` — no per-component CSS import is needed.
 
 ### Import
 

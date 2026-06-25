@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import "./Tile.css";
 
 export interface TileProps {
   /** Tile heading text (required) */

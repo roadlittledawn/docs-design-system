@@ -518,7 +518,7 @@
       "id": "microsoft-docs",
       "name": "Microsoft Docs",
       "url": "https://learn.microsoft.com/en-us/docs/",
-      "description": "Microsoft Docs showcases impressive documentation engineering at massive scale, stitching together open-source repositories across countless products and languages. While the homepage presents a challenging information architecture problem—essentially a giant index for an enormous surface area—the individual product documentation (particularly Azure) offers surprisingly helpful and navigable experiences. The scale of translation and open-source contribution infrastructure is genuinely impressive.",
+      "description": "Microsoft Docs showcases impressive documentation engineering at massive scale, stitching together open-source repositories across countless products and languages. While the homepage presents a challenging information architecture problem\u2014essentially a giant index for an enormous surface area\u2014the individual product documentation (particularly Azure) offers surprisingly helpful and navigable experiences. The scale of translation and open-source contribution infrastructure is genuinely impressive.",
       "category": "developer-tools",
       "date": "2026-02-26",
       "links": [
@@ -584,7 +584,7 @@
       "id": "mdx-docs",
       "name": "MDX",
       "url": "https://mdxjs.com/",
-      "description": "The MDX website is a beautifully designed reference and guide for writing JSX in Markdown. It features an interactive playground that compiles MDX in real time, making it easy to explore the format's power and flexibility. The site itself is a showcase of what MDX enables—rich, component-driven documentation with a clean, polished interface.",
+      "description": "The MDX website is a beautifully designed reference and guide for writing JSX in Markdown. It features an interactive playground that compiles MDX in real time, making it easy to explore the format's power and flexibility. The site itself is a showcase of what MDX enables\u2014rich, component-driven documentation with a clean, polished interface.",
       "category": "open-source",
       "date": "2026-03-08",
       "links": [
@@ -614,6 +614,38 @@
         {
           "url": "/mdx-docs.png",
           "caption": "Homepage screenshot"
+        }
+      ]
+    },
+    {
+      "id": "tanstack",
+      "name": "TanStack",
+      "url": "https://tanstack.com/start/latest",
+      "description": "TanStack is part docs and part marketing, featuring a beautiful site with handy features like a widen content column toggle, version filters, AI features (copy markdown, ask Claude), open source contribution via edit in GitHub links, and a copy start prompt.",
+      "category": "developer-tools",
+      "date": "2026-08-07",
+      "links": [
+        {
+          "label": "Documentation",
+          "url": "https://tanstack.com/start/latest"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/TanStack"
+        }
+      ],
+      "highlights": [
+        "Widen content column toggle",
+        "Version filters",
+        "AI features (copy markdown, ask Claude)",
+        "Open source contribution (edit in GitHub links)",
+        "Copy start prompt",
+        "Beautiful design blending docs and marketing"
+      ],
+      "images": [
+        {
+          "url": "/tanstack.png",
+          "caption": "TanStack documentation homepage"
         }
       ]
     }
